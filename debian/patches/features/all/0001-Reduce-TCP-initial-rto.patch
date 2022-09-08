@@ -1,0 +1,25 @@
+From c1d586ec947fa6a86f884b58af7ded4a9b49539b Mon Sep 17 00:00:00 2001
+From: Julian Liu <wlootlxt123@gmail.com>
+Date: Fri, 9 Sep 2022 00:38:12 +0800
+Subject: [PATCH] Reduce TCP initial rto
+
+---
+ include/net/tcp.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/include/net/tcp.h b/include/net/tcp.h
+index 78a64e1b33a7..ea240f77d290 100644
+--- a/include/net/tcp.h
++++ b/include/net/tcp.h
+@@ -2372,7 +2372,7 @@ static inline u32 tcp_timeout_init(struct sock *sk)
+ 	timeout = tcp_call_bpf(sk, BPF_SOCK_OPS_TIMEOUT_INIT, 0, NULL);
+ 
+ 	if (timeout <= 0)
+-		timeout = TCP_TIMEOUT_INIT;
++		timeout = (unsigned)(HZ/2);
+ 	return min_t(int, timeout, TCP_RTO_MAX);
+ }
+ 
+-- 
+2.37.0 (Apple Git-136)
+

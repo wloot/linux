@@ -112,5 +112,6 @@ bugfix/all/kbuild-bpf-fix-btf-reproducibility.patch
 bugfix/powerpc/fbdev-offb-Update-expected-device-name.patch
 
 features/all/0001-Skip-tcp-collapse-processing-if-the-current-rmem-is-.patch
+features/all/0001-Reduce-TCP-initial-rto.patch
 
 # ABI maintenance

@@ -114,4 +114,6 @@ bugfix/all/kbuild-bpf-fix-btf-reproducibility.patch
 bugfix/all/perf-docs-Fix-perf-check-manual-page-built-with-asci.patch
 bugfix/all/libbpf-use-the-standard-fixdep-build-rule.patch
 
+features/all/0001-Skip-tcp-collapse-processing-if-the-current-rmem-is-.patch
+
 # ABI maintenance

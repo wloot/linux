@@ -1,0 +1,34 @@
+From 5d71a98ef4fc032d1f2a977d3167ed7bb4a805c5 Mon Sep 17 00:00:00 2001
+From: Julian Lau <wlootlxt123@gmail.com>
+Date: Sun, 30 Oct 2022 02:22:39 +0800
+Subject: [PATCH] Skip tcp collapse processing if the current rmem is large
+
+---
+ net/ipv4/tcp_input.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
+index bc2ea12221f9..1746bac88116 100644
+--- a/net/ipv4/tcp_input.c
++++ b/net/ipv4/tcp_input.c
+@@ -5394,6 +5394,9 @@ static int tcp_prune_queue(struct sock *sk)
+ 	if (atomic_read(&sk->sk_rmem_alloc) <= sk->sk_rcvbuf)
+ 		return 0;
+ 
++	if (atomic_read(&sk->sk_rmem_alloc) > 6291456)
++		goto do_not_collapse;
++
+ 	tcp_collapse_ofo_queue(sk);
+ 	if (!skb_queue_empty(&sk->sk_receive_queue))
+ 		tcp_collapse(sk, &sk->sk_receive_queue, NULL,
+@@ -5412,6 +5415,7 @@ static int tcp_prune_queue(struct sock *sk)
+ 	if (atomic_read(&sk->sk_rmem_alloc) <= sk->sk_rcvbuf)
+ 		return 0;
+ 
++do_not_collapse:
+ 	/* If we are really being abused, tell the caller to silently
+ 	 * drop receive data on the floor.  It will get retransmitted
+ 	 * and hopefully then we'll have sufficient space.
+-- 
+2.37.0 (Apple Git-136)
+

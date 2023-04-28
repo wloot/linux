@@ -21,6 +21,8 @@ Architecture: linux-any
 Build-Depends:
   libcap-dev,
   libpci-dev,
+  libnl-3-dev,
+  libnl-genl-3-dev,
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: CPU power management tools for Linux
  The cpupower command allows inspection and control of cpufreq and

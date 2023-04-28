@@ -624,7 +624,11 @@ ifneq ($(filter i386 amd64 x32,$(DEB_HOST_ARCH)),)
 '$${Newline}'\
 'The x86_energy_perf_policy command sets a general policy on some Intel$${Newline}'\
 'CPU models for the relative importance of performance versus energy$${Newline}'\
-'savings.'
+'savings.$${Newline}'\
+'$${Newline}'\
+'The intel-speed-select command enumerates and controls Intel SST features.$${Newline}'\
+'It can change the power and performance profile of the system in a $${Newline}'\
+'variety of diverse workload requirements.'
 endif
 	$(dh_binary_post)
 

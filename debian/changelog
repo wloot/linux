@@ -81,6 +81,8 @@ linux (6.11-1~exp1) UNRELEASED; urgency=medium
     - d/rules.d/t/objtool: Put buildflags in the correct variables when
       recursing
     - d/rules: Delete blhc ignore regexp for objtool
+  * Revert "perf tools: Use $KBUILD_BUILD_TIMESTAMP as man page date" which is
+    no longer useful
 
   [ Miao Wang ]
   * [loong64] Enable kernel support for LBT instructions.

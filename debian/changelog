@@ -83,6 +83,8 @@ linux (6.11-1~exp1) UNRELEASED; urgency=medium
     - d/rules: Delete blhc ignore regexp for objtool
   * Revert "perf tools: Use $KBUILD_BUILD_TIMESTAMP as man page date" which is
     no longer useful
+  * Fix some reproducibility issues (Closes: #1033663):
+    - d/rules.real: Fix missing -ffile-prefix-map options for user-space
 
   [ Miao Wang ]
   * [loong64] Enable kernel support for LBT instructions.

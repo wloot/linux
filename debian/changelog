@@ -86,6 +86,8 @@ linux (6.11-1~exp1) UNRELEASED; urgency=medium
   * Fix some reproducibility issues (Closes: #1033663):
     - d/rules.real: Fix missing -ffile-prefix-map options for user-space
     - linux-perf: Remove remaining source filenames from executable
+    - linux-perf: Work around gcc bug with -ffile-prefix-map and assembly
+      sources
 
   [ Miao Wang ]
   * [loong64] Enable kernel support for LBT instructions.

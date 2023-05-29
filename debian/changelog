@@ -85,6 +85,7 @@ linux (6.11-1~exp1) UNRELEASED; urgency=medium
     no longer useful
   * Fix some reproducibility issues (Closes: #1033663):
     - d/rules.real: Fix missing -ffile-prefix-map options for user-space
+    - linux-perf: Remove remaining source filenames from executable
 
   [ Miao Wang ]
   * [loong64] Enable kernel support for LBT instructions.

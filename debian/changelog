@@ -37,6 +37,9 @@ linux (6.7-1~exp2) UNRELEASED; urgency=medium
     - DRM_MEDIATEK_DP, PHY_MTK_DP, PHY_MTK_PCIE, PHY_MTK_UFS as modules
     - PINCTRL_MT8195, PCIE_MEDIATEK_GEN3, SPMI_MTK_PMIF as built-in
 
+  [ Zhang Ning ]
+  * [arm64] drivers/rtc: Enable RTC_DRV_RS5C372 as module
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Tue, 09 Jan 2024 13:52:29 +0100
 
 linux (6.7-1~exp1) experimental; urgency=medium

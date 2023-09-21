@@ -1382,6 +1382,13 @@ CONFIG_PHY_MVEBU_A3700_UTMI=m
 CONFIG_PHY_MVEBU_CP110_COMPHY=m
 
 ##
+## file: drivers/phy/mediatek/Kconfig
+##
+CONFIG_PHY_MTK_TPHY=m
+CONFIG_PHY_MTK_HDMI=m
+CONFIG_PHY_MTK_MIPI_DSI=m
+
+##
 ## file: drivers/phy/qualcomm/Kconfig
 ##
 CONFIG_PHY_QCOM_APQ8064_SATA=m

@@ -909,6 +909,13 @@ CONFIG_VIDEO_MEDIATEK_VCODEC=m
 CONFIG_VIDEO_MEDIATEK_VPU=m
 
 ##
+## file: drivers/media/platform/nxp/Kconfig
+##
+CONFIG_VIDEO_IMX7_CSI=m
+CONFIG_VIDEO_IMX8MQ_MIPI_CSI2=m
+CONFIG_VIDEO_IMX_MIPI_CSIS=m
+
+##
 ## file: drivers/media/platform/qcom/venus/Kconfig
 ##
 CONFIG_VIDEO_QCOM_VENUS=m

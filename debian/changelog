@@ -16,6 +16,9 @@ linux (6.7-1~exp2) UNRELEASED; urgency=medium
   * [arm64, armhf] drivers/net/phy: Enable ADIN_PHY as module
     (Closes: #1043354)
 
+  [ Martin Kepplinger ]
+  * [arm64] Enable CSI camera stack for i.MX8M SoCs (Closes: #1055442)
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Tue, 09 Jan 2024 13:52:29 +0100
 
 linux (6.7-1~exp1) experimental; urgency=medium

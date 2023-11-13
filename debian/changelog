@@ -1,8 +1,38 @@
-linux (6.6.9-2) UNRELEASED; urgency=medium
+linux (6.7~rc8-1~exp1) UNRELEASED; urgency=medium
+
+  * New upstream release candidate
 
   [ Harry 88 ]
   * [arm64] udeb: Include sun8i-drm-hdmi module in installer
     (Closes: #1050315)
+
+  [ Diederik de Haas ]
+  * Update to 6.7:
+    - d/copyright: Remove drivers/net/appletalk/cops*; removed upstream
+    - d/rules.d/scripts/mod: Add symsearch to Makefile.real
+  * Drop patches applied upstream:
+    - Drop "powerpc: Don't clobber f0/vs0 during fp|altivec register save"
+  * Drop patches:
+    - Drop "Add removal patches for: 3c359, smctr, keyspan, cops"; cops
+      support removed upstream which was the last remaining part
+    - Drop "Hardcode arch script output"; ia64 architecture removed upstream
+  * Refresh patches:
+    - Adjust context in "Tweak gitignore for Debian pkg-kernel using git"
+    - Adjust context in "video: Remove nvidiafb and rivafb"
+    - Adjust context in "Include package version along with kernel release in
+      stack traces"
+    - Adjust context in "kbuild: Look for module.lds under arch directory too"
+    - Adjust context in "firmware: Remove redundant log messages from drivers"
+    - Adjust context in "add sysctl to disallow unprivileged CLONE_NEWUSER by
+      default"
+    - Adjust context in "firmware: Remove redundant log messages from drivers"
+    - Adjust context in "intel-iommu: Add option to exclude integrated GPU
+      only"
+    - Adjust context in "intel-iommu: Add Kconfig option to exclude iGPU by
+      default"
+    - Adjust context in "x86: Make x32 syscall support conditional on a kernel
+      parameter"
+  * [rt] Disable until it is updated for 6.7
 
   [ Bastian Blank ]
   * Generate separate package tests for every flavour.

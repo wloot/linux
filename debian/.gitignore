@@ -21,7 +21,6 @@
 /*.debhelper
 /*.maintscript
 /*.substvars
-/config.defines.dump
 /control
 /control.*
 /files

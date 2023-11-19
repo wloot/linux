@@ -49,6 +49,9 @@ linux (6.7-1~exp2) UNRELEASED; urgency=medium
   * Disable ability to do binNMU.  The Debian infrastructure is not ready
     to binNMU signed packages.  But they instead just break the dependencies
     within this package.
+  * Restructure and cleanup complete config:
+    - Uses TOML instead of our home-grown INI based format.
+    - Don't export a config dump anymore, it is not longer in use.
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Tue, 09 Jan 2024 13:52:29 +0100
 

@@ -5524,7 +5524,13 @@ CONFIG_VDPA_USER=m
 ##
 ## file: drivers/vfio/Kconfig
 ##
+CONFIG_VFIO=m
 # CONFIG_VFIO_NOIOMMU is not set
+
+##
+## file: drivers/vfio/pci/Kconfig
+##
+CONFIG_VFIO_PCI=m
 
 ##
 ## file: drivers/vhost/Kconfig

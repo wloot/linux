@@ -14,7 +14,7 @@ from typing import Any
 from debian_linux import config
 from debian_linux.debian import \
     PackageRelationEntry, PackageRelationGroup, \
-    VersionLinux, BinaryPackage, TestsControl
+    VersionLinux, BinaryPackage
 from debian_linux.gencontrol import Gencontrol as Base, PackagesBundle, \
     iter_featuresets, iter_flavours
 from debian_linux.utils import Templates
@@ -25,8 +25,6 @@ locale.setlocale(locale.LC_CTYPE, "C.UTF-8")
 class Gencontrol(Base):
     disable_installer: bool
     disable_signed: bool
-
-    tests_control_headers: TestsControl | None
 
     config_schema = {
         'build': {
@@ -102,8 +100,6 @@ class Gencontrol(Base):
 
         # Prepare to generate debian/tests/control
         self.tests_control = self.templates.get_tests_control('main.tests-control', vars)
-        self.tests_control_image = None
-        self.tests_control_headers = None
 
     def do_main_makefile(self, makeflags) -> None:
         for featureset in iter_featuresets(self.config):
@@ -394,16 +390,19 @@ linux-signed-{vars['arch']} (@signedtemplate_sourceversion@) {dist}; urgency={ur
 
         vars.setdefault('desc', None)
 
-        packages_image = []
-
         if build_signed:
+            packages_image_unsigned = (
+                self.bundle.add('image-unsigned', ruleid, makeflags, vars, arch=arch)
+            )
+            packages_image = packages_image_unsigned[:]
             packages_image.extend(
-                bundle_signed.add('signed.image', ruleid, makeflags, vars, arch=arch))
-            packages_image.extend(
-                self.bundle.add('image-unsigned', ruleid, makeflags, vars, arch=arch))
+                bundle_signed.add('signed.image', ruleid, makeflags, vars, arch=arch)
+            )
 
         else:
-            packages_image.extend(bundle_signed.add('image', ruleid, makeflags, vars, arch=arch))
+            packages_image = packages_image_unsigned = (
+                bundle_signed.add('image', ruleid, makeflags, vars, arch=arch)
+            )
 
         for field in ('Depends', 'Provides', 'Suggests', 'Recommends',
                       'Conflicts', 'Breaks'):
@@ -482,27 +481,21 @@ linux-signed-{vars['arch']} (@signedtemplate_sourceversion@) {dist}; urgency={ur
             for package in packages_own:
                 package['Build-Profiles'][0].neg.add('pkg.linux.quick')
 
-        tests_control = self.templates.get_tests_control('image.tests-control', vars)[0]
-        tests_control['Depends'].merge(
-            PackageRelationGroup(package_image['Package'],
-                                 arches={arch}))
-        if self.tests_control_image:
-            for i in tests_control['Depends']:
-                self.tests_control_image['Depends'].merge(i)
-        else:
-            self.tests_control_image = tests_control
-            self.tests_control.append(tests_control)
+        tests_control_image = self.templates.get_tests_control('image.tests-control', vars)
+        for c in tests_control_image:
+            c.setdefault('Depends').extend(
+                [i['Package'] for i in packages_image_unsigned]
+            )
 
-        if flavour == (self.quick_flavour or self.default_flavour):
-            if not self.tests_control_headers:
-                self.tests_control_headers = \
-                        self.templates.get_tests_control('headers.tests-control', vars)[0]
-                self.tests_control.append(self.tests_control_headers)
-            assert self.tests_control_headers is not None
-            self.tests_control_headers['Architecture'].add(arch)
-            self.tests_control_headers['Depends'].merge(
-                PackageRelationGroup(packages_headers[0]['Package'],
-                                     arches={arch}))
+        tests_control_headers = self.templates.get_tests_control('headers.tests-control', vars)
+        for c in tests_control_headers:
+            c.setdefault('Depends').extend(
+                [i['Package'] for i in packages_headers] +
+                [i['Package'] for i in packages_image_unsigned]
+            )
+
+        self.tests_control.extend(tests_control_image)
+        self.tests_control.extend(tests_control_headers)
 
         def get_config(*entry_name) -> Any:
             entry_real = ('image',) + entry_name

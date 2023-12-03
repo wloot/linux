@@ -56,6 +56,7 @@ linux (6.7~rc8-1~exp1) UNRELEASED; urgency=medium
   * Drop not working selftests. (closes: #1059765)
   * Always build with CROSS_COMPILE set.
   * Run dh_movetousr also in signed images.
+  * Fix some remaining cross build problems.
 
   [ Christian Göttsche ]
   * Enable MODULE_DECOMPRESS 

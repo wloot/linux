@@ -28,6 +28,9 @@ linux (6.7.12-2~exp1) UNRELEASED; urgency=medium
   [ Ben Hutchings ]
   - d/salsa-ci.yml: Restore Python static checks on scripts
 
+  [ Stuart Hayhurst ]
+  * sound: Enable TAS2781 Smart Amp modules
+
  -- Diederik de Haas <didi.debian@cknow.org>  Sat, 02 Mar 2024 14:13:12 +0100
 
 linux (6.7.12-1) unstable; urgency=medium

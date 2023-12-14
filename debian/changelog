@@ -57,6 +57,9 @@ linux (6.7.1-1~exp1) UNRELEASED; urgency=medium
   * [arm64] Set QCOM_QSEECOM and QCOM_QSEECOM_UEFISECAPP to 'y' in order to
     add support for EFI variables on the Lenovo X13s.
 
+  [ Martyn Welch ]
+  * [arm64] Support HDMI output on TI SK-AM62. Enable DRM_SII902X and DRM_TIDSS as modules.
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Tue, 09 Jan 2024 13:52:29 +0100
 
 linux (6.7-1~exp1) experimental; urgency=medium

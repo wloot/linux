@@ -1064,6 +1064,11 @@ CONFIG_MDIO_SUN4I=y
 CONFIG_MDIO_ASPEED=m
 
 ##
+## file: drivers/net/phy/Kconfig
+##
+CONFIG_ADIN_PHY=m
+
+##
 ## file: drivers/net/wireless/broadcom/brcm80211/brcmfmac/Kconfig
 ##
 CONFIG_BRCMFMAC=m

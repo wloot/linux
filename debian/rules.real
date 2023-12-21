@@ -677,6 +677,14 @@ binary_rtla: build_rtla
 	$(call make-tools,tools/tracing/rtla) install
 	$(dh_binary_post)
 
+build_sdsi: $(STAMPS_DIR)/build-tools-headers
+	$(call make-tools,tools/arch/x86/intel_sdsi)
+
+binary_sdsi: build_sdsi
+	$(dh_binary_pre)
+	$(call make-tools,tools/arch/x86/intel_sdsi) install
+	$(dh_binary_post)
+
 setup_%:
 	@:
 

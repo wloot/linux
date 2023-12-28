@@ -14,6 +14,9 @@ linux (6.6.9-2) UNRELEASED; urgency=medium
   [ Christian Göttsche ]
   * Enable MODULE_DECOMPRESS 
 
+  [ Timothy Pearson ]
+  * [ppc64] Build PowerNV PCIe hotplug driver as a module
+
  -- Harry 88 <harry88@gmx.ph>  Thu, 28 Dec 2023 20:22:45 +0000
 
 linux (6.6.9-1) unstable; urgency=medium

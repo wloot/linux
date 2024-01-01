@@ -30,8 +30,8 @@ define dh_binary_post
 	dh_compress
 	dh_fixperms
 	dh_missing
-	dh_strip
-	dh_makeshlibs
+	dh_strip $(DH_STRIP_ARGS) -Xvmlinux -Xvmlinuz
+	dh_makeshlibs -Xvmlinux -Xvmlinuz
 	dh_shlibdeps $(DH_SHLIBDEPS_ARGS)
 	dh_installdeb
 	dh_gencontrol -- $(GENCONTROL_ARGS)
@@ -44,6 +44,7 @@ build-indep:
 build_image:
 
 binary_image: DH_OPTIONS = -p$(PACKAGE_NAME)
+binary_image: DH_STRIP_ARGS = --no-automatic-dbgsym
 binary_image: KERNEL_VERSION = $(ABINAME)$(LOCALVERSION)
 binary_image: IMAGE_PACKAGE_NAME = linux-image-$(KERNEL_VERSION)-unsigned
 binary_image: PACKAGE_DIR = debian/$(PACKAGE_NAME)

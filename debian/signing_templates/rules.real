@@ -31,7 +31,7 @@ define dh_binary_post
 	dh_fixperms
 	dh_missing
 	dh_strip $(DH_STRIP_ARGS) -Xvmlinux -Xvmlinuz
-	dh_makeshlibs
+	dh_makeshlibs -Xvmlinux -Xvmlinuz
 	dh_shlibdeps $(DH_SHLIBDEPS_ARGS)
 	dh_installdeb
 	dh_gencontrol -- $(GENCONTROL_ARGS)

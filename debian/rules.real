@@ -232,7 +232,7 @@ define dh_binary_post
 	dh_compress
 	dh_fixperms
 	dh_missing
-	dh_strip
+	dh_strip $(DH_STRIP_ARGS) -Xvmlinux -Xvmlinuz
 	dh_makeshlibs
 	dh_shlibdeps $(DH_SHLIBDEPS_ARGS)
 	dh_installdeb
@@ -389,6 +389,7 @@ setup_image: $(STAMPS_DIR)/setup_$(ARCH)_$(FEATURESET)_$(FLAVOUR)
 
 build_image: $(STAMPS_DIR)/build_$(ARCH)_$(FEATURESET)_$(FLAVOUR)
 
+binary_image: DH_STRIP_ARGS = --no-automatic-dbgsym
 binary_image: REAL_VERSION = $(ABINAME)$(LOCALVERSION)
 binary_image: INSTALL_DIR = $(DESTDIR)/boot
 binary_image: DIR = $(BUILD_DIR)/build_$(ARCH)_$(FEATURESET)_$(FLAVOUR)
@@ -408,7 +409,6 @@ endif
 	+$(MAKE_SELF) \
 	  binary_image_bug \
 	  DESTDIR='$(DESTDIR)' PACKAGE_NAME='$(PACKAGE_NAME)' REAL_VERSION='$(REAL_VERSION)'
-	dh_strip --no-automatic-dbgsym -Xvmlinux -Xvmlinuz
 	$(dh_binary_post)
 
 binary_image_bug:

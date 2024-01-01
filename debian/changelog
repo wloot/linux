@@ -32,7 +32,6 @@ linux (6.7~rc8-1~exp1) UNRELEASED; urgency=medium
       default"
     - Adjust context in "x86: Make x32 syscall support conditional on a kernel
       parameter"
-  * [rt] Disable until it is updated for 6.7
   * [ia64] Drop all ia64 configs due to upstream dropping IA64 arch
   * d/config: Update with the help of kconfigeditor2:
     - Remove XZ_DEC_IA64
@@ -48,6 +47,7 @@ linux (6.7~rc8-1~exp1) UNRELEASED; urgency=medium
     - Remove AMD_IOMMU_V2
     - Replace SND_SOC_INTEL_SOF_DA7219_MAX98373_MACH with
       SND_SOC_INTEL_SOF_DA7219_MACH
+  * [rt] Update to 6.7-rc5-rt5
 
   [ Bastian Blank ]
   * Generate separate package tests for every flavour.

@@ -1,5 +1,7 @@
 #!/bin/sh -eu
 
+KERNEL_RELEASE="$1"
+
 mkdir "$AUTOPKGTEST_TMP"/foo
 cat >"$AUTOPKGTEST_TMP"/foo/foo.c <<EOF
 #include <linux/kernel.h>
@@ -23,21 +25,7 @@ cat >"$AUTOPKGTEST_TMP"/foo/Kbuild <<EOF
 obj-m += foo.o
 EOF
 
-arch="$(dpkg --print-architecture)"
-abiname="$(debian/bin/getconfig.py version abiname)"
-if flavour="$(debian/bin/getconfig.py base $arch none quick-flavour)"; then
-    echo "I: Found quick flavour $flavour"
-elif flavour="$(debian/bin/getconfig.py base $arch none default-flavour)"; then
-    echo "I: Found default flavour $flavour"
-elif flavour="$(debian/bin/getconfig.py base $arch default-flavour)"; then
-    echo "I: Found default flavour $flavour"
-else
-    echo >&2 "E: Failed to find quick or default flavour"
-    exit 1
-fi
-release="$abiname-$flavour"
-
-echo "I: Build for $release"
+echo "I: Build for $KERNEL_RELEASE"
 # There are some warnings sent to stderr that we need to suppress,
 # but any other output to stderr should be treated as a failure.
 # We also want all stdout/stderr to appear in order in the log.
@@ -45,7 +33,7 @@ echo "I: Build for $release"
 exec 3>&1
 # Next, run the build with stdout sent to the original stdout and
 # stderr sent through tee to both the original stdout and a file
-make -C /lib/modules/"$release"/build M="$AUTOPKGTEST_TMP"/foo V=1 \
+make -C /lib/modules/"$KERNEL_RELEASE"/build M="$AUTOPKGTEST_TMP"/foo V=1 \
      2>&1 1>&3 | tee "$AUTOPKGTEST_TMP"/foo/make.stderr
 # Close fd 3
 exec 3>&-
@@ -55,4 +43,4 @@ if grep -q -v -E 'Skipping BTF generation .* due to unavailability of vmlinux' "
 fi
 
 echo "I: Clean"
-make -C /lib/modules/"$release"/build M="$AUTOPKGTEST_TMP"/foo V=1 clean
+make -C /lib/modules/"$KERNEL_RELEASE"/build M="$AUTOPKGTEST_TMP"/foo V=1 clean

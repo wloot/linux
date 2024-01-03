@@ -256,9 +256,7 @@ linux-signed-{vars['arch']} (@signedtemplate_sourceversion@) {dist}; urgency={ur
         ('compiler-filename', 'COMPILER', True),
         ('kernel-arch', 'KERNEL_ARCH', False),
         ('cflags', 'KCFLAGS', True),
-        ('kernel-deb-arch', 'KERNEL_DEB_ARCH', True),
         ('kernel-gnu-type', 'KERNEL_GNU_TYPE', True),
-        ('compat-deb-arch', 'COMPAT_DEB_ARCH', True),
         ('compat-gnu-type', 'COMPAT_GNU_TYPE', True),
     )
 

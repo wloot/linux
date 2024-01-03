@@ -19,10 +19,7 @@ installer: true
 
 [parisc64_base]
 cflags: -fno-cse-follow-jumps
-# no Debian architecture defined; force cross-build
-kernel-deb-arch: undefined
 kernel-gnu-type: hppa64-linux-gnu
-compat-deb-arch: hppa
 compat-gnu-type: hppa-linux-gnu
 
 [parisc64_description]

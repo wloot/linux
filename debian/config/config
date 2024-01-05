@@ -6506,6 +6506,7 @@ CONFIG_MODULE_SIG_SHA256=y
 ## end choice
 ## choice: Module compression mode
 CONFIG_MODULE_COMPRESS_XZ=y
+CONFIG_MODULE_DECOMPRESS=y
 ## end choice
 # CONFIG_TRIM_UNUSED_KSYMS is not set
 

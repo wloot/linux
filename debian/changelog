@@ -26,6 +26,7 @@ linux (6.10-1~exp2) UNRELEASED; urgency=medium
   [ Bastian Blank ]
   * [ppc64*] Switch default kernel to 4k page size.  (closes: #1074217)
   * [ppc64*] Add additional kernel with 64k page size.
+  * Remove unused check for image size.
 
  -- Diederik de Haas <didi.debian@cknow.org>  Thu, 18 Jul 2024 09:30:01 +0200
 

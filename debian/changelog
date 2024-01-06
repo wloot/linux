@@ -10,6 +10,7 @@ linux (6.6.9-2) UNRELEASED; urgency=medium
   * Ignore vmlinux for shlibs. (closes: #1059676)
   * Drop not working selftests. (closes: #1059765)
   * Always build with CROSS_COMPILE set.
+  * Run dh_movetousr also in signed images.
 
   [ Christian Göttsche ]
   * Enable MODULE_DECOMPRESS 

@@ -67,6 +67,10 @@ linux (6.7-1~exp1) UNRELEASED; urgency=medium
   [ Aurelien Jarno ]
   * [riscv64] udeb: Add efi-modules and xfs-modules.
 
+  [ Francesco Dolcini ]
+  * [arm64] Add support for NXP i.MX8M PCIe
+    - drivers/phy/freescale: Enable PHY_FSL_IMX8M_PCIE as module
+
  -- Harry 88 <harry88@gmx.ph>  Thu, 28 Dec 2023 20:22:45 +0000
 
 linux (6.6.9-1) unstable; urgency=medium

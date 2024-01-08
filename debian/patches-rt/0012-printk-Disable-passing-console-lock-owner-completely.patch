@@ -2,7 +2,7 @@ From: Petr Mladek <pmladek@suse.com>
 Date: Fri, 13 Oct 2023 14:12:05 +0000
 Subject: [PATCH 12/50] printk: Disable passing console lock owner completely
  during panic()
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.7/older/patches-6.7-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.7/older/patches-6.7-rt6.tar.xz
 
 The commit d51507098ff91 ("printk: disable optimistic spin
 during panic") added checks to avoid becoming a console waiter

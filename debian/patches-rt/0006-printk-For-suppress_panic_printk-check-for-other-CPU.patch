@@ -2,7 +2,7 @@ From: John Ogness <john.ogness@linutronix.de>
 Date: Fri, 13 Oct 2023 20:13:02 +0000
 Subject: [PATCH 06/50] printk: For @suppress_panic_printk check for other CPU
  in panic
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.7/older/patches-6.7-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.7/older/patches-6.7-rt6.tar.xz
 
 Currently @suppress_panic_printk is checked along with
 non-matching @panic_cpu and current CPU. This works

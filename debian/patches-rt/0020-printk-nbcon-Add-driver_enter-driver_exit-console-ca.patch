@@ -2,7 +2,7 @@ From: John Ogness <john.ogness@linutronix.de>
 Date: Fri, 8 Dec 2023 15:54:27 +0000
 Subject: [PATCH 20/50] printk: nbcon: Add driver_enter/driver_exit console
  callbacks
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.7/older/patches-6.7-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.7/older/patches-6.7-rt6.tar.xz
 
 Console drivers need some mechanism to synchronize between "normal
 driver activity" and console printing. For uart serial drivers it

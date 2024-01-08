@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Mon, 6 Nov 2023 15:01:58 +0000
 Subject: [PATCH 08/50] printk: ringbuffer: Cleanup reader terminology
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.7/older/patches-6.7-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.7/older/patches-6.7-rt6.tar.xz
 
 With the lockless ringbuffer, it is allowed that multiple
 CPUs/contexts write simultaneously into the buffer. This creates

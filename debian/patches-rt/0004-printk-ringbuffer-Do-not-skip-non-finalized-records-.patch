@@ -2,7 +2,7 @@ From: John Ogness <john.ogness@linutronix.de>
 Date: Thu, 19 Oct 2023 10:32:05 +0000
 Subject: [PATCH 04/50] printk: ringbuffer: Do not skip non-finalized records
  with prb_next_seq()
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.7/older/patches-6.7-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.7/older/patches-6.7-rt6.tar.xz
 
 Commit f244b4dc53e5 ("printk: ringbuffer: Improve
 prb_next_seq() performance") introduced an optimization for

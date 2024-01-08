@@ -2,7 +2,7 @@ From: John Ogness <john.ogness@linutronix.de>
 Date: Mon, 20 Nov 2023 12:46:35 +0100
 Subject: [PATCH 11/50] printk: ringbuffer: Consider committed as finalized in
  panic
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.7/older/patches-6.7-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.7/older/patches-6.7-rt6.tar.xz
 
 A descriptor in the committed state means the record does not yet
 exist for the reader. However, for the panic CPU, committed

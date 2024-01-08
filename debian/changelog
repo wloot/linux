@@ -47,7 +47,7 @@ linux (6.7-1~exp1) UNRELEASED; urgency=medium
     - Remove AMD_IOMMU_V2
     - Replace SND_SOC_INTEL_SOF_DA7219_MAX98373_MACH with
       SND_SOC_INTEL_SOF_DA7219_MACH
-  * [rt] Update to 6.7-rc5-rt5
+  * [rt] Update to 6.7-rt6
 
   [ Bastian Blank ]
   * Generate separate package tests for every flavour.

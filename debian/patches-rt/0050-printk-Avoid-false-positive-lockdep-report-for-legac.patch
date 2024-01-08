@@ -2,7 +2,7 @@ From: John Ogness <john.ogness@linutronix.de>
 Date: Mon, 11 Dec 2023 09:34:16 +0000
 Subject: [PATCH 50/50] printk: Avoid false positive lockdep report for legacy
  driver.
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.7/older/patches-6.7-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.7/older/patches-6.7-rt6.tar.xz
 
 printk may invoke the legacy console driver from atomic context. This leads to
 a lockdep splat because the console driver will acquire a sleeping lock and the

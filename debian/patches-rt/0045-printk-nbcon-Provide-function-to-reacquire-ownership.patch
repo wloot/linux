@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Fri, 20 Oct 2023 10:01:58 +0000
 Subject: [PATCH 45/50] printk: nbcon: Provide function to reacquire ownership
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.7/older/patches-6.7-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.7/older/patches-6.7-rt6.tar.xz
 
 Contexts may become nbcon owners for various reasons, not just
 for printing. Indeed, the port->lock wrapper takes ownership

@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Thu, 14 Dec 2023 20:48:23 +0000
 Subject: [PATCH 14/50] panic: Flush kernel log buffer at the end
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.7/older/patches-6.7-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.7/older/patches-6.7-rt6.tar.xz
 
 If the kernel crashes in a context where printk() calls always
 defer printing (such as in NMI or inside a printk_safe section)

@@ -1,6 +1,6 @@
-linux (6.7~rc8-1~exp1) UNRELEASED; urgency=medium
+linux (6.7-1~exp1) UNRELEASED; urgency=medium
 
-  * New upstream release candidate
+  * New upstream release: https://kernelnewbies.org/Linux_6.7
 
   [ Harry 88 ]
   * [arm64] udeb: Include sun8i-drm-hdmi module in installer

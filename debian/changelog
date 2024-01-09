@@ -1,3 +1,12 @@
+linux (6.7-1~exp2) UNRELEASED; urgency=medium
+
+  * Enable bcachefs filesystem support
+    - fs/bcachefs: Enable BCACHEFS_FS as module
+    - fs/bcachefs: Enable BCACHEFS_QUOTA
+    - fs/bcachefs: Enable BCACHEFS_POSIX_ACL
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Tue, 09 Jan 2024 13:52:29 +0100
+
 linux (6.7-1~exp1) experimental; urgency=medium
 
   * New upstream release: https://kernelnewbies.org/Linux_6.7

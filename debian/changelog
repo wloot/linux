@@ -12,6 +12,7 @@ linux (6.7.12-2~exp1) UNRELEASED; urgency=medium
   * [amd64] drivers/tee/amdtee: Enable AMDTEE as module
   * [amd64] drivers/platform/x86/amd/pmf: Enable AMD_PMF as module
     (Closes: #1063161)
+  * d/templates: Change firmware-linux-free from Recommends to Suggests
 
   [ Vincent Blut ]
   * [arm64] Improve support for SolidRun Honeycomb Workstation:

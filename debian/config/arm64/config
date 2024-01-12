@@ -463,6 +463,12 @@ CONFIG_GOOGLE_COREBOOT_TABLE=y
 CONFIG_GOOGLE_FRAMEBUFFER_COREBOOT=y
 
 ##
+## file: drivers/firmware/qcom/Kconfig
+##
+CONFIG_QCOM_QSEECOM=y
+CONFIG_QCOM_QSEECOM_UEFISECAPP=y
+
+##
 ## file: drivers/gpio/Kconfig
 ##
 CONFIG_GPIOLIB=y

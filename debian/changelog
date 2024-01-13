@@ -11,6 +11,7 @@ linux (6.7-1~exp2) UNRELEASED; urgency=medium
   * [riscv64] Disable ARCH_R9A07G043 as it now depends on NONPORTABLE.
   * [riscv64] Enable PHY_STARFIVE_JH7110_DPHY_RX, PHY_STARFIVE_JH7110_PCIE and
     PHY_STARFIVE_JH7110_USB as modules.
+  * [powerpc,ppc64,ppc64el] Drop ipddp from nic-modules.
 
   [ Vincent Blut ]
   * [arm64, armhf] drivers/net/phy: Enable ADIN_PHY as module

@@ -43,7 +43,8 @@ linux (6.7-1~exp2) UNRELEASED; urgency=medium
 
   [ Bastian Blank ]
   * Revert "Run dh_movetousr also in signed images."
-  * Fix some remaining cross build problems.
+  * Fix config specified CFLAGS on kernel builds.  Also drop old definitions
+    that have not worked for a long time.
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Tue, 09 Jan 2024 13:52:29 +0100
 

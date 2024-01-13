@@ -132,7 +132,8 @@ CONTROL_FILES += debian/installer/package-list
 # in the checksum.
 $(BUILD_DIR)/version-info: debian/changelog
 	mkdir -p $(@D)
-	printf >$@ 'Source: %s\nVersion: %s\n' $(DEB_SOURCE) $(DEB_VERSION_SOURCE)
+# Use DEB_VERSION_SOURCE to allow binNMU
+	printf >$@ 'Source: %s\nVersion: %s\n' $(DEB_SOURCE) $(DEB_VERSION)
 
 debian/control debian/rules.gen: debian/bin/gencontrol.py $(CONTROL_FILES)
 ifeq ($(wildcard debian/control.md5sum),)

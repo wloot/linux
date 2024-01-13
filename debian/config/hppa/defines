@@ -18,7 +18,6 @@ hardware-long: HP PA-RISC 32-bit systems with max 4 GB RAM
 installer: true
 
 [parisc64_base]
-cflags: -fno-cse-follow-jumps
 kernel-gnu-type: hppa64-linux-gnu
 compat-gnu-type: hppa-linux-gnu
 

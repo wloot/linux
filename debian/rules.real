@@ -145,7 +145,7 @@ endif
 	echo 'DEB_BUILD_ARCH ?= $$(shell dpkg --print-architecture)' >> '$(DIR)/.kernelvariables'
 	echo 'override CROSS_COMPILE = $(CROSS_COMPILE)' >> '$(DIR)/.kernelvariables'
 ifdef KCFLAGS
-	echo 'KCFLAGS += $(KCFLAGS)' >> '$(DIR)/.kernelvariables'
+	echo 'override KCFLAGS += $(KCFLAGS)' >> '$(DIR)/.kernelvariables'
 endif
 ifdef COMPAT_GNU_TYPE
 	echo 'override CROSS_COMPILE_COMPAT = $(COMPAT_GNU_TYPE)-' >> '$(DIR)/.kernelvariables'

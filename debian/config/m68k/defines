@@ -1,5 +1,4 @@
 [base]
-cflags: -ffreestanding
 flavours:
  m68k
 default-flavour: m68k

@@ -45,6 +45,9 @@ linux (6.7-1~exp2) UNRELEASED; urgency=medium
   * Revert "Run dh_movetousr also in signed images."
   * Fix config specified CFLAGS on kernel builds.  Also drop old definitions
     that have not worked for a long time.
+  * Disable ability to do binNMU.  The Debian infrastructure is not ready
+    to binNMU signed packages.  But they instead just break the dependencies
+    within this package.
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Tue, 09 Jan 2024 13:52:29 +0100
 

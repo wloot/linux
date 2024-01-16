@@ -122,6 +122,16 @@ CONFIG_INPUT_DA9063_ONKEY=m
 CONFIG_SUN50I_IOMMU=y
 
 ##
+## file: drivers/leds/Kconfig
+##
+CONFIG_LEDS_PWM=m
+
+##
+## file: drivers/leds/rgb/Kconfig
+##
+CONFIG_LEDS_PWM_MULTICOLOR=m
+
+##
 ## file: drivers/mailbox/Kconfig
 ##
 CONFIG_MAILBOX=y

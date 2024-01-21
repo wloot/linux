@@ -8,6 +8,7 @@ linux (6.7.1-1~exp1) UNRELEASED; urgency=medium
     - fs/bcachefs: Enable BCACHEFS_FS as module
     - fs/bcachefs: Enable BCACHEFS_QUOTA
     - fs/bcachefs: Enable BCACHEFS_POSIX_ACL
+  * media: solo6x10: replace max(a, min(b, c)) by clamp(b, a, c)
 
   [ Aurelien Jarno ]
   * [riscv64] Enable ARCH_SOPHGO and ARCH_THEAD.

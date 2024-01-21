@@ -52,6 +52,9 @@ linux (6.7.1-1~exp1) UNRELEASED; urgency=medium
   * Disable ability to do binNMU.  The Debian infrastructure is not ready
     to binNMU signed packages.  But they instead just break the dependencies
     within this package.
+  * Restructure and cleanup complete config:
+    - Uses TOML instead of our home-grown INI based format.
+    - Don't export a config dump anymore, it is not longer in use.
 
   [ Emanuele Rocca ]
   * [arm64] Set QCOM_QSEECOM and QCOM_QSEECOM_UEFISECAPP to 'y' in order to

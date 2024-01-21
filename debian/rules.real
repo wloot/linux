@@ -366,7 +366,6 @@ binary_support: PACKAGE_ROOT = /usr/share/$(PACKAGE_NAME)
 binary_support:
 	$(dh_binary_pre)
 	dh_installdirs $(PACKAGE_ROOT)/lib/python/debian_linux $(PACKAGE_ROOT)/modules
-	cp debian/config.defines.dump $(DESTDIR)$(PACKAGE_ROOT)
 	cp -R debian/installer $(DESTDIR)$(PACKAGE_ROOT)/installer
 	cp debian/lib/python/debian_linux/*.py $(DESTDIR)$(PACKAGE_ROOT)/lib/python/debian_linux
 	dh_python3

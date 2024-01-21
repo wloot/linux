@@ -55,6 +55,7 @@ linux (6.7.1-1~exp1) UNRELEASED; urgency=medium
   * Restructure and cleanup complete config:
     - Uses TOML instead of our home-grown INI based format.
     - Don't export a config dump anymore, it is not longer in use.
+  * Generate and ship vmlinux.h in linux-headers package.
 
   [ Emanuele Rocca ]
   * [arm64] Set QCOM_QSEECOM and QCOM_QSEECOM_UEFISECAPP to 'y' in order to

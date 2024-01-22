@@ -1,4 +1,4 @@
-linux (6.7.1-1~exp1) UNRELEASED; urgency=medium
+linux (6.7.1-1~exp1) experimental; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.7.1
@@ -66,7 +66,7 @@ linux (6.7.1-1~exp1) UNRELEASED; urgency=medium
   * [arm64] Support HDMI output on TI SK-AM62. Enable DRM_SII902X and
     DRM_TIDSS as modules.
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Tue, 09 Jan 2024 13:52:29 +0100
+ -- Bastian Blank <waldi@debian.org>  Mon, 22 Jan 2024 09:50:46 +0100
 
 linux (6.7-1~exp1) experimental; urgency=medium
 

@@ -22,7 +22,7 @@ arches:
  sh4
  sparc64
  x32
-compiler: gcc-13
+compiler: gcc-10
 featuresets:
  none
  rt

@@ -9,12 +9,14 @@ import os.path
 import re
 import typing
 import warnings
+from typing_extensions import Self, TypeAlias
 from typing import (
     Iterable,
-    Self,
-    TypeAlias,
+    Union,
 )
 
+class StrEnum(str, enum.Enum):
+    pass
 
 class Changelog(list):
     _top_rules = r"""
@@ -291,7 +293,7 @@ class PackageDescription:
         self.long.extend(desc.long)
 
 
-class PackageRelationEntryOperator(enum.StrEnum):
+class PackageRelationEntryOperator(StrEnum):
     OP_LT = '<<'
     OP_LE = '<='
     OP_EQ = '='
@@ -401,7 +403,7 @@ class PackageRelationGroup(list[PackageRelationEntry]):
 
 
 class PackageRelation(list[PackageRelationGroup]):
-    Init: TypeAlias = PackageRelationGroup | Iterable[PackageRelationEntry] | str
+    Init: TypeAlias = Union[PackageRelationGroup, Iterable[PackageRelationEntry], str]
 
     def __init__(
         self,

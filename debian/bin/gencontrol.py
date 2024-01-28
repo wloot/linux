@@ -9,7 +9,7 @@ import pathlib
 import subprocess
 import re
 import tempfile
-from typing import Any, Union
+from typing import Any
 
 from debian_linux import config
 from debian_linux.debian import \
@@ -26,7 +26,7 @@ class Gencontrol(Base):
     disable_installer: bool
     disable_signed: bool
 
-    tests_control_headers: Union[TestsControl, None]
+    tests_control_headers: TestsControl | None
 
     config_schema = {
         'build': {

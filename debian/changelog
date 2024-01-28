@@ -6,6 +6,7 @@ linux (6.7.2-1~exp1) UNRELEASED; urgency=medium
   [ Aurelien Jarno ]
   * [riscv64] Add clock, MFD, PCIe PHYs, regulator and RTC drivers to
     kernel-image udeb.
+  * [riscv64] Disable CRYPTO_DEV_JH7110, it is broken.
 
  -- Aurelien Jarno <aurel32@debian.org>  Tue, 23 Jan 2024 19:36:37 +0100
 

@@ -28,9 +28,6 @@
 0004-drm-amd-display-Move-the-memory-allocation-out-of-dc.patch
 0005-drm-amd-display-Move-the-memory-allocation-out-of-dc.patch
 
-# printk related
-srcu-Use-try-lock-lockdep-annotation-for-NMI-safe-ac.patch
-
 ###########################################################################
 # Post
 ###########################################################################

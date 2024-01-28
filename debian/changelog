@@ -20,6 +20,9 @@ linux (6.7.3-1~exp1) UNRELEASED; urgency=medium
   * [arm64] drivers/thermal/qcom: enable QCOM_SPMI_ADC_TM5 as module for
     thermal throttling on the Lenovo ThinkPad X13s.
 
+  [ Vincent Blut ]
+  * drivers/hwmon: Enable SENSORS_IIO_HWMON as module (Closes: #1057272)
+
  -- Aurelien Jarno <aurel32@debian.org>  Tue, 23 Jan 2024 19:36:37 +0100
 
 linux (6.7.1-1~exp1) experimental; urgency=medium

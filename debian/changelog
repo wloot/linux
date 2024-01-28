@@ -1,3 +1,15 @@
+linux (6.7.7-2~exp1) UNRELEASED; urgency=medium
+
+  [ Diederik de Haas ]
+  * [armhf] Improve Tegra Chromebook support (Closes: #1061680)
+    - [armhf] drivers/net/wireless/marvell/mwifiex: Enable MWIFIEX and
+      MWIFIEX_SDIO as modules
+    - [armhf] drivers/power/supply: Enable CHARGER_BQ24735 as module
+    - [armhf] drivers/hwmon: Enable SENSORS_LM90 as module
+    - [armhf] drivers/media/cec/platform: Enable CEC_TEGRA as module
+
+ -- Diederik de Haas <didi.debian@cknow.org>  Sat, 02 Mar 2024 14:13:12 +0100
+
 linux (6.7.7-1) unstable; urgency=medium
 
   * New upstream stable update:

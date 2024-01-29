@@ -8,6 +8,9 @@ linux (6.7.2-1~exp1) UNRELEASED; urgency=medium
     kernel-image udeb.
   * [riscv64] Disable CRYPTO_DEV_JH7110, it is broken.
 
+  [ Bastian Blank ]
+  * Make linux-libc-dev provide all cross packages.
+
  -- Aurelien Jarno <aurel32@debian.org>  Tue, 23 Jan 2024 19:36:37 +0100
 
 linux (6.7.1-1~exp1) experimental; urgency=medium

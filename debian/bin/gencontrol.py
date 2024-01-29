@@ -129,11 +129,13 @@ class Gencontrol(Base):
                 self.bundle.add('sourcebin.meta', (), makeflags, vars)
 
         if config.packages.libc_dev:
+            libcdev_debianarches = set()
             libcdev_kernelarches = set()
             libcdev_multiarches = set()
             for kernelarch in self.config.kernelarchs:
                 libcdev_kernelarches.add(kernelarch.name)
                 for debianarch in kernelarch.debianarchs:
+                    libcdev_debianarches.add(debianarch.name)
                     libcdev_multiarches.add(
                         f'{debianarch.defs_debianarch.multiarch}:{kernelarch.name}'
                     )
@@ -142,7 +144,13 @@ class Gencontrol(Base):
             libcdev_makeflags['ALL_LIBCDEV_KERNELARCHES'] = ' '.join(sorted(libcdev_kernelarches))
             libcdev_makeflags['ALL_LIBCDEV_MULTIARCHES'] = ' '.join(sorted(libcdev_multiarches))
 
-            self.bundle.add('libc-dev', (), libcdev_makeflags, vars)
+            for package in self.bundle.add('libc-dev', (), libcdev_makeflags, vars):
+                package.setdefault('Provides').extend([
+                    PackageRelationGroup(
+                        f'{package["Package"]}-{arch}-cross (= ${{binary:Version}})'
+                    )
+                    for arch in sorted(libcdev_debianarches)
+                ])
 
     def do_indep_featureset_setup(
         self,

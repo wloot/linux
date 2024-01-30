@@ -11,6 +11,10 @@ linux (6.7.2-1~exp1) UNRELEASED; urgency=medium
   [ Bastian Blank ]
   * Make linux-libc-dev provide all cross packages.
 
+  [ Weizhao Ouyang ]
+  * Enable CONFIG_MFD_RK8XX_SPI for RK3588 SoC
+    - MFD_RK8XX_SPI as built-in, same behavior as MFD_RK8XX_I2C
+
  -- Aurelien Jarno <aurel32@debian.org>  Tue, 23 Jan 2024 19:36:37 +0100
 
 linux (6.7.1-1~exp1) experimental; urgency=medium

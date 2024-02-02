@@ -61,7 +61,6 @@ preempt-Put-preempt_enable-within-an-instrumentation.patch
 ###########################################################################
 # John's printk queue
 ###########################################################################
-0001-serial-core-Provide-port-lock-wrappers.patch
 0002-serial-core-Use-lock-wrappers.patch
 0003-serial-21285-Use-port-lock-wrappers.patch
 0004-serial-8250_aspeed_vuart-Use-port-lock-wrappers.patch
@@ -115,7 +114,6 @@ preempt-Put-preempt_enable-within-an-instrumentation.patch
 0052-serial-sa1100-Use-port-lock-wrappers.patch
 0053-serial-samsung_tty-Use-port-lock-wrappers.patch
 0054-serial-sb1250-duart-Use-port-lock-wrappers.patch
-0055-serial-sc16is7xx-Use-port-lock-wrappers.patch
 0056-serial-tegra-Use-port-lock-wrappers.patch
 0057-serial-core-Use-port-lock-wrappers.patch
 0058-serial-mctrl_gpio-Use-port-lock-wrappers.patch

@@ -898,6 +898,9 @@ linux (6.6.15-1) UNRELEASED; urgency=medium
     - serial: core: fix kernel-doc for uart_port_unlock_irqrestore()
     - thermal: trip: Drop lockdep assertion from thermal_zone_trip_id()
 
+  [ Salvatore Bonaccorso ]
+  * [rt] Refresh "serial: core: Use port lock wrappers"
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 28 Jan 2024 08:59:58 +0100
 
 linux (6.6.13-1) unstable; urgency=medium

@@ -12,6 +12,10 @@ linux (6.7.3-1~exp1) UNRELEASED; urgency=medium
   [ Bastian Blank ]
   * Make linux-libc-dev provide all cross packages.
 
+  [ Salvatore Bonaccorso ]
+  * Input: atkbd - skip ATKBD_CMD_SETLEDS when skipping ATKBD_CMD_GETID
+    (Closes: #1061521)
+
  -- Aurelien Jarno <aurel32@debian.org>  Tue, 23 Jan 2024 19:36:37 +0100
 
 linux (6.7.1-1~exp1) experimental; urgency=medium

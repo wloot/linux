@@ -78,6 +78,8 @@ features/x86/x86-make-x32-syscall-support-conditional.patch
 # Miscellaneous bug fixes
 bugfix/all/disable-some-marvell-phys.patch
 bugfix/all/fs-add-module_softdep-declarations-for-hard-coded-cr.patch
+debian/Revert-docs-kernel_abi.py-fix-command-injection.patch
+debian/Revert-docs-kernel_feat.py-fix-potential-command-inj.patch
 
 # Miscellaneous features
 

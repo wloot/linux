@@ -218,6 +218,11 @@ CONFIG_PINCTRL_AMD=y
 CONFIG_AMD_PMC=m
 
 ##
+## file: drivers/platform/x86/amd/pmf/Kconfig
+##
+CONFIG_AMD_PMF=m
+
+##
 ## file: drivers/platform/x86/intel/Kconfig
 ##
 CONFIG_INTEL_TPMI=m

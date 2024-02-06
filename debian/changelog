@@ -1,8 +1,9 @@
-linux (6.7.3-1~exp1) UNRELEASED; urgency=medium
+linux (6.7.4-1~exp1) UNRELEASED; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.7.2
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.7.3
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.7.4
 
   [ Aurelien Jarno ]
   * [riscv64] Add clock, MFD, PCIe PHYs, regulator and RTC drivers to

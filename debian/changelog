@@ -1,4 +1,4 @@
-linux (6.7.4-1~exp1) UNRELEASED; urgency=medium
+linux (6.7.4-1~exp1) experimental; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.7.2
@@ -24,7 +24,7 @@ linux (6.7.4-1~exp1) UNRELEASED; urgency=medium
   [ Vincent Blut ]
   * drivers/hwmon: Enable SENSORS_IIO_HWMON as module (Closes: #1057272)
 
- -- Aurelien Jarno <aurel32@debian.org>  Tue, 23 Jan 2024 19:36:37 +0100
+ -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 08 Feb 2024 16:01:07 +0100
 
 linux (6.7.1-1~exp1) experimental; urgency=medium
 

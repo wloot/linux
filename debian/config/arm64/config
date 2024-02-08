@@ -1427,6 +1427,11 @@ CONFIG_PCIE_QCOM=y
 CONFIG_PCIE_ROCKCHIP_DW_HOST=y
 
 ##
+## file: drivers/pci/controller/mobiveil/Kconfig
+##
+CONFIG_PCIE_LAYERSCAPE_GEN4=y
+
+##
 ## file: drivers/pci/hotplug/Kconfig
 ##
 CONFIG_HOTPLUG_PCI=y
@@ -1485,6 +1490,7 @@ CONFIG_PHY_MESON8B_USB2=m
 CONFIG_PHY_FSL_IMX8MQ_USB=m
 CONFIG_PHY_MIXEL_MIPI_DPHY=m
 CONFIG_PHY_FSL_IMX8M_PCIE=m
+CONFIG_PHY_FSL_LYNX_28G=m
 
 ##
 ## file: drivers/phy/hisilicon/Kconfig

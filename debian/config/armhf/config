@@ -516,6 +516,11 @@ CONFIG_DRM_TEGRA_STAGING=y
 CONFIG_DRM_TILCDC=m
 
 ##
+## file: drivers/gpu/drm/tiny/Kconfig
+##
+CONFIG_DRM_PANEL_MIPI_DBI=m
+
+##
 ## file: drivers/gpu/host1x/Kconfig
 ##
 CONFIG_TEGRA_HOST1X=m

@@ -1,7 +1,8 @@
-linux (6.7.5-1~exp1) UNRELEASED; urgency=medium
+linux (6.7.6-1~exp1) UNRELEASED; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.7.5
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.7.6
 
   [ Weizhao Ouyang ]
   * Enable CONFIG_MFD_RK8XX_SPI for RK3588 SoC

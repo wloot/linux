@@ -14,6 +14,10 @@ linux (6.7.6-1~exp1) UNRELEASED; urgency=medium
   * Backport a patch from v6.8-rc1 to be more verbose about pending deferred
     probes helping debugging of failed boot attempts.
 
+  [ Salvatore Bonaccorso ]
+  * drm/amd/display: Only allow dig mapping to pwrseq in new asic
+    (Closes: #1061449)
+
  -- Uwe Kleine-König <ukleinek@debian.org>  Thu, 08 Feb 2024 23:30:57 +0100
 
 linux (6.7.4-1~exp1) experimental; urgency=medium

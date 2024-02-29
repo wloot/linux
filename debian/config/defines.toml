@@ -21,6 +21,11 @@ name = 'parisc'
   name = 'hppa'
 
 [[kernelarch]]
+name = 'loongarch'
+  [[kernelarch.debianarch]]
+  name = 'loong64'
+
+[[kernelarch]]
 name = 'm68k'
   [[kernelarch.debianarch]]
   name = 'm68k'

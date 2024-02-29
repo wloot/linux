@@ -21,6 +21,9 @@ linux (6.7.6-1~exp1) UNRELEASED; urgency=medium
   [ Vincent Blut ]
   * [x86] drivers/hwmon: Enable SENSORS_HP_WMI as module (Closes: #1064507)
 
+  [ Weihao Li]
+  * [loong64] Build kernel image and udebs for loong64 (Closes: #1053650)
+
  -- Uwe Kleine-König <ukleinek@debian.org>  Thu, 08 Feb 2024 23:30:57 +0100
 
 linux (6.7.4-1~exp1) experimental; urgency=medium

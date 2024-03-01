@@ -1,10 +1,13 @@
-linux (6.7.6-1~exp1) UNRELEASED; urgency=medium
+linux (6.7.7-1~exp1) UNRELEASED; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.7.5
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.7.6
     - mmc: sdhci-pci-o2micro: Fix a warm reboot issue that disk can't be
       detected by BIOS (Closes: #1056056)
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.7.7
+    - drm/amd/display: Only allow dig mapping to pwrseq in new asic
+      (Closes: #1061449)
 
   [ Weizhao Ouyang ]
   * Enable CONFIG_MFD_RK8XX_SPI for RK3588 SoC
@@ -16,10 +19,6 @@ linux (6.7.6-1~exp1) UNRELEASED; urgency=medium
   * Backport a patch from v6.8-rc1 to be more verbose about pending deferred
     probes helping debugging of failed boot attempts.
   * [arm64] Make PINCTRL_ROCKCHIP builtin.
-
-  [ Salvatore Bonaccorso ]
-  * drm/amd/display: Only allow dig mapping to pwrseq in new asic
-    (Closes: #1061449)
 
   [ Vincent Blut ]
   * [x86] drivers/hwmon: Enable SENSORS_HP_WMI as module (Closes: #1064507)

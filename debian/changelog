@@ -15,6 +15,7 @@ linux (6.7.6-1~exp1) UNRELEASED; urgency=medium
     stm32mp157c-lxa-tac-gen2.
   * Backport a patch from v6.8-rc1 to be more verbose about pending deferred
     probes helping debugging of failed boot attempts.
+  * [arm64] Make PINCTRL_ROCKCHIP builtin.
 
   [ Salvatore Bonaccorso ]
   * drm/amd/display: Only allow dig mapping to pwrseq in new asic

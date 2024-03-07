@@ -555,6 +555,7 @@ CONFIG_SENSORS_ASPEED=m
 CONFIG_SENSORS_G762=m
 CONFIG_SENSORS_GPIO_FAN=m
 CONFIG_SENSORS_LM75=m
+CONFIG_SENSORS_LM90=m
 CONFIG_SENSORS_PWM_FAN=m
 
 ##
@@ -729,6 +730,7 @@ CONFIG_MEDIA_CONTROLLER=y
 ## file: drivers/media/cec/platform/Kconfig
 ##
 CONFIG_CEC_STM32=m
+CONFIG_CEC_TEGRA=m
 
 ##
 ## file: drivers/media/platform/Kconfig
@@ -1080,6 +1082,12 @@ CONFIG_BRCMFMAC=m
 CONFIG_BRCMFMAC_SDIO=y
 
 ##
+## file: drivers/net/wireless/marvell/mwifiex/Kconfig
+##
+CONFIG_MWIFIEX=m
+CONFIG_MWIFIEX_SDIO=m
+
+##
 ## file: drivers/net/wireless/ti/Kconfig
 ##
 CONFIG_WLAN_VENDOR_TI=y
@@ -1255,6 +1263,7 @@ CONFIG_CHARGER_ISP1704=m
 CONFIG_CHARGER_TWL4030=m
 CONFIG_CHARGER_GPIO=m
 CONFIG_CHARGER_BQ2415X=m
+CONFIG_CHARGER_BQ24735=m
 
 ##
 ## file: drivers/pwm/Kconfig

@@ -12,6 +12,12 @@ linux (6.7.12-2~exp1) UNRELEASED; urgency=medium
   * [amd64] drivers/tee/amdtee: Enable AMDTEE as module
   * [amd64] drivers/platform/x86/amd/pmf: Enable AMD_PMF as module
     (Closes: #1063161)
+  * [arm64] Further improve support for SolidRun HoneyComb (Closes: #1065611):
+    - [arm64] drivers/hwmon/pmbus: Enable PMBUS, SENSORS_PMBUS and
+      SENSORS_LTC2978 as modules
+    - [arm64] drivers/nvmem: Enable NVMEM_LAYERSCAPE_SFP as module
+    - [arm64] drivers/rtc: Enable RTC_DRV_FSL_FTM_ALARM as module
+    - [arm64] drivers/soc/fsl: Enable FSL_RCPM
 
   [ Vincent Blut ]
   * [arm64] Improve support for SolidRun Honeycomb Workstation:

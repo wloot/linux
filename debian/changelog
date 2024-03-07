@@ -154,6 +154,10 @@ linux (6.7.9-1) UNRELEASED; urgency=medium
     - [x86] KVM/VMX: Move VERW closer to VMentry for MDS mitigation
     - drm/nouveau: don't fini scheduler before entity flush
 
+  [ Salvatore Bonaccorso ]
+  * [x86] platform/x86: p2sb: On Goldmont only cache P2SB and SPI devfn BAR
+    (Closes: #1065320)
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Wed, 06 Mar 2024 21:03:33 +0100
 
 linux (6.7.7-1) unstable; urgency=medium

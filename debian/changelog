@@ -1,4 +1,4 @@
-linux (6.7.9-1) UNRELEASED; urgency=medium
+linux (6.7.9-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.7.8
@@ -158,7 +158,7 @@ linux (6.7.9-1) UNRELEASED; urgency=medium
   * [x86] platform/x86: p2sb: On Goldmont only cache P2SB and SPI devfn BAR
     (Closes: #1065320)
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Wed, 06 Mar 2024 21:03:33 +0100
+ -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 08 Mar 2024 21:55:53 +0100
 
 linux (6.7.7-1) unstable; urgency=medium
 

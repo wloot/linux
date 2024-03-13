@@ -95,6 +95,10 @@ features/all/db-mok-keyring/trust-machine-keyring-by-default.patch
 # Security fixes
 debian/i386-686-pae-pci-set-pci-nobios-by-default.patch
 debian/ntfs-mark-it-as-broken.patch
+bugfix/x86/x86-mmio-Disable-KVM-mitigation-when-X86_FEATURE_CLE.patch
+bugfix/x86/Documentation-hw-vuln-Add-documentation-for-RFDS.patch
+bugfix/x86/x86-rfds-Mitigate-Register-File-Data-Sampling-RFDS.patch
+bugfix/x86/KVM-x86-Export-RFDS_NO-and-RFDS_CLEAR-to-guests.patch
 
 # Fix exported symbol versions
 bugfix/all/module-disable-matching-missing-version-crc.patch

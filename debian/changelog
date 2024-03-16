@@ -58,6 +58,9 @@ linux (6.7.10-1) UNRELEASED; urgency=medium
     - [armel,armhf] arch/arm/mm: fix major fault accounting when retrying under
       per-VMA lock
 
+  [ Salvatore Bonaccorso ]
+  * [rt] Refresh "ARM: Allow to enable RT"
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 16 Mar 2024 11:21:42 +0100
 
 linux (6.7.9-2) unstable; urgency=high

@@ -1,3 +1,68 @@
+linux (6.7.10-1) UNRELEASED; urgency=medium
+
+  * New upstream stable update:
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.7.10
+    - [arm64] dmaengine: fsl-edma: utilize common dt-binding header file
+    - [arm64] dmaengine: fsl-edma: correct max_segment_size setting
+    - xfrm: Clear low order bits of ->flowi4_tos in decode_session4().
+    - xfrm: Pass UDP encapsulation in TX packet offload
+    - net: lan78xx: fix runtime PM count underflow on link stop
+    - ixgbe: {dis, en}able irqs in ixgbe_txrx_ring_{dis, en}able
+    - i40e: disable NAPI right after disabling irqs when handling xsk_pool
+    - ice: reorder disabling IRQ and NAPI in ice_qp_dis
+    - ice: replace ice_vf_recreate_vsi() with ice_vf_reconfig_vsi()
+    - ice: reconfig host after changing MSI-X on VF
+    - Revert "net/mlx5: Block entering switchdev mode with ns inconsistency"
+    - Revert "net/mlx5e: Check the number of elements before walk TC rhashtable"
+    - net/mlx5: E-switch, Change flow rule destination checking
+    - net/mlx5: Fix fw reporter diagnose output
+    - net/mlx5: Check capability for fw_reset
+    - net/mlx5e: Change the warning when ignore_flow_level is not supported
+    - net/mlx5e: Fix MACsec state loss upon state update in offload path
+    - net/mlx5e: Use a memory barrier to enforce PTP WQ xmit submission tracking
+      occurs after populating the metadata_map
+    - net/mlx5e: Switch to using _bh variant of of spinlock API in port
+      timestamping NAPI poll context
+    - tracing/net_sched: Fix tracepoints that save qdisc_dev() as a string
+    - geneve: make sure to pull inner header in geneve_rx()
+    - idpf: disable local BH when scheduling napi for marker packets
+    - ice: virtchnl: stop pretending to support RSS over AQ or registers
+    - net: ice: Fix potential NULL pointer dereference in ice_bridge_setlink()
+    - ice: fix uninitialized dplls mutex usage
+    - igc: avoid returning frame twice in XDP_REDIRECT
+    - net/ipv6: avoid possible UAF in ip6_route_mpath_notify()
+    - bpf: check bpf_func_state->callback_depth when pruning states
+    - xdp, bonding: Fix feature flags when there are no slave devs anymore
+    - cpumap: Zero-initialise xdp_rxq_info struct before running XDP program
+    - net/rds: fix WARNING in rds_conn_connect_if_down
+    - netfilter: nft_ct: fix l3num expectations with inet pseudo family
+    - netfilter: nf_conntrack_h323: Add protection for bmp length out of range
+    - erofs: apply proper VMA alignment for memory mapped files on THP
+    - netrom: Fix a data-race around sysctl_netrom_default_path_quality
+    - netrom: Fix a data-race around
+      sysctl_netrom_obsolescence_count_initialiser
+    - netrom: Fix data-races around sysctl_netrom_network_ttl_initialiser
+    - netrom: Fix a data-race around sysctl_netrom_transport_timeout
+    - netrom: Fix a data-race around sysctl_netrom_transport_maximum_tries
+    - netrom: Fix a data-race around sysctl_netrom_transport_acknowledge_delay
+    - netrom: Fix a data-race around sysctl_netrom_transport_busy_delay
+    - netrom: Fix a data-race around
+      sysctl_netrom_transport_requested_window_size
+    - netrom: Fix a data-race around sysctl_netrom_transport_no_activity_timeout
+    - netrom: Fix a data-race around sysctl_netrom_routing_control
+    - netrom: Fix a data-race around sysctl_netrom_link_fails_count
+    - netrom: Fix data-races around sysctl_net_busy_read
+    - net: pds_core: Fix possible double free in error handling path
+    - readahead: avoid multiple marked readahead pages
+    - [armel,armhf] 9328/1: mm: try VMA lock-based page fault handling first
+    - [armel,armhf] arch/arm/mm: fix major fault accounting when retrying under
+      per-VMA lock
+
+  [ Salvatore Bonaccorso ]
+  * [rt] Refresh "ARM: Allow to enable RT"
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 16 Mar 2024 11:21:42 +0100
+
 linux (6.7.9-2) unstable; urgency=high
 
   * [x86] Mitigate Register File Data Sampling (RFDS) vulnerability

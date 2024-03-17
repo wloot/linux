@@ -34,9 +34,9 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
 --- a/drivers/gpu/drm/i915/display/intel_vblank.c
 +++ b/drivers/gpu/drm/i915/display/intel_vblank.c
-@@ -308,7 +308,8 @@ static bool i915_get_crtc_scanoutpos(str
- 	 */
- 	spin_lock_irqsave(&dev_priv->uncore.lock, irqflags);
+@@ -335,7 +335,8 @@ static bool i915_get_crtc_scanoutpos(str
+ 	local_irq_save(irqflags);
+ 	intel_vblank_section_enter(dev_priv);
  
 -	/* preempt_disable_rt() should go right here in PREEMPT_RT patchset. */
 +	if (IS_ENABLED(CONFIG_PREEMPT_RT))
@@ -44,7 +44,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  
  	/* Get optional system timestamp before query. */
  	if (stime)
-@@ -372,7 +373,8 @@ static bool i915_get_crtc_scanoutpos(str
+@@ -399,7 +400,8 @@ static bool i915_get_crtc_scanoutpos(str
  	if (etime)
  		*etime = ktime_get();
  
@@ -52,5 +52,5 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 +	if (IS_ENABLED(CONFIG_PREEMPT_RT))
 +		preempt_enable();
  
- 	spin_unlock_irqrestore(&dev_priv->uncore.lock, irqflags);
- 
+ 	intel_vblank_section_exit(dev_priv);
+ 	local_irq_restore(irqflags);

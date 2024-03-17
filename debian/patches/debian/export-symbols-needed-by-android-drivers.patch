@@ -22,11 +22,11 @@ Export the currently un-exported symbols they depend on.
 
 --- a/fs/file.c
 +++ b/fs/file.c
-@@ -816,6 +816,7 @@ struct file *close_fd_get_file(unsigned
+@@ -816,6 +816,7 @@ struct file *file_close_fd(unsigned
  
  	return file;
  }
-+EXPORT_SYMBOL_GPL(close_fd_get_file);
++EXPORT_SYMBOL_GPL(file_close_fd);
  
  void do_close_on_exec(struct files_struct *files)
  {

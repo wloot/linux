@@ -41,7 +41,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 +
  #endif
  
- #ifdef CONFIG_SMP
+ bool this_cpu_in_panic(void);
 --- a/kernel/panic.c
 +++ b/kernel/panic.c
 @@ -453,6 +453,7 @@ void panic(const char *fmt, ...)

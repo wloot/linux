@@ -45,10 +45,8 @@ preempt-Put-preempt_enable-within-an-instrumentation.patch
 # John's printk queue
 ###########################################################################
 0005-printk-ringbuffer-Clarify-special-lpos-values.patch
-0006-printk-For-suppress_panic_printk-check-for-other-CPU.patch
 0011-printk-ringbuffer-Consider-committed-as-finalized-in.patch
 0013-printk-Avoid-non-panic-CPUs-writing-to-ringbuffer.patch
-0014-panic-Flush-kernel-log-buffer-at-the-end.patch
 0015-printk-Consider-nbcon-boot-consoles-on-seq-init.patch
 0016-printk-Add-sparse-notation-to-console_srcu-locking.patch
 0017-printk-nbcon-Ensure-ownership-release-on-failed-emit.patch

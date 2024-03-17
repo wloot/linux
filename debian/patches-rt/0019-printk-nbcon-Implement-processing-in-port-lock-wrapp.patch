@@ -75,7 +75,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 +
  #endif
  
- #ifdef CONFIG_SMP
+ bool this_cpu_in_panic(void);
 --- a/include/linux/serial_core.h
 +++ b/include/linux/serial_core.h
 @@ -595,6 +595,7 @@ struct uart_port {

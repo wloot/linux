@@ -2154,7 +2154,6 @@ CONFIG_BACKLIGHT_LED=m
 ##
 ## file: drivers/video/fbdev/Kconfig
 ##
-CONFIG_FB_ARMCLCD=y
 CONFIG_FB_EFI=y
 CONFIG_FB_SIMPLE=y
 

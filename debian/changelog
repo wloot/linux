@@ -72,6 +72,34 @@ linux (6.8.8-1~exp1) UNRELEASED; urgency=medium
       - Adjust context in "printk: nbcon: Add unsafe flushing on panic"
   * d/copyright: Exclude 'action-ebpf' as that's a binary blob
   * d/installer/modules: Remove modules removed from upstream kernel
+  * d/config: Update with the help of kconfigeditor2:
+    - crypto: Remove CRYPTO_CFB and CRYPTO_OFB
+    - drivers/gpu/drm: Remove DRM_LEGACY
+    - drivers/md: Remove MD_FAULTY, MD_LINEAR and MD_MULTIPATH
+    - [alpha,hppa,mips.malta,powerpc,x86] drivers/net/wireless/atmel:
+      Remove ATMEL, PCI_ATMEL and PCMCIA_ATMEL
+    - drivers/net/wireless/cisco: Remove WLAN_VENDOR_CISCO and AIRO
+    - [alpha,hppa,powerpc,x86] drivers/net/wireless/cisco: Remove AIRO_CS
+    - drivers/net/wireless/intersil/hostap: Remove HOSTAP, HOSTAP_FIRMWARE,
+      HOSTAP_FIRMWARE_NVRAM, HOSTAP_PLX, HOSTAP_PCI and HOSTAP_CS
+    - drivers/net/wireless/intersil/orinoco: Remove HERMES_PRISM,
+      HERMES_CACHE_FW_ON_INIT, NORTEL_HERMES, PCMCIA_SPECTRUM and ORINOCO_USB
+    - [alpha,hppa,mips.malta,powerpc,x86] drivers/net/wireless/intersil/orinoco:
+      Remove HERMES, APPLE_AIRPORT, PLX_HERMES, TMD_HERMES, PCI_HERMES,
+      PCMCIA_HERMES
+    - drivers/net/wireless/legacy: Remove USB_NET_RNDIS_WLAN
+    - [alpha,hppa,powerpc,x86] drivers/net/wireless/legacy:
+      Remove PCMCIA_RAYCS and PCMCIA_WL3501
+    - drivers/net/wireless/marvell/libertas: Remove LIBERTAS_CS
+    - [alpha,hppa,mips.malta,powerpc,x86] drivers/net/wireless/zydas:
+      Remove USB_ZD1201
+    - drivers/video/fbdev: Remove FB_INTEL_DEBUG FB_INTEL_I2C
+    - [armhf,arm64] drivers/video/fbdev: Remove FB_ARMCLCD
+    - [cloud,x86] drivers/video/fbdev: Remove FB_CARILLO_RANCH and FB_LE80578
+    - [x86] drivers/video/fbdev: Remove FB_INTEL
+    - fs/fscache: Change FSCACHE to `y`
+    - mm: Remove SLAB_DEPRECATED and SLUB
+    - net/bpfilter: Remove BPFILTER
 
   [ Vincent Blut ]
   * [arm64] Improve support for SolidRun Honeycomb Workstation:

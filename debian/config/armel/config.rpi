@@ -1,9 +1,13 @@
 ##
 ## file: arch/arm/Kconfig
 ##
+CONFIG_VFP=y
+
+##
+## file: arch/arm/Kconfig.platforms
+##
 CONFIG_ARCH_MULTI_V6=y
 # CONFIG_ARCH_MULTI_V7 is not set
-CONFIG_VFP=y
 
 ##
 ## file: arch/arm/mach-bcm/Kconfig

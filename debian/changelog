@@ -71,6 +71,7 @@ linux (6.8.8-1~exp1) UNRELEASED; urgency=medium
       - Adjust context in "printk: nbcon: Implement processing in port->lock"
       - Adjust context in "printk: nbcon: Add unsafe flushing on panic"
   * d/copyright: Exclude 'action-ebpf' as that's a binary blob
+  * d/installer/modules: Remove modules removed from upstream kernel
 
   [ Vincent Blut ]
   * [arm64] Improve support for SolidRun Honeycomb Workstation:

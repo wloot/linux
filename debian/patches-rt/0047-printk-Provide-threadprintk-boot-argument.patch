@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 6 Feb 2024 14:19:34 +0000
 Subject: [PATCH 47/48] printk: Provide threadprintk boot argument
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.8/older/patches-6.8.2-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.9/older/patches-6.9-rc2-rt1.tar.xz
 
 For PREEMPT_RT, legacy console printing is performed in a dedicated
 kthread. However, this behavior can also be interesting for other
@@ -35,7 +35,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
 --- a/Documentation/admin-guide/kernel-parameters.txt
 +++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -6508,6 +6508,18 @@
+@@ -6538,6 +6538,18 @@
  			Force threading of all interrupt handlers except those
  			marked explicitly IRQF_NO_THREAD.
  
@@ -51,7 +51,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 +			driver is legacy or not. Non-legacy (NBCON) console
 +			drivers are already threaded and are shown with 'N'.
 +
- 	topology=	[S390]
+ 	topology=	[S390,EARLY]
  			Format: {off | on}
  			Specify if the kernel should make use of the cpu
 --- a/kernel/printk/internal.h

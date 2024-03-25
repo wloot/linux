@@ -86,7 +86,7 @@ name = 'none'
 
 [[featureset]]
 name = 'rt'
-enable = true
+enable = false
   [featureset.description]
   parts = ['rt']
   [featureset.description.long]

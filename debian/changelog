@@ -1,4 +1,9 @@
-linux (6.8.12-2~exp1) UNRELEASED; urgency=medium
+linux (6.9.2-1~exp1) UNRELEASED; urgency=medium
+
+  * New upstream release: https://kernelnewbies.org/Linux_6.9
+  * New upstream stable update:
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.9.1
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.9.2
 
   [ Johannes Schauer Marin Rodrigues ]
   * New target in debian/rules: "clean-generated" cleans up all auto-generated
@@ -8,6 +13,67 @@ linux (6.8.12-2~exp1) UNRELEASED; urgency=medium
   * [arm64,riscv64] drivers/leds/rgb: Enable LEDS_GROUP_MULTICOLOR as module
   * [arm64] drivers/leds/rgb: Enable LEDS_PWM_MULTICOLOR as module
   * [arm*,riscv64] drivers/pps/clients: Enable PPS_CLIENT_GPIO as module
+  * Update to 6.9.2:
+    - [rt] Disable until it is updated for 6.9
+    - Drop patches:
+      - "ntfs: mark it as broken"; ntfs driver removed upstream
+    - Drop patches applied upstream:
+      - "ARM64: Dynamically allocate cpumasks and increase supported CPUs to
+        512"
+      - "tipc: fix UAF in error path"
+      - "tipc: fix a possible memleak in tipc_buf_append"
+    - Refresh patches:
+      - Adjust context in "video: Remove nvidiafb and rivafb"
+      - Adjust context in "Export symbols needed by Android drivers"
+      - Adjust context in "Documentation: Drop sphinx version check"
+      - Adjust context in "firmware_class: Log every success and failure
+        against given device"
+      - Adjust context in "firmware: Remove redundant log messages from drivers"
+      - Adjust context in "af_802154: Disable auto-loading as mitigation
+        against local exploits"
+      - Adjust context in "intel-iommu: Add Kconfig option to exclude iGPU by
+        default"
+      - Adjust context in "x86: Make x32 syscall support conditional on a
+        kernel parameter"
+      - Adjust context in "efi: Lock down the kernel if booted in secure boot
+        mode"
+      - Adjust context in "Revert 'perf build: Fix libunwind feature detection
+        on 32-bit x86'"
+    - [rt] Drop patches applied upstream:
+      - "serial: amba-pl011: Use uart_prepare_sysrq_char()."
+      - "serial: ar933x: Use uart_prepare_sysrq_char()."
+      - "serial: bcm63xx: Use uart_prepare_sysrq_char()."
+      - "serial: meson: Use uart_prepare_sysrq_char()."
+      - "serial: msm: Use uart_prepare_sysrq_char()."
+      - "serial: omap: Use uart_prepare_sysrq_char()."
+      - "serial: pxa: Use uart_prepare_sysrq_char()."
+      - "serial: sunplus: Use uart_prepare_sysrq_char()."
+      - "serial: lpc32xx_hs: Use uart_prepare_sysrq_char() to handle sysrq."
+      - "serial: owl: Use uart_prepare_sysrq_char() to handle sysrq."
+      - "serial: rda: Use uart_prepare_sysrq_char() to handle sysrq."
+      - "serial: sifive: Use uart_prepare_sysrq_char() to handle sysrq."
+      - "serial: pch: Invoke handle_rx_to() directly."
+      - "serial: pch: Make push_rx() return void."
+      - "serial: pch: Don't disable interrupts while acquiring lock in ISR."
+      - "serial: pch: Don't initialize uart_port's spin_lock."
+      - "serial: pch: Remove eg20t_port::lock."
+      - "serial: pch: Use uart_prepare_sysrq_char()."
+      - "printk: ringbuffer: Clarify special lpos values"
+      - "printk: For @suppress_panic_printk check for other CPU in panic"
+      - "printk: Avoid non-panic CPUs writing to ringbuffer"
+      - "panic: Flush kernel log buffer at the end"
+      - "dump_stack: Do not get cpu_sync for panic CPU"
+      - "printk: nbcon: Fix kerneldoc for enums"
+    - [rt] Refresh patches:
+      - Adjust context in "net: Allow to use SMP threads for backlog NAPI."
+      - Adjust context in "softirq: Use a dedicated thread for timer wakeups."
+      - Adjust context in "tick: Fix timer storm since introduction of timersd"
+      - Adjust context in "printk: nbcon: Introduce printing kthreads"
+      - Adjust context in "printk: Provide threadprintk boot argument"
+      - Adjust context in "drm/i915: Don't disable interrupts on PREEMPT_RT
+        during atomic updates"
+      - Adjust context in "riscv: allow to enable RT"
+      - Adjust context in "sysfs: Add /sys/kernel/realtime entry"
 
   [ Ben Hutchings ]
   * d/signing_templates/rules.real: Consistently define REAL_VERSION variable

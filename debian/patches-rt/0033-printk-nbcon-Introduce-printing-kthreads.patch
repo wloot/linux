@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 22 Sep 2023 14:12:21 +0000
 Subject: [PATCH 33/48] printk: nbcon: Introduce printing kthreads
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.8/older/patches-6.8.2-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.9/older/patches-6.9-rc2-rt1.tar.xz
 
 Provide the main implementation for running a printer kthread
 per nbcon console that is takeover/handover aware.
@@ -25,9 +25,9 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  #include <linux/rculist.h>
 +#include <linux/rcuwait.h>
  #include <linux/types.h>
+ #include <linux/vesa.h>
  
- struct vc_data;
-@@ -324,6 +325,8 @@ struct nbcon_drvdata {
+@@ -342,6 +343,8 @@ struct nbcon_drvdata {
   * @nbcon_state:	State for nbcon consoles
   * @nbcon_seq:		Sequence number of the next record for nbcon to print
   * @pbufs:		Pointer to nbcon private buffer
@@ -36,7 +36,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
   */
  struct console {
  	char			name[16];
-@@ -372,6 +375,27 @@ struct console {
+@@ -390,6 +393,27 @@ struct console {
  	void (*write_atomic)(struct console *con, struct nbcon_write_context *wctxt);
  
  	/**
@@ -64,7 +64,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	 * @device_lock:
  	 *
  	 * NBCON callback to begin synchronization with driver code.
-@@ -431,6 +455,8 @@ struct console {
+@@ -449,6 +473,8 @@ struct console {
  	struct nbcon_drvdata	*nbcon_drvdata;
  
  	struct printk_buffers	*pbufs;
@@ -408,7 +408,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  
  /*
   * Specifies if the console lock/unlock dance is needed for console
-@@ -2698,6 +2698,8 @@ void suspend_console(void)
+@@ -2693,6 +2693,8 @@ void suspend_console(void)
  void resume_console(void)
  {
  	struct console *con;
@@ -417,7 +417,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  
  	if (!console_suspend_enabled)
  		return;
-@@ -2714,6 +2716,14 @@ void resume_console(void)
+@@ -2709,6 +2711,14 @@ void resume_console(void)
  	 */
  	synchronize_srcu(&console_srcu);
  
@@ -432,7 +432,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	pr_flush(1000, true);
  }
  
-@@ -3034,6 +3044,13 @@ static bool console_flush_all(bool do_co
+@@ -3029,6 +3039,13 @@ static bool console_flush_all(bool do_co
  			u64 printk_seq;
  			bool progress;
  
@@ -446,7 +446,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  			if (!console_is_usable(con, flags))
  				continue;
  			any_usable = true;
-@@ -3327,9 +3344,23 @@ EXPORT_SYMBOL(console_stop);
+@@ -3322,9 +3339,23 @@ EXPORT_SYMBOL(console_stop);
  
  void console_start(struct console *console)
  {

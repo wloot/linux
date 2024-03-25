@@ -10,26 +10,6 @@
 # Posted
 ###########################################################################
 
-# tty/ serial
-0001-serial-amba-pl011-Use-uart_prepare_sysrq_char.patch
-0002-serial-ar933x-Use-uart_prepare_sysrq_char.patch
-0003-serial-bcm63xx-Use-uart_prepare_sysrq_char.patch
-0004-serial-meson-Use-uart_prepare_sysrq_char.patch
-0005-serial-msm-Use-uart_prepare_sysrq_char.patch
-0006-serial-omap-Use-uart_prepare_sysrq_char.patch
-0007-serial-pxa-Use-uart_prepare_sysrq_char.patch
-0008-serial-sunplus-Use-uart_prepare_sysrq_char.patch
-0009-serial-lpc32xx_hs-Use-uart_prepare_sysrq_char-to-han.patch
-0010-serial-owl-Use-uart_prepare_sysrq_char-to-handle-sys.patch
-0011-serial-rda-Use-uart_prepare_sysrq_char-to-handle-sys.patch
-0012-serial-sifive-Use-uart_prepare_sysrq_char-to-handle-.patch
-0013-serial-pch-Invoke-handle_rx_to-directly.patch
-0014-serial-pch-Make-push_rx-return-void.patch
-0015-serial-pch-Don-t-disable-interrupts-while-acquiring-.patch
-0016-serial-pch-Don-t-initialize-uart_port-s-spin_lock.patch
-0017-serial-pch-Remove-eg20t_port-lock.patch
-0018-serial-pch-Use-uart_prepare_sysrq_char.patch
-
 # net, RPS, v5
 0001-net-Remove-conditional-threaded-NAPI-wakeup-based-on.patch
 0002-net-Allow-to-use-SMP-threads-for-backlog-NAPI.patch
@@ -74,8 +54,6 @@ zram-Replace-bit-spinlocks-with-spinlock_t-for-PREEM.patch
 ###########################################################################
 # John's printk queue
 ###########################################################################
-0001-printk-ringbuffer-Clarify-special-lpos-values.patch
-0003-printk-Avoid-non-panic-CPUs-writing-to-ringbuffer.patch
 0006-printk-Add-notation-to-console_srcu-locking.patch
 0007-printk-Properly-deal-with-nbcon-consoles-on-seq-init.patch
 0008-printk-nbcon-Remove-return-value-for-write_atomic.patch
@@ -86,7 +64,6 @@ zram-Replace-bit-spinlocks-with-spinlock_t-for-PREEM.patch
 0013-serial-core-Provide-low-level-functions-to-lock-port.patch
 0014-printk-nbcon-Implement-processing-in-port-lock-wrapp.patch
 0015-printk-nbcon-Do-not-rely-on-proxy-headers.patch
-0016-printk-nbcon-Fix-kerneldoc-for-enums.patch
 0017-printk-Make-console_is_usable-available-to-nbcon.patch
 0018-printk-Let-console_is_usable-handle-nbcon.patch
 0019-printk-Add-flags-argument-for-console_is_usable.patch

@@ -712,7 +712,6 @@ CONFIG_DRM_FBDEV_OVERALLOC=100
 # CONFIG_DRM_FBDEV_LEAK_PHYS_SMEM is not set
 CONFIG_DRM_LOAD_EDID_FIRMWARE=y
 CONFIG_DRM_VGEM=m
-# CONFIG_DRM_VKMS is not set
 
 ##
 ## file: drivers/gpu/drm/amd/acp/Kconfig
@@ -808,9 +807,9 @@ CONFIG_DRM_NOUVEAU_BACKLIGHT=y
 ##
 ## file: drivers/gpu/drm/panel/Kconfig
 ##
-# CONFIG_DRM_PANEL_SAMSUNG_LD9040 is not set
 # CONFIG_DRM_PANEL_LG_LG4573 is not set
 # CONFIG_DRM_PANEL_RASPBERRYPI_TOUCHSCREEN is not set
+# CONFIG_DRM_PANEL_SAMSUNG_LD9040 is not set
 # CONFIG_DRM_PANEL_SAMSUNG_S6E8AA0 is not set
 # CONFIG_DRM_PANEL_SHARP_LQ101R1SX01 is not set
 
@@ -839,6 +838,11 @@ CONFIG_DRM_UDL=m
 ## file: drivers/gpu/drm/virtio/Kconfig
 ##
 CONFIG_DRM_VIRTIO_GPU=m
+
+##
+## file: drivers/gpu/drm/vkms/Kconfig
+##
+# CONFIG_DRM_VKMS is not set
 
 ##
 ## file: drivers/gpu/drm/vmwgfx/Kconfig
@@ -2997,7 +3001,6 @@ CONFIG_MTD_LPDDR=m
 # CONFIG_MTD_CK804XROM is not set
 CONFIG_MTD_PCMCIA=m
 # CONFIG_MTD_PCMCIA_ANONYMOUS is not set
-CONFIG_MTD_INTEL_VR_NOR=m
 CONFIG_MTD_PLATRAM=m
 
 ##
@@ -3768,7 +3771,6 @@ CONFIG_MICROCHIP_PHY=m
 CONFIG_MICROCHIP_T1_PHY=m
 CONFIG_MICROSEMI_PHY=m
 CONFIG_NATIONAL_PHY=m
-CONFIG_AT803X_PHY=m
 CONFIG_QSEMI_PHY=m
 CONFIG_REALTEK_PHY=m
 CONFIG_RENESAS_PHY=m
@@ -3789,6 +3791,11 @@ CONFIG_VITESSE_PHY=m
 ## file: drivers/net/phy/aquantia/Kconfig
 ##
 CONFIG_AQUANTIA_PHY=m
+
+##
+## file: drivers/net/phy/qcom/Kconfig
+##
+CONFIG_AT803X_PHY=m
 
 ##
 ## file: drivers/net/ppp/Kconfig
@@ -4947,11 +4954,6 @@ CONFIG_SSB_PCMCIAHOST=y
 CONFIG_STAGING=y
 
 ##
-## file: drivers/staging/board/Kconfig
-##
-# CONFIG_STAGING_BOARD is not set
-
-##
 ## file: drivers/staging/fbtft/Kconfig
 ##
 # CONFIG_FB_TFT is not set
@@ -6101,11 +6103,6 @@ CONFIG_FANOTIFY_ACCESS_PERMISSIONS=y
 CONFIG_INOTIFY_USER=y
 
 ##
-## file: fs/ntfs/Kconfig
-##
-# CONFIG_NTFS_FS is not set
-
-##
 ## file: fs/ocfs2/Kconfig
 ##
 CONFIG_OCFS2_FS=m
@@ -6625,7 +6622,7 @@ CONFIG_PM_NOTIFIER_ERROR_INJECT=m
 #. Self-test
 # CONFIG_ASYNC_RAID6_TEST is not set
 # CONFIG_TEST_HEXDUMP is not set
-# CONFIG_TEST_STRING_HELPERS is not set
+# CONFIG_STRING_HELPERS_KUNIT_TEST is not set
 # CONFIG_TEST_KSTRTOX is not set
 # CONFIG_TEST_PRINTF is not set
 # CONFIG_TEST_BITMAP is not set
@@ -7074,7 +7071,6 @@ CONFIG_IP_NF_TARGET_ECN=m
 CONFIG_IP_NF_TARGET_TTL=m
 CONFIG_IP_NF_RAW=m
 CONFIG_IP_NF_SECURITY=m
-CONFIG_IP_NF_ARPTABLES=m
 CONFIG_IP_NF_ARPFILTER=m
 CONFIG_IP_NF_ARP_MANGLE=m
 
@@ -7530,7 +7526,6 @@ CONFIG_NET_ACT_GACT=m
 CONFIG_GACT_PROB=y
 CONFIG_NET_ACT_MIRRED=m
 CONFIG_NET_ACT_SAMPLE=m
-CONFIG_NET_ACT_IPT=m
 CONFIG_NET_ACT_NAT=m
 CONFIG_NET_ACT_PEDIT=m
 CONFIG_NET_ACT_SIMP=m

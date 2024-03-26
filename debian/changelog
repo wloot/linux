@@ -76,6 +76,17 @@ linux (6.9.2-1~exp1) UNRELEASED; urgency=medium
       - Adjust context in "sysfs: Add /sys/kernel/realtime entry"
   * tools/rtla: Restore option to set VERSION var to VERSION file's contents
   * d/rules.d: rtla: Update Makefile for upstream restructuring
+  * d/config: Update with the help of kconfigeditor2:
+    - [x86] arch/x86: Rename RETPOLINE to MITIGATION_RETPOLINE
+    - [amd64] arch/x86: Rename SLS to MITIGATION_SLS
+    - [x86] drivers/acpi: Remove ACPI_CUSTOM_METHOD
+    - drivers/mtd/maps: Remove MTD_INTEL_VR_NOR
+    - drivers/staging/board: Remove STAGING_BOARD
+    - fs/ntfs: Remove NTFS_FS
+    - lib/Kconfig.debug: Rename TEST_STRING_HELPERS to STRING_HELPERS_KUNIT_TEST
+    - net/bluetooth: Remove BT_HS
+    - net/ipv4/netfilter: Remove IP_NF_ARPTABLES
+    - net/sched: Remove NET_ACT_IPT
 
   [ Ben Hutchings ]
   * d/signing_templates/rules.real: Consistently define REAL_VERSION variable

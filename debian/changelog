@@ -801,6 +801,7 @@ linux (6.7.11-1) UNRELEASED; urgency=medium
   * [rt] Drop "printk: Add this_cpu_in_panic()"
   * [rt] "printk: ringbuffer: Cleanup reader terminology"
   * [rt] Drop "printk: Wait for all reserved records with pr_flush()"
+  * [rt] Drop "printk: ringbuffer: Skip non-finalized records in panic"
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 01 Apr 2024 10:25:39 +0200
 

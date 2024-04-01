@@ -46,7 +46,6 @@ preempt-Put-preempt_enable-within-an-instrumentation.patch
 ###########################################################################
 0005-printk-ringbuffer-Clarify-special-lpos-values.patch
 0006-printk-For-suppress_panic_printk-check-for-other-CPU.patch
-0007-printk-Add-this_cpu_in_panic.patch
 0008-printk-ringbuffer-Cleanup-reader-terminology.patch
 0009-printk-Wait-for-all-reserved-records-with-pr_flush.patch
 0010-printk-ringbuffer-Skip-non-finalized-records-in-pani.patch

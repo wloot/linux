@@ -794,6 +794,7 @@ linux (6.7.11-1) UNRELEASED; urgency=medium
   [ Salvatore Bonaccorso ]
   * [rt] Refresh "ARM: Allow to enable RT"
   * [rt] Drop "printk: nbcon: Relocate 32bit seq macros"
+  * [rt] Drop "printk: Adjust mapping for 32bit seq macros"
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 16 Mar 2024 11:21:42 +0100
 

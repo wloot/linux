@@ -44,7 +44,6 @@ preempt-Put-preempt_enable-within-an-instrumentation.patch
 ###########################################################################
 # John's printk queue
 ###########################################################################
-0002-printk-Adjust-mapping-for-32bit-seq-macros.patch
 0003-printk-Use-prb_first_seq-as-base-for-32bit-seq-macro.patch
 0004-printk-ringbuffer-Do-not-skip-non-finalized-records-.patch
 0005-printk-ringbuffer-Clarify-special-lpos-values.patch

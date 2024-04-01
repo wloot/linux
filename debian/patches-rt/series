@@ -44,7 +44,6 @@ preempt-Put-preempt_enable-within-an-instrumentation.patch
 ###########################################################################
 # John's printk queue
 ###########################################################################
-0004-printk-ringbuffer-Do-not-skip-non-finalized-records-.patch
 0005-printk-ringbuffer-Clarify-special-lpos-values.patch
 0006-printk-For-suppress_panic_printk-check-for-other-CPU.patch
 0007-printk-Add-this_cpu_in_panic.patch

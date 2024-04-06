@@ -1241,6 +1241,7 @@ linux (6.7.12-1) UNRELEASED; urgency=medium
   * [rt] Drop "printk: Disable passing console lock owner completely during
     panic()"
   * net/bluetooth: Remove BT_HS (Removed upstream)
+  * Refresh "efi: Lock down the kernel if booted in secure boot mode"
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 01 Apr 2024 10:25:39 +0200
 

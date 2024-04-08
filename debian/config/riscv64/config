@@ -124,6 +124,7 @@ CONFIG_LEDS_PWM=m
 ##
 ## file: drivers/leds/rgb/Kconfig
 ##
+CONFIG_LEDS_GROUP_MULTICOLOR=m
 CONFIG_LEDS_PWM_MULTICOLOR=m
 
 ##

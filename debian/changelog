@@ -395,7 +395,7 @@ linux (6.7.12-1) UNRELEASED; urgency=medium
     - [arm64] dts: rockchip: fix reset-names for rk356x i2s2 controller
     - [arm64] dts: rockchip: drop rockchip,trcm-sync-tx-only from rk3588 i2s
     - objtool: Fix UNWIND_HINT_{SAVE,RESTORE} across basic blocks
-    - [x86] relocs: Ignore relocations in .notes section
+    - [x86] relocs: Ignore relocations in .notes section (CVE-2024-26816)
     - SUNRPC: fix a memleak in gss_import_v2_context
     - SUNRPC: fix some memleaks in gssx_dec_option_array
     - [arm64] dts: qcom: sm8550: Fix SPMI channels size
@@ -731,7 +731,7 @@ linux (6.7.12-1) UNRELEASED; urgency=medium
     - tcp: Fix NEW_SYN_RECV handling in inet_twsk_purge()
     - rds: tcp: Fix use-after-free of net in reqsk_timer_handler().
     - [s390x] vtime: fix average steal time calculation
-    - net/sched: taprio: proper TCA_TAPRIO_TC_ENTRY_INDEX check
+    - net/sched: taprio: proper TCA_TAPRIO_TC_ENTRY_INDEX check (CVE-2024-26815)
     - devlink: Move private netlink flags to C file
     - devlink: Acquire device lock during netns dismantle
     - devlink: Enable the use of private flags in post_doit operations

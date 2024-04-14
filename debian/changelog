@@ -24,7 +24,6 @@ linux (6.8.8-1~exp1) UNRELEASED; urgency=medium
   * [amd64] drivers/platform/x86/amd/pmf: Enable AMD_PMF as module
     (Closes: #1063161)
   * Update to 6.8.8:
-    - [rt] Disable until it is updated for 6.8
     - Drop patches applied upstream:
       - "Partially revert 'MIPS: Add -Werror to arch/mips/Kbuild'"
       - "platform/x86: p2sb: On Goldmont only cache P2SB and SPI devfn BAR"
@@ -45,31 +44,6 @@ linux (6.8.8-1~exp1) UNRELEASED; urgency=medium
       - Adjust context in "efi: Lock down the kernel if booted in secure boot
         mode"
       - Adjust context in "Export symbols needed by Android drivers"
-    - [rt] Drop patches applied upstream:
-      - "printk: nbcon: Relocate 32bit seq macros"
-      - "printk: Adjust mapping for 32bit seq macros"
-      - "printk: Use prb_first_seq() as base for 32bit seq macros"
-      - "printk: ringbuffer: Do not skip non-finalized records with
-        prb_next_seq()"
-      - "printk: Add this_cpu_in_panic()"
-      - "printk: ringbuffer: Cleanup reader terminology"
-      - "printk: Wait for all reserved records with pr_flush()"
-      - "printk: ringbuffer: Skip non-finalized records in panic"
-      - "printk: Disable passing console lock owner completely during panic()"
-      - "printk: For @suppress_panic_printk check for other CPU in panic"
-      - "panic: Flush kernel log buffer at the end"
-    - [rt] Refresh patches:
-      - Adjust context in "zram: Replace bit spinlocks with spinlock_t for
-        PREEMPT_RT."
-      - Adjust context in "drm/i915: Use preempt_disable/enable_rt() where
-        recommended"
-      - Adjust context in "sched: define TIF_ALLOW_RESCHED"
-      - Adjust context in "ARM__Allow_to_enable_RT.patch"
-      - Adjust context in "powerpc/kvm: Disable in-kernel MPIC emulation for
-        PREEMPT_RT"
-      - Adjust context in "riscv: add PREEMPT_AUTO support"
-      - Adjust context in "printk: nbcon: Implement processing in port->lock"
-      - Adjust context in "printk: nbcon: Add unsafe flushing on panic"
   * d/copyright: Exclude 'action-ebpf' as that's a binary blob
   * d/installer/modules: Remove modules removed from upstream kernel
   * d/config: Update with the help of kconfigeditor2:
@@ -100,6 +74,7 @@ linux (6.8.8-1~exp1) UNRELEASED; urgency=medium
     - fs/fscache: Change FSCACHE to `y`
     - mm: Remove SLAB_DEPRECATED and SLUB
     - net/bpfilter: Remove BPFILTER
+  * [rt] Update to 6.8.2-rt11
 
   [ Vincent Blut ]
   * [arm64] Improve support for SolidRun Honeycomb Workstation:

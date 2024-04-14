@@ -75,10 +75,7 @@ zram-Replace-bit-spinlocks-with-spinlock_t-for-PREEM.patch
 # John's printk queue
 ###########################################################################
 0001-printk-ringbuffer-Clarify-special-lpos-values.patch
-0002-printk-For-suppress_panic_printk-check-for-other-CPU.patch
 0003-printk-Avoid-non-panic-CPUs-writing-to-ringbuffer.patch
-0004-panic-Flush-kernel-log-buffer-at-the-end.patch
-0005-dump_stack-Do-not-get-cpu_sync-for-panic-CPU.patch
 0006-printk-Add-notation-to-console_srcu-locking.patch
 0007-printk-Properly-deal-with-nbcon-consoles-on-seq-init.patch
 0008-printk-nbcon-Remove-return-value-for-write_atomic.patch

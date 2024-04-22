@@ -75,6 +75,7 @@ linux (6.9.2-1~exp1) UNRELEASED; urgency=medium
       - Adjust context in "riscv: allow to enable RT"
       - Adjust context in "sysfs: Add /sys/kernel/realtime entry"
   * tools/rtla: Restore option to set VERSION var to VERSION file's contents
+  * d/rules.d: rtla: Update Makefile for upstream restructuring
 
   [ Ben Hutchings ]
   * d/signing_templates/rules.real: Consistently define REAL_VERSION variable

@@ -1242,6 +1242,8 @@ linux (6.7.12-1) UNRELEASED; urgency=medium
     panic()"
   * net/bluetooth: Remove BT_HS (Removed upstream)
   * Refresh "efi: Lock down the kernel if booted in secure boot mode"
+  * Workaround FTBFS on dh_installdocs falls from different source package
+    (Closes: #1068189)
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 01 Apr 2024 10:25:39 +0200
 

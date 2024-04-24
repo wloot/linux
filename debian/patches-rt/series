@@ -44,18 +44,9 @@ preempt-Put-preempt_enable-within-an-instrumentation.patch
 ###########################################################################
 # John's printk queue
 ###########################################################################
-0001-printk-nbcon-Relocate-32bit-seq-macros.patch
-0002-printk-Adjust-mapping-for-32bit-seq-macros.patch
-0003-printk-Use-prb_first_seq-as-base-for-32bit-seq-macro.patch
-0004-printk-ringbuffer-Do-not-skip-non-finalized-records-.patch
 0005-printk-ringbuffer-Clarify-special-lpos-values.patch
 0006-printk-For-suppress_panic_printk-check-for-other-CPU.patch
-0007-printk-Add-this_cpu_in_panic.patch
-0008-printk-ringbuffer-Cleanup-reader-terminology.patch
-0009-printk-Wait-for-all-reserved-records-with-pr_flush.patch
-0010-printk-ringbuffer-Skip-non-finalized-records-in-pani.patch
 0011-printk-ringbuffer-Consider-committed-as-finalized-in.patch
-0012-printk-Disable-passing-console-lock-owner-completely.patch
 0013-printk-Avoid-non-panic-CPUs-writing-to-ringbuffer.patch
 0014-panic-Flush-kernel-log-buffer-at-the-end.patch
 0015-printk-Consider-nbcon-boot-consoles-on-seq-init.patch

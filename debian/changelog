@@ -9,6 +9,9 @@ linux (6.7.12-2~exp1) UNRELEASED; urgency=medium
     - [armhf] drivers/hwmon: Enable SENSORS_LM90 as module
     - [armhf] drivers/media/cec/platform: Enable CEC_TEGRA as module
   * drivers/thermal: Enable THERMAL_NETLINK
+  * [amd64] drivers/tee/amdtee: Enable AMDTEE as module
+  * [amd64] drivers/platform/x86/amd/pmf: Enable AMD_PMF as module
+    (Closes: #1063161)
 
   [ Vincent Blut ]
   * [arm64] Improve support for SolidRun Honeycomb Workstation:

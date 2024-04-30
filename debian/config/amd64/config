@@ -218,6 +218,11 @@ CONFIG_PINCTRL_AMD=y
 CONFIG_AMD_PMC=m
 
 ##
+## file: drivers/platform/x86/amd/pmf/Kconfig
+##
+CONFIG_AMD_PMF=m
+
+##
 ## file: drivers/platform/x86/intel/Kconfig
 ##
 CONFIG_INTEL_TPMI=m
@@ -246,6 +251,11 @@ CONFIG_SCSI_INIA100=m
 ## file: drivers/spi/Kconfig
 ##
 CONFIG_SPI_PXA2XX=m
+
+##
+## file: drivers/tee/amdtee/Kconfig
+##
+CONFIG_AMDTEE=m
 
 ##
 ## file: drivers/tty/Kconfig

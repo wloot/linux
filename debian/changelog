@@ -22,6 +22,7 @@ linux (6.7.12-2~exp1) UNRELEASED; urgency=medium
 
   [ Salvatore Bonaccorso ]
   * drivers/tty: Disable N_GSM
+  * tipc: fix UAF in error path
 
  -- Diederik de Haas <didi.debian@cknow.org>  Sat, 02 Mar 2024 14:13:12 +0100
 

@@ -94,6 +94,7 @@ linux (6.8.8-1~exp1) UNRELEASED; urgency=medium
 
   [ Ben Hutchings ]
   - d/salsa-ci.yml: Restore Python static checks on scripts
+  * linux-doc: Add python3-yaml to Build-Depends, required from 6.8
 
  -- Diederik de Haas <didi.debian@cknow.org>  Wed, 24 Apr 2024 10:47:12 +0200
 

@@ -20,6 +20,9 @@ linux (6.7.12-2~exp1) UNRELEASED; urgency=medium
     - drivers/phy/freescale: Enable PHY_FSL_LYNX_28G as module
       (Closes: #1061117)
 
+  [ Salvatore Bonaccorso ]
+  * drivers/tty: Disable N_GSM
+
  -- Diederik de Haas <didi.debian@cknow.org>  Sat, 02 Mar 2024 14:13:12 +0100
 
 linux (6.7.12-1) unstable; urgency=medium

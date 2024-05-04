@@ -86,6 +86,7 @@ linux (6.8.8-1~exp1) UNRELEASED; urgency=medium
     - [arm64] drivers/nvmem: Enable NVMEM_LAYERSCAPE_SFP as module
     - [arm64] drivers/rtc: Enable RTC_DRV_FSL_FTM_ALARM as module
     - [arm64] drivers/soc/fsl: Enable FSL_RCPM
+  * d/templates: Change firmware-linux-free from Recommends to Suggests
 
   [ Vincent Blut ]
   * [arm64] Improve support for SolidRun Honeycomb Workstation:

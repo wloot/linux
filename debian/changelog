@@ -80,6 +80,12 @@ linux (6.8.8-1~exp1) UNRELEASED; urgency=medium
     - "panic: Flush kernel log buffer at the end"
     - "dump_stack: Do not get cpu_sync for panic CPU"
   * [arm64] net/rfkill: Enable RFKILL_GPIO as module
+  * [arm64] Further improve support for SolidRun HoneyComb (Closes: #1065611):
+    - [arm64] drivers/hwmon/pmbus: Enable PMBUS, SENSORS_PMBUS and
+      SENSORS_LTC2978 as modules
+    - [arm64] drivers/nvmem: Enable NVMEM_LAYERSCAPE_SFP as module
+    - [arm64] drivers/rtc: Enable RTC_DRV_FSL_FTM_ALARM as module
+    - [arm64] drivers/soc/fsl: Enable FSL_RCPM
 
   [ Vincent Blut ]
   * [arm64] Improve support for SolidRun Honeycomb Workstation:

@@ -8112,6 +8112,11 @@ CONFIG_SND_USB_TONEPORT=m
 CONFIG_SND_USB_VARIAX=m
 
 ##
+## file: sound/virtio/Kconfig
+##
+CONFIG_SND_VIRTIO=m
+
+##
 ## file: sound/xen/Kconfig
 ##
 CONFIG_SND_XEN_FRONTEND=m

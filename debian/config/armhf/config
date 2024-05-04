@@ -2,9 +2,6 @@
 ## file: arch/arm/Kconfig
 ##
 CONFIG_ARCH_MULTIPLATFORM=y
-# CONFIG_ARCH_MULTI_V6 is not set
-CONFIG_ARCH_MULTI_V7=y
-CONFIG_ARCH_VIRT=y
 CONFIG_ARM_ERRATA_430973=y
 CONFIG_ARM_ERRATA_643719=y
 CONFIG_ARM_ERRATA_754327=y
@@ -33,6 +30,13 @@ CONFIG_KERNEL_MODE_NEON=y
 ##
 #. DEBUG_LL is incompatible with multiplatform
 # CONFIG_DEBUG_LL is not set
+
+##
+## file: arch/arm/Kconfig.platforms
+##
+# CONFIG_ARCH_MULTI_V6 is not set
+CONFIG_ARCH_MULTI_V7=y
+CONFIG_ARCH_VIRT=y
 
 ##
 ## file: arch/arm/crypto/Kconfig
@@ -743,7 +747,7 @@ CONFIG_VIDEO_MUX=m
 CONFIG_VIDEO_ASPEED=m
 
 ##
-## file: drivers/media/platform/chips-media/Kconfig
+## file: drivers/media/platform/chips-media/coda/Kconfig
 ##
 CONFIG_VIDEO_CODA=m
 
@@ -1621,7 +1625,6 @@ CONFIG_BACKLIGHT_GPIO=m
 ##
 ## file: drivers/video/fbdev/Kconfig
 ##
-CONFIG_FB_ARMCLCD=y
 CONFIG_FB_EFI=y
 CONFIG_FB_VT8500=y
 CONFIG_FB_WM8505=y

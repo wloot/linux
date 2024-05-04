@@ -10,7 +10,6 @@ debian/dfsg/documentation-fix-broken-link-to-cipso-draft.patch
 debian/version.patch
 debian/uname-version-timestamp.patch
 debian/kernelvariables.patch
-debian/mips-disable-werror.patch
 debian/mips-boston-disable-its.patch
 debian/mips-ieee754-relaxed.patch
 debian/arch-sh4-fix-uimage-build.patch
@@ -78,7 +77,6 @@ bugfix/all/disable-some-marvell-phys.patch
 bugfix/all/fs-add-module_softdep-declarations-for-hard-coded-cr.patch
 
 # Miscellaneous features
-features/all/driver-core-Emit-reason-for-pending-deferred-probe.patch
 
 # Lockdown missing pieces
 features/all/lockdown/efi-add-an-efi_secure_boot-flag-to-indicate-secure-b.patch

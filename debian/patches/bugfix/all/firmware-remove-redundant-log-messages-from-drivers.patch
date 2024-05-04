@@ -1279,22 +1279,6 @@ upstream submission.
  
  	at76_dbg(DBG_FW, "got it.");
  	fwh = (struct at76_fw_header *)(fwe->fw->data);
---- a/drivers/net/wireless/atmel/atmel.c
-+++ b/drivers/net/wireless/atmel/atmel.c
-@@ -3820,12 +3820,8 @@ static int reset_atmel_card(struct net_d
- 					strcpy(priv->firmware_id, "atmel_at76c502.bin");
- 				}
- 				err = request_firmware(&fw_entry, priv->firmware_id, priv->sys_dev);
--				if (err != 0) {
--					printk(KERN_ALERT
--					       "%s: firmware %s is missing, cannot continue.\n",
--					       dev->name, priv->firmware_id);
-+				if (err != 0)
- 					return err;
--				}
- 			} else {
- 				int fw_index = 0;
- 				int success = 0;
 --- a/drivers/net/wireless/broadcom/b43/main.c
 +++ b/drivers/net/wireless/broadcom/b43/main.c
 @@ -2245,19 +2245,8 @@ int b43_do_request_fw(struct b43_request
@@ -1408,50 +1392,6 @@ upstream submission.
  		if (cfg->ucode_api_min == cfg->ucode_api_max) {
  			IWL_ERR(drv, "%s-%d is required\n", fw_name_pre,
  				cfg->ucode_api_max);
---- a/drivers/net/wireless/intersil/orinoco/fw.c
-+++ b/drivers/net/wireless/intersil/orinoco/fw.c
-@@ -132,7 +132,6 @@ orinoco_dl_firmware(struct orinoco_priva
- 		err = request_firmware(&fw_entry, firmware, priv->dev);
- 
- 		if (err) {
--			dev_err(dev, "Cannot find firmware %s\n", firmware);
- 			err = -ENOENT;
- 			goto free;
- 		}
-@@ -292,10 +291,8 @@ symbol_dl_firmware(struct orinoco_privat
- 	const struct firmware *fw_entry;
- 
- 	if (!orinoco_cached_fw_get(priv, true)) {
--		if (request_firmware(&fw_entry, fw->pri_fw, priv->dev) != 0) {
--			dev_err(dev, "Cannot find firmware: %s\n", fw->pri_fw);
-+		if (request_firmware(&fw_entry, fw->pri_fw, priv->dev) != 0)
- 			return -ENOENT;
--		}
- 	} else
- 		fw_entry = orinoco_cached_fw_get(priv, true);
- 
-@@ -311,10 +308,8 @@ symbol_dl_firmware(struct orinoco_privat
- 	}
- 
- 	if (!orinoco_cached_fw_get(priv, false)) {
--		if (request_firmware(&fw_entry, fw->sta_fw, priv->dev) != 0) {
--			dev_err(dev, "Cannot find firmware: %s\n", fw->sta_fw);
-+		if (request_firmware(&fw_entry, fw->sta_fw, priv->dev) != 0)
- 			return -ENOENT;
--		}
- 	} else
- 		fw_entry = orinoco_cached_fw_get(priv, false);
- 
---- a/drivers/net/wireless/intersil/orinoco/orinoco_usb.c
-+++ b/drivers/net/wireless/intersil/orinoco/orinoco_usb.c
-@@ -1708,7 +1708,6 @@ static int ezusb_probe(struct usb_interf
- 		if (ezusb_firmware_download(upriv, &firmware) < 0)
- 			goto error;
- 	} else {
--		err("No firmware to download");
- 		goto error;
- 	}
- 
 --- a/drivers/net/wireless/intersil/p54/p54pci.c
 +++ b/drivers/net/wireless/intersil/p54/p54pci.c
 @@ -502,7 +502,6 @@ static void p54p_firmware_step2(const st
@@ -1637,17 +1577,6 @@ upstream submission.
  
  	if (fw->size % 4) {
  		wl1271_error("firmware size is not multiple of 32 bits: %zu",
---- a/drivers/net/wireless/zydas/zd1201.c
-+++ b/drivers/net/wireless/zydas/zd1201.c
-@@ -62,8 +62,6 @@ static int zd1201_fw_upload(struct usb_d
- 
- 	err = request_firmware(&fw_entry, fwfile, &dev->dev);
- 	if (err) {
--		dev_err(&dev->dev, "Failed to load %s firmware file!\n", fwfile);
--		dev_err(&dev->dev, "Make sure the hotplug firmware loader is installed.\n");
- 		dev_err(&dev->dev, "Goto http://linux-lc100020.sourceforge.net for more info.\n");
- 		return err;
- 	}
 --- a/drivers/net/wireless/zydas/zd1211rw/zd_usb.c
 +++ b/drivers/net/wireless/zydas/zd1211rw/zd_usb.c
 @@ -107,16 +107,9 @@ static void int_urb_complete(struct urb

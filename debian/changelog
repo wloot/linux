@@ -106,6 +106,9 @@ linux (6.8.8-1~exp1) UNRELEASED; urgency=medium
   [ Stuart Hayhurst ]
   * sound: Enable TAS2781 Smart Amp modules
 
+  [ Eric Mackay ]
+  * [arm64] Dynamically allocate cpumasks and increase supported CPUs to 512
+
  -- Diederik de Haas <didi.debian@cknow.org>  Wed, 24 Apr 2024 10:47:12 +0200
 
 linux (6.7.12-1) unstable; urgency=medium

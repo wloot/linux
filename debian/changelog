@@ -93,6 +93,7 @@ linux (6.8.8-1~exp1) UNRELEASED; urgency=medium
       (Closes: #1061116)
     - drivers/phy/freescale: Enable PHY_FSL_LYNX_28G as module
       (Closes: #1061117)
+  * sound/virtio: Enable SND_VIRTIO as module (Closes: #1059089)
 
   [ Salvatore Bonaccorso ]
   * drivers/tty: Disable N_GSM

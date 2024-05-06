@@ -19,6 +19,7 @@ linux (6.10-1~exp2) UNRELEASED; urgency=medium
       as module
     - [arm64] drivers/media/i2c: Enable VIDEO_OV5648 and VIDEO_DW9714 as module
   * drivers/devfreq: Enable PM_DEVFREQ
+  * [arm64,armhf] drivers/devfreq: Make DEVFREQ_GOV_SIMPLE_ONDEMAND builtin
 
   [ Emanuele Rocca ]
   * [arm64] Enable support for Renesas boards RZ/G3S (ARCH_R9A08G045) and

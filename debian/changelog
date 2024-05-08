@@ -111,6 +111,10 @@ linux (6.8.8-1~exp1) UNRELEASED; urgency=medium
   [ Eric Mackay ]
   * [arm64] Dynamically allocate cpumasks and increase supported CPUs to 512
 
+  [ Uwe Kleine-König ]
+  * [arm64,armhf] Enable SND_SOC_WM8804_I2C for the hifiberry-digi raspberry
+    hat.
+
  -- Diederik de Haas <didi.debian@cknow.org>  Wed, 24 Apr 2024 10:47:12 +0200
 
 linux (6.7.12-1) unstable; urgency=medium

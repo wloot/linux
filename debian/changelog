@@ -1,4 +1,4 @@
-linux (6.8.8-1~exp1) UNRELEASED; urgency=medium
+linux (6.8.9-1~exp1) UNRELEASED; urgency=medium
 
   * New upstream release: https://kernelnewbies.org/Linux_6.8
   * New upstream stable update:
@@ -10,6 +10,7 @@ linux (6.8.8-1~exp1) UNRELEASED; urgency=medium
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.8.6
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.8.7
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.8.8
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.8.9
 
   [ Diederik de Haas ]
   * d/templates/main.control.in: Add python3-dacite as linux-support Depends

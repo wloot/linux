@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 12 Mar 2024 19:01:50 +0100
 Subject: [PATCH 2/4] perf: Enqueue SIGTRAP always via task_work.
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.8/older/patches-6.8.2-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.9/older/patches-6.9-rt5.tar.xz
 
 A signal is delivered by raising irq_work() which works from any context
 including NMI. irq_work() can be delayed if the architecture does not
@@ -89,7 +89,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  		if (event->pending_disable) {
  			event->pending_disable = 0;
  			perf_event_disable_local(event);
-@@ -9592,14 +9572,23 @@ static int __perf_event_overflow(struct
+@@ -9588,14 +9568,23 @@ static int __perf_event_overflow(struct
  
  		if (regs)
  			pending_id = hash32_ptr((void *)instruction_pointer(regs)) ?: 1;
@@ -117,7 +117,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  			 *
  			 *  1. Where !exclude_kernel, events can overflow again
  			 *     in the kernel without returning to user space.
-@@ -9609,7 +9598,7 @@ static int __perf_event_overflow(struct
+@@ -9605,7 +9594,7 @@ static int __perf_event_overflow(struct
  			 *     To approximate progress (with false negatives),
  			 *     check 32-bit hash of the current IP.
  			 */
@@ -126,7 +126,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  		}
  
  		event->pending_addr = 0;
-@@ -13049,6 +13038,13 @@ static void sync_child_event(struct perf
+@@ -13045,6 +13034,13 @@ static void sync_child_event(struct perf
  		     &parent_event->child_total_time_running);
  }
  
@@ -140,7 +140,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  static void
  perf_event_exit_event(struct perf_event *event, struct perf_event_context *ctx)
  {
-@@ -13088,6 +13084,17 @@ perf_event_exit_event(struct perf_event
+@@ -13084,6 +13080,17 @@ perf_event_exit_event(struct perf_event
  		 * Kick perf_poll() for is_event_hup();
  		 */
  		perf_event_wakeup(parent_event);

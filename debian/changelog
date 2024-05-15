@@ -14,7 +14,6 @@ linux (6.9.2-1~exp1) UNRELEASED; urgency=medium
   * [arm64] drivers/leds/rgb: Enable LEDS_PWM_MULTICOLOR as module
   * [arm*,riscv64] drivers/pps/clients: Enable PPS_CLIENT_GPIO as module
   * Update to 6.9.2:
-    - [rt] Disable until it is updated for 6.9
     - Drop patches:
       - "ntfs: mark it as broken"; ntfs driver removed upstream
     - Drop patches applied upstream:
@@ -39,41 +38,6 @@ linux (6.9.2-1~exp1) UNRELEASED; urgency=medium
         mode"
       - Adjust context in "Revert 'perf build: Fix libunwind feature detection
         on 32-bit x86'"
-    - [rt] Drop patches applied upstream:
-      - "serial: amba-pl011: Use uart_prepare_sysrq_char()."
-      - "serial: ar933x: Use uart_prepare_sysrq_char()."
-      - "serial: bcm63xx: Use uart_prepare_sysrq_char()."
-      - "serial: meson: Use uart_prepare_sysrq_char()."
-      - "serial: msm: Use uart_prepare_sysrq_char()."
-      - "serial: omap: Use uart_prepare_sysrq_char()."
-      - "serial: pxa: Use uart_prepare_sysrq_char()."
-      - "serial: sunplus: Use uart_prepare_sysrq_char()."
-      - "serial: lpc32xx_hs: Use uart_prepare_sysrq_char() to handle sysrq."
-      - "serial: owl: Use uart_prepare_sysrq_char() to handle sysrq."
-      - "serial: rda: Use uart_prepare_sysrq_char() to handle sysrq."
-      - "serial: sifive: Use uart_prepare_sysrq_char() to handle sysrq."
-      - "serial: pch: Invoke handle_rx_to() directly."
-      - "serial: pch: Make push_rx() return void."
-      - "serial: pch: Don't disable interrupts while acquiring lock in ISR."
-      - "serial: pch: Don't initialize uart_port's spin_lock."
-      - "serial: pch: Remove eg20t_port::lock."
-      - "serial: pch: Use uart_prepare_sysrq_char()."
-      - "printk: ringbuffer: Clarify special lpos values"
-      - "printk: For @suppress_panic_printk check for other CPU in panic"
-      - "printk: Avoid non-panic CPUs writing to ringbuffer"
-      - "panic: Flush kernel log buffer at the end"
-      - "dump_stack: Do not get cpu_sync for panic CPU"
-      - "printk: nbcon: Fix kerneldoc for enums"
-    - [rt] Refresh patches:
-      - Adjust context in "net: Allow to use SMP threads for backlog NAPI."
-      - Adjust context in "softirq: Use a dedicated thread for timer wakeups."
-      - Adjust context in "tick: Fix timer storm since introduction of timersd"
-      - Adjust context in "printk: nbcon: Introduce printing kthreads"
-      - Adjust context in "printk: Provide threadprintk boot argument"
-      - Adjust context in "drm/i915: Don't disable interrupts on PREEMPT_RT
-        during atomic updates"
-      - Adjust context in "riscv: allow to enable RT"
-      - Adjust context in "sysfs: Add /sys/kernel/realtime entry"
   * tools/rtla: Restore option to set VERSION var to VERSION file's contents
   * d/rules.d: rtla: Update Makefile for upstream restructuring
   * d/config: Update with the help of kconfigeditor2:
@@ -87,6 +51,7 @@ linux (6.9.2-1~exp1) UNRELEASED; urgency=medium
     - net/bluetooth: Remove BT_HS
     - net/ipv4/netfilter: Remove IP_NF_ARPTABLES
     - net/sched: Remove NET_ACT_IPT
+  * [rt] Update to 6.9-rt5
 
   [ Ben Hutchings ]
   * d/signing_templates/rules.real: Consistently define REAL_VERSION variable

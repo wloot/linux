@@ -1270,6 +1270,11 @@ CONFIG_CHARGER_BQ2415X=m
 CONFIG_CHARGER_BQ24735=m
 
 ##
+## file: drivers/pps/clients/Kconfig
+##
+CONFIG_PPS_CLIENT_GPIO=m
+
+##
 ## file: drivers/pwm/Kconfig
 ##
 CONFIG_PWM=y

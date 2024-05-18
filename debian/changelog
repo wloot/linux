@@ -7,6 +7,7 @@ linux (6.8.9-1.1) UNRELEASED; urgency=medium
   [ Diederik de Haas ]
   * [arm64,riscv64] drivers/leds/rgb: Enable LEDS_GROUP_MULTICOLOR as module
   * [arm64] drivers/leds/rgb: Enable LEDS_PWM_MULTICOLOR as module
+  * [arm*,riscv64] drivers/pps/clients: Enable PPS_CLIENT_GPIO as module
 
  -- Johannes Schauer Marin Rodrigues <josch@debian.org>  Fri, 17 May 2024 17:30:21 +0200
 

@@ -1694,6 +1694,11 @@ CONFIG_CHARGER_RK817=m
 CONFIG_CHARGER_CROS_USBPD=m
 
 ##
+## file: drivers/pps/clients/Kconfig
+##
+CONFIG_PPS_CLIENT_GPIO=m
+
+##
 ## file: drivers/ptp/Kconfig
 ##
 CONFIG_PTP_1588_CLOCK_QORIQ=m

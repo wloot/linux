@@ -12,6 +12,7 @@ linux (6.8.9-1.1) UNRELEASED; urgency=medium
   [ Ben Hutchings ]
   * d/signing_templates/rules.real: Consistently define REAL_VERSION variable
   * d/signing_templates: Define BUILD_DIR and STAMPS_DIR, and clean those dirs
+  * d/signing_templates/rules.real: Use an intermediate install directory
 
  -- Johannes Schauer Marin Rodrigues <josch@debian.org>  Fri, 17 May 2024 17:30:21 +0200
 

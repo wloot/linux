@@ -11,6 +11,8 @@ export DEB_RULES_REQUIRES_ROOT ?= no
 GENCONTROL_ARGS := -v@signedtemplate_binaryversion@
 BUILDDEB_ARGS := -Zxz $(if $(filter pkg.linux.quick,$(DEB_BUILD_PROFILES)),-z0)
 
+stamp = [ -d $(dir $@) ] || mkdir $(dir $@); touch $@
+
 define dh_binary_pre
 	dh_testroot
 	dh_prep
@@ -52,30 +54,41 @@ endef
 
 build-indep:
 
+$(STAMPS_DIR)/install_$(ARCH)_$(FEATURESET)_$(FLAVOUR): REAL_VERSION = $(ABINAME)$(LOCALVERSION)
+$(STAMPS_DIR)/install_$(ARCH)_$(FEATURESET)_$(FLAVOUR): IMAGE_PACKAGE_NAME = linux-image-$(REAL_VERSION)-unsigned
+$(STAMPS_DIR)/install_$(ARCH)_$(FEATURESET)_$(FLAVOUR): SIGNATURE_DIR = debian/signatures/$(IMAGE_PACKAGE_NAME)
+$(STAMPS_DIR)/install_$(ARCH)_$(FEATURESET)_$(FLAVOUR): INSTALL_DIR=$(BUILD_DIR)/install_$(ARCH)_$(FEATURESET)_$(FLAVOUR)
+$(STAMPS_DIR)/install_$(ARCH)_$(FEATURESET)_$(FLAVOUR):
+	mkdir -p $(INSTALL_DIR)/boot
+	rsync -a $(patsubst %,/boot/%-$(REAL_VERSION),config System.map $(IMAGE_INSTALL_STEM)) \
+		$(INSTALL_DIR)/boot/
+	sbattach --attach $(SIGNATURE_DIR)/boot/vmlinuz-$(REAL_VERSION).sig \
+		$(INSTALL_DIR)/boot/vmlinuz-$(REAL_VERSION)
+	mkdir -p $(INSTALL_DIR)/lib/modules/$(REAL_VERSION)
+	rsync -a $(addprefix /lib/modules/$(REAL_VERSION)/,kernel modules.builtin modules.builtin.modinfo modules.order) \
+		$(INSTALL_DIR)/lib/modules/$(REAL_VERSION)/
+# Copy any device tree files
+	if [ -d /usr/lib/linux-image-$(REAL_VERSION) ]; then \
+		mkdir -p $(INSTALL_DIR)/usr/lib/linux-image-$(REAL_VERSION); \
+		rsync -a /usr/lib/linux-image-$(REAL_VERSION)/ \
+			$(INSTALL_DIR)/usr/lib/linux-image-$(REAL_VERSION)/; \
+	fi
+	$(stamp)
+
 build_image:
 
 binary_image: DH_OPTIONS = -p$(PACKAGE_NAME)
 binary_image: DH_STRIP_ARGS = --no-automatic-dbgsym
 binary_image: REAL_VERSION = $(ABINAME)$(LOCALVERSION)
 binary_image: IMAGE_PACKAGE_NAME = linux-image-$(REAL_VERSION)-unsigned
+binary_image: DIR2 = $(BUILD_DIR)/install_$(ARCH)_$(FEATURESET)_$(FLAVOUR)
 binary_image: PACKAGE_DIR = debian/$(PACKAGE_NAME)
-binary_image: SIGNATURE_DIR = debian/signatures/$(IMAGE_PACKAGE_NAME)
+binary_image: $(STAMPS_DIR)/install_$(ARCH)_$(FEATURESET)_$(FLAVOUR)
 binary_image:
 	$(dh_binary_pre)
-	mkdir -p $(PACKAGE_DIR)/boot
-	rsync -a $(patsubst %,/boot/%-$(REAL_VERSION),config System.map $(IMAGE_INSTALL_STEM)) \
-		$(PACKAGE_DIR)/boot/
-	sbattach --attach $(SIGNATURE_DIR)/boot/vmlinuz-$(REAL_VERSION).sig \
-		$(PACKAGE_DIR)/boot/vmlinuz-$(REAL_VERSION)
-	mkdir -p $(PACKAGE_DIR)/lib/modules/$(REAL_VERSION)
-	rsync -a $(addprefix /lib/modules/$(REAL_VERSION)/,kernel modules.builtin modules.builtin.modinfo modules.order) \
-		$(PACKAGE_DIR)/lib/modules/$(REAL_VERSION)/
-# Copy any device tree files
-	if [ -d /usr/lib/linux-image-$(REAL_VERSION) ]; then \
-		mkdir -p $(PACKAGE_DIR)/usr/lib/linux-image-$(REAL_VERSION); \
-		rsync -a /usr/lib/linux-image-$(REAL_VERSION)/ \
-			$(PACKAGE_DIR)/usr/lib/linux-image-$(REAL_VERSION)/; \
-	fi
+	dh_install --sourcedir=$(DIR2) boot
+	dh_install --sourcedir=$(DIR2) lib
+	if [ -d $(DIR2)/usr ]; then dh_install --sourcedir=$(DIR2) usr; fi
 # Copy bug scripts but change the info file to refer to the right package
 	mkdir -p $(PACKAGE_DIR)/usr/share/bug/$(PACKAGE_NAME)
 	rsync -a /usr/share/bug/$(IMAGE_PACKAGE_NAME)/ \
@@ -96,9 +109,9 @@ build_installer:
 binary_installer: REAL_VERSION = $(ABINAME)$(LOCALVERSION)
 binary_installer: export KW_DEFCONFIG_DIR=debian/installer
 binary_installer: export KW_CONFIG_DIR=debian/installer
-# XXX No make dependency exists for this directory
-binary_installer: export SOURCEDIR = debian/linux-image-$(REAL_VERSION)
+binary_installer: export SOURCEDIR = $(BUILD_DIR)/install_$(ARCH)_$(FEATURESET)_$(FLAVOUR)
 binary_installer: DH_OPTIONS_IMAGE = -p$(IMAGE_PACKAGE_NAME) --sourcedir=$(SOURCEDIR)
+binary_installer: $(STAMPS_DIR)/install_$(ARCH)_$(FEATURESET)_$(FLAVOUR)
 binary_installer:
 	$(dh_binary_pre)
 	DH_OPTIONS="$(DH_OPTIONS_IMAGE)" dh_install boot/$(IMAGE_INSTALL_STEM)-$(REAL_VERSION)

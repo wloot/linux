@@ -2,6 +2,8 @@ include /usr/share/dpkg/default.mk
 
 SHELL := bash -e
 
+include debian/rules.defs
+
 export DH_OPTIONS
 
 export DEB_RULES_REQUIRES_ROOT ?= no

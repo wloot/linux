@@ -52,6 +52,7 @@ linux (6.9.2-1~exp1) UNRELEASED; urgency=medium
     - net/ipv4/netfilter: Remove IP_NF_ARPTABLES
     - net/sched: Remove NET_ACT_IPT
   * [rt] Update to 6.9-rt5
+  * [rt] pinctrl: renesas: rzg2l: use spin_{lock,unlock}_irq{save,restore}
 
   [ Ben Hutchings ]
   * d/signing_templates/rules.real: Consistently define REAL_VERSION variable

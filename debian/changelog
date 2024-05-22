@@ -17,6 +17,7 @@ linux (6.9.6-1~exp1) UNRELEASED; urgency=medium
     Temporarily disable RELR relocation packing to workaround failing boots
     on arm64 with recent binutils/2.42.50.20240618-1, cf. #1074111.
   * lib/python/debian_linux: Fix two E201/E202 whitespace errors
+  * Drop "sched: Do not enable autogrouping by default" patch (Closes: #1070083)
 
   [ Aurelien Jarno ]
   * [riscv64] crypto: enable CRYPTO_AES_RISCV64, CRYPTO_CHACHA_RISCV64,

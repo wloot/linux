@@ -9,6 +9,13 @@ linux (6.8.9-2~exp1) UNRELEASED; urgency=medium
   * [arm64] drivers/leds/rgb: Enable LEDS_PWM_MULTICOLOR as module
   * [arm*,riscv64] drivers/pps/clients: Enable PPS_CLIENT_GPIO as module
 
+  [ Ben Hutchings ]
+  * d/signing_templates/rules.real: Consistently define REAL_VERSION variable
+  * d/signing_templates: Define BUILD_DIR and STAMPS_DIR, and clean those dirs
+  * d/signing_templates/rules.real: Use an intermediate install directory
+  * Revert "Revert "Run dh_movetousr also in signed images."", as this now
+    works
+
  -- Johannes Schauer Marin Rodrigues <josch@debian.org>  Fri, 17 May 2024 17:30:21 +0200
 
 linux (6.8.9-1) unstable; urgency=medium

@@ -31,6 +31,7 @@ linux (6.8.9-2~exp1) UNRELEASED; urgency=medium
   [ Alper Nebi Yasak ]
   * [arm64] Merge and document MediaTek-related changes by Macpaul Lin:
     - Resolve conflicts with merge requests merged earlier
+    - Clean up config with the help of kconfigeditor2
 
  -- Johannes Schauer Marin Rodrigues <josch@debian.org>  Fri, 17 May 2024 17:30:21 +0200
 

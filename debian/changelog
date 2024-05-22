@@ -16,6 +16,32 @@ linux (6.8.9-2~exp1) UNRELEASED; urgency=medium
   * Revert "Revert "Run dh_movetousr also in signed images."", as this now
     works
 
+  [ Macpaul Lin ]
+  * [arm64] Enable support for various MediaTek SoCs:
+    - Enable COMMON_CLK_MT8188 and related clocks, COMMON_CLK_MT8365 and
+      related clocks, and COMMON_CLK_MT8195_IPESYS as modules
+    - Enable pin controllers for MT2712, MT6765, MT6779, MT6795, MT6797,
+      MT7622, MT7981, MT7986, MT8167, MT8186, MT8188, MT8192, MT8365,
+      MT8516, MT6397
+    - Enable REGULATOR_MT6357, REGULATOR_MT6360 as modules
+    - Enable CHARGER_MT6360 and TYPEC_MT6360 as modules
+    - Enable REALTEK_PHY, DWMAC_MEDIATEK as modules
+    - Enable MTK_DEVAPC as a module
+
+  [ Alper Nebi Yasak ]
+  * [arm64] Merge and document MediaTek-related changes by Macpaul Lin:
+    - Resolve conflicts with merge requests merged earlier
+    - Clean up config with the help of kconfigeditor2
+    - Change COMMON_CLK_MT8188, COMMON_CLK_MT8365 to be modules
+  * [arm64] Enable more clock drivers for various MediaTek SoCs:
+    - Enable COMMON_CLK_MT2712, COMMON_CLK_MT6779, COMMON_CLK_MT6795,
+      COMMON_CLK_MT7622, COMMON_CLK_MT7986, COMMON_CLK_MT8167,
+      COMMON_CLK_MT8186, COMMON_CLK_MT8192, COMMON_CLK_MT8516,
+      and all their related clocks as modules
+    - Enable COMMON_CLK_MT6765, COMMON_CLK_MT6797, COMMON_CLK_MT7981 as
+      built-in (no module choice) and enable all their related clocks as
+      modules
+
  -- Johannes Schauer Marin Rodrigues <josch@debian.org>  Fri, 17 May 2024 17:30:21 +0200
 
 linux (6.8.9-1) unstable; urgency=medium

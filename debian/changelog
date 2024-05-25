@@ -1,4 +1,4 @@
-linux (6.8.10-1) UNRELEASED; urgency=medium
+linux (6.8.11-1) UNRELEASED; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.8.10
@@ -342,6 +342,32 @@ linux (6.8.10-1) UNRELEASED; urgency=medium
     - dmaengine: idxd: add a write() method for applications to submit work
       (CVE-2024-21823)
     - keys: Fix overwrite of key expiration on instantiation
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.8.11
+    - drm/amd/display: Fix division by zero in setup_dsc_config
+    - net: ks8851: Fix another TX stall caused by wrong ISR flag handling
+    - ice: pass VSI pointer into ice_vc_isvalid_q_id
+    - ice: remove unnecessary duplicate checks for VF VSI ID
+    - Bluetooth: L2CAP: Fix slab-use-after-free in l2cap_connect()
+      (CVE-2024-36013)
+    - Bluetooth: L2CAP: Fix div-by-zero in l2cap_le_flowctl_init()
+    - KEYS: trusted: Fix memory leak in tpm2_key_encode()
+    - erofs: get rid of erofs_fs_context
+    - erofs: reliably distinguish block based and fscache mode
+    - [arm*] binder: fix max_thread type inconsistency
+    - usb: dwc3: Wait unconditionally after issuing EndXfer command
+    - net: usb: ax88179_178a: fix link status when link is set to down/up
+    - usb: typec: ucsi: displayport: Fix potential deadlock
+    - usb: typec: tipd: fix event checking for tps25750
+    - usb: typec: tipd: fix event checking for tps6598x
+    - serial: kgdboc: Fix NMI-safety problems from keyboard reset code
+    - remoteproc: mediatek: Make sure IPI buffer fits in L2TCM
+    - KEYS: trusted: Do not use WARN when encode fails
+    - admin-guide/hw-vuln/core-scheduling: fix return type of PR_SCHED_CORE_GET
+    - docs: kernel_include.py: Cope with docutils 0.21
+    - Docs/admin-guide/mm/damon/usage: fix wrong example of DAMOS filter
+      matching sysfs file
+    - block: add a disk_has_partscan helper
+    - block: add a partscan sysfs attribute for disks
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 19 May 2024 15:18:19 +0200
 

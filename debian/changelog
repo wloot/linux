@@ -1,4 +1,4 @@
-linux (6.8.11-1) UNRELEASED; urgency=medium
+linux (6.8.11-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.8.10
@@ -369,7 +369,7 @@ linux (6.8.11-1) UNRELEASED; urgency=medium
     - block: add a disk_has_partscan helper
     - block: add a partscan sysfs attribute for disks
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 19 May 2024 15:18:19 +0200
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 26 May 2024 07:52:48 +0200
 
 linux (6.8.9-1) unstable; urgency=medium
 

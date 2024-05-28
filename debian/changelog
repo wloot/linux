@@ -42,6 +42,10 @@ linux (6.8.11-2~exp1) UNRELEASED; urgency=medium
       built-in (no module choice) and enable all their related clocks as
       modules
 
+  [ Vincent Blut ]
+  * [x86] drivers/pinctrl/intel: Enable PINCTRL_METEORLAKE and
+    PINCTRL_METEORPOINT as modules (Closes: #1071551)
+
  -- Johannes Schauer Marin Rodrigues <josch@debian.org>  Fri, 17 May 2024 17:30:21 +0200
 
 linux (6.8.11-1) unstable; urgency=medium

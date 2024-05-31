@@ -1,4 +1,4 @@
-linux (6.8.12-1) UNRELEASED; urgency=medium
+linux (6.8.12-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.8.12
@@ -481,7 +481,7 @@ linux (6.8.12-1) UNRELEASED; urgency=medium
     - net: txgbe: fix to clear interrupt status after handling IRQ
     - net: txgbe: fix GPIO interrupt blocking
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 30 May 2024 20:53:33 +0200
+ -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 31 May 2024 20:24:01 +0200
 
 linux (6.8.11-1) unstable; urgency=medium
 

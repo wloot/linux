@@ -64,6 +64,13 @@ linux (6.10-1~exp2) UNRELEASED; urgency=medium
   * [mips64el] Add mips64r6el flavor.
   * [mips*] Enable R2 to R6 emulator for all R6 flavors.
 
+  [ Sergio Durigan Junior ]
+  * Enable debuginfod support. (Closes: #1072311)
+    libdebuginfod is dual-licensed LGPL-3+ and GPL-2+, which makes it
+    possible for perf to link against the library.
+    - d/rules.d/t/perf/Makefile: Remove NO_LIBDEBUGINFOD=1.
+    - d/templates/tools-unversioned.control.in: B-D on libdebuginfod-dev.
+
  -- Diederik de Haas <didi.debian@cknow.org>  Thu, 18 Jul 2024 09:30:01 +0200
 
 linux (6.10-1~exp1) experimental; urgency=medium

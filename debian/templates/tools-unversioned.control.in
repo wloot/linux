@@ -66,6 +66,7 @@ Build-Depends:
  gcc-multilib [amd64 mips64 mips64el mips64r6 mips64r6el ppc64 s390x sparc64] <!cross>,
  libaudit-dev,
  libbabeltrace-dev,
+ libdebuginfod-dev,
  libdw-dev,
  libnewt-dev,
  libnuma-dev,

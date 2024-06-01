@@ -40,6 +40,11 @@ CONFIG_SATA_AHCI_PLATFORM=m
 CONFIG_AHCI_DWC=m
 
 ##
+## file: drivers/cache/Kconfig
+##
+CONFIG_SIFIVE_CCACHE=y
+
+##
 ## file: drivers/char/hw_random/Kconfig
 ##
 CONFIG_HW_RANDOM_POLARFIRE_SOC=m
@@ -277,6 +282,20 @@ CONFIG_SERIAL_OF_PLATFORM=y
 ## file: drivers/usb/Kconfig
 ##
 CONFIG_USB=m
+
+##
+## file: drivers/usb/cdns3/Kconfig
+##
+CONFIG_USB_CDNS_SUPPORT=m
+CONFIG_USB_CDNS3=m
+CONFIG_USB_CDNS3_GADGET=y
+CONFIG_USB_CDNS3_HOST=y
+CONFIG_USB_CDNS3_STARFIVE=m
+
+##
+## file: drivers/usb/gadget/Kconfig
+##
+CONFIG_USB_GADGET=m
 
 ##
 ## file: drivers/usb/host/Kconfig

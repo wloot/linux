@@ -18,6 +18,8 @@ linux (6.10-1~exp2) UNRELEASED; urgency=medium
     - [arm64] drivers/gpu/drm/panel: Enable DRM_PANEL_BOE_TH101MB31UIG002_28A
       as module
     - [arm64] drivers/media/i2c: Enable VIDEO_OV5648 and VIDEO_DW9714 as module
+  * [arm64] drivers/gpu/drm/bridge/synopsys: Enable DRM_DW_HDMI_I2S_AUDIO as
+    module
 
   [ Emanuele Rocca ]
   * [arm64] Enable support for Renesas boards RZ/G3S (ARCH_R9A08G045) and

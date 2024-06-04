@@ -34,6 +34,35 @@ linux (6.10-1~exp2) UNRELEASED; urgency=medium
   * d/b/test-patches: Stop looking for featuresets other than rt
   * d/b/test-patches: Update config overrides for the current format
 
+  [ Dmitry Baryshkov ]
+  * [arm64] Enable config options for Qualcomm boards:
+    - Enable INTERCONNECT_QCOM_MSM8996, INTERCONNECT_QCOM_QCM2290,
+      INTERCONNECT_QCOM_SC7280, INTERCONNECT_QCOM_SM6115, and
+      INTERCONNECT_QCOM_SM8250 as built-in, this is required to get serial
+      console early during bootup
+    - Enable pincontrol PINCTRL_MSM8998, PINCTRL_QCM2290, PINCTRL_SC7280,
+      PINCTRL_SC7280_LPASS_LPI, PINCTRL_SM6115, PINCTRL_SM6115_LPASS_LPI,
+      PINCTRL_SM8250, PINCTRL_SM8250_LPASS_LPI as modules
+    - Enable clock controllers MSM_GCC_8998, QCOM_CLK_APCC_MSM8996,
+      QCOM_CLK_APCS_MSM8916, CLK_GFM_LPASS_SM8250, QCM_DISPCC_2290,
+      QCM_GCC_2290, QCOM_A53PLL, SC_CAMCC_7280, SC_DISPCC_7280, SC_GPUCC_7280,
+      SC_LPASS_CORECC_7280, SC_VIDEOCC_7280, SM_CAMCC_8250, SM_DISPCC_6115,
+      SM_DISPCC_8250, SM_GCC_6115, SM_GPUCC_6115, SM_GPUCC_8250,
+      SM_VIDEOCC_8250, SDM_LPASSCC_845 as modules
+    - Enable Audio drivers MFD_WCD934X, SLIM_QCOM_CTRL, SLIM_QCOM_NGD_CTRL,
+      SND_SOC_MSM8916_WCD_ANALOG, SND_SOC_MSM8916_WCD_DIGITAL,
+      SND_SOC_MSM8996, SND_SOC_SC7280, SND_SOC_SDM845, SND_SOC_SM8250,
+      SND_SOC_WCD9335, SND_SOC_WCD934X, SND_SOC_WSA881X as modules
+    - Enable other Qualcomm-specific drivers ARM_QCOM_CPUFREQ_NVMEM,
+      ATH10K_SNOC, CHARGER_QCOM_SMB2, I2C_QCOM_CCI, INTERCONNECT_QCOM_MSM8916,
+      MSM_GPUCC_8998, MSM_MMCC_8998, GPIO_WCD934X, QCOM_IPA,
+      PHY_QCOM_PCIE2, QCOM_GPI_DMA, QCOM_MPM, QCOM_RMTFS_MEM, QCOM_SOCINFO,
+      QCOM_WCNSS_PIL, REGULATOR_QCOM_USB_VBUS, RESET_QCOM_PDC,
+      TYPEC_QCOM_PMIC, UCSI_PMIC_GLINK as modules
+    - Enable DRM_LONTIUM_LT9611, DRM_LONTIUM_LT9611UXC, TYPEC_MUX_NB7VPQ904M
+      as moudles for devices present both on Qualcomm and non-Qualcomm
+      platforms
+
  -- Diederik de Haas <didi.debian@cknow.org>  Thu, 18 Jul 2024 09:30:01 +0200
 
 linux (6.10-1~exp1) experimental; urgency=medium

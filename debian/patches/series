@@ -12,6 +12,7 @@ debian/uname-version-timestamp.patch
 debian/kernelvariables.patch
 debian/mips-boston-disable-its.patch
 debian/mips-ieee754-relaxed.patch
+debian/mips-enable-r2-to-r6-emu-by-default.patch
 debian/arch-sh4-fix-uimage-build.patch
 debian/tools-perf-perf-read-vdso-in-libexec.patch
 debian/tools-perf-install-python-bindings.patch

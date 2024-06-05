@@ -42,6 +42,10 @@ linux (6.10-1~exp2) UNRELEASED; urgency=medium
   * [riscv64] Enable CONFIG_CLK_SOPHGO_CV1800 as a module.
   * [riscv64] Enable CONFIG_ACPI_CPPC_CPUFREQ as a module.
 
+  [ YunQiang Su ]
+  * [mips64el] Add mips64r6el flavor.
+  * [mips*] Enable R2 to R6 emulator for all R6 flavors.
+
  -- Diederik de Haas <didi.debian@cknow.org>  Thu, 18 Jul 2024 09:30:01 +0200
 
 linux (6.10-1~exp1) experimental; urgency=medium

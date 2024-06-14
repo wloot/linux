@@ -7,6 +7,12 @@ linux (6.10-1~exp2) UNRELEASED; urgency=medium
     - [arm64] drivers/net/wireless/mediatek/mt76/mt7915: Enable MT798X_WMAC
     - [arm64] drivers/pwm: Enable PWM_MEDIATEK as module
     - [arm64] drivers/thermal/mediatek: Enable MTK_SOC_THERMAL as module
+  * [arm64] Add Bananapi BPI-R3 support (Closes: #1072968)
+    - [arm64] drivers/mtd/nand: Enable MTD_NAND_ECC_MEDIATEK as module
+    - [arm64] drivers/mtd/nand/spi: Enable MTD_SPI_NAND as module
+    - [arm64] drivers/net/dsa: Enable NET_DSA_MT7530, NET_DSA_MT7530_MDIO and
+      NET_DSA_MT7530_MMIO as modules
+    - [arm64] drivers/spi: Enable SPI_MTK_SNFI as module
 
  -- Diederik de Haas <didi.debian@cknow.org>  Thu, 18 Jul 2024 09:30:01 +0200
 

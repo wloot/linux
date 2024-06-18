@@ -16,7 +16,7 @@ expected and we do not want to confuse users with bogus error messages
 (like in bug #966218).
 
 NOTE: The log message format must not be changed without coordinating
-this with hw-detect.
+this with the check-missing-firmware.sh in hw-detect.
 ---
  drivers/base/firmware_loader/fallback.c |  2 +-
  drivers/base/firmware_loader/main.c     | 17 ++++++++---------

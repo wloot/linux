@@ -68,6 +68,7 @@ linux (6.9.2-1~exp1) UNRELEASED; urgency=medium
     - Revert "firmware_class: Log every success and failure against given
       device" (Closes: #857198, #966218)
     - firmware_loader: Log direct loading failures as info for d-i
+  * d/rules.d/tools/tracing/rtla: Delete redundant sed command
 
   [ Macpaul Lin ]
   * [arm64] Enable support for various MediaTek SoCs:

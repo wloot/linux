@@ -8,7 +8,6 @@ all:
 	rsync -a $(top_srcdir)/Documentation/tools/rtla/ ../../../Documentation/tools/rtla/
 	rsync -a $(top_srcdir)/tools/build/ ../../../tools/build/
 	rsync -a $(top_srcdir)/tools/scripts/ ../../../tools/scripts/
-	sed -i 's,shell sh -c "make -sC ../../.. kernelversion | grep -v make,shell cat VERSION 2> /dev/null || sh -c "make -sC ../../.. kernelversion | grep -v make,' Makefile
 	$(MAKE) EXTRA_CFLAGS='$(CFLAGS) $(CPPFLAGS)' EXTRA_LDFLAGS='$(LDFLAGS)' PKG_CONFIG='$(PKG_CONFIG)'
 
 install:

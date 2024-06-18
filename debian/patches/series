@@ -25,6 +25,7 @@ debian/kbuild-abort-build-if-subdirs-used.patch
 debian/module-avoid-abi-changes-when-debug-info-is-disabled.patch
 debian/makefile-make-compiler-version-comparison-optional.patch
 debian/fixdep-allow-overriding-hostcc-and-hostld.patch
+debian/tools-rtla-Restore-option-to-set-VERSION-var-to-VERS.patch
 
 # Fixes/improvements to firmware loading
 features/all/drivers-media-dvb-usb-af9005-request_firmware.patch

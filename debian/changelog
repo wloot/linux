@@ -74,6 +74,7 @@ linux (6.9.2-1~exp1) UNRELEASED; urgency=medium
         during atomic updates"
       - Adjust context in "riscv: allow to enable RT"
       - Adjust context in "sysfs: Add /sys/kernel/realtime entry"
+  * tools/rtla: Restore option to set VERSION var to VERSION file's contents
 
   [ Ben Hutchings ]
   * d/signing_templates/rules.real: Consistently define REAL_VERSION variable

@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Date: Sat, 9 Mar 2024 10:05:11 +0100
+Date: Mon, 25 Mar 2024 08:40:30 +0100
 Subject: [PATCH 3/4] net: Use backlog-NAPI to clean up the defer_list.
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.8/older/patches-6.8.2-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.9/older/patches-6.9-rt5.tar.xz
 
 The defer_list is a per-CPU list which is used to free skbs outside of
 the socket lock and on the CPU on which they have been allocated.
@@ -26,7 +26,7 @@ rps_lock_irq*() if backlog-NAPI threads are used. Schedule backlog-NAPI
 for defer_list cleanup if backlog-NAPI is available.
 
 Acked-by: Jakub Kicinski <kuba@kernel.org>
-Link: https://lore.kernel.org/r/20240309090824.2956805-4-bigeasy@linutronix.de
+Link: https://lore.kernel.org/r/20240325074943.289909-4-bigeasy@linutronix.de
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 ---
  include/linux/netdevice.h |    1 +
@@ -36,7 +36,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
 --- a/include/linux/netdevice.h
 +++ b/include/linux/netdevice.h
-@@ -3365,6 +3365,7 @@ static inline void dev_xmit_recursion_de
+@@ -3287,6 +3287,7 @@ static inline void dev_xmit_recursion_de
  	__this_cpu_dec(softnet_data.xmit.recursion);
  }
  
@@ -46,7 +46,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  
 --- a/net/core/dev.c
 +++ b/net/core/dev.c
-@@ -245,7 +245,7 @@ static bool use_backlog_threads(void)
+@@ -226,7 +226,7 @@ static bool use_backlog_threads(void)
  static inline void rps_lock_irqsave(struct softnet_data *sd,
  				    unsigned long *flags)
  {
@@ -55,7 +55,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  		spin_lock_irqsave(&sd->input_pkt_queue.lock, *flags);
  	else if (!IS_ENABLED(CONFIG_PREEMPT_RT))
  		local_irq_save(*flags);
-@@ -253,7 +253,7 @@ static inline void rps_lock_irqsave(stru
+@@ -234,7 +234,7 @@ static inline void rps_lock_irqsave(stru
  
  static inline void rps_lock_irq_disable(struct softnet_data *sd)
  {
@@ -64,7 +64,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  		spin_lock_irq(&sd->input_pkt_queue.lock);
  	else if (!IS_ENABLED(CONFIG_PREEMPT_RT))
  		local_irq_disable();
-@@ -262,7 +262,7 @@ static inline void rps_lock_irq_disable(
+@@ -243,7 +243,7 @@ static inline void rps_lock_irq_disable(
  static inline void rps_unlock_irq_restore(struct softnet_data *sd,
  					  unsigned long *flags)
  {
@@ -73,7 +73,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  		spin_unlock_irqrestore(&sd->input_pkt_queue.lock, *flags);
  	else if (!IS_ENABLED(CONFIG_PREEMPT_RT))
  		local_irq_restore(*flags);
-@@ -270,7 +270,7 @@ static inline void rps_unlock_irq_restor
+@@ -251,7 +251,7 @@ static inline void rps_unlock_irq_restor
  
  static inline void rps_unlock_irq_enable(struct softnet_data *sd)
  {
@@ -82,7 +82,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  		spin_unlock_irq(&sd->input_pkt_queue.lock);
  	else if (!IS_ENABLED(CONFIG_PREEMPT_RT))
  		local_irq_enable();
-@@ -4753,6 +4753,23 @@ static void napi_schedule_rps(struct sof
+@@ -4728,6 +4728,23 @@ static void napi_schedule_rps(struct sof
  	__napi_schedule_irqoff(&mysd->backlog);
  }
  
@@ -108,7 +108,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  #endif
 --- a/net/core/skbuff.c
 +++ b/net/core/skbuff.c
-@@ -6929,8 +6929,8 @@ nodefer:	__kfree_skb(skb);
+@@ -7050,8 +7050,8 @@ nodefer:	__kfree_skb(skb);
  	/* Make sure to trigger NET_RX_SOFTIRQ on the remote CPU
  	 * if we are unlucky enough (this seems very unlikely).
  	 */

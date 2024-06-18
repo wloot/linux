@@ -11,7 +11,7 @@ upstream submission.
 
 --- a/arch/x86/kernel/cpu/microcode/amd.c
 +++ b/arch/x86/kernel/cpu/microcode/amd.c
-@@ -894,10 +894,8 @@ static enum ucode_state request_microcod
+@@ -882,10 +882,8 @@ static enum ucode_state request_microcod
  	if (c->x86 >= 0x15)
  		snprintf(fw_name, sizeof(fw_name), "amd-ucode/microcode_amd_fam%.2xh.bin", c->x86);
  
@@ -147,7 +147,7 @@ upstream submission.
  		       fw->size, fw_name);
 --- a/drivers/dma/imx-sdma.c
 +++ b/drivers/dma/imx-sdma.c
-@@ -1933,11 +1933,8 @@ static void sdma_load_firmware(const str
+@@ -1929,11 +1929,8 @@ static void sdma_load_firmware(const str
  	const struct sdma_script_start_addrs *addr;
  	unsigned short *ram_code;
  
@@ -176,7 +176,7 @@ upstream submission.
  	blob->size = fw->size;
 --- a/drivers/gpu/drm/radeon/ni.c
 +++ b/drivers/gpu/drm/radeon/ni.c
-@@ -820,9 +820,6 @@ int ni_init_microcode(struct radeon_devi
+@@ -807,9 +807,6 @@ int ni_init_microcode(struct radeon_devi
  
  out:
  	if (err) {
@@ -201,7 +201,7 @@ upstream submission.
  		err = -EINVAL;
 --- a/drivers/gpu/drm/radeon/r600.c
 +++ b/drivers/gpu/drm/radeon/r600.c
-@@ -2600,9 +2600,6 @@ int r600_init_microcode(struct radeon_de
+@@ -2599,9 +2599,6 @@ int r600_init_microcode(struct radeon_de
  
  out:
  	if (err) {
@@ -227,7 +227,7 @@ upstream submission.
  	ret = qib_ibsd_ucode_loaded(dd->pport, fw);
 --- a/drivers/input/touchscreen/atmel_mxt_ts.c
 +++ b/drivers/input/touchscreen/atmel_mxt_ts.c
-@@ -2927,10 +2927,8 @@ static int mxt_load_fw(struct device *de
+@@ -2924,10 +2924,8 @@ static int mxt_load_fw(struct device *de
  	int ret;
  
  	ret = request_firmware(&fw, fn, dev);
@@ -659,7 +659,7 @@ upstream submission.
  			__func__, fw->size);
 --- a/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_ctrl.c
 +++ b/drivers/media/platform/samsung/s5p-mfc/s5p_mfc_ctrl.c
-@@ -65,10 +65,8 @@ int s5p_mfc_load_firmware(struct s5p_mfc
+@@ -71,10 +71,8 @@ int s5p_mfc_load_firmware(struct s5p_mfc
  		}
  	}
  
@@ -910,7 +910,7 @@ upstream submission.
  
 --- a/drivers/media/usb/s2255/s2255drv.c
 +++ b/drivers/media/usb/s2255/s2255drv.c
-@@ -2276,10 +2276,8 @@ static int s2255_probe(struct usb_interf
+@@ -2277,10 +2277,8 @@ static int s2255_probe(struct usb_interf
  	}
  	/* load the first chunk */
  	if (request_firmware(&dev->fw_data->fw,
@@ -1068,7 +1068,7 @@ upstream submission.
  
 --- a/drivers/net/ethernet/broadcom/bnx2.c
 +++ b/drivers/net/ethernet/broadcom/bnx2.c
-@@ -3710,16 +3710,13 @@ static int bnx2_request_uncached_firmwar
+@@ -3711,16 +3711,13 @@ static int bnx2_request_uncached_firmwar
  	}
  
  	rc = request_firmware(&bp->mips_firmware, mips_fw_file, &bp->pdev->dev);
@@ -1090,7 +1090,7 @@ upstream submission.
  	if (bp->mips_firmware->size < sizeof(*mips_fw) ||
 --- a/drivers/net/ethernet/broadcom/tg3.c
 +++ b/drivers/net/ethernet/broadcom/tg3.c
-@@ -11474,11 +11474,8 @@ static int tg3_request_firmware(struct t
+@@ -11481,11 +11481,8 @@ static int tg3_request_firmware(struct t
  {
  	const struct tg3_firmware_hdr *fw_hdr;
  
@@ -1119,7 +1119,7 @@ upstream submission.
  	*bfi_image_size = fw->size/sizeof(u32);
 --- a/drivers/net/ethernet/chelsio/cxgb3/cxgb3_main.c
 +++ b/drivers/net/ethernet/chelsio/cxgb3/cxgb3_main.c
-@@ -1035,12 +1035,8 @@ int t3_get_edc_fw(struct cphy *phy, int
+@@ -1034,12 +1034,8 @@ int t3_get_edc_fw(struct cphy *phy, int
  	fw_name = get_edc_fw_name(edc_idx);
  	if (fw_name)
  		ret = request_firmware(&fw, fw_name, &adapter->pdev->dev);
@@ -1133,7 +1133,7 @@ upstream submission.
  
  	/* check size, take checksum in account */
  	if (fw->size > size + 4) {
-@@ -1077,11 +1073,8 @@ static int upgrade_fw(struct adapter *ad
+@@ -1076,11 +1072,8 @@ static int upgrade_fw(struct adapter *ad
  	struct device *dev = &adap->pdev->dev;
  
  	ret = request_firmware(&fw, FW_FNAME, dev);
@@ -1146,7 +1146,7 @@ upstream submission.
  	ret = t3_load_fw(adap, fw->data, fw->size);
  	release_firmware(fw);
  
-@@ -1126,11 +1119,8 @@ static int update_tpsram(struct adapter
+@@ -1125,11 +1118,8 @@ static int update_tpsram(struct adapter
  	snprintf(buf, sizeof(buf), TPSRAM_NAME, rev);
  
  	ret = request_firmware(&tpsram, buf, dev);
@@ -1383,7 +1383,7 @@ upstream submission.
  			else
 --- a/drivers/net/wireless/intel/iwlwifi/iwl-drv.c
 +++ b/drivers/net/wireless/intel/iwlwifi/iwl-drv.c
-@@ -249,8 +249,6 @@ static int iwl_request_firmware(struct i
+@@ -251,8 +251,6 @@ static int iwl_request_firmware(struct i
  		drv->fw_index--;
  
  	if (drv->fw_index < cfg->ucode_api_min) {
@@ -1454,7 +1454,7 @@ upstream submission.
  	adapter->firmware = firmware;
 --- a/drivers/net/wireless/marvell/mwl8k.c
 +++ b/drivers/net/wireless/marvell/mwl8k.c
-@@ -5736,16 +5736,12 @@ static int mwl8k_firmware_load_success(s
+@@ -5740,16 +5740,12 @@ static int mwl8k_firmware_load_success(s
  static void mwl8k_fw_state_machine(const struct firmware *fw, void *context)
  {
  	struct mwl8k_priv *priv = context;
@@ -1472,7 +1472,7 @@ upstream submission.
  		priv->fw_helper = fw;
  		rc = mwl8k_request_fw(priv, priv->fw_pref, &priv->fw_ucode,
  				      true);
-@@ -5780,11 +5776,8 @@ static void mwl8k_fw_state_machine(const
+@@ -5784,11 +5780,8 @@ static void mwl8k_fw_state_machine(const
  		break;
  
  	case FW_STATE_LOADING_ALT:
@@ -1485,7 +1485,7 @@ upstream submission.
  		priv->fw_ucode = fw;
  		rc = mwl8k_firmware_load_success(priv);
  		if (rc)
-@@ -5822,10 +5815,8 @@ retry:
+@@ -5826,10 +5819,8 @@ retry:
  
  	/* Ask userland hotplug daemon for the device firmware */
  	rc = mwl8k_request_firmware(priv, fw_image, nowait);
@@ -1523,7 +1523,7 @@ upstream submission.
  	}
 --- a/drivers/net/wireless/realtek/rtlwifi/rtl8192se/sw.c
 +++ b/drivers/net/wireless/realtek/rtlwifi/rtl8192se/sw.c
-@@ -63,13 +63,11 @@ static void rtl92se_fw_cb(const struct f
+@@ -60,13 +60,11 @@ static void rtl92se_fw_cb(const struct f
  	struct ieee80211_hw *hw = context;
  	struct rtl_priv *rtlpriv = rtl_priv(hw);
  	struct rt_firmware *pfirmware = NULL;
@@ -1673,7 +1673,7 @@ upstream submission.
  	}
 --- a/drivers/scsi/ipr.c
 +++ b/drivers/scsi/ipr.c
-@@ -4013,10 +4013,8 @@ static ssize_t ipr_store_update_fw(struc
+@@ -4010,10 +4010,8 @@ static ssize_t ipr_store_update_fw(struc
  	if (endline)
  		*endline = '\0';
  
@@ -1710,7 +1710,7 @@ upstream submission.
  	}
 --- a/drivers/scsi/qla2xxx/qla_init.c
 +++ b/drivers/scsi/qla2xxx/qla_init.c
-@@ -8560,10 +8560,6 @@ qla2x00_load_risc(scsi_qla_host_t *vha,
+@@ -8562,10 +8562,6 @@ qla2x00_load_risc(scsi_qla_host_t *vha,
  	/* Load firmware blob. */
  	blob = qla2x00_request_firmware(vha);
  	if (!blob) {
@@ -1721,7 +1721,7 @@ upstream submission.
  		return QLA_FUNCTION_FAILED;
  	}
  
-@@ -8666,9 +8662,6 @@ qla24xx_load_risc_blob(scsi_qla_host_t *
+@@ -8668,9 +8664,6 @@ qla24xx_load_risc_blob(scsi_qla_host_t *
  
  	blob = qla2x00_request_firmware(vha);
  	if (!blob) {
@@ -1748,7 +1748,7 @@ upstream submission.
  	if (qla82xx_validate_firmware_blob(vha,
 --- a/drivers/scsi/qla2xxx/qla_os.c
 +++ b/drivers/scsi/qla2xxx/qla_os.c
-@@ -7697,8 +7697,6 @@ qla2x00_request_firmware(scsi_qla_host_t
+@@ -7706,8 +7706,6 @@ qla2x00_request_firmware(scsi_qla_host_t
  		goto out;
  
  	if (request_firmware(&blob->fw, blob->name, &ha->pdev->dev)) {
@@ -1929,7 +1929,7 @@ upstream submission.
  		return ret;
  	}
  
-@@ -1914,11 +1897,8 @@ static int load_XILINX_firmware(struct u
+@@ -1913,11 +1896,8 @@ static int load_XILINX_firmware(struct u
  	uea_enters(INS_TO_USBDEV(sc));
  
  	ret = request_firmware(&fw_entry, fw_name, &sc->usb_dev->dev);
@@ -2166,19 +2166,18 @@ upstream submission.
  			dev_err(chip->card->dev, "image download error [%s]\n",
 --- a/sound/pci/echoaudio/echoaudio.c
 +++ b/sound/pci/echoaudio/echoaudio.c
-@@ -48,11 +48,8 @@ static int get_firmware(const struct fir
+@@ -46,10 +46,7 @@ static int get_firmware(const struct fir
  		"firmware requested: %s\n", card_fw[fw_index].data);
  	snprintf(name, sizeof(name), "ea/%s", card_fw[fw_index].data);
  	err = request_firmware(fw_entry, name, &chip->pci->dev);
 -	if (err < 0)
 -		dev_err(chip->card->dev,
 -			"get_firmware(): Firmware not available (%d)\n", err);
- #ifdef CONFIG_PM_SLEEP
 -	else
 +	if (!err)
  		chip->fw_cache[fw_index] = *fw_entry;
- #endif
  	return err;
+ }
 --- a/sound/pci/emu10k1/emu10k1_main.c
 +++ b/sound/pci/emu10k1/emu10k1_main.c
 @@ -864,10 +864,8 @@ static int snd_emu10k1_emu1010_init(stru
@@ -2188,14 +2187,14 @@ upstream submission.
 -	if (err < 0) {
 -		dev_info(emu->card->dev, "emu1010: Loading Firmware failed\n");
 +	if (err < 0)
- 		return err;
+ 		goto fail;
 -	}
  
  	/* ID, should read & 0x7f = 0x55 when FPGA programmed. */
  	snd_emu1010_fpga_read(emu, EMU_HANA_ID, &reg);
 --- a/sound/pci/hda/hda_intel.c
 +++ b/sound/pci/hda/hda_intel.c
-@@ -2034,8 +2034,6 @@ static void azx_firmware_cb(const struct
+@@ -2036,8 +2036,6 @@ static void azx_firmware_cb(const struct
  
  	if (fw)
  		chip->fw = fw;
@@ -2247,7 +2246,7 @@ upstream submission.
  		release_firmware(fw_entry);
 --- a/sound/pci/riptide/riptide.c
 +++ b/sound/pci/riptide/riptide.c
-@@ -1222,11 +1222,8 @@ static int try_to_load_firmware(struct c
+@@ -1215,11 +1215,8 @@ static int try_to_load_firmware(struct c
  	if (!chip->fw_entry) {
  		err = request_firmware(&chip->fw_entry, "riptide.hex",
  				       &chip->pci->dev);

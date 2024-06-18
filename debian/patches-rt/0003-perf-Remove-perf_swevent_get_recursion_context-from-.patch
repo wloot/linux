@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 12 Mar 2024 19:01:51 +0100
 Subject: [PATCH 3/4] perf: Remove perf_swevent_get_recursion_context() from
  perf_pending_task().
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.8/older/patches-6.8.2-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.9/older/patches-6.9-rt5.tar.xz
 
 perf_swevent_get_recursion_context() is supposed to avoid recursion.
 This requires to remain on the same CPU in order to decrement/ increment

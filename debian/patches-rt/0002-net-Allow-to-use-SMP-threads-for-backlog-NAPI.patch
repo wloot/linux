@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Date: Sat, 9 Mar 2024 10:05:10 +0100
+Date: Mon, 25 Mar 2024 08:40:29 +0100
 Subject: [PATCH 2/4] net: Allow to use SMP threads for backlog NAPI.
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.8/older/patches-6.8.2-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.9/older/patches-6.9-rt5.tar.xz
 
 Backlog NAPI is a per-CPU NAPI struct only (with no device behind it)
 used by drivers which don't do NAPI them self, RPS and parts of the
@@ -60,7 +60,7 @@ argument "thread_backlog_napi". It is mandatory for PREEMPT_RT to avoid the
 wakeup of ksoftirqd from the IPI.
 
 Acked-by: Jakub Kicinski <kuba@kernel.org>
-Link: https://lore.kernel.org/r/20240309090824.2956805-3-bigeasy@linutronix.de
+Link: https://lore.kernel.org/r/20240325074943.289909-3-bigeasy@linutronix.de
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 ---
  net/core/dev.c |  152 +++++++++++++++++++++++++++++++++++++++++++--------------
@@ -76,7 +76,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  #include <linux/mutex.h>
  #include <linux/rwsem.h>
  #include <linux/string.h>
-@@ -216,6 +217,31 @@ static inline struct hlist_head *dev_ind
+@@ -197,6 +198,31 @@ static inline struct hlist_head *dev_ind
  	return &net->dev_index_head[ifindex & (NETDEV_HASHENTRIES - 1)];
  }
  
@@ -108,15 +108,15 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  static inline void rps_lock_irqsave(struct softnet_data *sd,
  				    unsigned long *flags)
  {
-@@ -4420,6 +4446,7 @@ EXPORT_SYMBOL(__dev_direct_xmit);
+@@ -4410,6 +4436,7 @@ EXPORT_SYMBOL(__dev_direct_xmit);
  /*************************************************************************
   *			Receiver routines
   *************************************************************************/
 +static DEFINE_PER_CPU(struct task_struct *, backlog_napi);
  
- int netdev_max_backlog __read_mostly = 1000;
- EXPORT_SYMBOL(netdev_max_backlog);
-@@ -4452,12 +4479,16 @@ static inline void ____napi_schedule(str
+ unsigned int sysctl_skb_defer_max __read_mostly = 64;
+ int weight_p __read_mostly = 64;           /* old backlog weight */
+@@ -4433,12 +4460,16 @@ static inline void ____napi_schedule(str
  		 */
  		thread = READ_ONCE(napi->thread);
  		if (thread) {
@@ -133,7 +133,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	list_add_tail(&napi->poll_list, &sd->poll_list);
  	WRITE_ONCE(napi->list_owner, smp_processor_id());
  	/* If not called from net_rx_action()
-@@ -4703,6 +4734,11 @@ static void napi_schedule_rps(struct sof
+@@ -4678,6 +4709,11 @@ static void napi_schedule_rps(struct sof
  
  #ifdef CONFIG_RPS
  	if (sd != mysd) {
@@ -145,7 +145,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  		sd->rps_ipi_next = mysd->rps_ipi_list;
  		mysd->rps_ipi_list = sd;
  
-@@ -5926,7 +5962,7 @@ static void net_rps_action_and_irq_enabl
+@@ -5937,7 +5973,7 @@ static void net_rps_action_and_irq_enabl
  #ifdef CONFIG_RPS
  	struct softnet_data *remsd = sd->rps_ipi_list;
  
@@ -154,7 +154,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  		sd->rps_ipi_list = NULL;
  
  		local_irq_enable();
-@@ -5941,7 +5977,7 @@ static void net_rps_action_and_irq_enabl
+@@ -5952,7 +5988,7 @@ static void net_rps_action_and_irq_enabl
  static bool sd_has_rps_ipi_waiting(struct softnet_data *sd)
  {
  #ifdef CONFIG_RPS
@@ -163,7 +163,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  #else
  	return false;
  #endif
-@@ -5985,7 +6021,7 @@ static int process_backlog(struct napi_s
+@@ -5996,7 +6032,7 @@ static int process_backlog(struct napi_s
  			 * We can use a plain write instead of clear_bit(),
  			 * and we dont need an smp_mb() memory barrier.
  			 */
@@ -172,8 +172,8 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  			again = false;
  		} else {
  			skb_queue_splice_tail_init(&sd->input_pkt_queue,
-@@ -6691,43 +6727,48 @@ static void skb_defer_free_flush(struct
- 	}
+@@ -6732,43 +6768,48 @@ static int napi_thread_wait(struct napi_
+ 	return -1;
  }
  
 -static int napi_threaded_poll(void *data)
@@ -250,7 +250,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	return 0;
  }
  
-@@ -11326,7 +11367,7 @@ static int dev_cpu_dead(unsigned int old
+@@ -11369,7 +11410,7 @@ static int dev_cpu_dead(unsigned int old
  
  		list_del_init(&napi->poll_list);
  		if (napi->poll == process_backlog)
@@ -259,7 +259,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  		else
  			____napi_schedule(sd, napi);
  	}
-@@ -11334,12 +11375,14 @@ static int dev_cpu_dead(unsigned int old
+@@ -11377,12 +11418,14 @@ static int dev_cpu_dead(unsigned int old
  	raise_softirq_irqoff(NET_TX_SOFTIRQ);
  	local_irq_enable();
  
@@ -278,9 +278,9 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  
  	/* Process offline CPU's input_pkt_queue */
  	while ((skb = __skb_dequeue(&oldsd->process_queue))) {
-@@ -11659,6 +11702,38 @@ static void __init net_dev_struct_check(
-  *
-  */
+@@ -11721,6 +11764,38 @@ static int net_page_pool_create(int cpui
+ 	return 0;
+ }
  
 +static int backlog_napi_should_run(unsigned int cpu)
 +{
@@ -317,11 +317,14 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  /*
   *       This is called single threaded during boot, so no need
   *       to take the rtnl semaphore.
-@@ -11711,7 +11786,10 @@ static int __init net_dev_init(void)
+@@ -11772,10 +11847,13 @@ static int __init net_dev_init(void)
  		init_gro_hash(&sd->backlog);
  		sd->backlog.poll = process_backlog;
  		sd->backlog.weight = weight_p;
 +		INIT_LIST_HEAD(&sd->backlog.poll_list);
+ 
+ 		if (net_page_pool_create(i))
+ 			goto out;
  	}
 +	if (use_backlog_threads())
 +		smpboot_register_percpu_thread(&backlog_threads);

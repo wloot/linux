@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Tue, 12 Mar 2024 19:01:52 +0100
 Subject: [PATCH 4/4] perf: Split __perf_pending_irq() out of
  perf_pending_irq()
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.8/older/patches-6.8.2-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.9/older/patches-6.9-rt5.tar.xz
 
 perf_pending_irq() invokes perf_event_wakeup() and __perf_pending_irq().
 The former is in charge of waking any tasks which wait to be woken up
@@ -115,7 +115,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	if (rctx >= 0)
  		perf_swevent_put_recursion_context(rctx);
  }
-@@ -9572,7 +9586,7 @@ static int __perf_event_overflow(struct
+@@ -9568,7 +9582,7 @@ static int __perf_event_overflow(struct
  			 * is processed.
  			 */
  			if (in_nmi())
@@ -124,7 +124,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  		} else if (event->attr.exclude_kernel && valid_sample) {
  			/*
  			 * Should not be able to return to user space without
-@@ -11912,6 +11926,7 @@ perf_event_alloc(struct perf_event_attr
+@@ -11908,6 +11922,7 @@ perf_event_alloc(struct perf_event_attr
  
  	init_waitqueue_head(&event->waitq);
  	init_irq_work(&event->pending_irq, perf_pending_irq);

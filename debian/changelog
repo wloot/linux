@@ -1,4 +1,9 @@
-linux (6.8.12-2~exp1) UNRELEASED; urgency=medium
+linux (6.9.2-1~exp1) UNRELEASED; urgency=medium
+
+  * New upstream release: https://kernelnewbies.org/Linux_6.9
+  * New upstream stable update:
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.9.1
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.9.2
 
   [ Johannes Schauer Marin Rodrigues ]
   * New target in debian/rules: "clean-generated" cleans up all auto-generated
@@ -8,6 +13,46 @@ linux (6.8.12-2~exp1) UNRELEASED; urgency=medium
   * [arm64,riscv64] drivers/leds/rgb: Enable LEDS_GROUP_MULTICOLOR as module
   * [arm64] drivers/leds/rgb: Enable LEDS_PWM_MULTICOLOR as module
   * [arm*,riscv64] drivers/pps/clients: Enable PPS_CLIENT_GPIO as module
+  * Update to 6.9.2:
+    - Drop patches:
+      - "ntfs: mark it as broken"; ntfs driver removed upstream
+    - Drop patches applied upstream:
+      - "ARM64: Dynamically allocate cpumasks and increase supported CPUs to
+        512"
+      - "tipc: fix UAF in error path"
+      - "tipc: fix a possible memleak in tipc_buf_append"
+    - Refresh patches:
+      - Adjust context in "video: Remove nvidiafb and rivafb"
+      - Adjust context in "Export symbols needed by Android drivers"
+      - Adjust context in "Documentation: Drop sphinx version check"
+      - Adjust context in "firmware_class: Log every success and failure
+        against given device"
+      - Adjust context in "firmware: Remove redundant log messages from drivers"
+      - Adjust context in "af_802154: Disable auto-loading as mitigation
+        against local exploits"
+      - Adjust context in "intel-iommu: Add Kconfig option to exclude iGPU by
+        default"
+      - Adjust context in "x86: Make x32 syscall support conditional on a
+        kernel parameter"
+      - Adjust context in "efi: Lock down the kernel if booted in secure boot
+        mode"
+      - Adjust context in "Revert 'perf build: Fix libunwind feature detection
+        on 32-bit x86'"
+  * tools/rtla: Restore option to set VERSION var to VERSION file's contents
+  * d/rules.d: rtla: Update Makefile for upstream restructuring
+  * d/config: Update with the help of kconfigeditor2:
+    - [x86] arch/x86: Rename RETPOLINE to MITIGATION_RETPOLINE
+    - [amd64] arch/x86: Rename SLS to MITIGATION_SLS
+    - [x86] drivers/acpi: Remove ACPI_CUSTOM_METHOD
+    - drivers/mtd/maps: Remove MTD_INTEL_VR_NOR
+    - drivers/staging/board: Remove STAGING_BOARD
+    - fs/ntfs: Remove NTFS_FS
+    - lib/Kconfig.debug: Rename TEST_STRING_HELPERS to STRING_HELPERS_KUNIT_TEST
+    - net/bluetooth: Remove BT_HS
+    - net/ipv4/netfilter: Remove IP_NF_ARPTABLES
+    - net/sched: Remove NET_ACT_IPT
+  * [rt] Update to 6.9-rt5
+  * [rt] pinctrl: renesas: rzg2l: use spin_{lock,unlock}_irq{save,restore}
 
   [ Ben Hutchings ]
   * d/signing_templates/rules.real: Consistently define REAL_VERSION variable

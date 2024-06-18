@@ -10,7 +10,7 @@ Forwarded: not-needed
 
 --- a/Documentation/Makefile
 +++ b/Documentation/Makefile
-@@ -112,7 +112,6 @@ $(YNL_RST_DIR)/%.rst: $(YNL_YAML_DIR)/%.yaml $(YNL_TOOL)
+@@ -114,7 +114,6 @@ $(YNL_RST_DIR)/%.rst: $(YNL_YAML_DIR)/%.yaml $(YNL_TOOL)
  htmldocs texinfodocs latexdocs epubdocs xmldocs: $(YNL_INDEX)
  
  htmldocs:
@@ -42,7 +42,7 @@ Forwarded: not-needed
  	$(foreach var,$(SPHINXDIRS), \
  	   $(MAKE) PDFLATEX="$(PDFLATEX)" LATEXOPTS="$(LATEXOPTS)" -C $(BUILDDIR)/$(var)/latex || exit; \
  	   mkdir -p $(BUILDDIR)/$(var)/pdf; \
-@@ -160,11 +156,9 @@ pdfdocs: latexdocs
+@@ -162,11 +158,9 @@ pdfdocs: latexdocs
  endif # HAVE_PDFLATEX
  
  epubdocs:

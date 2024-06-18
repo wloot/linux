@@ -60,6 +60,14 @@ linux (6.9.2-1~exp1) UNRELEASED; urgency=medium
   * d/signing_templates/rules.real: Use an intermediate install directory
   * Revert "Revert "Run dh_movetousr also in signed images."", as this now
     works
+  * firmware_loader: Remove most Debian-specific logging changes
+    (Closes: #1040738):
+    - Revert "firmware_class: Refer to Debian wiki page when logging missing
+      firmware"
+    - Revert "firmware: Remove redundant log messages from drivers"
+    - Revert "firmware_class: Log every success and failure against given
+      device" (Closes: #857198, #966218)
+    - firmware_loader: Log direct loading failures as info for d-i
 
   [ Macpaul Lin ]
   * [arm64] Enable support for various MediaTek SoCs:

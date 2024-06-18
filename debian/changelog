@@ -98,6 +98,9 @@ linux (6.9.2-1~exp1) UNRELEASED; urgency=medium
       enable CDNS3_GADGET and CDNS3_HOST options
     - Enable USB_GADGET as module
 
+  [ Sebastian Andrzej Siewior ]
+  * linux-image: postrm: Remove modules.weakdep on purge.
+
  -- Johannes Schauer Marin Rodrigues <josch@debian.org>  Fri, 17 May 2024 17:30:21 +0200
 
 linux (6.8.12-1) unstable; urgency=medium

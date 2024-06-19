@@ -1,4 +1,4 @@
-linux (6.9.2-1~exp1) UNRELEASED; urgency=medium
+linux (6.9.2-1~exp1) experimental; urgency=medium
 
   * New upstream release: https://kernelnewbies.org/Linux_6.9
   * New upstream stable update:
@@ -110,7 +110,7 @@ linux (6.9.2-1~exp1) UNRELEASED; urgency=medium
   [ Sebastian Andrzej Siewior ]
   * linux-image: postrm: Remove modules.weakdep on purge.
 
- -- Johannes Schauer Marin Rodrigues <josch@debian.org>  Fri, 17 May 2024 17:30:21 +0200
+ -- Ben Hutchings <benh@debian.org>  Wed, 19 Jun 2024 15:34:34 +0200
 
 linux (6.8.12-1) unstable; urgency=medium
 

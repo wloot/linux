@@ -1,3 +1,11 @@
+linux (6.9.2-1~exp2) UNRELEASED; urgency=medium
+
+  * [riscv64] crypto: enable CRYPTO_AES_RISCV64, CRYPTO_CHACHA_RISCV64,
+    CRYPTO_GHASH_RISCV64, CRYPTO_SHA256_RISCV64, CRYPTO_SHA512_RISCV64 as
+    modules.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Fri, 21 Jun 2024 21:30:11 +0200
+
 linux (6.9.2-1~exp1) experimental; urgency=medium
 
   * New upstream release: https://kernelnewbies.org/Linux_6.9

@@ -78,6 +78,11 @@ CONFIG_DMA_SUN6I=m
 CONFIG_DW_AXI_DMAC=m
 
 ##
+## file: drivers/firmware/microchip/Kconfig
+##
+CONFIG_POLARFIRE_SOC_AUTO_UPDATE=m
+
+##
 ## file: drivers/gpio/Kconfig
 ##
 CONFIG_GPIOLIB=y
@@ -320,6 +325,7 @@ CONFIG_USB_OHCI_HCD_PLATFORM=m
 ##
 CONFIG_USB_MUSB_HDRC=m
 CONFIG_USB_MUSB_SUNXI=m
+CONFIG_USB_MUSB_POLARFIRE_SOC=m
 
 ##
 ## file: drivers/usb/phy/Kconfig

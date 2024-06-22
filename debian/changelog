@@ -14,6 +14,18 @@ linux (6.9.6-1~exp1) UNRELEASED; urgency=medium
   * [x86] Refresh "intel-iommu: Add Kconfig option to exclude iGPU by default"
   * [rt] Drop "drm/i915/gt: Queue and wait for the irq_work item."
 
+  [ Aurelien Jarno ]
+  * [riscv64] crypto: enable CRYPTO_AES_RISCV64, CRYPTO_CHACHA_RISCV64,
+    CRYPTO_GHASH_RISCV64, CRYPTO_SHA256_RISCV64, CRYPTO_SHA512_RISCV64 as
+    modules.
+  * [riscv64] Improve Microchip Polarfire support: enable
+    POLARFIRE_SOC_AUTO_UPDATE and USB_MUSB_POLARFIRE_SOC as modules.
+  * [riscv64] Improve T-Head TH1520 support: enable MMC_SDHCI_OF_DWCMSHC as
+    module.
+  * [riscv64] Improve VisionFive 2 support: enable SND_DESIGNWARE_I2S,
+    SND_SIMPLE_CARD and SND_SOC_JH7110_PWMDAC as modules.
+  * [riscv64] Improve JH7110 support: enable STARFIVE_STARLINK_PMU as module.
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 22 Jun 2024 11:54:55 +0200
 
 linux (6.9.2-1~exp1) experimental; urgency=medium

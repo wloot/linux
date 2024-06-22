@@ -364,7 +364,18 @@ CONFIG_SND_HDA_INTEL=m
 CONFIG_SND_SOC=m
 
 ##
+## file: sound/soc/dwc/Kconfig
+##
+CONFIG_SND_DESIGNWARE_I2S=m
+
+##
+## file: sound/soc/generic/Kconfig
+##
+CONFIG_SND_SIMPLE_CARD=m
+
+##
 ## file: sound/soc/starfive/Kconfig
 ##
 CONFIG_SND_SOC_STARFIVE=m
+CONFIG_SND_SOC_JH7110_PWMDAC=m
 CONFIG_SND_SOC_JH7110_TDM=m

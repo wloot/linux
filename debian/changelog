@@ -7,6 +7,8 @@ linux (6.9.2-1~exp2) UNRELEASED; urgency=medium
     POLARFIRE_SOC_AUTO_UPDATE and USB_MUSB_POLARFIRE_SOC as modules.
   * [riscv64] Improve T-Head TH1520 support: enable MMC_SDHCI_OF_DWCMSHC as
     module.
+  * [riscv64] Improve VisionFive 2 support: enable SND_DESIGNWARE_I2S,
+    SND_SIMPLE_CARD and SND_SOC_JH7110_PWMDAC as modules.
 
  -- Aurelien Jarno <aurel32@debian.org>  Fri, 21 Jun 2024 21:30:11 +0200
 

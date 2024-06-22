@@ -12,6 +12,7 @@ linux (6.9.6-1~exp1) UNRELEASED; urgency=medium
   [ Salvatore Bonaccorso ]
   * [x86] Refresh "intel-iommu: Add option to exclude integrated GPU only"
   * [x86] Refresh "intel-iommu: Add Kconfig option to exclude iGPU by default"
+  * [rt] Drop "drm/i915/gt: Queue and wait for the irq_work item."
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 22 Jun 2024 11:54:55 +0200
 

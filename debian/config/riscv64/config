@@ -214,6 +214,11 @@ CONFIG_PCIE_DW_PLAT_HOST=y
 CONFIG_PCIE_FU740=y
 
 ##
+## file: drivers/perf/Kconfig
+##
+CONFIG_STARFIVE_STARLINK_PMU=y
+
+##
 ## file: drivers/phy/allwinner/Kconfig
 ##
 CONFIG_PHY_SUN4I_USB=m

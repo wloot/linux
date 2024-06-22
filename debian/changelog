@@ -1,8 +1,9 @@
-linux (6.9.4-1~exp1) UNRELEASED; urgency=medium
+linux (6.9.5-1~exp1) UNRELEASED; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.9.3
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.9.4
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.9.5
 
   [ Salvatore Bonaccorso ]
   * [x86] Refresh "intel-iommu: Add option to exclude integrated GPU only"

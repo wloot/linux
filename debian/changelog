@@ -5,6 +5,8 @@ linux (6.9.2-1~exp2) UNRELEASED; urgency=medium
     modules.
   * [riscv64] Improve Microchip Polarfire support: enable
     POLARFIRE_SOC_AUTO_UPDATE and USB_MUSB_POLARFIRE_SOC as modules.
+  * [riscv64] Improve T-Head TH1520 support: enable MMC_SDHCI_OF_DWCMSHC as
+    module.
 
  -- Aurelien Jarno <aurel32@debian.org>  Fri, 21 Jun 2024 21:30:11 +0200
 

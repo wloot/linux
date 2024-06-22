@@ -114,7 +114,6 @@ zram-Replace-bit-spinlocks-with-spinlock_t-for-PREEM.patch
 0004-drm-i915-Don-t-disable-interrupts-on-PREEMPT_RT-duri.patch
 0005-drm-i915-Don-t-check-for-atomic-context-on-PREEMPT_R.patch
 drm-i915-Disable-tracing-points-on-PREEMPT_RT.patch
-0008-drm-i915-gt-Queue-and-wait-for-the-irq_work-item.patch
 0009-drm-i915-gt-Use-spin_lock_irq-instead-of-local_irq_d.patch
 0010-drm-i915-Drop-the-irqs_disabled-check.patch
 drm-i915-guc-Consider-also-RCU-depth-in-busy-loop.patch

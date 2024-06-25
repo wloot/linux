@@ -26,6 +26,9 @@ linux (6.9.6-1~exp1) UNRELEASED; urgency=medium
     SND_SIMPLE_CARD and SND_SOC_JH7110_PWMDAC as modules.
   * [riscv64] Improve JH7110 support: enable STARFIVE_STARLINK_PMU as module.
 
+  [ Vincent Blut ]
+  * [amd64] drivers/tee: Enable TEE as module (Closes: #1063161)
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 22 Jun 2024 11:54:55 +0200
 
 linux (6.9.2-1~exp1) experimental; urgency=medium

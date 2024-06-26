@@ -13,6 +13,9 @@ linux (6.9.6-1~exp1) UNRELEASED; urgency=medium
   * [x86] Refresh "intel-iommu: Add option to exclude integrated GPU only"
   * [x86] Refresh "intel-iommu: Add Kconfig option to exclude iGPU by default"
   * [rt] Drop "drm/i915/gt: Queue and wait for the irq_work item."
+  * [arm64] Disable RELR.
+    Temporarily disable RELR relocation packing to workaround failing boots
+    on arm64 with recent binutils/2.42.50.20240618-1, cf. #1074111.
 
   [ Aurelien Jarno ]
   * [riscv64] crypto: enable CRYPTO_AES_RISCV64, CRYPTO_CHACHA_RISCV64,

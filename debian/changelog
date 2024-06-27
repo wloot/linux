@@ -1,4 +1,4 @@
-linux (6.9.6-1~exp1) UNRELEASED; urgency=medium
+linux (6.9.7-1~exp1) UNRELEASED; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.9.3
@@ -8,6 +8,7 @@ linux (6.9.6-1~exp1) UNRELEASED; urgency=medium
     - [x86] cpu: Provide default cache line size if not enumerated
       (Closes: #1071378)
     - NFS: add barriers when testing for NFS_FSDATA_BLOCKED (Closes: #1071501)
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.9.7
 
   [ Salvatore Bonaccorso ]
   * [x86] Refresh "intel-iommu: Add option to exclude integrated GPU only"

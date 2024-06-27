@@ -253,6 +253,11 @@ CONFIG_SCSI_INIA100=m
 CONFIG_SPI_PXA2XX=m
 
 ##
+## file: drivers/tee/Kconfig
+##
+CONFIG_TEE=m
+
+##
 ## file: drivers/tee/amdtee/Kconfig
 ##
 CONFIG_AMDTEE=m

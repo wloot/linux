@@ -1,3 +1,9 @@
+linux (6.9.7-2~exp1) UNRELEASED; urgency=medium
+
+  * d/l/p/debian_linux/firmware.py: Handle RawFile fields
+
+ -- Ben Hutchings <benh@debian.org>  Sun, 30 Jun 2024 21:54:51 +0200
+
 linux (6.9.7-1) unstable; urgency=medium
 
   * New upstream stable update:

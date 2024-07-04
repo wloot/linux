@@ -417,8 +417,7 @@ linux-signed-{vars['arch']} (@signedtemplate_sourceversion@) {dist}; urgency={ur
             assert len(packages_meta) == 2
 
             if (
-                config.name_featureset == 'none'
-                and config.defs_flavour.is_default
+                config.defs_flavour.is_default
                 and not self.vars['source_suffix']
             ):
                 packages_meta[0].setdefault('Provides') \
@@ -440,10 +439,7 @@ linux-signed-{vars['arch']} (@signedtemplate_sourceversion@) {dist}; urgency={ur
             )
 
         # In a quick build, only build the quick flavour (if any).
-        if (
-            config.name_featureset != 'none'
-            or not config.defs_flavour.is_quick
-        ):
+        if not config.defs_flavour.is_quick:
             for package in packages_own:
                 package['Build-Profiles'][0].neg.add('pkg.linux.quick')
 

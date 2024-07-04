@@ -28,6 +28,7 @@
 /linux-*
 /rules.gen
 /tests/control
+!/linux-bpf-dev.*
 
 # Ignore compiled Python files
 __pycache__/

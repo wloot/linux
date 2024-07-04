@@ -438,6 +438,15 @@ linux-signed-{vars['arch']} (@signedtemplate_sourceversion@) {dist}; urgency={ur
                 self.bundle.add('image-dbg.meta', ruleid, makeflags, vars, arch=arch)
             )
 
+        if (
+            config.defs_flavour.is_default
+            # XXX
+            and not self.vars['source_suffix']
+        ):
+            packages_own.extend(
+                self.bundle.add('image-extra-dev', ruleid, makeflags, vars, arch=arch)
+            )
+
         # In a quick build, only build the quick flavour (if any).
         if not config.defs_flavour.is_quick:
             for package in packages_own:

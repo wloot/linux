@@ -9,7 +9,7 @@ class FirmwareFile(object):
         self.version = version
 
 
-class FirmwareSection(object):
+class FirmwareGroup(object):
     def __init__(self, driver, files, licence) -> None:
         self.driver = driver
         self.files = files
@@ -35,9 +35,9 @@ class FirmwareWhence(list):
                 if in_header:
                     in_header = False
                 else:
-                    # Finish old section
-                    if driver:
-                        self.append(FirmwareSection(driver, files, licence))
+                    # Finish old group
+                    if driver and files:
+                        self.append(FirmwareGroup(driver, files, licence))
                     driver = None
                     files = {}
                     licence = None
@@ -65,6 +65,12 @@ class FirmwareWhence(list):
                 r'|Original licen[cs]e info(?:rmation)?):\s*(.*)\n',
                 line)
             if match:
+                # If we've seen a license for the previous group,
+                # start a new group
+                if licence:
+                    self.append(FirmwareGroup(driver, files, licence))
+                    files = {}
+                    licence = None
                 keyword, value = match.group(1, 2)
                 if keyword == 'Driver':
                     driver = value.split(' ')[0].lower()
@@ -83,8 +89,8 @@ class FirmwareWhence(list):
                            + re.sub(r'^(?:[/ ]\*| \*/)?\s*(.*?)\s*$', r'\1',
                                     line))
 
-        # Finish last section if non-empty
+        # Finish last group if non-empty
         for b in binary:
             files[b] = FirmwareFile(b, desc, source, version)
         if driver:
-            self.append(FirmwareSection(driver, files, licence))
+            self.append(FirmwareGroup(driver, files, licence))

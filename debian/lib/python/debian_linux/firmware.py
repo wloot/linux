@@ -20,6 +20,12 @@ class FirmwareWhence(list):
     def __init__(self, file) -> None:
         self.read(file)
 
+    @staticmethod
+    def _unquote(name):
+        if len(name) >= 3 and name[0] == '"' and name[-1] == '"':
+            name = name[1:-1]
+        return name
+
     def read(self, file) -> None:
         in_header = True
         driver = None
@@ -75,13 +81,13 @@ class FirmwareWhence(list):
                 if keyword == 'Driver':
                     driver = value.split(' ')[0].lower()
                 elif keyword in ['File', 'RawFile']:
-                    match = re.match(r'(\S+)(?:\s+--\s+(.*))?', value)
-                    binary.append(match.group(1))
+                    match = re.match(r'("[^"\n]+"|\S+)(?:\s+--\s+(.*))?', value)
+                    binary.append(self._unquote(match.group(1)))
                     desc = match.group(2)
                 elif keyword in ['Info', 'Version']:
                     version = value
                 elif keyword == 'Source':
-                    source.append(value)
+                    source.append(self._unquote(value))
                 else:
                     licence = value
             elif licence is not None:

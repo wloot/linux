@@ -8,6 +8,7 @@ linux (6.9.7-2~exp1) UNRELEASED; urgency=medium
 
   [ Bastian Blank ]
   * Use debhelper compatibility level 13.
+  * Add linux-bpf-dev package for BPF header.
 
  -- Ben Hutchings <benh@debian.org>  Sun, 30 Jun 2024 21:54:51 +0200
 

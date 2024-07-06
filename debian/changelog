@@ -26,6 +26,7 @@ linux (6.10~rc7-1~exp1) UNRELEASED; urgency=medium
       SOC_MICROCHIP_POLARFIRE, SOC_SIFIVE, SOC_VIRT
     - [x86] drm/display: Enable DRM_DISPLAY_DP_AUX_CEC instead of DRM_DP_CEC
     - [x86] staging/wlan-ng: Remove PRISM2_USB
+  * hyperv-daemons: Update for upstream removal of hv_fcopy_daemon
 
   [ Bastian Blank ]
   * Use debhelper compatibility level 13.

@@ -16,6 +16,16 @@ linux (6.10~rc7-1~exp1) UNRELEASED; urgency=medium
         acpi_boot_table_init()
       - Adjust context in "phy/marvell: disable 4-port phys"
   * [rt] Update to 6.10-rc6-rt11
+  * d/config: Update with the help of kconfigeditor2:
+    - Disable BASE_SMALL instead of enabling BASE_FULL
+    - drm/display: Enable DRM_DISPLAY_DP_AUX_CHARDEV instead of
+      DRM_DP_AUX_CHARDEV
+    - [arm64] Enable USB_ONBOARD_DEV instead of USB_ONBOARD_HUB
+    - [armel,armhf] Enable ARM_PAN instead of CPU_SW_DOMAIN_PAN
+    - [riscv64] Enable ARCH_MICROCHIP, ARCH_SIFIVE, ARCH_VIRT instead of
+      SOC_MICROCHIP_POLARFIRE, SOC_SIFIVE, SOC_VIRT
+    - [x86] drm/display: Enable DRM_DISPLAY_DP_AUX_CEC instead of DRM_DP_CEC
+    - [x86] staging/wlan-ng: Remove PRISM2_USB
 
   [ Bastian Blank ]
   * Use debhelper compatibility level 13.

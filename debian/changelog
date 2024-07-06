@@ -222,6 +222,10 @@ linux (6.9.8-1) UNRELEASED; urgency=medium
     - serial: 8250_omap: Fix Errata i2310 with RX FIFO level check
     - tracing/net_sched: NULL pointer dereference in perf_trace_qdisc_reset()
 
+  [ Salvatore Bonaccorso ]
+  * [rt] Drop "pinctrl: renesas: rzg2l: Use
+    spin_{lock,unlock}_irq{save,restore}" (applied upstream)
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 06 Jul 2024 14:33:58 +0200
 
 linux (6.9.7-1) unstable; urgency=medium

@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 4 Apr 2024 12:25:34 +0200
 Subject: [PATCH] drm/ttm/tests: Let ttm_bo_test consider different ww_mutex
  implementation.
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.9/older/patches-6.9-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
 
 PREEMPT_RT has a different locking implementation for ww_mutex. The
 base mutex of struct ww_mutex is declared as struct WW_MUTEX_BASE. The
@@ -21,6 +21,8 @@ PREEMPT_RT and non-PREEMPT_RT builds.
 
 Fixes: 995279d280d1e ("drm/ttm/tests: Add tests for ttm_bo functions")
 Link: https://lore.kernel.org/r/20240404102534.QTa80QPY@linutronix.de
+Link: https://lore.kernel.org/r/20240613064716.WxAIvb9K@linutronix.de
+Link: https://lore.kernel.org/r/20240619144630.4DliKOmr@linutronix.de
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 ---
  drivers/gpu/drm/ttm/tests/ttm_bo_test.c |    8 +++++++-

@@ -15,6 +15,7 @@ linux (6.10~rc7-1~exp1) UNRELEASED; urgency=medium
       - Change "arm64/acpi: Add fixup for HPE m400 quirks" to not restructure
         acpi_boot_table_init()
       - Adjust context in "phy/marvell: disable 4-port phys"
+  * [rt] Update to 6.10-rc6-rt11
 
   [ Bastian Blank ]
   * Use debhelper compatibility level 13.

@@ -363,7 +363,7 @@ build_bpf-dev: SOURCE_DIR=$(BUILD_DIR)/source_$(FEATURESET)
 build_bpf-dev: DIR=$(BUILD_DIR)/build_$(ARCH)_$(FEATURESET)_$(FLAVOUR)
 build_bpf-dev: $(STAMPS_DIR)/build_$(ARCH)_$(FEATURESET)_$(FLAVOUR)
 	mkdir -p $(DIR)/tools/bpf/bpftool
-	+$(MAKE_CLEAN) -C '$(SOURCE_DIR)/tools/bpf/bpftool' O=$(DIR)/tools/bpf/bpftool CROSS_COMPILE= FEATURE_TESTS= FEATURE_DISPLAY=
+	+$(MAKE_CLEAN) -C '$(SOURCE_DIR)/tools/bpf/bpftool' O=$(CURDIR)/$(DIR)/tools/bpf/bpftool CROSS_COMPILE= FEATURE_TESTS= FEATURE_DISPLAY=
 
 	if grep -q CONFIG_DEBUG_INFO_BTF=y $(DIR)/.config; then \
 		$(DIR)/tools/bpf/bpftool/bpftool btf dump file $(DIR)/vmlinux format c > $(DIR)/vmlinux.h; \

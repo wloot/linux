@@ -28,6 +28,7 @@ linux (6.10~rc7-1~exp1) UNRELEASED; urgency=medium
     - [x86] staging/wlan-ng: Remove PRISM2_USB
   * hyperv-daemons: Update for upstream removal of hv_fcopy_daemon
   * [x86] linux-cpupower: Update turbostat Makefile to define BUILD_BUG_HEADER
+  * linux-bpf-dev: Set O to absolute directory in bpftool build
 
   [ Bastian Blank ]
   * Use debhelper compatibility level 13.

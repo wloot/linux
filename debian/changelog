@@ -1,4 +1,4 @@
-linux (6.9.8-1) UNRELEASED; urgency=medium
+linux (6.9.8-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.9.8
@@ -228,7 +228,7 @@ linux (6.9.8-1) UNRELEASED; urgency=medium
   * d/rules.real: Revert workaround to explicitly remove executable bits from
     dtb files (implemented upstream)
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 06 Jul 2024 14:33:58 +0200
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 07 Jul 2024 20:58:08 +0200
 
 linux (6.9.7-1) unstable; urgency=medium
 

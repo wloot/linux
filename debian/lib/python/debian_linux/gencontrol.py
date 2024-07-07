@@ -4,7 +4,6 @@ import contextlib
 import itertools
 import pathlib
 import re
-from collections import OrderedDict
 from collections.abc import (
     Generator,
 )
@@ -23,20 +22,8 @@ from .config_v2 import (
 )
 from .dataclasses_deb822 import write_deb822
 from .debian import Changelog, PackageArchitecture, \
-    Version, BinaryPackage
+    Version, SourcePackage, BinaryPackage
 from .utils import Templates
-
-
-class PackagesList(OrderedDict):
-    def append(self, package) -> None:
-        self[package['Package']] = package
-
-    def extend(self, packages) -> None:
-        for package in packages:
-            self[package['Package']] = package
-
-    def setdefault(self, package) -> Any:
-        return super().setdefault(package.name, package)
 
 
 class Makefile:
@@ -150,23 +137,35 @@ class MakeFlags(dict):
 
 
 class PackagesBundle:
+    class BinaryPackages(dict[str, BinaryPackage]):
+        def add(self, package: BinaryPackage) -> BinaryPackage:
+            return super().setdefault(package.name, package)
+
     name: str | None
     templates: Templates
     base: pathlib.Path
     makefile: Makefile
-    packages: PackagesList
+    source: SourcePackage
+    packages: BinaryPackages
 
     def __init__(
             self,
             name: str | None,
+            source_template: str,
+            replace: dict[str, str],
             templates: Templates,
             base: pathlib.Path = pathlib.Path('debian'),
+            override_name: str | None = None,
     ) -> None:
         self.name = name
         self.templates = templates
         self.base = base
         self.makefile = Makefile()
-        self.packages = PackagesList()
+        self.source = list(self.templates.get_source_control(source_template, replace))[0]
+        self.packages = self.BinaryPackages()
+
+        if not self.source.name:
+            self.source.name = override_name
 
     def add(
             self,
@@ -180,7 +179,7 @@ class PackagesBundle:
     ) -> list[Any]:
         ret = []
         for raw_package in self.templates.get_control(f'{pkgid}.control', replace):
-            package = self.packages.setdefault(raw_package)
+            package = self.packages.add(raw_package)
             package_name = package.name
             ret.append(package)
 
@@ -220,7 +219,7 @@ class PackagesBundle:
             check_packages: bool = True,
     ) -> None:
         for package in packages:
-            package = self.packages.setdefault(package)
+            package = self.packages.add(package)
             package.meta_rules_ruleids[ruleid] = makeflags
             if arch:
                 package.meta_architectures.add(arch)
@@ -331,26 +330,22 @@ class PackagesBundle:
     def merge_build_depends(self) -> None:
         # Merge Build-Depends pseudo-fields from binary packages into the
         # source package
-        source = self.packages["source"]
         arch_all = PackageArchitecture("all")
         for name, package in self.packages.items():
-            if name == "source":
-                continue
             dep = package.build_depends
             if not dep:
                 continue
-            package.build_depends = None
             if package.architecture == arch_all:
-                dep_type = "build_depends_indep"
+                build_dep = self.source.build_depends_indep
             else:
-                dep_type = "build_depends_arch"
+                build_dep = self.source.build_depends_arch
             for group in dep:
                 for item in group:
                     if package.architecture != arch_all and not item.arches:
                         item.arches = package.architecture
                     if package.build_profiles and not item.restrictions:
                         item.restrictions = package.build_profiles
-                getattr(source, dep_type).merge(group)
+                build_dep.merge(group)
 
     def write(self) -> None:
         self.write_control()
@@ -358,7 +353,7 @@ class PackagesBundle:
 
     def write_control(self) -> None:
         with self.open('control') as f:
-            write_deb822(self.packages.values(), f)
+            write_deb822([self.source] + list(self.packages.values()), f)
 
     def write_makefile(self) -> None:
         with self.open('rules.gen') as f:
@@ -374,7 +369,7 @@ class Gencontrol(object):
         self.config, self.templates = config, templates
         self.changelog = Changelog(version=version)
         self.vars = {}
-        self.bundles = {'': PackagesBundle(None, templates)}
+        self.bundles = {}
 
     @property
     def bundle(self) -> PackagesBundle:
@@ -388,10 +383,10 @@ class Gencontrol(object):
         self.write()
 
     def do_source(self) -> None:
-        source = list(self.templates.get_source_control("source.control", self.vars))[0]
-        if not source.name:
-            source.name = self.changelog[0].source
-        self.bundle.packages['source'] = source
+        self.bundles[''] = PackagesBundle(
+            None, 'source.control', self.vars, self.templates,
+            override_name=self.changelog[0].source,
+        )
 
     def do_main(self) -> None:
         vars = self.vars.copy()

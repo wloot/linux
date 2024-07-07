@@ -213,9 +213,7 @@ class Gencontrol(Base):
             self.bundle.add('signed-template', (arch,), makeflags, vars, arch=arch)
 
             bundle_signed = self.bundles[f'signed-{arch}'] = \
-                PackagesBundle(f'signed-{arch}', self.templates)
-            bundle_signed.packages['source'] = \
-                list(self.templates.get_source_control('signed.source.control', vars))[0]
+                PackagesBundle(f'signed-{arch}', 'signed.source.control', vars, self.templates)
 
             with bundle_signed.open('source/lintian-overrides', 'w') as f:
                 f.write(self.substitute(
@@ -297,7 +295,7 @@ linux-signed-{vars['arch']} (@signedtemplate_sourceversion@) {dist}; urgency={ur
 
         # Generate compiler build-depends for native:
         # gcc-13 [arm64] <!cross !pkg.linux.nokernel>
-        self.bundle.packages['source'].build_depends_arch.merge([
+        self.bundle.source.build_depends_arch.merge([
             PackageRelationEntry(
                 relation_compiler,
                 arches={arch},
@@ -307,7 +305,7 @@ linux-signed-{vars['arch']} (@signedtemplate_sourceversion@) {dist}; urgency={ur
 
         # Generate compiler build-depends for cross:
         # gcc-13-aarch64-linux-gnu [arm64] <cross !pkg.linux.nokernel>
-        self.bundle.packages['source'].build_depends_arch.merge([
+        self.bundle.source.build_depends_arch.merge([
             PackageRelationEntry(
                 relation_compiler,
                 name=f'{relation_compiler.name}-{config.defs_debianarch.gnutype_package}',
@@ -320,7 +318,7 @@ linux-signed-{vars['arch']} (@signedtemplate_sourceversion@) {dist}; urgency={ur
         # gcc-13-hppa64-linux-gnu [hppa] <!pkg.linux.nokernel>
         if gnutype := config.build.compiler_gnutype:
             if gnutype != config.defs_debianarch.gnutype:
-                self.bundle.packages['source'].build_depends_arch.merge([
+                self.bundle.source.build_depends_arch.merge([
                     PackageRelationEntry(
                         relation_compiler,
                         name=f'{relation_compiler.name}-{gnutype.replace("_", "-")}',
@@ -334,7 +332,7 @@ linux-signed-{vars['arch']} (@signedtemplate_sourceversion@) {dist}; urgency={ur
         # XXX: Linux uses various definitions for this, all ending with "gcc", not $CC
         if gnutype := config.build.compiler_gnutype_compat:
             if gnutype != config.defs_debianarch.gnutype:
-                self.bundle.packages['source'].build_depends_arch.merge([
+                self.bundle.source.build_depends_arch.merge([
                     PackageRelationEntry(
                         f'gcc-{gnutype.replace("_", "-")}',
                         arches={arch},

@@ -352,8 +352,13 @@ class PackagesBundle:
         self.write_makefile()
 
     def write_control(self) -> None:
+        p = [self.source] + sorted(
+            self.packages.values(),
+            # Sort deb before udeb and then according to name
+            key=lambda i: (i.package_type or '', i.name),
+        )
         with self.open('control') as f:
-            write_deb822([self.source] + list(self.packages.values()), f)
+            write_deb822(p, f)
 
     def write_makefile(self) -> None:
         with self.open('rules.gen') as f:

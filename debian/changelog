@@ -1,10 +1,20 @@
-linux (6.9.8-2~exp1) UNRELEASED; urgency=medium
+linux (6.10~rc7-1~exp1) UNRELEASED; urgency=medium
 
   [ Ben Hutchings ]
   * d/l/p/debian_linux/firmware.py: Handle RawFile fields
   * d/l/p/debian_linux/firmware.py: Correctly handle multiple licences per
     section
   * d/l/p/debian_linux/firmware.py: Handle quoted filenames
+  * Update to 6.10-rc7:
+    - Drop patches applied upstream:
+      - "alpha: Fix missing symbol versions for str{,n}{cat,cpy}"
+    - Refresh patches:
+      - Adjust context in "Include package version along with kernel release
+        in stack traces"
+      - Adjust context in "Documentation: Drop sphinx version check"
+      - Change "arm64/acpi: Add fixup for HPE m400 quirks" to not restructure
+        acpi_boot_table_init()
+      - Adjust context in "phy/marvell: disable 4-port phys"
 
   [ Bastian Blank ]
   * Use debhelper compatibility level 13.

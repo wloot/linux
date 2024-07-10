@@ -2201,7 +2201,7 @@ CONFIG_USB_ISP1760_DUAL_ROLE=y
 ## file: drivers/usb/misc/Kconfig
 ##
 CONFIG_USB_HSIC_USB3503=m
-CONFIG_USB_ONBOARD_HUB=m
+CONFIG_USB_ONBOARD_DEV=m
 
 ##
 ## file: drivers/usb/mtu3/Kconfig

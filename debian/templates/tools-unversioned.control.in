@@ -127,10 +127,7 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Section: admin
 Description: Support daemons for Linux running on Hyper-V
  Suite of daemons for Linux guests running on Hyper-V, consisting of
- hv_fcopy_daemon, hv_kvp_daemon and hv_vss_daemon.
- .
- hv_fcopy_daemon provides the file copy service, allowing the host to
- copy files into the guest.
+ hv_kvp_daemon and hv_vss_daemon.
  .
  hv_kvp_daemon provides the key-value pair (KVP) service, allowing the
  host to get and set the IP networking configuration of the guest.

@@ -589,7 +589,7 @@ CONFIG_DRM_AST=m
 ##
 ## file: drivers/gpu/drm/display/Kconfig
 ##
-CONFIG_DRM_DP_CEC=y
+CONFIG_DRM_DISPLAY_DP_AUX_CEC=y
 
 ##
 ## file: drivers/gpu/drm/gma500/Kconfig
@@ -1719,11 +1719,6 @@ CONFIG_RTS5208=m
 ## file: drivers/staging/vt6656/Kconfig
 ##
 CONFIG_VT6656=m
-
-##
-## file: drivers/staging/wlan-ng/Kconfig
-##
-CONFIG_PRISM2_USB=m
 
 ##
 ## file: drivers/thermal/Kconfig

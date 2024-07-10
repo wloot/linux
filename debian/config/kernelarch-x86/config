@@ -1861,14 +1861,8 @@ CONFIG_TYPEC_FUSB302=m
 CONFIG_TYPEC_TPS6598X=m
 
 ##
-## file: drivers/vfio/Kconfig
-##
-CONFIG_VFIO=m
-
-##
 ## file: drivers/vfio/pci/Kconfig
 ##
-CONFIG_VFIO_PCI=m
 CONFIG_VFIO_PCI_VGA=y
 
 ##

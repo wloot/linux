@@ -11,6 +11,9 @@ linux (6.9.8-2~exp1) UNRELEASED; urgency=medium
   * Add linux-bpf-dev package for BPF header.
   * Replace dh-exec with static files everywhere.
 
+  [ Punit Agrawal ]
+  * drivers/vfio: Enable VFIO configuration for all supported architectures
+
  -- Ben Hutchings <benh@debian.org>  Sun, 30 Jun 2024 21:54:51 +0200
 
 linux (6.9.8-1) unstable; urgency=medium

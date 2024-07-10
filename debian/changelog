@@ -30,6 +30,7 @@ linux (6.10-1~exp2) UNRELEASED; urgency=medium
   [ Ben Hutchings ]
   * d/b/test-patches: Handle kernel release strings without ABI number
   * d/b/test-patches: Stop looking for featuresets other than rt
+  * d/b/test-patches: Update config overrides for the current format
 
  -- Diederik de Haas <didi.debian@cknow.org>  Thu, 18 Jul 2024 09:30:01 +0200
 

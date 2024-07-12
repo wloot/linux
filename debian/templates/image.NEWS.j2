@@ -1,3 +1,30 @@
+{% if arch in ('ppc64', 'ppc64el') %}
+linux (6.10-1~exp2) unstable; urgency=medium
+
+  * From Linux 6.10, the default kernel on ppc64 and ppc64el
+    architectures uses 4k page size.
+
+    After rebooting, you need to re-create all swap files or partitions.
+    They depend on the page size and will be not longer usable.  See
+    mkswap(8) on how to do that.
+
+    Some file systems might be incompatible with the smaller page size.
+    At least btrfs created with default settings is known to be affected
+    and they will not work with this kernel any more.
+
+    A btrfs file system can be checked with file(1) (use file -s).  It
+    will show:
+    BTRFS Filesystem sectorsize 65536
+    If this number is larger then 4096, the file system can not be
+    mounted with the default kernel anymore.
+
+    If you are affected and require the 64k page size of older kernels,
+    you can install linux-image-powerpc64-64k or
+    linux-image-powerpc64el-64k packages.
+
+ -- Bastian Blank <waldi@debian.org>  Thu, 11 Jul 2024 11:12:35 +0200
+
+{% endif %}
 linux (5.10.46-4) unstable; urgency=medium
 
   * From Linux 5.10.46-4, unprivileged calls to bpf() are disabled by

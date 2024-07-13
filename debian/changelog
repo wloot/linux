@@ -1,4 +1,4 @@
-linux (6.9.9-1) UNRELEASED; urgency=medium
+linux (6.9.9-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.9.9
@@ -200,7 +200,7 @@ linux (6.9.9-1) UNRELEASED; urgency=medium
     - null_blk: Do not allow runt zone with zone capacity smaller then zone size
     - libbpf: don't close(-1) in multi-uprobe feature detector
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 11 Jul 2024 17:39:48 +0200
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 13 Jul 2024 17:45:02 +0200
 
 linux (6.9.8-1) unstable; urgency=medium
 

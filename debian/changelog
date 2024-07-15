@@ -38,6 +38,10 @@ linux (6.10~rc7-1~exp1) UNRELEASED; urgency=medium
   [ Punit Agrawal ]
   * drivers/vfio: Enable VFIO configuration for all supported architectures
 
+  [ Emanuele Rocca ]
+  * [arm64] Enable support for Renesas boards RZ/G3S (ARCH_R9A08G045) and
+    RZ/V2H (ARCH_R9A09G057). (Closes: #1072574)
+
  -- Ben Hutchings <benh@debian.org>  Sun, 30 Jun 2024 21:54:51 +0200
 
 linux (6.9.9-1) unstable; urgency=medium

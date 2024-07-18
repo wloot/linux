@@ -13,6 +13,11 @@ linux (6.10-1~exp2) UNRELEASED; urgency=medium
     - [arm64] drivers/net/dsa: Enable NET_DSA_MT7530, NET_DSA_MT7530_MDIO and
       NET_DSA_MT7530_MMIO as modules
     - [arm64] drivers/spi: Enable SPI_MTK_SNFI as module
+  * [arm64] Enable support for Pine64's PineTab2:
+    - drivers/iio/accel: Enable IIO_ST_ACCEL_I2C_3AXIS as module
+    - [arm64] drivers/gpu/drm/panel: Enable DRM_PANEL_BOE_TH101MB31UIG002_28A
+      as module
+    - [arm64] drivers/media/i2c: Enable VIDEO_OV5648 and VIDEO_DW9714 as module
 
   [ Emanuele Rocca ]
   * [arm64] Enable support for Renesas boards RZ/G3S (ARCH_R9A08G045) and

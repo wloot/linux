@@ -1,4 +1,4 @@
-linux (6.10-1~exp1) UNRELEASED; urgency=medium
+linux (6.10-1~exp1) experimental; urgency=medium
 
   * New upstream release: https://kernelnewbies.org/Linux_6.10
 
@@ -40,7 +40,7 @@ linux (6.10-1~exp1) UNRELEASED; urgency=medium
   [ Punit Agrawal ]
   * drivers/vfio: Enable VFIO configuration for all supported architectures
 
- -- Ben Hutchings <benh@debian.org>  Sun, 30 Jun 2024 21:54:51 +0200
+ -- Ben Hutchings <benh@debian.org>  Thu, 18 Jul 2024 02:14:35 +0200
 
 linux (6.9.9-1) unstable; urgency=medium
 

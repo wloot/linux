@@ -32,6 +32,10 @@ linux (6.10-1~exp2) UNRELEASED; urgency=medium
   * d/b/test-patches: Stop looking for featuresets other than rt
   * d/b/test-patches: Update config overrides for the current format
 
+  [ Vincent Blut ]
+  * [amd64/cloud] drivers/watchdog: Enable I6300ESB_WDT as module
+    (Closes: #1067908)
+
  -- Diederik de Haas <didi.debian@cknow.org>  Thu, 18 Jul 2024 09:30:01 +0200
 
 linux (6.10-1~exp1) experimental; urgency=medium

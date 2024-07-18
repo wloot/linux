@@ -101,6 +101,9 @@ linux (6.10-1~exp2) UNRELEASED; urgency=medium
       as moudles for devices present both on Qualcomm and non-Qualcomm
       platforms
 
+  [ Jochen Sprickerhof ]
+  * Enable snd_soc_pcm5102a as a module on armhf/arm64
+
  -- Diederik de Haas <didi.debian@cknow.org>  Thu, 18 Jul 2024 09:30:01 +0200
 
 linux (6.10-1~exp1) experimental; urgency=medium

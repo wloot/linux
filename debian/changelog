@@ -1,4 +1,4 @@
-linux (6.9.10-1) UNRELEASED; urgency=medium
+linux (6.9.10-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.9.10
@@ -134,7 +134,7 @@ linux (6.9.10-1) UNRELEASED; urgency=medium
     - kbuild: Make ld-version.sh more robust against version string changes
     - kbuild: rpm-pkg: avoid the warnings with dtb's listed twice
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 19 Jul 2024 06:14:10 +0200
+ -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 19 Jul 2024 18:55:23 +0200
 
 linux (6.9.9-1) unstable; urgency=medium
 

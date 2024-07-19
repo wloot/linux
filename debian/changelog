@@ -42,6 +42,9 @@ linux (6.10-1~exp2) UNRELEASED; urgency=medium
   * [riscv64] Enable CONFIG_CLK_SOPHGO_CV1800 as a module.
   * [riscv64] Enable CONFIG_ACPI_CPPC_CPUFREQ as a module.
 
+  [ Salvatore Bonaccorso ]
+  * drivers/md/dm-vdo: Enable DM_VDO as module (Closes: #1076457)
+
  -- Diederik de Haas <didi.debian@cknow.org>  Thu, 18 Jul 2024 09:30:01 +0200
 
 linux (6.10-1~exp1) experimental; urgency=medium

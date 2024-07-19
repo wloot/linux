@@ -1,3 +1,141 @@
+linux (6.9.10-1) UNRELEASED; urgency=medium
+
+  * New upstream stable update:
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.9.10
+    - mm: prevent derefencing NULL ptr in pfn_section_valid()
+    - scsi: ufs: core: Fix ufshcd_clear_cmd racing issue
+    - scsi: ufs: core: Fix ufshcd_abort_one racing issue
+    - vfio/pci: Init the count variable in collecting hot-reset devices
+    - spi: axi-spi-engine: fix sleep calculation
+    - cachefiles: propagate errors from vfs_getxattr() to avoid infinite loop
+    - cachefiles: stop sending new request when dropping object
+    - cachefiles: cancel all requests for the object that is being dropped
+    - cachefiles: wait for ondemand_object_worker to finish when dropping object
+    - cachefiles: cyclic allocation of msg_id to avoid reuse
+    - cachefiles: add missing lock protection when polling
+    - filelock: fix potential use-after-free in posix_lock_inode
+    - fs/dcache: Re-use value stored to dentry->d_flags instead of re-reading
+    - vfs: don't mod negative dentry count when on shrinker list
+    - net: bcmasp: Fix error code in probe()
+    - tcp: fix incorrect undo caused by DSACK of TLP retransmit
+    - bpf: Fix too early release of tcx_entry (CVE-2024-41010)
+    - net: phy: microchip: lan87xx: reinit PHY after cable test
+    - skmsg: Skip zero length skb in sk_msg_recvmsg
+    - spi: don't unoptimize message in spi_async()
+    - spi: add defer_optimize_message controller flag
+    - net: fix rc7's __skb_datagram_iter()
+    - i40e: Fix XDP program unloading while removing the driver
+    - net: ethernet: lantiq_etop: fix double free in detach
+    - minixfs: Fix minixfs_rename with HIGHMEM
+    - bpf: fix order of args in call to bpf_map_kvcalloc
+    - bpf: make timer data struct more generic
+    - bpf: replace bpf_timer_init with a generic helper
+    - bpf: Fail bpf_timer_cancel when callback is being cancelled
+    - bpf: Defer work in bpf_timer_cancel_and_free
+    - tcp: avoid too many retransmit packets (CVE-2024-41007)
+    - net: ethernet: mtk-star-emac: set mac_managed_pm when probing
+    - ppp: reject claimed-as-LCP but actually malformed packets
+    - ethtool: netlink: do not return SQI value if link is down
+    - netfilter: nfnetlink_queue: drop bogus WARN_ON
+    - netfilter: nf_tables: prefer nft_chain_validate
+    - udp: Set SOCK_RCU_FREE earlier in udp_lib_get_port().
+    - net/sched: Fix UAF when resolving a clash
+    - net, sunrpc: Remap EPERM in case of connection failure in
+      xs_tcp_setup_socket
+    - [arm64] dts: qcom: sc8180x: Fix LLCC reg property again
+    - [arm64] dts: qcom: x1e80100-*: Allocate some CMA buffers
+    - [arm64] dts: allwinner: Fix PMIC interrupt number
+    - [arm64] dts: qcom: x1e80100: Fix PCIe 6a reg offsets and add MHI
+    - [arm64] dts: qcom: sm6115: add iommu for sdhc_1
+    - [arm64] dts: qcom: qdu1000: Fix LLCC reg property
+    - firmware: cs_dsp: Fix overflow checking of wmfw header
+    - firmware: cs_dsp: Return error if block header overflows file
+    - firmware: cs_dsp: Validate payload length before processing block
+    - firmware: cs_dsp: Prevent buffer overrun when processing V2 alg headers
+    - [x86] ASoC: SOF: Intel: hda: fix null deref on system suspend entry
+    - firmware: cs_dsp: Use strnlen() on name fields in V1 wmfw files
+    - net: ethtool: Fix RSS setting
+    - i40e: fix: remove needless retries of NVM update
+    - cifs: fix setting SecurityFlags to true
+    - Revert "sched/fair: Make sure to try to detach at least one movable task"
+    - USB: serial: option: add Telit generic core-dump composition
+    - USB: serial: option: add Telit FN912 rmnet compositions
+    - USB: serial: option: add Fibocom FM350-GL
+    - USB: serial: option: add support for Foxconn T99W651
+    - USB: serial: option: add Netprisma LCUK54 series modules
+    - USB: serial: option: add Rolling RW350-GL variants
+    - USB: serial: mos7840: fix crash on resume
+    - USB: Add USB_QUIRK_NO_SET_INTF quirk for START BP-850k
+    - usb: dwc3: pci: add support for the Intel Panther Lake
+    - usb: core: add missing of_node_put() in usb_of_has_devices_or_graph
+    - usb: gadget: configfs: Prevent OOB read/write in usb_string_copy()
+    - USB: core: Fix duplicate endpoint bug by clearing reserved bits in the
+      descriptor
+    - misc: microchip: pci1xxxx: Fix return value of nvmem callbacks
+    - hpet: Support 32-bit userspace
+    - xhci: always resume roothubs if xHC was reset during resume
+    - [s390x] mm: Add NULL pointer check to crst_table_free() base_crst_free()
+    - nilfs2: fix kernel bug on rename operation of broken directory
+    - cachestat: do not flush stats in recency check
+    - mm: vmalloc: check if a hash-index is in cpu_possible_mask
+    - mm: fix crashes from deferred split racing folio migration
+    - filemap: replace pte_offset_map() with pte_offset_map_nolock()
+    - mm/filemap: skip to create PMD-sized page cache if needed
+    - mm/filemap: make MAX_PAGECACHE_ORDER acceptable to xarray
+    - ksmbd: discard write access to the directory open
+    - iio: trigger: Fix condition for own trigger
+    - [arm64] dts: qcom: sa8775p: Correct IRQ number of EL2 non-secure physical
+      timer
+    - [arm64] dts: qcom: sc8280xp-x13s: fix touchscreen power on
+    - [arm64] dts: qcom: x1e80100-crd: fix WCD audio codec TX port mapping
+    - [arm64] dts: qcom: x1e80100-crd: fix DAI used for headset recording
+    - nvmem: rmem: Fix return value of rmem_read()
+    - nvmem: meson-efuse: Fix return value of nvmem callbacks
+    - nvmem: core: only change name to fram for current attribute
+    - nvmem: core: limit cell sysfs permissions to main attribute ones
+    - [x86] platform/x86: toshiba_acpi: Fix array out-of-bounds access
+    - tty: serial: ma35d1: Add a NULL check for of_node
+    - serial: imx: ensure RTS signal is not left active after shutdown
+    - ALSA: hda/realtek: add quirk for Clevo V5[46]0TU
+    - ALSA: hda/realtek: Enable Mute LED on HP 250 G7
+    - ALSA: hda/realtek: Limit mic boost on VAIO PRO PX
+    - mei: vsc: Enhance IVSC chipset stability during warm reboot
+    - mei: vsc: Prevent timeout error with added delay post-firmware download
+    - mei: vsc: Utilize the appropriate byte order swap function
+    - Fix userfaultfd_api to return EINVAL as expected
+    - mmc: sdhci: Fix max_seg_size for 64KiB PAGE_SIZE
+    - mmc: davinci_mmc: Prevent transmitted data size from exceeding sgm's
+      length
+    - pmdomain: qcom: rpmhpd: Skip retention level for Power Domains
+    - libceph: fix race between delayed_work() and ceph_monc_stop()
+    - ACPI: processor_idle: Fix invalid comparison with insertion sort for
+      latency
+    - cpufreq: ACPI: Mark boost policy as enabled when setting boost
+    - cpufreq: Allow drivers to advertise boost enabled
+    - wireguard: selftests: use acpi=off instead of -no-acpi for recent QEMU
+    - wireguard: allowedips: avoid unaligned 64-bit memory accesses
+    - wireguard: queueing: annotate intentional data race in cpu round robin
+    - wireguard: send: annotate intentional data race in checking empty queue
+    - [arm64] misc: fastrpc: Fix DSP capabilities request
+    - [arm64] misc: fastrpc: Avoid updating PD type for capability request
+    - [arm64] misc: fastrpc: Copy the complete capability structure to user
+    - [arm64] misc: fastrpc: Fix memory leak in audio daemon attach operation
+    - [arm64] misc: fastrpc: Fix ownership reassignment of remote heap
+    - [arm64] misc: fastrpc: Restrict untrusted app to attach to privileged PD
+    - mm/readahead: limit page cache size in page_cache_ra_order()
+    - mm/shmem: disable PMD-sized page cache if needed
+    - mm/damon/core: merge regions aggressively when max_nr_regions is unmet
+    - Revert "dt-bindings: cache: qcom,llcc: correct QDU1000 reg entries"
+    - ext4: avoid ptr null pointer dereference
+    - i2c: mark HostNotify target address as used
+    - i2c: testunit: avoid re-issued work after read message
+    - sched/deadline: Fix task_struct reference leak
+    - [x86] bhi: Avoid warning in #DB handler due to BHI mitigation
+    - kbuild: Make ld-version.sh more robust against version string changes
+    - kbuild: rpm-pkg: avoid the warnings with dtb's listed twice
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 19 Jul 2024 06:14:10 +0200
+
 linux (6.9.9-1) unstable; urgency=medium
 
   * New upstream stable update:

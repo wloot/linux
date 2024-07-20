@@ -61,6 +61,11 @@ CONFIG_HW_RANDOM_POLARFIRE_SOC=m
 CONFIG_HW_RANDOM_JH7110=m
 
 ##
+## file: drivers/clk/sophgo/Kconfig
+##
+CONFIG_CLK_SOPHGO_CV1800=m
+
+##
 ## file: drivers/cpufreq/Kconfig
 ##
 CONFIG_CPUFREQ_DT=m

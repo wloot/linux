@@ -8,8 +8,15 @@ from debian_linux.config_v2 import Config
 
 
 class Main(object):
-    def __init__(self, dir, arch, featureset, flavour):
+
+    checks = {
+        'setup': [],
+        'build': [],
+    }
+
+    def __init__(self, dir, arch, featureset, flavour, phase):
         self.args = dir, arch, featureset, flavour
+        self.phase = phase
 
         config_dirs = [
             pathlib.Path('debian/config'),
@@ -30,7 +37,7 @@ class Main(object):
     def __call__(self):
         fail = 0
 
-        for c in ():
+        for c in self.checks[self.phase]:
             fail |= c(self.config, *self.args)(sys.stdout)
 
         return fail

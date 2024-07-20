@@ -1,16 +1,46 @@
 #!/usr/bin/python3
 
 import itertools
+import os
 import pathlib
 import sys
 
 from debian_linux.config_v2 import Config
+from debian_linux.kconfig import KconfigFile
+
+
+class CheckSecureBootConfig:
+    def __init__(self, config, dir, *_):
+        self.config = config
+        self.dir = pathlib.Path(dir)
+
+    def __call__(self, out):
+        fail = 0
+
+        if self.config.build.enable_signed \
+           and not os.getenv('DEBIAN_KERNEL_DISABLE_SIGNED'):
+            kconfig = KconfigFile()
+            with (self.dir / '.config').open() as fh:
+                kconfig.read(fh)
+
+            for name, value in [('EFI_STUB', True),
+                                ('LOCK_DOWN_IN_EFI_SECURE_BOOT', True),
+                                ('SYSTEM_TRUSTED_KEYS', '""')]:
+                if name not in kconfig:
+                    out.write(f'Secure Boot: CONFIG_{name} is not defined\n')
+                    fail = 1
+                elif kconfig[name].value != value:
+                    out.write(f'Secure Boot: CONFIG_{name} has wrong value:'
+                              f' {kconfig[name].value}\n')
+                    fail = 1
+
+        return fail
 
 
 class Main(object):
 
     checks = {
-        'setup': [],
+        'setup': [CheckSecureBootConfig],
         'build': [],
     }
 

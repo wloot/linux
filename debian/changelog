@@ -108,6 +108,9 @@ linux (6.10.1-1~exp1) UNRELEASED; urgency=medium
   [ Jochen Sprickerhof ]
   * Enable snd_soc_pcm5102a as a module on armhf/arm64
 
+  [ Dylan Aïssi ]
+  * debian/rules: sort control.md5sums to improve reproducibility
+
  -- Diederik de Haas <didi.debian@cknow.org>  Thu, 18 Jul 2024 09:30:01 +0200
 
 linux (6.10-1~exp1) experimental; urgency=medium

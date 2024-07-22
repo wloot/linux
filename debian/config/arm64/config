@@ -2,7 +2,6 @@
 ## file: arch/Kconfig
 ##
 CONFIG_SECCOMP=y
-# CONFIG_RELR is not set
 
 ##
 ## file: arch/arm/crypto/Kconfig

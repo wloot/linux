@@ -22,6 +22,8 @@ linux (6.10-1~exp2) UNRELEASED; urgency=medium
   [ Emanuele Rocca ]
   * [arm64] Enable support for Renesas boards RZ/G3S (ARCH_R9A08G045) and
     RZ/V2H (ARCH_R9A09G057). (Closes: #1072574)
+  * [arm64] Re-enable RELR, kernels built with binutils 2.42.90.20240720 boot
+    fine. (Cf. #1074111).
 
   [ Bastian Blank ]
   * [ppc64*] Switch default kernel to 4k page size.  (closes: #1074217)

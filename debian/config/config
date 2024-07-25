@@ -2057,6 +2057,11 @@ CONFIG_BCACHE=m
 # CONFIG_BCACHE_DEBUG is not set
 
 ##
+## file: drivers/md/dm-vdo/Kconfig
+##
+CONFIG_DM_VDO=m
+
+##
 ## file: drivers/media/Kconfig
 ##
 CONFIG_MEDIA_SUPPORT=m

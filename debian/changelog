@@ -103,6 +103,7 @@ linux (6.10.1-1~exp1) UNRELEASED; urgency=medium
     - Enable DRM_LONTIUM_LT9611, DRM_LONTIUM_LT9611UXC, TYPEC_MUX_NB7VPQ904M
       as moudles for devices present both on Qualcomm and non-Qualcomm
       platforms
+  * [arm64] enable CONFIG_QCOM_LMH, another SDM845-related option
 
   [ Jochen Sprickerhof ]
   * Enable snd_soc_pcm5102a as a module on armhf/arm64

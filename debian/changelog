@@ -42,6 +42,7 @@ linux (6.10-1~exp2) UNRELEASED; urgency=medium
   * d/b/buildcheck.py: Restore reading of config to pass to check classes
   * d/b/buildcheck.py, d/rules.real: Run buildcheck.py in setup as well
   * d/b/buildcheck.py: Restore config checks on kernels to be signed
+  * [alpha] scsi: Disable SCSI_IMM (fixes FTBFS)
 
   [ Aurelien Jarno ]
   * [riscv64] Enable CONFIG_ARCH_CANAAN to support Canaan Kendryte SoCs.

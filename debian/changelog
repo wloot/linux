@@ -1,4 +1,4 @@
-linux (6.9.11-1) UNRELEASED; urgency=medium
+linux (6.9.11-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.9.11
@@ -169,7 +169,7 @@ linux (6.9.11-1) UNRELEASED; urgency=medium
     - cachefiles: fix slab-use-after-free in fscache_withdraw_volume()
     - cachefiles: fix slab-use-after-free in cachefiles_withdraw_cookie()
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 25 Jul 2024 15:36:28 +0200
+ -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 25 Jul 2024 22:57:48 +0200
 
 linux (6.9.10-1) unstable; urgency=medium
 

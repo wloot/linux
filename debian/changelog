@@ -150,6 +150,179 @@ linux (6.10-1~exp1) experimental; urgency=medium
 
  -- Ben Hutchings <benh@debian.org>  Thu, 18 Jul 2024 02:14:35 +0200
 
+linux (6.9.11-1) unstable; urgency=medium
+
+  * New upstream stable update:
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.9.11
+    - cifs: fix noisy message on copy_file_range
+    - scsi: core: alua: I/O errors for ALUA state transitions
+    - scsi: sr: Fix unintentional arithmetic wraparound
+    - scsi: qedf: Don't process stag work during unload and recovery
+    - scsi: qedf: Wait for stag work during unload
+    - scsi: qedf: Set qed_slowpath_params to zero before use
+    - efi/libstub: zboot.lds: Discard .discard sections
+    - ACPI: EC: Abort address space access upon error
+    - ACPI: EC: Avoid returning AE_OK on errors in address space handler
+    - btrfs: ensure fast fsync waits for ordered extents after a write failure
+    - tools/power/cpupower: Fix Pstate frequency reporting on AMD Family 1Ah
+      CPUs
+    - PNP: Hide pnp_bus_type from the non-PNP code
+    - ACPI: AC: Properly notify powermanagement core about changes
+    - wifi: mac80211: mesh: init nonpeer_pm to active by default in mesh sdata
+    - wifi: mac80211: apply mcast rate only if interface is up
+    - wifi: mac80211: handle tasklet frames before stopping
+    - wifi: cfg80211: fix 6 GHz scan request building
+    - wifi: iwlwifi: mvm: d3: fix WoWLAN command version lookup
+    - wifi: iwlwifi: mvm: remove stale STA link data during restart
+    - wifi: iwlwifi: mvm: Handle BIGTK cipher in kek_kck cmd
+    - wifi: iwlwifi: mvm: handle BA session teardown in RF-kill
+    - wifi: iwlwifi: mvm: properly set 6 GHz channel direct probe option
+    - wifi: iwlwifi: mvm: Fix scan abort handling with HW rfkill
+    - wifi: mac80211: fix UBSAN noise in ieee80211_prep_hw_scan()
+    - of/irq: Factor out parsing of interrupt-map parent phandle+args from
+      of_irq_parse_raw()
+    - nvme-fabrics: use reserved tag for reg read/write command
+    - Input: silead - Always support 10 fingers
+    - [x86] platform/x86/amd/hsmp: Check HSMP support on AMD family of
+      processors
+    - net: ipv6: rpl_iptunnel: block BH in rpl_output() and rpl_input()
+    - ila: block BH in ila_output()
+    - io_uring: fix possible deadlock in io_register_iowq_max_workers()
+    - [arm64] armv8_deprecated: Fix warning in isndep cpuhp starting process
+    - drm/amdgpu/pptable: Fix UBSAN array-index-out-of-bounds
+    - null_blk: fix validation of block size
+    - kconfig: gconf: give a proper initial state to the Save button
+    - kconfig: remove wrong expr_trans_bool()
+    - input: Add event code for accessibility key
+    - input: Add support for "Do Not Disturb"
+    - HID: Ignore battery for ELAN touchscreens 2F2C and 4116
+    - NFSv4: Fix memory leak in nfs4_set_security_label
+    - nfs: propagate readlink errors in nfs_symlink_filler
+    - nfs: Avoid flushing many pages with NFS_FILE_SYNC
+    - nfs: don't invalidate dentries on transient errors
+    - cachefiles: add consistency check for copen/cread
+    - cachefiles: Set object to close if ondemand_id < 0 in copen
+    - cachefiles: make on-demand read killable
+    - fs/file: fix the check in find_next_fd()
+    - vfio: Create vfio_fs_type with inode per device
+    - vfio/pci: Use unmap_mapping_range()
+    - mei: demote client disconnect warning on suspend to debug
+    - parport: amiga: Mark driver struct with __refdata to prevent section
+      mismatch
+    - iomap: Fix iomap_adjust_read_range for plen calculation
+    - [armhf] drm/exynos: dp: drop driver owner initialization
+    - drm: panel-orientation-quirks: Add quirk for Aya Neo KUN
+    - [arm64] drm/mediatek: Call drm_atomic_helper_shutdown() at shutdown time
+    - nvme: avoid double free special payload
+    - nvmet: always initialize cqe.result
+    - vfio/pci: Insert full vma on mmap'd MMIO fault
+    - loop: Disable fallocate() zero and discard if not supported
+    - ALSA: hda: cs35l56: Fix lifecycle of codec pointer
+    - wifi: cfg80211: wext: add extra SIOCSIWSCAN data check
+    - ALSA: hda: cs35l41: Support Lenovo Thinkbook 16P Gen 5
+    - ALSA: hda: cs35l41: Support Lenovo Thinkbook 13x Gen 4
+    - ALSA: hda/realtek: Support Lenovo Thinkbook 16P Gen 5
+    - ALSA: hda/realtek: Support Lenovo Thinkbook 13x Gen 4
+    - wifi: mac80211: Avoid address calculations via out of bounds array
+      indexing
+    - [powerpc*] KVM: PPC: Book3S HV: Prevent UAF in
+      kvm_spapr_tce_attach_iommu_group()
+    - drm/vmwgfx: Fix missing HYPERVISOR_GUEST dependency
+    - ALSA: hda/realtek: Add more codec ID to no shutup pins list
+    - spi: Fix OCTAL mode support
+    - cpumask: limit FORCE_NR_CPUS to just the UP case
+    - drm/amdgpu: Indicate CU havest info to CP
+    - drm/amd/display: Change dram_clock_latency to 34us for dcn351
+    - drm/amd/display: change dram_clock_latency to 34us for dcn35
+    - drm/amdgpu: init TA fw for psp v14
+    - ALSA: hda: cs35l56: Select SERIAL_MULTI_INSTANTIATE
+    - [mips*] fix compat_sys_lseek syscall
+    - closures: Change BUG_ON() to WARN_ON()
+    - workqueue: Refactor worker ID formatting and make wq_worker_comm() use
+      full ID string
+    - Input: elantech - fix touchpad state on resume for Lenovo N24
+    - Input: i8042 - add Ayaneo Kun to i8042 quirk table
+    - ASoC: rt722-sdca-sdw: add silence detection register as volatile
+    - ASoC: codecs: ES8326: Solve headphone detection issue
+    - Input: xpad - add support for ASUS ROG RAIKIRI PRO
+    - ASoC: topology: Fix references to freed memory
+    - [x86] ASoC: Intel: avs: Fix route override
+    - ASoC: topology: Do not assign fields that are already set
+    - bytcr_rt5640 : inverse jack detect for Archos 101 cesium
+    - ALSA: dmaengine: Synchronize dma channel after drop()
+    - ASoC: ti: davinci-mcasp: Set min period size using FIFO config
+    - ASoC: ti: omap-hdmi: Fix too long driver name
+    - ASoC: SOF: sof-audio: Skip unprepare for in-use widgets on error rollback
+    - ASoC: rt722-sdca-sdw: add debounce time for type detection
+    - ASoC: cs35l56: Disconnect ASP1 TX sources when ASP1 DAI is hooked up
+    - nvme: fix NVME_NS_DEAC may incorrectly identifying the disk as EXT_LBA.
+    - Input: ads7846 - use spi_device_id table
+    - can: kvaser_usb: fix return value for hif_usb_send_regout
+    - net: mvpp2: fill-in dev_port attribute
+    - gpio: pca953x: fix pca953x_irq_bus_sync_unlock race
+    - [s390x] sclp: Fix sclp_init() cleanup on failure
+    - [x86] platform/x86: wireless-hotkey: Add support for LG Airplane Button
+    - [x86] platform/x86: lg-laptop: Remove LGEX0815 hotkey handling
+    - [x86] platform/x86: lg-laptop: Change ACPI device id
+    - [x86] platform/x86: lg-laptop: Use ACPI device handle when evaluating
+      WMAB/WMBB
+    - btrfs: scrub: handle RST lookup error correctly
+    - btrfs: qgroup: fix quota root leak after quota disable failure
+    - ibmvnic: Add tx check to prevent skb leak
+    - ALSA: PCM: Allow resume only for suspended streams
+    - ALSA: hda/relatek: Enable Mute LED on HP Laptop 15-gw0xxx
+    - ALSA: dmaengine_pcm: terminate dmaengine before synchronize
+    - drm/amd/swsmu: add MALL init support workaround for smu_v14_0_1
+    - [x86] ASoC: amd: yc: Fix non-functional mic on ASUS M5602RA
+    - net: usb: qmi_wwan: add Telit FN912 compositions
+    - clk: qcom: apss-ipq-pll: remove 'config_ctl_hi_val' from Stromer pll
+      configs
+    - net: mac802154: Fix racy device stats updates by DEV_STATS_INC() and
+      DEV_STATS_ADD()
+    - [powerpc*] pseries: Whitelist dtl slub object for copying to userspace
+    - [powerpc*] eeh: avoid possible crash when edev->pdev changes
+    - scsi: libsas: Fix exp-attached device scan after probe failure scanned in
+      again after probe failed
+    - [arm64] tee: optee: ffa: Fix missing-field-initializers warning
+    - Bluetooth: hci_core: cancel all works upon hci_unregister_dev()
+    - Bluetooth: btnxpuart: Enable Power Save feature on startup
+    - bluetooth/l2cap: sync sock recv cb and release
+    - erofs: ensure m_llen is reset to 0 if metadata is invalid
+    - drm/amd/display: Add refresh rate range check
+    - drm/amd/display: Account for cursor prefetch BW in DML1 mode support
+    - drm/amd/display: Fix refresh rate range for some panel
+    - drm/amd/display: Update efficiency bandwidth for dcn351
+    - drm/amd/display: Fix array-index-out-of-bounds in dml2/FCLKChangeSupport
+    - drm/radeon: check bo_va->bo is non-NULL before using it
+    - btrfs: fix uninitialized return value in the ref-verify tool
+    - fs: better handle deep ancestor chains in is_subdir()
+    - wifi: iwlwifi: properly set WIPHY_FLAG_SUPPORTS_EXT_KEK_KCK
+    - drivers/perf: riscv: Reset the counter to hpmevent mapping while starting
+      cpus
+    - [riscv64] stacktrace: fix usage of ftrace_graph_ret_addr()
+    - spi: imx: Don't expect DMA for i.MX{25,35,50,51,53} cspi devices
+    - spi: davinci: Unset POWERDOWN bit when releasing resources
+    - ksmbd: return FILE_DEVICE_DISK instead of super magic
+    - [x86] ASoC: SOF: Intel: hda-pcm: Limit the maximum number of periods by
+      MAX_BDL_ENTRIES
+    - hfsplus: fix uninit-value in copy_name
+    - spi: mux: set ctlr->bits_per_word_mask
+    - ALSA: hda: Use imply for suggesting CONFIG_SERIAL_MULTI_INSTANTIATE
+    - mm: page_ref: remove folio_try_get_rcu()
+    - Bluetooth: L2CAP: Fix deadlock
+    - ALSA: hda: cs35l41: Fix swapped l/r audio channels for Lenovo ThinBook 13x
+      Gen4
+    - of/irq: Disable "interrupt-map" parsing for PASEMI Nemo
+    - wifi: cfg80211: wext: set ssids=NULL for passive scans
+    - wifi: mac80211: disable softirqs for queued frame handling
+    - wifi: iwlwifi: mvm: don't wake up rx_sync_waitq upon RFKILL
+    - netfs, fscache: export fscache_put_volume() and add
+      fscache_try_get_volume()
+    - cachefiles: fix slab-use-after-free in fscache_withdraw_volume()
+    - cachefiles: fix slab-use-after-free in cachefiles_withdraw_cookie()
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 25 Jul 2024 22:57:48 +0200
+
 linux (6.9.10-1) unstable; urgency=medium
 
   * New upstream stable update:

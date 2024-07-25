@@ -56,6 +56,10 @@ linux (6.10-1~exp2) UNRELEASED; urgency=medium
   [ Salvatore Bonaccorso ]
   * drivers/md/dm-vdo: Enable DM_VDO as module (Closes: #1076457)
 
+  [ Richard Hansen ]
+  * [x86] sound/soc/intel/avs/boards: Enable SND_SOC_INTEL_AVS_MACH_MAX98927 as
+    a module (Closes: #1076062)
+
  -- Diederik de Haas <didi.debian@cknow.org>  Thu, 18 Jul 2024 09:30:01 +0200
 
 linux (6.10-1~exp1) experimental; urgency=medium

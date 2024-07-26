@@ -61,6 +61,10 @@ linux (6.10.1-1~exp1) UNRELEASED; urgency=medium
   * drivers/md/dm-vdo: Enable DM_VDO as module (Closes: #1076457)
   * drivers/net: Enable NETKIT (BPF-programmable network device) (except for
     sh4/sh7785lcr) (Closes: #1076962)
+  * fs/erofs: Enable more EROFS compression algorithms (Closes: #1076570)
+    - Enable EROFS_FS_ZIP_LZMA
+    - Enable EROFS_FS_ZIP_DEFLATE
+    - Enable EROFS_FS_ZIP_ZSTD
 
   [ Richard Hansen ]
   * [x86] sound/soc/intel/avs/boards: Enable SND_SOC_INTEL_AVS_MACH_MAX98927 as

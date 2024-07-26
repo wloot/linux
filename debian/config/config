@@ -3536,6 +3536,12 @@ CONFIG_HAMACHI=m
 CONFIG_YELLOWFIN=m
 
 ##
+## file: drivers/net/ethernet/pensando/Kconfig
+##
+CONFIG_NET_VENDOR_PENSANDO=y
+CONFIG_IONIC=m
+
+##
 ## file: drivers/net/ethernet/qlogic/Kconfig
 ##
 CONFIG_NET_VENDOR_QLOGIC=y

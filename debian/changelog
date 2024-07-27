@@ -1,3 +1,39 @@
+linux (6.9.12-1) UNRELEASED; urgency=medium
+
+  * New upstream stable update:
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.9.12
+    - drm/amdgpu: Fix signedness bug in sdma_v4_0_process_trap_irq()
+    - [s390x] mm: Fix VM_FAULT_HWPOISON handling in do_exception()
+    - ocfs2: add bounds checking to ocfs2_check_dir_entry()
+    - jfs: don't walk off the end of ealist
+    - usb: gadget: midi2: Fix incorrect default MIDI2 protocol setup
+    - ALSA: hda/tas2781: Add new quirk for Lenovo Hera2 Laptop
+    - ALSA: hda/realtek: Enable headset mic on Positivo SU C1400
+    - ALSA: hda/realtek: Fix the speaker output on Samsung Galaxy Book Pro 360
+    - [arm64] dts: qcom: sc7180: Disable SuperSpeed instances in park mode
+    - [arm64] dts: qcom: sc7280: Disable SuperSpeed instances in park mode
+    - [arm64] dts: qcom: x1e80100-qcp: Fix USB PHYs regulators
+    - [arm64] dts: qcom: qrb2210-rb1: switch I2C2 to i2c-gpio
+    - [arm64] dts: qcom: qrb4210-rb2: switch I2C2 to i2c-gpio
+    - [arm64] dts: qcom: x1e80100-crd: Fix the PHY regulator for PCIe 6a
+    - [arm64] dts: qcom: x1e80100-qcp: Fix the PHY regulator for PCIe 6a
+    - [arm64] dts: qcom: x1e80100-crd: Fix USB PHYs regulators
+    - [arm64] dts: qcom: msm8996: Disable SS instance in Parkmode for USB
+    - [arm64] dts: qcom: sm6350: Disable SS instance in Parkmode for USB
+    - [arm64] dts: qcom: msm8998: Disable SS instance in Parkmode for USB
+    - [arm64] dts: qcom: ipq6018: Disable SS instance in Parkmode for USB
+    - [arm64] dts: qcom: sdm630: Disable SS instance in Parkmode for USB
+    - [arm64] dts: qcom: ipq8074: Disable SS instance in Parkmode for USB
+    - [arm64] dts: qcom: sdm845: Disable SS instance in Parkmode for USB
+    - [arm64] dts: qcom: sm6115: Disable SS instance in Parkmode for USB
+    - ALSA: pcm_dmaengine: Don't synchronize DMA channel when DMA is paused
+    - ALSA: seq: ump: Skip useless ports for static blocks
+    - filelock: Fix fcntl/close race recovery compat path
+    - tun: add missing verification for short frame (CVE-2024-41091)
+    - tap: add missing verification for short frame (CVE-2024-41090)
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 27 Jul 2024 15:08:23 +0200
+
 linux (6.9.11-1) unstable; urgency=medium
 
   * New upstream stable update:

@@ -1,4 +1,4 @@
-linux (6.9.12-1) UNRELEASED; urgency=medium
+linux (6.9.12-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.9.12
@@ -32,7 +32,7 @@ linux (6.9.12-1) UNRELEASED; urgency=medium
     - tun: add missing verification for short frame (CVE-2024-41091)
     - tap: add missing verification for short frame (CVE-2024-41090)
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 27 Jul 2024 15:08:23 +0200
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 27 Jul 2024 23:52:33 +0200
 
 linux (6.9.11-1) unstable; urgency=medium
 

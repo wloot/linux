@@ -40,18 +40,26 @@ drivers/pinctrl/**
 # EFUSE/OTP drivers
 nvmem-imx-ocotp ?
 
-# Thinkpad X13s
-gcc-sc8280xp
+# Qualcomm devices
+qcom-apcs-ipc-mailbox
 qcom-ipcc
-qnoc-sc8280xp
 nvmem_qcom-spmi-sdam
+nvmem_qfprom
+bam_dma
+clk-smd-rpm
 phy_qcom_edp
 phy-qcom-qmp-combo
 phy-qcom-qmp-pcie
 qcom_glink
 qcom_glink_smem
+qcom_glink_rpm
 qcom_smd
 qcom_hwspinlock
 icc-osm-l3
 rtc-pm8xxx
+rpmpd
 qrtr ?
+qrtr-smd ?
+
+gcc-sc8280xp
+qnoc-sc8280xp

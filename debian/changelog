@@ -5,6 +5,7 @@ linux (6.10.2-1~exp1) UNRELEASED; urgency=medium
 
   [ Salvatore Bonaccorso ]
   * [arm64] drivers/net/ethernet/microsoft: Enable MICROSOFT_MANA as module
+  * drivers/net/ethernet/pensando: Enable IONIC as module (Closes: #1041893)
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 27 Jul 2024 14:55:11 +0200
 

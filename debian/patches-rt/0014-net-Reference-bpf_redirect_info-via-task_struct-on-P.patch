@@ -5,7 +5,7 @@ Subject: [PATCH v9 net-next 14/15] net: Reference bpf_redirect_info via
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 The XDP redirect process is two staged:
 - bpf_prog_run_xdp() is invoked to run a eBPF program which inspects the

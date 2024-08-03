@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 4 Jul 2024 19:03:36 +0200
 Subject: [PATCH 2/7] task_work: Add TWA_NMI_CURRENT as an additional notify
  mode.
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 Adding task_work from NMI context requires the following:
 - The kasan_record_aux_stack() is not NMU safe and must be avoided.

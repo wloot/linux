@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Mon, 21 Aug 2023 09:59:09 +0200
 Subject: [PATCH 07/15] netfilter: br_netfilter: Use nested-BH locking for
  brnf_frag_data_storage.
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 brnf_frag_data_storage is a per-CPU variable and relies on disabled BH
 for its locking. Without per-CPU locking in local_bh_disable() on

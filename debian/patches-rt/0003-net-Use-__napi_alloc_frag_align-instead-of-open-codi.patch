@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Mon, 23 Oct 2023 15:11:23 +0200
 Subject: [PATCH 03/15] net: Use __napi_alloc_frag_align() instead of open
  coding it.
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 The else condition within __netdev_alloc_frag_align() is an open coded
 __napi_alloc_frag_align().

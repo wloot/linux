@@ -2,7 +2,7 @@ From: John Ogness <john.ogness@linutronix.de>
 Date: Mon, 11 Dec 2023 09:34:16 +0000
 Subject: [PATCH 45/48] printk: Avoid false positive lockdep report for legacy
  printing
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 Legacy console printing from printk() caller context may invoke
 the console driver from atomic context. This leads to a lockdep

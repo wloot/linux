@@ -1,7 +1,7 @@
 From: Sreenath Vijayan <sreenath.vijayan@sony.com>
 Date: Thu, 30 May 2024 13:15:47 +0530
 Subject: [PATCH 30/48] printk: Rename console_replay_all() and update context
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 Rename console_replay_all() to console_try_replay_all() to make
 clear that the implementation is best effort. Also, the function

@@ -8,12 +8,6 @@
 # Posted
 ###########################################################################
 
-# Frederick's
-0001-task_work-s-task_work_cancel-task_work_cancel_func.patch
-0002-task_work-Introduce-task_work_cancel-again.patch
-0003-perf-Fix-event-leak-upon-exit.patch
-0004-perf-Fix-event-leak-upon-exec-and-file-release.patch
-
 # perf, sigtrap, v5
 0001-perf-Move-irq_work_queue-where-the-event-is-prepared.patch
 0002-task_work-Add-TWA_NMI_CURRENT-as-an-additional-notif.patch
@@ -22,9 +16,7 @@
 0005-perf-Move-swevent_htable-recursion-into-task_struct.patch
 0006-perf-Don-t-disable-preemption-in-perf_pending_task.patch
 0007-perf-Split-__perf_pending_irq-out-of-perf_pending_ir.patch
-
-# locking.
-drm-ttm-tests-Let-ttm_bo_test-consider-different-ww_.patch
+task_work-make-TWA_NMI_CURRENT-handling-conditional-.patch
 
 ###########################################################################
 # John's printk queue
@@ -151,7 +143,8 @@ PREEMPT_AUTO.patch
 0002-net-Optimize-xdp_do_flush-with-bpf_net_context-infos.patch
 0003-net-Move-flush-list-retrieval-to-where-it-is-used.patch
 tun-Assign-missing-bpf_net_context.patch
-seg6-Ensure-that-seg6_bpf_srh_states-can-only-be-acc.patch
+tun-Add-missing-bpf_net_ctx_clear-in-do_xdp_generic.patch
+bpf-Remove-tst_run-from-lwt_seg6local_prog_ops.patch
 # tw_timer
 0001-net-tcp-dccp-prepare-for-tw_timer-un-pinning.patch
 0002-net-tcp-un-pin-the-tw_timer.patch

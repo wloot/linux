@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Mon, 18 Sep 2023 20:27:41 +0000
 Subject: [PATCH 29/48] lockdep: Mark emergency sections in lockdep splats
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 Mark emergency sections wherever multiple lines of
 lock debugging output are generated. In an emergency

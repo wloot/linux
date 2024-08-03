@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 12 Sep 2023 13:45:33 +0000
 Subject: [PATCH 16/48] printk: Add @flags argument for console_is_usable()
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 The caller of console_is_usable() usually needs @console->flags
 for its own checks. Rather than having console_is_usable() read

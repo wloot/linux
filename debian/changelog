@@ -1,7 +1,14 @@
-linux (6.10.2-1~exp1) UNRELEASED; urgency=medium
+linux (6.10.3-1~exp1) UNRELEASED; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.10.2
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.10.3
+    - ext4: don't track ranges in fast_commit if inode has inlined data
+      (Closes: #1039883)
+
+  [ Salvatore Bonaccorso ]
+  * [rt] Update to 6.10.2-rt14
+    - Refresh patches and drop patches applied upstream
 
   [ Salvatore Bonaccorso ]
   * [arm64] drivers/net/ethernet/microsoft: Enable MICROSOFT_MANA as module

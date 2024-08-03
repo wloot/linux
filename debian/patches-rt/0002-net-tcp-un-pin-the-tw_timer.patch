@@ -1,7 +1,7 @@
 From: Florian Westphal <fw@strlen.de>
 Date: Tue, 4 Jun 2024 16:08:48 +0200
 Subject: [PATCH 2/3] net: tcp: un-pin the tw_timer
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 After previous patch, even if timer fires immediately on another CPU,
 context that schedules the timer now holds the ehash spinlock, so timer

@@ -5,7 +5,7 @@ Subject: [PATCH 15/15] net: Move per-CPU flush-lists to bpf_net_context on
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 The per-CPU flush lists, which are accessed from within the NAPI callback
 (xdp_do_flush() for instance), are per-CPU. There are subject to the

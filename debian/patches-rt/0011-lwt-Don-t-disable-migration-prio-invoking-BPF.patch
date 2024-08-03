@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 26 Oct 2023 09:12:06 +0200
 Subject: [PATCH 11/15] lwt: Don't disable migration prio invoking BPF.
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 There is no need to explicitly disable migration if bottom halves are
 also disabled. Disabling BH implies disabling migration.

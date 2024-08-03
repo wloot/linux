@@ -1,7 +1,7 @@
 From: Florian Westphal <fw@strlen.de>
 Date: Tue, 4 Jun 2024 16:08:49 +0200
 Subject: [PATCH 3/3] tcp: move inet_twsk_schedule helper out of header
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 Its no longer used outside inet_timewait_sock.c, so move it there.
 

@@ -2,7 +2,7 @@ From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 12 Sep 2023 12:00:08 +0000
 Subject: [PATCH 18/48] printk: nbcon: Provide function to flush using
  write_atomic()
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 Provide nbcon_atomic_flush_pending() to perform flushing of all
 registered nbcon consoles using their write_atomic() callback.

@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 6 Feb 2024 14:19:34 +0000
 Subject: [PATCH 44/48] printk: Provide threadprintk boot argument
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 For PREEMPT_RT, legacy console printing is performed in a dedicated
 kthread. However, this behavior can also be interesting for other

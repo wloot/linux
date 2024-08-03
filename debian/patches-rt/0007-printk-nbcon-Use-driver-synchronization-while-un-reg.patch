@@ -2,7 +2,7 @@ From: John Ogness <john.ogness@linutronix.de>
 Date: Fri, 15 Mar 2024 15:38:22 +0000
 Subject: [PATCH 07/48] printk: nbcon: Use driver synchronization while
  (un)registering
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 Console drivers typically have to deal with access to the
 hardware via user input/output (such as an interactive login

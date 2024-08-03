@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri, 28 Jun 2024 12:18:56 +0200
 Subject: [PATCH 3/3] net: Move flush list retrieval to where it is used.
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 The bpf_net_ctx_get_.*_flush_list() are used at the top of the function.
 This means the variable is always assigned even if unused. By moving the

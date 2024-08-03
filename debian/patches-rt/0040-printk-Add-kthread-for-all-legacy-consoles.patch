@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Fri, 22 Sep 2023 17:35:04 +0000
 Subject: [PATCH 40/48] printk: Add kthread for all legacy consoles
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 The write callback of legacy consoles makes use of spinlocks.
 This is not permitted with PREEMPT_RT in atomic contexts.

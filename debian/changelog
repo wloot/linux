@@ -12,6 +12,10 @@ linux (6.10.3-1~exp1) UNRELEASED; urgency=medium
   * [arm64] drivers/net/ethernet/microsoft: Enable MICROSOFT_MANA as module
   * drivers/net/ethernet/pensando: Enable IONIC as module (Closes: #1041893)
 
+  [ Vincent Blut ]
+  * [arm64] drivers/phy/marvell: Enable PHY_MVEBU_CP110_UTMI as module
+    (Closes: #1076934)
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 27 Jul 2024 14:55:11 +0200
 
 linux (6.10.1-1~exp1) experimental; urgency=medium

@@ -1,7 +1,10 @@
-linux (6.10.2-1~exp1) UNRELEASED; urgency=medium
+linux (6.10.3-1~exp1) UNRELEASED; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.10.2
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.10.3
+    - ext4: don't track ranges in fast_commit if inode has inlined data
+      (Closes: #1039883)
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 27 Jul 2024 14:55:11 +0200
 

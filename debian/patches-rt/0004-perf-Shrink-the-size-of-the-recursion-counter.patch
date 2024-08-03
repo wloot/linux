@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 4 Jul 2024 19:03:38 +0200
 Subject: [PATCH 4/7] perf: Shrink the size of the recursion counter.
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 There are four recursion counter, one for each context. The type of the
 counter is `int' but the counter is used as `bool' since it is only

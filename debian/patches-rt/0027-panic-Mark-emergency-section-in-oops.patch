@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 19 Sep 2023 17:07:34 +0000
 Subject: [PATCH 27/48] panic: Mark emergency section in oops
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 Mark an emergency section beginning with oops_enter() until the
 end of oops_exit(). In this section, the CPU will not perform

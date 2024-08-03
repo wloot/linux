@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Thu, 28 Mar 2024 13:29:10 +0000
 Subject: [PATCH 38/48] printk: Provide helper for message prepending
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 In order to support prepending different texts to printk
 messages, split out the prepending code into a helper

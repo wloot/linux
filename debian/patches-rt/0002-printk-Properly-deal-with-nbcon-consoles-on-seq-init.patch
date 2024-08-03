@@ -1,7 +1,7 @@
 From: Petr Mladek <pmladek@suse.com>
 Date: Wed, 22 Nov 2023 11:23:43 +0000
 Subject: [PATCH 02/48] printk: Properly deal with nbcon consoles on seq init
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 If a non-boot console is registering and boot consoles exist,
 the consoles are flushed before being unregistered. This allows

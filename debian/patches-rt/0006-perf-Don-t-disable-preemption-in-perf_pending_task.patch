@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 4 Jul 2024 19:03:40 +0200
 Subject: [PATCH 6/7] perf: Don't disable preemption in perf_pending_task().
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 perf_pending_task() is invoked in task context and disables preemption
 because perf_swevent_get_recursion_context() used to access per-CPU

@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 20 Jun 2024 11:21:13 +0200
 Subject: [PATCH] prinkt/nbcon: Add a scheduling point to nbcon_kthread_func().
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 Constant printing can lead to a CPU hog in nbcon_kthread_func(). The
 context is preemptible but on !PREEMPT kernels there is no explicit

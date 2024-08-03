@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 26 Oct 2023 15:17:32 +0200
 Subject: [PATCH 13/15] net: Use nested-BH locking for bpf_scratchpad.
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 bpf_scratchpad is a per-CPU variable and relies on disabled BH for its
 locking. Without per-CPU locking in local_bh_disable() on PREEMPT_RT

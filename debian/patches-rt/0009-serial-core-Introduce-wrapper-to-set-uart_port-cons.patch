@@ -4,7 +4,7 @@ Subject: [PATCH 09/48] serial: core: Introduce wrapper to set @uart_port->cons
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 Introduce uart_port_set_cons() as a wrapper to set @cons of a
 uart_port. The wrapper sets @cons under the port lock in order

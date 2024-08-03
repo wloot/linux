@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Fri, 20 Oct 2023 10:03:42 +0000
 Subject: [PATCH 21/48] printk: nbcon: Add unsafe flushing on panic
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 Add nbcon_atomic_flush_unsafe() to flush all nbcon consoles
 using the write_atomic() callback and allowing unsafe hostile

@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Fri, 22 Sep 2023 14:12:21 +0000
 Subject: [PATCH 31/48] printk: nbcon: Introduce printing kthreads
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 Provide the main implementation for running a printer kthread
 per nbcon console that is takeover/handover aware.

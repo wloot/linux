@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Wed, 22 Nov 2023 11:56:58 +0000
 Subject: [PATCH 24/48] printk: Coordinate direct printing in panic
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10-rc6-rt11.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
 
 Perform printing by nbcon consoles on the panic CPU from the
 printk() caller context in order to get panic messages printed

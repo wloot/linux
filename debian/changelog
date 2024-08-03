@@ -9,8 +9,6 @@ linux (6.10.3-1~exp1) UNRELEASED; urgency=medium
   [ Salvatore Bonaccorso ]
   * [rt] Update to 6.10.2-rt14
     - Refresh patches and drop patches applied upstream
-
-  [ Salvatore Bonaccorso ]
   * [arm64] drivers/net/ethernet/microsoft: Enable MICROSOFT_MANA as module
   * drivers/net/ethernet/pensando: Enable IONIC as module (Closes: #1041893)
 

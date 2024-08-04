@@ -434,7 +434,8 @@ class Gencontrol(object):
         makeflags: MakeFlags,
     ) -> None:
         for featureset in config.root_featuresets:
-            self.do_indep_featureset(featureset, vars.copy(), makeflags.copy())
+            if featureset.enable:
+                self.do_indep_featureset(featureset, vars.copy(), makeflags.copy())
 
         # Sort the output the same way as before
         for arch in sorted(

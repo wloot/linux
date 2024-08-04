@@ -73,6 +73,8 @@ features/x86/x86-make-x32-syscall-support-conditional.patch
 # Miscellaneous bug fixes
 bugfix/all/disable-some-marvell-phys.patch
 bugfix/all/fs-add-module_softdep-declarations-for-hard-coded-cr.patch
+bugfix/all/net-drop-bad-gso-csum_start-and-offset-in-virtio_net.patch
+bugfix/all/spi-spidev-Add-missing-spi_device_id-for-bh2228fv.patch
 
 # Miscellaneous features
 

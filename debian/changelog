@@ -3,6 +3,10 @@ linux (6.10.4-2) UNRELEASED; urgency=medium
   [ Bastian Blank ]
   * Properly disable common headers packages
 
+  [ Ben Hutchings ]
+  * Drop "module: Avoid ABI changes when debug info is disabled" as we no
+    longer try to maintain a module ABI
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 12 Aug 2024 20:56:44 +0200
 
 linux (6.10.4-1) unstable; urgency=medium

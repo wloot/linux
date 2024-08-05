@@ -30,6 +30,7 @@ linux (6.11~rc4-1~exp1) UNRELEASED; urgency=medium
   * [rt] Update to 6.11-rc3-rt3
   * d/rules.real: Unset KBUILD_HOSTCFLAGS etc. instead of overriding to be
     empty
+  * d/rules.d/Makefile.inc: Add scripts/include to header include path
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 12 Aug 2024 20:56:44 +0200
 

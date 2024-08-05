@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Mon, 11 Dec 2023 09:19:18 +0000
 Subject: [PATCH 08/48] serial: core: Provide low-level functions to lock port
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc3-rt3.tar.xz
 
 It will be necessary at times for the uart nbcon console
 drivers to acquire the port lock directly (without the

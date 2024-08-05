@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 26 Sep 2023 13:03:52 +0000
 Subject: [PATCH 35/48] printk: nbcon: Add printer thread wakeups
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc3-rt3.tar.xz
 
 Add a function to wakeup the printer threads. The printer threads
 are woken when:
@@ -144,7 +144,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	if (do_trylock_unlock) {
  		/*
  		 * The caller may be holding system-critical or
-@@ -2708,6 +2710,10 @@ void resume_console(void)
+@@ -2778,6 +2780,10 @@ void resume_console(void)
  	 */
  	synchronize_srcu(&console_srcu);
  
@@ -155,7 +155,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	cookie = console_srcu_read_lock();
  	for_each_console_srcu(con) {
  		flags = console_srcu_read_flags(con);
-@@ -4178,6 +4184,7 @@ void defer_console_output(void)
+@@ -4251,6 +4257,7 @@ void defer_console_output(void)
  
  void printk_trigger_flush(void)
  {
@@ -163,7 +163,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	defer_console_output();
  }
  
-@@ -4513,6 +4520,7 @@ void console_try_replay_all(void)
+@@ -4586,6 +4593,7 @@ void console_try_replay_all(void)
  {
  	if (console_trylock()) {
  		__console_rewind_all();

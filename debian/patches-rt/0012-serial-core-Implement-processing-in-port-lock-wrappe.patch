@@ -2,7 +2,7 @@ From: John Ogness <john.ogness@linutronix.de>
 Date: Wed, 17 Apr 2024 14:41:16 +0000
 Subject: [PATCH 12/48] serial: core: Implement processing in port->lock
  wrapper
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc3-rt3.tar.xz
 
 Currently the port->lock wrappers uart_port_lock(),
 uart_port_unlock() (and their variants) only lock/unlock

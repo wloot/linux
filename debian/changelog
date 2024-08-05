@@ -27,6 +27,7 @@ linux (6.11~rc4-1~exp1) UNRELEASED; urgency=medium
         traces" for addition of UID in dump_stack_print_info()
       - Adjust context in "security,perf: Allow further restriction of
         perf_event_open"
+  * [rt] Update to 6.11-rc3-rt3
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 12 Aug 2024 20:56:44 +0200
 

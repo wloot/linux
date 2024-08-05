@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Wed, 17 Apr 2024 14:34:50 +0000
 Subject: [PATCH 10/48] console: Improve console_srcu_read_flags() comments
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc3-rt3.tar.xz
 
 It was not clear when exactly console_srcu_read_flags() must be
 used vs. directly reading @console->flags.

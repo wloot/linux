@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Fri, 22 Sep 2023 17:35:04 +0000
 Subject: [PATCH 40/48] printk: Add kthread for all legacy consoles
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc3-rt3.tar.xz
 
 The write callback of legacy consoles makes use of spinlocks.
 This is not permitted with PREEMPT_RT in atomic contexts.
@@ -30,7 +30,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
 --- a/kernel/printk/internal.h
 +++ b/kernel/printk/internal.h
-@@ -21,6 +21,12 @@ int devkmsg_sysctl_set_loglvl(struct ctl
+@@ -21,6 +21,12 @@ int devkmsg_sysctl_set_loglvl(const stru
  		(con->flags & CON_BOOT) ? "boot" : "",		\
  		con->name, con->index, ##__VA_ARGS__)
  
@@ -235,7 +235,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  #endif /* CONFIG_PRINTK */
  
  #ifdef CONFIG_EARLY_PRINTK
-@@ -2726,6 +2740,8 @@ void resume_console(void)
+@@ -2796,6 +2810,8 @@ void resume_console(void)
  	}
  	console_srcu_read_unlock(cookie);
  
@@ -244,7 +244,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	pr_flush(1000, true);
  }
  
-@@ -2740,7 +2756,9 @@ void resume_console(void)
+@@ -2810,7 +2826,9 @@ void resume_console(void)
   */
  static int console_cpu_notify(unsigned int cpu)
  {
@@ -255,7 +255,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  		/* If trylock fails, someone else is doing the printing */
  		if (console_trylock())
  			console_unlock();
-@@ -3000,31 +3018,43 @@ static bool console_emit_next_record(str
+@@ -3070,31 +3088,43 @@ static bool console_emit_next_record(str
  		con->dropped = 0;
  	}
  
@@ -319,7 +319,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  skip:
  	return true;
  }
-@@ -3088,12 +3118,13 @@ static bool console_flush_all(bool do_co
+@@ -3158,12 +3188,13 @@ static bool console_flush_all(bool do_co
  			if ((flags & CON_NBCON) && con->kthread)
  				continue;
  
@@ -335,7 +335,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  				printk_seq = nbcon_seq_read(con);
  			} else {
  				progress = console_emit_next_record(con, handover, cookie);
-@@ -3132,19 +3163,7 @@ static bool console_flush_all(bool do_co
+@@ -3202,19 +3233,7 @@ static bool console_flush_all(bool do_co
  	return false;
  }
  
@@ -356,7 +356,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  {
  	bool do_cond_resched;
  	bool handover;
-@@ -3188,6 +3207,32 @@ void console_unlock(void)
+@@ -3258,6 +3277,32 @@ void console_unlock(void)
  		 */
  	} while (prb_read_valid(prb, next_seq, NULL) && console_trylock());
  }
@@ -389,7 +389,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  EXPORT_SYMBOL(console_unlock);
  
  /**
-@@ -3411,12 +3456,107 @@ void console_start(struct console *conso
+@@ -3481,12 +3526,107 @@ void console_start(struct console *conso
  	flags = console_srcu_read_flags(console);
  	if (flags & CON_NBCON)
  		nbcon_kthread_wake(console);
@@ -497,7 +497,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  static int __read_mostly keep_bootcon;
  
  static int __init keep_bootcon_setup(char *str)
-@@ -3706,6 +3846,7 @@ void register_console(struct console *ne
+@@ -3779,6 +3919,7 @@ void register_console(struct console *ne
  	} else {
  		have_legacy_console = true;
  		newcon->seq = init_seq;
@@ -505,7 +505,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	}
  
  	if (newcon->flags & CON_BOOT)
-@@ -3873,6 +4014,13 @@ static int unregister_console_locked(str
+@@ -3946,6 +4087,13 @@ static int unregister_console_locked(str
  			nbcon_kthread_create(c);
  	}
  
@@ -519,7 +519,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	return res;
  }
  
-@@ -4031,7 +4179,11 @@ static bool __pr_flush(struct console *c
+@@ -4104,7 +4252,11 @@ static bool __pr_flush(struct console *c
  
  	seq = prb_next_reserve_seq(prb);
  
@@ -532,7 +532,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	if (printing_via_unlock) {
  		console_lock();
  		console_unlock();
-@@ -4146,9 +4298,16 @@ static void wake_up_klogd_work_func(stru
+@@ -4219,9 +4371,16 @@ static void wake_up_klogd_work_func(stru
  	int pending = this_cpu_xchg(printk_pending, 0);
  
  	if (pending & PRINTK_PENDING_OUTPUT) {

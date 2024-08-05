@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 6 Feb 2024 14:19:34 +0000
 Subject: [PATCH 44/48] printk: Provide threadprintk boot argument
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc3-rt3.tar.xz
 
 For PREEMPT_RT, legacy console printing is performed in a dedicated
 kthread. However, this behavior can also be interesting for other
@@ -35,7 +35,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
 --- a/Documentation/admin-guide/kernel-parameters.txt
 +++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -6596,6 +6596,18 @@
+@@ -6620,6 +6620,18 @@
  			Force threading of all interrupt handlers except those
  			marked explicitly IRQF_NO_THREAD.
  
@@ -64,7 +64,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  #include <linux/percpu.h>
  #include <linux/types.h>
  
-@@ -24,7 +25,8 @@ int devkmsg_sysctl_set_loglvl(struct ctl
+@@ -24,7 +25,8 @@ int devkmsg_sysctl_set_loglvl(const stru
  #ifdef CONFIG_PREEMPT_RT
  # define force_printkthreads()		(true)
  #else
@@ -93,4 +93,4 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 +
  char devkmsg_log_str[DEVKMSG_STR_MAX_SIZE] = "ratelimit";
  #if defined(CONFIG_PRINTK) && defined(CONFIG_SYSCTL)
- int devkmsg_sysctl_set_loglvl(struct ctl_table *table, int write,
+ int devkmsg_sysctl_set_loglvl(const struct ctl_table *table, int write,

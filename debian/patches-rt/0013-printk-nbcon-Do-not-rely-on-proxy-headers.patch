@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Mon, 19 Feb 2024 17:35:49 +0000
 Subject: [PATCH 13/48] printk: nbcon: Do not rely on proxy headers
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc3-rt3.tar.xz
 
 The headers kernel.h, serial_core.h, and console.h allow for the
 definitions of many types and functions from other headers.
@@ -35,7 +35,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  #if defined(CONFIG_PRINTK) && defined(CONFIG_SYSCTL)
 +struct ctl_table;
  void __init printk_sysctl_init(void);
- int devkmsg_sysctl_set_loglvl(struct ctl_table *table, int write,
+ int devkmsg_sysctl_set_loglvl(const struct ctl_table *table, int write,
  			      void *buffer, size_t *lenp, loff_t *ppos);
 @@ -43,6 +44,9 @@ enum printk_info_flags {
  	LOG_CONT	= 8,	/* text is a fragment of a continuation line */

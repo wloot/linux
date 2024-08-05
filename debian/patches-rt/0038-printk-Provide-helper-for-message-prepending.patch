@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Thu, 28 Mar 2024 13:29:10 +0000
 Subject: [PATCH 38/48] printk: Provide helper for message prepending
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc3-rt3.tar.xz
 
 In order to support prepending different texts to printk
 messages, split out the prepending code into a helper
@@ -15,7 +15,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
-@@ -2806,30 +2806,25 @@ static void __console_unlock(void)
+@@ -2876,30 +2876,25 @@ static void __console_unlock(void)
  #ifdef CONFIG_PRINTK
  
  /*
@@ -52,7 +52,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  
  	/*
  	 * Make sure outbuf is sufficiently large before prepending.
-@@ -2852,6 +2847,27 @@ void console_prepend_dropped(struct prin
+@@ -2922,6 +2917,27 @@ void console_prepend_dropped(struct prin
  }
  
  /*

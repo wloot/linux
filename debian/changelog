@@ -31,6 +31,16 @@ linux (6.11~rc4-1~exp1) UNRELEASED; urgency=medium
   * d/rules.real: Unset KBUILD_HOSTCFLAGS etc. instead of overriding to be
     empty
   * d/rules.d/Makefile.inc: Add scripts/include to header include path
+  * d/config: Update with the help of kconfigeditor2:
+    - hwmon: Enable SENSORS_LM90 (where not already enabled) instead of
+      SENSORS_ADM1021 and SENSORS_MAX6642
+    - [arm64] acpi/numa: Remove ACPI_NUMA which is now enabled automatically
+    - debug: Remove TEST_USER_COPY
+    - fs/netfs: Disable NETFS_DEBUG instead of FSCACHE_DEBUG
+    - memstick: Remove MEMSTICK_REALTEK_PCI
+    - [armhf] sound/soc/fsl: Remove SND_SOC_IMX_SPDIF which became redundant
+      with SND_SOC_FSL_ASOC_CARD
+    - staging/media/av7110: Remove DVB_BUDGET_PATCH
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 12 Aug 2024 20:56:44 +0200
 

@@ -7,7 +7,6 @@ Provides_arm64: mmc-core-modules
 Provides_armel: rtc-modules
 Provides_armmp: mmc-core-modules, mtd-core-modules
 Provides_i386: rtc-modules
-Provides_ia64: efi-modules
 Provides_mips: i2c-modules, rtc-modules, mtd-core-modules, mtd-modules
 Provides_mips64: i2c-modules, rtc-modules, mtd-core-modules, mtd-modules
 Provides_mips64el: i2c-modules, rtc-modules, mtd-core-modules, mtd-modules
@@ -164,7 +163,6 @@ Depends: kernel-image
 Priority: optional
 Priority_amd64: standard
 Priority_i386: standard
-Priority_ia64: standard
 Description: FAT filesystem support
  This package contains the FAT and VFAT filesystem modules for the kernel.
 

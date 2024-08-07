@@ -77,6 +77,9 @@ linux (6.11~rc4-1~exp1) UNRELEASED; urgency=medium
   * [amd64] tools/arch/x86/intel_sdsi: Add intel-sdsi package for Intel SDSi
     provisioning tool (Closes: #1059362)
 
+  [ Zhang Ning ]
+  * [x86] Enable GPIO_WHISKEY_COVE, INTEL_BXT_PMIC_THERMAL as module.
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 12 Aug 2024 20:56:44 +0200
 
 linux (6.10.6-1) unstable; urgency=medium

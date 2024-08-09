@@ -2,6 +2,9 @@ linux (6.10.4-2) UNRELEASED; urgency=medium
 
   [ Bastian Blank ]
   * Properly disable common headers packages
+  [ Joel Stanley ]
+  * [x86] Enable IPU6 MIPI drivers for Intel Alder Lake laptops
+    (Closes: #1074441, #1060262, #1078170)
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 12 Aug 2024 20:56:44 +0200
 

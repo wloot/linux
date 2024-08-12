@@ -1,9 +1,140 @@
-linux (6.10.3-2) UNRELEASED; urgency=medium
+linux (6.10.4-2) UNRELEASED; urgency=medium
 
   [ Bastian Blank ]
   * Properly disable common headers packages
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 12 Aug 2024 20:56:44 +0200
+
+linux (6.10.4-1) unstable; urgency=medium
+
+  * New upstream stable update:
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.10.4
+    - mm/huge_memory: mark racy access onhuge_anon_orders_always
+    - mm: fix khugepaged activation policy
+    - mm/migrate: make migrate_misplaced_folio() return 0 on success
+    - mm/migrate: move NUMA hinting fault folio isolation + checks under PTL
+    - mm/migrate: putback split folios when numa hint migration fails
+    - ext4: factor out a common helper to query extent map
+    - ext4: check the extent status again before inserting delalloc block
+    - f2fs: fix to avoid use SSR allocate when do defragment
+    - f2fs: assign CURSEG_ALL_DATA_ATGC if blkaddr is valid
+    - perf: imx_perf: fix counter start and config sequence
+    - [x86] perf/x86/intel: Switch to new Intel CPU model defines
+    - [x86] perf/x86/intel: Add a distinct name for Granite Rapids
+    - [armel,armhf] 9406/1: Fix callchain_trace() return value
+    - [arm64] HID: amd_sfh: Move sensor discovery before HID device
+      initialization
+    - perf tool: fix dereferencing NULL al->maps
+    - drm/gpuvm: fix missing dependency to DRM_EXEC
+    - drm/nouveau: prime: fix refcount underflow
+    - drm/vmwgfx: Make sure the screen surface is ref counted
+    - drm/vmwgfx: Fix overlay when using Screen Targets
+    - bnxt_en: Fix RSS logic in __bnxt_reserve_rings()
+    - netlink: specs: correct the spec of ethtool
+    - ethtool: rss: echo the context number back
+    - drm/vmwgfx: Trigger a modeset when the screen moves
+    - sched: act_ct: take care of padding in struct zones_ht_key
+    - wifi: cfg80211: fix reporting failed MLO links status with
+      cfg80211_connect_done
+    - wifi: cfg80211: correct S1G beacon length calculation
+    - net: phy: realtek: add support for RTL8366S Gigabit PHY
+    - ALSA: hda: conexant: Fix headset auto detect fail in the polling mode
+    - Bluetooth: btintel: Fail setup on error
+    - Bluetooth: hci_sync: Fix suspending with wrong filter policy
+    - drm/client: Fix error code in drm_client_buffer_vmap_local()
+    - ethtool: fix setting key and resetting indir at once
+    - tcp: Adjust clamping window for applications specifying SO_RCVBUF
+    - net: axienet: start napi before enabling Rx/Tx
+    - rtnetlink: Don't ignore IFLA_TARGET_NETNSID when ifname is specified in
+      rtnl_dellink().
+    - [x86] i915/perf: Remove code to update PWR_CLK_STATE for gen12
+    - ice: respect netif readiness in AF_XDP ZC related ndo's
+    - ice: don't busy wait for Rx queue disable in ice_qp_dis()
+    - ice: replace synchronize_rcu with synchronize_net
+    - ice: modify error handling when setting XSK pool in ndo_bpf
+    - ice: toggle netif_carrier when setting up XSK pool
+    - ice: improve updating ice_{t,r}x_ring::xsk_pool
+    - ice: add missing WRITE_ONCE when clearing ice_rx_ring::xdp_prog
+    - ice: xsk: fix txq interrupt mapping
+    - net/iucv: fix use after free in iucv_sock_close()
+    - [x86] drm/i915/hdcp: Fix HDCP2_STREAM_STATUS macro
+    - net: mvpp2: Don't re-use loop iterator
+    - net: phy: micrel: Fix the KSZ9131 MDI-X status issue
+    - [s390x] mm/ptdump: Fix handling of identity mapping area
+    - ALSA: hda: Conditionally use snooping for AMD HDMI
+    - drm/atomic: Allow userspace to use explicit sync with atomic async flips
+    - drm/atomic: Allow userspace to use damage clips with async flips
+    - netfilter: iptables: Fix null-ptr-deref in iptable_nat_table_init().
+    - netfilter: iptables: Fix potential null-ptr-deref in
+      ip6table_nat_table_init().
+    - net/mlx5: Always drain health in shutdown callback
+    - net/mlx5: Fix error handling in irq_pool_request_irq
+    - net/mlx5: Lag, don't use the hardcoded value of the first port
+    - net/mlx5: Fix missing lock on sync reset reload
+    - net/mlx5e: Require mlx5 tc classifier action support for IPsec prio
+      capability
+    - net/mlx5e: Fix CT entry update leaks of modify header context
+    - net/mlx5e: Add a check for the return value from mlx5_port_set_eth_ptys
+    - igc: Fix double reset adapter triggered from a single taprio cmd
+    - ipv6: fix ndisc_is_useropt() handling for PIO
+    - [riscv64] purgatory: align riscv_kernel_entry
+    - perf arch events: Fix duplicate RISC-V SBI firmware event name
+    - [riscv64] perf: riscv: Fix selecting counters in legacy mode
+    - [riscv64] mm: Add handling for VM_FAULT_SIGSEGV in mm_fault_error()
+    - [riscv64] RISC-V: Enable the IPI before workqueue_online_cpu()
+    - [riscv64] Fix linear mapping checks for non-contiguous memory regions
+    - [arm64] jump_label: Ensure patched jump_labels are visible to all CPUs
+    - ceph: force sending a cap update msg back to MDS for revoke op
+    - [s390x] fpu: Re-add exception handling in load_fpu_state()
+    - platform/chrome: cros_ec_proto: Lock device when updating MKBP version
+    - HID: wacom: Modify pen IDs
+    - btrfs: zoned: fix zone_unusable accounting on making block group
+      read-write again
+    - btrfs: do not subtract delalloc from avail bytes
+    - btrfs: make cow_file_range_inline() honor locked_page on error
+    - protect the fetch of ->fd[fd] in do_dup2() from mispredictions
+    - mptcp: sched: check both directions for backup
+    - ALSA: usb-audio: Correct surround channels in UAC1 channel map
+    - ALSA: hda/realtek: Add quirk for Acer Aspire E5-574G
+    - ALSA: seq: ump: Optimize conversions from SysEx to UMP
+    - Revert "ALSA: firewire-lib: obsolete workqueue for period update"
+    - Revert "ALSA: firewire-lib: operate for period elapse event in process
+      context"
+    - PCI: pciehp: Retain Power Indicator bits for userspace indicators
+    - drm/vmwgfx: Fix a deadlock in dma buf fence polling
+    - drm/vmwgfx: Fix handling of dumb buffers
+    - drm/ast: astdp: Wake up during connector status detection
+    - drm/ast: Fix black screen after resume
+    - drm/amdgpu: fix contiguous handling for IB parsing v2
+    - drm/virtio: Fix type of dma-fence context variable
+    - [x86] drm/i915: Fix possible int overflow in skl_ddi_calculate_wrpll()
+    - [arm64] drm/v3d: Prevent out of bounds access in performance query
+      extensions
+    - [arm64] drm/v3d: Fix potential memory leak in the timestamp extension
+    - [arm64] drm/v3d: Fix potential memory leak in the performance extension
+    - [arm64] drm/v3d: Validate passed in drm syncobj handles in the timestamp
+      extension
+    - [arm64] drm/v3d: Validate passed in drm syncobj handles in the performance
+      extension
+    - Bluetooth: hci_event: Fix setting DISCOVERY_FINDING for passive scanning
+    - nouveau: set placement to original placement on uvmm validate.
+    - wifi: ath12k: fix soft lockup on suspend
+    - wifi: mac80211: use monitor sdata with driver only if desired
+    - io_uring: keep multishot request NAPI timeout current
+    - net: usb: sr9700: fix uninitialized variable use in sr_mdio_read
+    - net: wan: fsl_qmc_hdlc: Convert carrier_lock spinlock to a mutex
+    - net: wan: fsl_qmc_hdlc: Discard received CRC
+    - r8169: don't increment tx_dropped in case of NETDEV_TX_BUSY
+    - mptcp: fix user-space PM announced address accounting
+    - mptcp: distinguish rcv vs sent backup flag in requests
+    - mptcp: fix NL PM announced address accounting
+    - mptcp: mib: count MPJ with backup flag
+    - mptcp: fix bad RCVPRUNED mib accounting
+    - mptcp: pm: fix backup support in signal endpoints
+    - mptcp: pm: only set request_bkup flag when sending MP_PRIO
+    - mptcp: fix duplicate data handling
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 12 Aug 2024 20:18:17 +0200
 
 linux (6.10.3-1) unstable; urgency=medium
 

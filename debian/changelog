@@ -1,4 +1,4 @@
-linux (6.10.4-1) UNRELEASED; urgency=medium
+linux (6.10.4-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.10.4
@@ -127,7 +127,7 @@ linux (6.10.4-1) UNRELEASED; urgency=medium
     - mptcp: pm: only set request_bkup flag when sending MP_PRIO
     - mptcp: fix duplicate data handling
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 11 Aug 2024 17:06:31 +0200
+ -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 12 Aug 2024 20:18:17 +0200
 
 linux (6.10.3-1) unstable; urgency=medium
 

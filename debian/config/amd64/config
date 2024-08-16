@@ -85,6 +85,11 @@ CONFIG_XEN_512GB=y
 CONFIG_SIGNED_PE_FILE_VERIFICATION=y
 
 ##
+## file: drivers/accel/habanalabs
+##
+CONFIG_DRM_ACCEL_HABANALABS=m
+
+##
 ## file: drivers/acpi/Kconfig
 ##
 CONFIG_ACPI_BGRT=y

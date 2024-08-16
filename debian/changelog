@@ -73,6 +73,10 @@ linux (6.11~rc4-1~exp1) UNRELEASED; urgency=medium
   * [riscv64] Enable CLK_SOPHGO_SG2042_PLL, CLK_SOPHGO_SG2042_CLKGEN and
     CLK_SOPHGO_SG2042_RPGATE as modules.
 
+  [ Jair Gonzalez ]
+  * [amd64] drivers/accel/habanalabs: Enable DRM_ACCEL_HABANALABS
+    (Habana's AI Processors)
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 12 Aug 2024 20:56:44 +0200
 
 linux (6.10.6-1) unstable; urgency=medium

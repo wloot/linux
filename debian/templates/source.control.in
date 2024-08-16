@@ -12,14 +12,18 @@ Build-Depends:
 # used by debian/rules.real to prepare the source
  quilt,
 # used by debian/rules.real to build linux-doc and linux-headers
+ cpio <!nodoc>,
  cpio <!pkg.linux.nokernel>,
 # used by upstream to compress kernel and by debian/rules.real to build linux-source
- xz-utils <!pkg.linux.nokernel !pkg.linux.nosource>,
+ xz-utils <!pkg.linux.nokernel>,
+ xz-utils <!pkg.linux.nosource>,
 # used by debian/rules.real to build linux-perf and linux-support
  dh-python <!pkg.linux.notools>,
 # used by upstream to build genksyms, kconfig, and perf
  bison <!pkg.linux.nokernel>,
+ bison <!pkg.linux.notools>,
  flex <!pkg.linux.nokernel>,
+ flex <!pkg.linux.notools>,
 Build-Depends-Arch:
 # used by upstream to build include/generated/timeconst.h
  bc <!pkg.linux.nokernel>,

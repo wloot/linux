@@ -41,6 +41,7 @@ linux (6.11~rc4-1~exp1) UNRELEASED; urgency=medium
     - [armhf] sound/soc/fsl: Remove SND_SOC_IMX_SPDIF which became redundant
       with SND_SOC_FSL_ASOC_CARD
     - staging/media/av7110: Remove DVB_BUDGET_PATCH
+  * perf tools: Pass EXTRA_CFLAGS through to libbpf build again
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 12 Aug 2024 20:56:44 +0200
 

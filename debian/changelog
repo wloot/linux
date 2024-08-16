@@ -44,6 +44,7 @@ linux (6.11~rc4-1~exp1) UNRELEASED; urgency=medium
   * perf tools: Pass EXTRA_CFLAGS through to libbpf build again
   * d/control: Drop versions from Build-Depends that are satisfied since buster
   * d/control: Fix profiles for Build-Depends on bison, cpio, flex, xz-utils
+  * d/control: Move bison, cpio, flex, xz-utils to Build-Depends-{Arch,Indep}
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 12 Aug 2024 20:56:44 +0200
 

@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 26 Sep 2023 14:43:30 +0000
 Subject: [PATCH 34/48] printk: nbcon: Add context to console_is_usable()
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc3-rt3.tar.xz
 
 The nbcon consoles have two callbacks to be used for different
 contexts. In order to determine if an nbcon console is usable,
@@ -97,7 +97,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  		__nbcon_atomic_flush_pending_con(con, prb_next_reserve_seq(prb), false);
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
-@@ -3043,7 +3043,7 @@ static bool console_flush_all(bool do_co
+@@ -3113,7 +3113,7 @@ static bool console_flush_all(bool do_co
  			if ((flags & CON_NBCON) && con->kthread)
  				continue;
  
@@ -106,7 +106,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  				continue;
  			any_usable = true;
  
-@@ -4018,8 +4018,10 @@ static bool __pr_flush(struct console *c
+@@ -4091,8 +4091,10 @@ static bool __pr_flush(struct console *c
  			 * that they make forward progress, so only increment
  			 * @diff for usable consoles.
  			 */

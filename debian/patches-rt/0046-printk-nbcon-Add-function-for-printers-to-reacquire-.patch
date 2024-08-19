@@ -2,7 +2,7 @@ From: John Ogness <john.ogness@linutronix.de>
 Date: Fri, 20 Oct 2023 10:01:58 +0000
 Subject: [PATCH 46/48] printk: nbcon: Add function for printers to reacquire
  ownership
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc3-rt3.tar.xz
 
 Since ownership can be lost at any time due to handover or
 takeover, a printing context _must_ be prepared to back out

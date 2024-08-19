@@ -2,7 +2,7 @@ From: John Ogness <john.ogness@linutronix.de>
 Date: Wed, 17 Apr 2024 12:42:46 +0000
 Subject: [PATCH 11/48] nbcon: Add API to acquire context for non-printing
  operations
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc3-rt3.tar.xz
 
 Provide functions nbcon_device_try_acquire() and
 nbcon_device_release() which will try to acquire the nbcon
@@ -64,21 +64,21 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  extern const char linux_banner[];
  extern const char linux_proc_banner[];
  
-@@ -194,6 +196,8 @@ extern asmlinkage void dump_stack_lvl(co
+@@ -198,6 +200,8 @@ extern asmlinkage void dump_stack_lvl(co
  extern asmlinkage void dump_stack(void) __cold;
  void printk_trigger_flush(void);
- void console_replay_all(void);
+ void console_try_replay_all(void);
 +extern bool nbcon_device_try_acquire(struct console *con);
 +extern void nbcon_device_release(struct console *con);
  #else
  static inline __printf(1, 0)
  int vprintk(const char *s, va_list args)
-@@ -273,9 +277,20 @@ static inline void dump_stack(void)
+@@ -277,9 +281,20 @@ static inline void dump_stack(void)
  static inline void printk_trigger_flush(void)
  {
  }
 +
- static inline void console_replay_all(void)
+ static inline void console_try_replay_all(void)
  {
  }
 +

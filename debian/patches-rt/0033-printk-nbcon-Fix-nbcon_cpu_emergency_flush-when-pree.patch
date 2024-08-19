@@ -2,7 +2,7 @@ From: John Ogness <john.ogness@linutronix.de>
 Date: Wed, 5 Jun 2024 09:25:30 +0000
 Subject: [PATCH 33/48] printk: nbcon: Fix nbcon_cpu_emergency_flush() when
  preemptible
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc3-rt3.tar.xz
 
 nbcon_cpu_emergency_flush() can be called in a preemptible
 context. In that case the CPU is not in an emergency state.

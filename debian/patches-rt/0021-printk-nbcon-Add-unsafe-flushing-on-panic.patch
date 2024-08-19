@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Fri, 20 Oct 2023 10:03:42 +0000
 Subject: [PATCH 21/48] printk: nbcon: Add unsafe flushing on panic
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc3-rt3.tar.xz
 
 Add nbcon_atomic_flush_unsafe() to flush all nbcon consoles
 using the write_atomic() callback and allowing unsafe hostile
@@ -24,15 +24,15 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
 --- a/include/linux/printk.h
 +++ b/include/linux/printk.h
-@@ -198,6 +198,7 @@ void printk_trigger_flush(void);
- void console_replay_all(void);
+@@ -202,6 +202,7 @@ void printk_trigger_flush(void);
+ void console_try_replay_all(void);
  extern bool nbcon_device_try_acquire(struct console *con);
  extern void nbcon_device_release(struct console *con);
 +void nbcon_atomic_flush_unsafe(void);
  #else
  static inline __printf(1, 0)
  int vprintk(const char *s, va_list args)
-@@ -291,6 +292,10 @@ static inline void nbcon_device_release(
+@@ -295,6 +296,10 @@ static inline void nbcon_device_release(
  {
  }
  
@@ -45,7 +45,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  bool this_cpu_in_panic(void);
 --- a/kernel/panic.c
 +++ b/kernel/panic.c
-@@ -456,6 +456,7 @@ void panic(const char *fmt, ...)
+@@ -457,6 +457,7 @@ void panic(const char *fmt, ...)
  	 * Explicitly flush the kernel log buffer one last time.
  	 */
  	console_flush_on_panic(CONSOLE_FLUSH_PENDING);

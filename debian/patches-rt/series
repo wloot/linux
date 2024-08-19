@@ -7,16 +7,7 @@
 ###########################################################################
 # Posted
 ###########################################################################
-
-# perf, sigtrap, v5
-0001-perf-Move-irq_work_queue-where-the-event-is-prepared.patch
-0002-task_work-Add-TWA_NMI_CURRENT-as-an-additional-notif.patch
-0003-perf-Enqueue-SIGTRAP-always-via-task_work.patch
-0004-perf-Shrink-the-size-of-the-recursion-counter.patch
-0005-perf-Move-swevent_htable-recursion-into-task_struct.patch
-0006-perf-Don-t-disable-preemption-in-perf_pending_task.patch
-0007-perf-Split-__perf_pending_irq-out-of-perf_pending_ir.patch
-task_work-make-TWA_NMI_CURRENT-handling-conditional-.patch
+crypto-x86-aes-gcm-fix-PREEMPT_RT-issue-in-gcm_crypt.patch
 
 ###########################################################################
 # John's printk queue
@@ -50,7 +41,6 @@ task_work-make-TWA_NMI_CURRENT-handling-conditional-.patch
 0027-panic-Mark-emergency-section-in-oops.patch
 0028-rcu-Mark-emergency-sections-in-rcu-stalls.patch
 0029-lockdep-Mark-emergency-sections-in-lockdep-splats.patch
-0030-printk-Rename-console_replay_all-and-update-context.patch
 0031-printk-nbcon-Introduce-printing-kthreads.patch
 0032-printk-Atomic-print-in-printk-context-on-shutdown.patch
 0033-printk-nbcon-Fix-nbcon_cpu_emergency_flush-when-pree.patch
@@ -90,6 +80,14 @@ riscv-allow-to-enable-RT.patch
 # Posted
 sched-rt-Don-t-try-push-tasks-if-there-are-none.patch
 
+# sparse
+0001-locking-rt-Add-sparse-annotation-PREEMPT_RT-s-sleepi.patch
+0002-locking-rt-Remove-one-__cond_lock-in-RT-s-spin_trylo.patch
+0003-locking-rt-Add-sparse-annotation-for-RCU.patch
+0004-locking-rt-Annotate-unlock-followed-by-lock-for-spar.patch
+0001-timers-Add-sparse-annotation-for-timer_sync_wait_run.patch
+0002-hrtimer-Annotate-hrtimer_cpu_base_.-_expiry-for-spar.patch
+
 # Needs discussion first.
 softirq-Use-a-dedicated-thread-for-timer-wakeups.patch
 rcutorture-Also-force-sched-priority-to-timersd-on-b.patch
@@ -121,34 +119,6 @@ softirq-Wake-ktimers-thread-also-in-softirq.patch
 
 # Lazy preemption
 PREEMPT_AUTO.patch
-
-# BH series
-0001-locking-local_lock-Introduce-guard-definition-for-lo.patch
-0002-locking-local_lock-Add-local-nested-BH-locking-infra.patch
-0003-net-Use-__napi_alloc_frag_align-instead-of-open-codi.patch
-0004-net-Use-nested-BH-locking-for-napi_alloc_cache.patch
-0005-net-tcp_sigpool-Use-nested-BH-locking-for-sigpool_sc.patch
-0006-net-ipv4-Use-nested-BH-locking-for-ipv4_tcp_sk.patch
-0007-netfilter-br_netfilter-Use-nested-BH-locking-for-brn.patch
-0008-net-softnet_data-Make-xmit-per-task.patch
-0009-dev-Remove-PREEMPT_RT-ifdefs-from-backlog_lock.patch
-0010-dev-Use-nested-BH-locking-for-softnet_data.process_q.patch
-0011-lwt-Don-t-disable-migration-prio-invoking-BPF.patch
-0012-seg6-Use-nested-BH-locking-for-seg6_bpf_srh_states.patch
-0013-net-Use-nested-BH-locking-for-bpf_scratchpad.patch
-0014-net-Reference-bpf_redirect_info-via-task_struct-on-P.patch
-0015-net-Move-per-CPU-flush-lists-to-bpf_net_context-on-P.patch
-# optimisation + fixes
-0001-net-Remove-task_struct-bpf_net_context-init-on-fork.patch
-0002-net-Optimize-xdp_do_flush-with-bpf_net_context-infos.patch
-0003-net-Move-flush-list-retrieval-to-where-it-is-used.patch
-tun-Assign-missing-bpf_net_context.patch
-tun-Add-missing-bpf_net_ctx_clear-in-do_xdp_generic.patch
-bpf-Remove-tst_run-from-lwt_seg6local_prog_ops.patch
-# tw_timer
-0001-net-tcp-dccp-prepare-for-tw_timer-un-pinning.patch
-0002-net-tcp-un-pin-the-tw_timer.patch
-0003-tcp-move-inet_twsk_schedule-helper-out-of-header.patch
 
 ###########################################################################
 # ARM

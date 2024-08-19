@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 12 Sep 2023 13:25:41 +0000
 Subject: [PATCH 14/48] printk: Make console_is_usable() available to nbcon
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc3-rt3.tar.xz
 
 Move console_is_usable() as-is into internal.h so that it can
 be used by nbcon printing functions as well.
@@ -64,7 +64,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  extern struct printk_buffers printk_shared_pbufs;
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
-@@ -2697,36 +2697,6 @@ int is_console_locked(void)
+@@ -2767,36 +2767,6 @@ int is_console_locked(void)
  }
  EXPORT_SYMBOL(is_console_locked);
  

@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Thu, 20 Jun 2024 12:27:11 +0200
 Subject: [PATCH 2/3] zram: Remove ZRAM_LOCK
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc3-rt3.tar.xz
 
 The ZRAM_LOCK was used for locking and after the addition of spinlock_t
 the bit set and cleared but there no reader of it.

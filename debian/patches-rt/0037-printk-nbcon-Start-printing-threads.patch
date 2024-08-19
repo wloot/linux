@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 5 Dec 2023 14:09:31 +0000
 Subject: [PATCH 37/48] printk: nbcon: Start printing threads
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc3-rt3.tar.xz
 
 If there are no boot consoles, the printing threads are started
 in early_initcall.
@@ -109,7 +109,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  		    (system_state > SYSTEM_RUNNING)) {
  			nbcon_atomic_flush_pending();
  		}
-@@ -3742,6 +3746,7 @@ EXPORT_SYMBOL(register_console);
+@@ -3815,6 +3819,7 @@ EXPORT_SYMBOL(register_console);
  static int unregister_console_locked(struct console *console)
  {
  	bool use_device_lock = (console->flags & CON_NBCON) && console->write_atomic;
@@ -117,7 +117,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	bool found_legacy_con = false;
  	bool found_nbcon_con = false;
  	bool found_boot_con = false;
-@@ -3824,6 +3829,15 @@ static int unregister_console_locked(str
+@@ -3897,6 +3902,15 @@ static int unregister_console_locked(str
  	if (!found_nbcon_con)
  		have_nbcon_console = found_nbcon_con;
  

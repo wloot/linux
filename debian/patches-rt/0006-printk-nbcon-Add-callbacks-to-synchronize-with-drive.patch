@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Mon, 18 Mar 2024 10:11:56 +0000
 Subject: [PATCH 06/48] printk: nbcon: Add callbacks to synchronize with driver
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc3-rt3.tar.xz
 
 Console drivers typically must deal with access to the hardware
 via user input/output (such as an interactive login shell) and

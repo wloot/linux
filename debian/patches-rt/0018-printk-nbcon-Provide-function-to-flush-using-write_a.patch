@@ -2,7 +2,7 @@ From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 12 Sep 2023 12:00:08 +0000
 Subject: [PATCH 18/48] printk: nbcon: Provide function to flush using
  write_atomic()
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc3-rt3.tar.xz
 
 Provide nbcon_atomic_flush_pending() to perform flushing of all
 registered nbcon consoles using their write_atomic() callback.
@@ -257,7 +257,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  EXPORT_SYMBOL_GPL(nbcon_device_release);
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
-@@ -3184,6 +3184,8 @@ void console_flush_on_panic(enum con_flu
+@@ -3254,6 +3254,8 @@ void console_flush_on_panic(enum con_flu
  	if (mode == CONSOLE_REPLAY_ALL)
  		__console_rewind_all();
  

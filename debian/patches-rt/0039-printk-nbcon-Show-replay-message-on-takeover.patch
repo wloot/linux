@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Mon, 25 Mar 2024 21:00:40 +0000
 Subject: [PATCH 39/48] printk: nbcon: Show replay message on takeover
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.10/older/patches-6.10.2-rt14.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc3-rt3.tar.xz
 
 An emergency or panic context can takeover console ownership
 while the current owner was printing a printk message. The
@@ -108,7 +108,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  }
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
-@@ -2868,6 +2868,25 @@ void console_prepend_dropped(struct prin
+@@ -2938,6 +2938,25 @@ void console_prepend_dropped(struct prin
  }
  
  /*

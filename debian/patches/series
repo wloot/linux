@@ -23,7 +23,6 @@ debian/documentation-drop-sphinx-version-check.patch
 debian/perf-traceevent-support-asciidoctor-for-documentatio.patch
 debian/kbuild-look-for-module.lds-under-arch-directory-too.patch
 debian/kbuild-abort-build-if-subdirs-used.patch
-debian/module-avoid-abi-changes-when-debug-info-is-disabled.patch
 debian/makefile-make-compiler-version-comparison-optional.patch
 debian/fixdep-allow-overriding-hostcc-and-hostld.patch
 debian/tools-rtla-Restore-option-to-set-VERSION-var-to-VERS.patch
@@ -73,8 +72,6 @@ features/x86/x86-make-x32-syscall-support-conditional.patch
 # Miscellaneous bug fixes
 bugfix/all/disable-some-marvell-phys.patch
 bugfix/all/fs-add-module_softdep-declarations-for-hard-coded-cr.patch
-bugfix/all/net-drop-bad-gso-csum_start-and-offset-in-virtio_net.patch
-bugfix/all/spi-spidev-Add-missing-spi_device_id-for-bh2228fv.patch
 
 # Miscellaneous features
 
@@ -107,6 +104,7 @@ bugfix/all/libapi-define-_fortify_source-as-2-not-empty.patch
 bugfix/all/tools-perf-fix-missing-ldflags-for-some-programs.patch
 bugfix/all/tools_lib_symbol_use_d_fortify_source_2_for_non_debug_builds.patch
 bugfix/all/perf-tools-support-extra-cxxflags.patch
+bugfix/all/perf-tools-pass-extra_cflags-through-to-libbpf-build-again.patch
 
 # debian-installer fixes
 bugfix/powerpc/fbdev-offb-Update-expected-device-name.patch

@@ -43,6 +43,9 @@ linux (6.11~rc4-1~exp1) UNRELEASED; urgency=medium
     - staging/media/av7110: Remove DVB_BUDGET_PATCH
   * perf tools: Pass EXTRA_CFLAGS through to libbpf build again
 
+  [ Salvatore Bonaccorso ]
+  * Compile with gcc-14 on all architectures
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 12 Aug 2024 20:56:44 +0200
 
 linux (6.10.4-1) unstable; urgency=medium

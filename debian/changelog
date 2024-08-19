@@ -42,6 +42,12 @@ linux (6.11~rc4-1~exp1) UNRELEASED; urgency=medium
       with SND_SOC_FSL_ASOC_CARD
     - staging/media/av7110: Remove DVB_BUDGET_PATCH
   * perf tools: Pass EXTRA_CFLAGS through to libbpf build again
+  * d/config: Fix broken configs that were being resolved differently by
+    kconfig:
+    - [hppa/parisc64] Enable FLATMEM_MANUAL
+    - [riscv64] Enable KERNEL_GZIP instead of KERNEL_XZ
+    - [x86] Enable CPU_FREQ_DEFAULT_GOV_SCHEDUTIL instead of
+      CPU_FREQ_DEFAULT_GOV_ONDEMAND or CPU_FREQ_DEFAULT_GOV_PERFORMANCE
 
   [ Salvatore Bonaccorso ]
   * Compile with gcc-14 on all architectures

@@ -53,6 +53,7 @@ CONFIG_AHCI_DWC=m
 ## file: drivers/cache/Kconfig
 ##
 CONFIG_SIFIVE_CCACHE=y
+CONFIG_STARFIVE_STARLINK_CACHE=y
 
 ##
 ## file: drivers/char/hw_random/Kconfig
@@ -223,6 +224,7 @@ CONFIG_PCIE_FU740=y
 ## file: drivers/pci/controller/plda/Kconfig
 ##
 CONFIG_PCIE_MICROCHIP_HOST=y
+CONFIG_PCIE_STARFIVE_HOST=y
 
 ##
 ## file: drivers/perf/Kconfig

@@ -54,6 +54,9 @@ linux (6.11~rc4-1~exp1) UNRELEASED; urgency=medium
   [ Jing Luo ]
   * [ia64] Purge ia64 from installer
 
+  [ Aurelien Jarno ]
+  * [riscv64] Enable STARFIVE_STARLINK_CACHE and PCIE_STARFIVE_HOST.
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 12 Aug 2024 20:56:44 +0200
 
 linux (6.10.6-1) unstable; urgency=medium

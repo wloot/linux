@@ -1,4 +1,4 @@
-linux (6.10.5-1) UNRELEASED; urgency=medium
+linux (6.10.6-1) UNRELEASED; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.10.5
@@ -267,6 +267,35 @@ linux (6.10.5-1) UNRELEASED; urgency=medium
     - mptcp: pm: don't try to create sf if alloc failed
     - mptcp: pm: do not ignore 'subflow' if 'signal' flag is also set
     - btrfs: fix double inode unlock for direct IO sync writes
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.10.6
+    - exec: Fix ToCToU between perm check and set-uid/gid usage
+    - drm/amd/display: Defer handling mst up request in resume
+    - drm/amd/display: Separate setting and programming of cursor
+    - drm/amd/display: Prevent IPX From Link Detect and Set Mode
+    - nvme/pci: Add APST quirk for Lenovo N60z laptop
+    - [x86] ASoC: cs35l56: Patch CS35L56_IRQ1_MASK_18 to the default value
+    - bpf, net: Use DEV_STAT_INC()
+    - f2fs: fix to do sanity check on F2FS_INLINE_DATA flag in inode during GC
+    - f2fs: fix to cover read extent cache access with lock
+    - fou: remove warn in gue_gro_receive on unsupported protocol
+    - jfs: fix null ptr deref in dtInsertEntry
+    - jfs: Fix shift-out-of-bounds in dbDiscardAG
+    - ALSA: usb: Fix UBSAN warning in parse_audio_unit()
+    - [x86] platform/x86/amd/pmf: Fix to Update HPD Data When ALS is Disabled
+    - [x86] platform/x86: ideapad-laptop: introduce a generic notification chain
+    - [x86] platform/x86: ideapad-laptop: move ymc_trigger_ec from lenovo-ymc
+    - [x86] platform/x86: ideapad-laptop: add a mutex to synchronize VPC
+      commands
+    - binfmt_flat: Fix corruption when not offsetting data start
+    - drm/amd/display: Solve mst monitors blank out problem after resume
+    - drm/amdgpu/display: Fix null pointer dereference in
+      dc_stream_program_cursor_position
+    - media: Revert "media: dvb-usb: Fix unexpected infinite loop in
+      dvb_usb_read_remote_control()"
+    - Revert "ata: libata-scsi: Honor the D_SENSE bit for CK_COND=1 and no
+      error"
+    - Revert "drm/amd/display: Refactor function
+      dm_dp_mst_is_port_support_mode()"
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Wed, 14 Aug 2024 20:41:55 +0200
 

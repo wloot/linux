@@ -65,6 +65,9 @@ CONFIG_HW_RANDOM_JH7110=m
 ## file: drivers/clk/sophgo/Kconfig
 ##
 CONFIG_CLK_SOPHGO_CV1800=m
+CONFIG_CLK_SOPHGO_SG2042_PLL=m
+CONFIG_CLK_SOPHGO_SG2042_CLKGEN=m
+CONFIG_CLK_SOPHGO_SG2042_RPGATE=m
 
 ##
 ## file: drivers/cpufreq/Kconfig

@@ -357,6 +357,16 @@ CONFIG_SUNXI_WATCHDOG=m
 CONFIG_STARFIVE_WATCHDOG=m
 
 ##
+## file: init/Kconfig
+##
+## choice: Kernel compression mode
+#. Decompression is done by the bootloader, so we need to be
+#. conservative here.
+CONFIG_KERNEL_GZIP=y
+# CONFIG_KERNEL_XZ is not set
+## end choice
+
+##
 ## file: kernel/Kconfig.kexec
 ##
 CONFIG_KEXEC=y

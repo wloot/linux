@@ -50,6 +50,9 @@ linux (6.11~rc4-1~exp1) UNRELEASED; urgency=medium
   * [arm64] Include modules for Lenovo Yoga C630 and Lenovo Miix 630 into D-I
     packages.
 
+  [ Jing Luo ]
+  * [ia64] Purge ia64 from installer
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 12 Aug 2024 20:56:44 +0200
 
 linux (6.10.4-1) unstable; urgency=medium

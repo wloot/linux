@@ -488,6 +488,17 @@ CONFIG_INTEL_IOATDMA=m
 CONFIG_DW_DMAC=m
 
 ##
+## file: drivers/dma-buf/Kconfig
+##
+CONFIG_UDMABUF=y
+CONFIG_DMABUF_HEAPS=y
+
+##
+## file: drivers/dma-buf/heaps/Kconfig
+##
+CONFIG_DMABUF_HEAPS_SYSTEM=y
+
+##
 ## file: drivers/edac/Kconfig
 ##
 CONFIG_EDAC=y
@@ -555,6 +566,7 @@ CONFIG_GPIO_AMDPT=m
 CONFIG_GPIO_F7188X=m
 # CONFIG_GPIO_SCH is not set
 CONFIG_GPIO_KEMPLD=m
+CONFIG_GPIO_LJCA=m
 CONFIG_GPIO_ML_IOH=m
 
 ##
@@ -768,6 +780,7 @@ CONFIG_I2C_DESIGNWARE_PLATFORM=y
 CONFIG_I2C_DESIGNWARE_BAYTRAIL=y
 CONFIG_I2C_DESIGNWARE_PCI=m
 CONFIG_I2C_KEMPLD=m
+CONFIG_I2C_LJCA=m
 CONFIG_I2C_PARPORT=m
 CONFIG_I2C_PCA_ISA=m
 CONFIG_I2C_CROS_EC_TUNNEL=m
@@ -929,6 +942,26 @@ CONFIG_CEC_SECO=m
 CONFIG_DVB_RTL2832_SDR=m
 
 ##
+## file: drivers/media/i2c/Kconfig
+##
+CONFIG_VIDEO_OV2740=m
+
+##
+## file: drivers/media/pci/intel/Kconfig
+##
+CONFIG_IPU_BRIDGE=m
+
+##
+## file: drivers/media/pci/intel/ipu6/Kconfig
+##
+CONFIG_VIDEO_INTEL_IPU6=m
+
+##
+## file: drivers/media/pci/intel/ivsc/Kconfig
+##
+CONFIG_INTEL_VSC=m
+
+##
 ## file: drivers/media/platform/via/Kconfig
 ##
 CONFIG_VIDEO_VIA_CAMERA=m
@@ -996,6 +1029,8 @@ CONFIG_INTEL_MEI=m
 CONFIG_INTEL_MEI_ME=m
 CONFIG_INTEL_MEI_TXE=m
 CONFIG_INTEL_MEI_GSC=m
+CONFIG_INTEL_MEI_VSC_HW=m
+CONFIG_INTEL_MEI_VSC=m
 
 ##
 ## file: drivers/misc/mei/hdcp/Kconfig
@@ -1688,6 +1723,7 @@ CONFIG_PCMCIA_SYM53C500=m
 ##
 # CONFIG_SPI_INTEL_PCI is not set
 # CONFIG_SPI_INTEL_PLATFORM is not set
+CONFIG_SPI_LJCA=m
 
 ##
 ## file: drivers/staging/media/Kconfig
@@ -1825,6 +1861,7 @@ CONFIG_USB_SL811_CS=m
 ## file: drivers/usb/misc/Kconfig
 ##
 CONFIG_USB_USS720=m
+CONFIG_USB_LJCA=m
 
 ##
 ## file: drivers/usb/roles/Kconfig

@@ -6,6 +6,10 @@ linux (6.11~rc4-1~exp1) UNRELEASED; urgency=medium
   [ Bastian Blank ]
   * Properly disable common headers packages
 
+  [ Joel Stanley ]
+  * [x86] Enable IPU6 MIPI drivers for Intel Alder Lake laptops
+    (Closes: #1074441, #1060262, #1078170)
+
   [ Ben Hutchings ]
   * Drop "module: Avoid ABI changes when debug info is disabled" as we no
     longer try to maintain a module ABI

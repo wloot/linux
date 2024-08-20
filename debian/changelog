@@ -1,6 +1,7 @@
 linux (6.11~rc4-1~exp1) UNRELEASED; urgency=medium
 
   * New upstream release candidate
+    - 9p: Fix DIO read through netfs (Closes: #1072004)
 
   [ Bastian Blank ]
   * Properly disable common headers packages

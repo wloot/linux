@@ -53,6 +53,9 @@ linux (6.11~rc4-1~exp1) UNRELEASED; urgency=medium
     - [riscv64] Enable KERNEL_GZIP instead of KERNEL_XZ
     - [x86] Enable CPU_FREQ_DEFAULT_GOV_SCHEDUTIL instead of
       CPU_FREQ_DEFAULT_GOV_ONDEMAND or CPU_FREQ_DEFAULT_GOV_PERFORMANCE
+  * d/control: Drop versions from Build-Depends that are satisfied since buster
+  * d/control: Fix profiles for Build-Depends on bison, cpio, flex, xz-utils
+  * d/control: Move bison, cpio, flex, xz-utils to Build-Depends-{Arch,Indep}
 
   [ Salvatore Bonaccorso ]
   * Compile with gcc-14 on all architectures

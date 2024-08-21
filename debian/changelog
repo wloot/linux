@@ -80,6 +80,8 @@ linux (6.11~rc4-1~exp1) experimental; urgency=medium
     (Habana's AI Processors)
   * [amd64] drivers/accel/ivpu: Enable DRM_ACCEL_IVPU (Intel NPU, formerly
     called Intel VPU) (Closes: #1079170)
+  * [amd64] drivers/crypto/intel/iaa: Enable CRYPTO_DEV_IAA_CRYPTO
+    (IAA Compression Accelerator Crypto Driver) (Closes: #1079272)
 
   [ Zhang Ning ]
   * [x86] Enable GPIO_WHISKEY_COVE, INTEL_BXT_PMIC_THERMAL as module.

@@ -76,6 +76,10 @@ linux (6.11~rc4-1~exp1) UNRELEASED; urgency=medium
   [ Jair Gonzalez ]
   * [amd64] tools/arch/x86/intel_sdsi: Add intel-sdsi package for Intel SDSi
     provisioning tool (Closes: #1059362)
+  * [amd64] drivers/accel/habanalabs: Enable DRM_ACCEL_HABANALABS
+    (Habana's AI Processors)
+  * [amd64] drivers/accel/ivpu: Enable DRM_ACCEL_IVPU (Intel NPU, formerly
+    called Intel VPU) (Closes: #1079170)
 
   [ Zhang Ning ]
   * [x86] Enable GPIO_WHISKEY_COVE, INTEL_BXT_PMIC_THERMAL as module.

@@ -2,3 +2,6 @@
 phy-qcom-apq8064-sata
 phy-qcom-ipq806x-sata
 phy-xgene
+
+# USB/SATA/PCIe on Rockchip RK3588
+phy-rockchip-naneng-combphy

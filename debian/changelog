@@ -1,3 +1,9 @@
+linux (6.11~rc5-1~exp1) UNRELEASED; urgency=medium
+
+  * New upstream release candidate
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 25 Aug 2024 19:26:35 +0200
+
 linux (6.11~rc4-1~exp1) experimental; urgency=medium
 
   * New upstream release candidate

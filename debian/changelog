@@ -8,6 +8,8 @@ linux (6.11~rc5-1~exp1) UNRELEASED; urgency=medium
 
   [ Aurelien Jarno ]
   * [riscv64] udeb: Add rtc-modules to Provides of kernel-image
+  * [riscv64] udeb: Ship mtd in kernel-image, drop mtd-core-modules and
+    add it to to Provides of kernel-image.
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 25 Aug 2024 19:26:35 +0200
 

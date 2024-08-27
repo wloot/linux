@@ -6,6 +6,9 @@ drivers/mfd/**
 # Regulators
 drivers/regulator/**
 
+# Some regulators on RK3588 require GPIO
+gpio-rockchip
+
 # NIC,sata, and USB on Armada 8K
 phy-mvebu-cp110-comphy ?
 
@@ -63,3 +66,6 @@ qrtr-smd ?
 
 gcc-sc8280xp
 qnoc-sc8280xp
+
+# PCIe x4 on RK3588 (usually NVME)
+phy-rockchip-snps-pcie3

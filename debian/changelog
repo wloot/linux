@@ -38,6 +38,9 @@ linux (6.11~rc5-1~exp2) UNRELEASED; urgency=medium
   [ Aurelien Jarno ]
   * [riscv64] Enable INPUT_MISC (Closes: #1079501).
 
+  [ Yunseong Kim ]
+  * mm/damon: Enable DAMON, DAMON_VADDR, DAMON_PADDR, DAMON_SYSFS, DAMON_RECLAIM, DAMON_LRU_SORT
+
  -- Vagrant Cascadian <vagrant@debian.org>  Tue, 27 Aug 2024 09:55:22 -0700
 
 linux (6.11~rc5-1~exp1) experimental; urgency=medium

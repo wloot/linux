@@ -263,6 +263,9 @@ linux (6.10.7-1) UNRELEASED; urgency=medium
       operations()
     - Input: MT - limit max slots
 
+  [ Salvatore Bonaccorso ]
+  * [rt] Refresh "net/ipv4: Use nested-BH locking for ipv4_tcp_sk."
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 29 Aug 2024 23:20:23 +0200
 
 linux (6.10.6-1) unstable; urgency=medium

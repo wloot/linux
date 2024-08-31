@@ -107,6 +107,7 @@ linux (6.10.7-1) UNRELEASED; urgency=medium
     - tcp: Update window clamping condition
     - netfilter: allow ipv6 fragments to arrive on different devices
     - netfilter: nfnetlink: Initialise extack before use in ACKs
+      (CVE-2024-44945)
     - netfilter: flowtable: initialise extack before use
     - netfilter: nf_queue: drop packets with cloned unconfirmed conntracks
     - netfilter: nf_tables: Audit log dump reset after the fact

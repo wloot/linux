@@ -17,6 +17,3 @@ reset-rzg2l-usbphy-ctrl
 phy-qcom-snps-femto-v2
 gpio-sbu-mux
 phy-qcom-qusb2
-
-# USB/SATA/PCIe on Rockchip RK3588
-phy-rockchip-naneng-combphy

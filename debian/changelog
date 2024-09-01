@@ -1,11 +1,3 @@
-linux (6.11~rc5-1~exp2) UNRELEASED; urgency=medium
-
-  [ Marcin Juszkiewicz ]
-  * [arm64] udeb: Add kernel modules to get USB/SATA/PCIe working on Rockchip
-    RK3588
-
- -- Vagrant Cascadian <vagrant@debian.org>  Tue, 27 Aug 2024 09:55:22 -0700
-
 linux (6.11~rc5-1~exp1) experimental; urgency=medium
 
   * New upstream release candidate

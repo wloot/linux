@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Mon, 12 Aug 2024 12:51:04 +0200
 Subject: [PATCH 1/2] timers: Add sparse annotation for
  timer_sync_wait_running().
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc3-rt3.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
 
 timer_sync_wait_running() first releases two locks and then acquires
 them again. This is unexpected and sparse complains about it.

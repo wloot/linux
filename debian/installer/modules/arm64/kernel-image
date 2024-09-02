@@ -63,3 +63,5 @@ qrtr-smd ?
 
 gcc-sc8280xp
 qnoc-sc8280xp
+gcc-sc8180x
+qnoc-sc8180x

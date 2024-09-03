@@ -70,3 +70,6 @@ qrtr-smd ?
 
 gcc-sc8280xp
 qnoc-sc8280xp
+
+# TypeC connector stuff used by phy-qcom-qmp-combo and pmic_glink_altmode modules
+typec ?

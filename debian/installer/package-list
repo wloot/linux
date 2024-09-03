@@ -3,7 +3,7 @@
 # architecture, which is derived from the files in the modules directory.
 #
 Package: kernel-image
-Provides_arm64: mmc-core-modules
+Provides_arm64: drm-core-modules, mmc-core-modules
 Provides_armel: rtc-modules
 Provides_armmp: mmc-core-modules, mtd-core-modules
 Provides_i386: rtc-modules
@@ -239,8 +239,14 @@ Priority: standard
 Description: PCMCIA storage drivers
  This package contains PCMCIA storage drivers for the kernel.
 
+Package: drm-core-modules
+Depends: kernel-image
+Priority: optional
+Description: Frame buffer support
+ This package contains core DRM modules for the kernel.
+
 Package: fb-modules
-Depends: kernel-image, i2c-modules, input-modules
+Depends: kernel-image, drm-core-modules, i2c-modules, input-modules
 Depends_armel: kernel-image, usb-modules
 Priority: optional
 Priority_hppa: standard

@@ -40,6 +40,10 @@ drivers/pinctrl/**
 # EFUSE/OTP drivers
 nvmem-imx-ocotp ?
 
+# DRM modules as soc/qcom/phy-qcom-qmp-combo -> aux-hpd-bridge -> drm
+drm
+drm_kms_helper
+
 # Qualcomm devices
 qcom-apcs-ipc-mailbox
 qcom-ipcc

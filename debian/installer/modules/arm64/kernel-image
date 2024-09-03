@@ -22,6 +22,9 @@ armada_37xx_wdt ?
 # SPI devices
 drivers/spi/**
 
+# Force mtd as spi/spi-mtk-snfi depends on ecc-mtk,nandcore -> mtd
+mtd
+
 # For cros_ec mfd device
 cros_ec_spi ?
 

@@ -62,3 +62,6 @@ qcom_hwspinlock
 icc-osm-l3
 rtc-pm8xxx
 qrtr ?
+
+# TypeC connector stuff used by phy-qcom-qmp-combo and pmic_glink_altmode modules
+typec ?

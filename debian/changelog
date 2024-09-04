@@ -11,6 +11,13 @@ linux (6.11~rc5-1~exp1) experimental; urgency=medium
   * [riscv64] udeb: Ship mtd in kernel-image, drop mtd-core-modules and
     add it to to Provides of kernel-image.
 
+  [ Marcin Juszkiewicz ]
+  * [udeb] introduce drm-core-modules to handle 'kernel-image' modules which
+    require 'drm' module
+  * [arm64] udeb: ship mtd in kernel-image, drop mtd-core-modules and
+    add it to to provides of kernel-image.
+  * [arm64] udeb: ship typec in kernel-image
+
  -- Ben Hutchings <benh@debian.org>  Tue, 27 Aug 2024 12:59:49 +0200
 
 linux (6.11~rc4-1~exp1) experimental; urgency=medium

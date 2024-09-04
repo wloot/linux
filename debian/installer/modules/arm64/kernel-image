@@ -22,6 +22,9 @@ armada_37xx_wdt ?
 # SPI devices
 drivers/spi/**
 
+# Force mtd as spi/spi-mtk-snfi depends on ecc-mtk,nandcore -> mtd
+mtd
+
 # For cros_ec mfd device
 cros_ec_spi ?
 
@@ -39,6 +42,10 @@ drivers/pinctrl/**
 
 # EFUSE/OTP drivers
 nvmem-imx-ocotp ?
+
+# DRM modules as soc/qcom/phy-qcom-qmp-combo -> aux-hpd-bridge -> drm
+drm
+drm_kms_helper
 
 # Qualcomm devices
 qcom-apcs-ipc-mailbox
@@ -63,3 +70,6 @@ qrtr-smd ?
 
 gcc-sc8280xp
 qnoc-sc8280xp
+
+# TypeC connector stuff used by phy-qcom-qmp-combo and pmic_glink_altmode modules
+typec ?

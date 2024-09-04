@@ -17,7 +17,12 @@ linux (6.11~rc5-1~exp2) UNRELEASED; urgency=medium
     - Enable SX9324 as a module
   * udeb: Move i2c-hid-of-goodix module to fb-modules
 
+  [ Dylan Aïssi ]
+  * [arm64] drivers/gpu/drm/panthor: Enable DRM_PANTHOR as module
+
  -- Vagrant Cascadian <vagrant@debian.org>  Tue, 27 Aug 2024 09:55:22 -0700
+
+ -- Dylan Aïssi <daissi@debian.org>  Tue, 27 Aug 2024 09:55:22 -0700
 
 linux (6.11~rc5-1~exp1) experimental; urgency=medium
 

@@ -737,6 +737,11 @@ CONFIG_DRM_PANEL_SIMPLE=m
 CONFIG_DRM_PANFROST=m
 
 ##
+## file: drivers/gpu/drm/panthor/Kconfig
+##
+CONFIG_DRM_PANTHOR=m
+
+##
 ## file: drivers/gpu/drm/radeon/Kconfig
 ##
 CONFIG_DRM_RADEON=m

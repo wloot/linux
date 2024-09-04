@@ -20,9 +20,14 @@ linux (6.11~rc5-1~exp2) UNRELEASED; urgency=medium
   [ Dylan Aïssi ]
   * [arm64] drivers/gpu/drm/panthor: Enable DRM_PANTHOR as module
 
- -- Vagrant Cascadian <vagrant@debian.org>  Tue, 27 Aug 2024 09:55:22 -0700
+  [ Dmitry Baryshkov ]
+  * [arm64] Enable SC_CAMCC_8280XP as module, camera clock controller on
+    Lenovo ThinkPad X13s laptop.
+  * [arm64] Enable SC_GCC_8180X, SM_GPUCC_8150, INTERCONNECT_QCOM_SC8180X and
+    PINCTRL_SC8180X as modules in order to support Lenovo Flex 5G laptops.
+  * [arm64] Include modules for Lenovo Flex 5G (Snapdragon SC8180X)
 
- -- Dylan Aïssi <daissi@debian.org>  Tue, 27 Aug 2024 09:55:22 -0700
+ -- Vagrant Cascadian <vagrant@debian.org>  Tue, 27 Aug 2024 09:55:22 -0700
 
 linux (6.11~rc5-1~exp1) experimental; urgency=medium
 

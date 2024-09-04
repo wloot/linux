@@ -6,6 +6,9 @@ drivers/mfd/**
 # Regulators
 drivers/regulator/**
 
+# Some regulators on RK3588 require GPIO
+gpio-rockchip
+
 # NIC,sata, and USB on Armada 8K
 phy-mvebu-cp110-comphy ?
 
@@ -30,6 +33,12 @@ cros_ec_spi ?
 
 # PCIe PHYs
 phy-rockchip-pcie ?
+
+# PCIe x4 on RK3588 (usually NVME)
+phy-rockchip-snps-pcie3
+
+# USB/SATA/PCIe on Rockchip RK3588
+phy-rockchip-naneng-combphy
 
 # For spi-rockchip
 pl330 ?

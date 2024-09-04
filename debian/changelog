@@ -9,6 +9,14 @@ linux (6.11~rc5-1~exp2) UNRELEASED; urgency=medium
   * [arm64] udeb: Add kernel modules to get USB/SATA/PCIe working on Rockchip
     RK3588
 
+  [ Alper Nebi Yasak ]
+  * [arm64] Enable modules for MT8186 Chromebooks
+    - Enable DRM_ITE_IT6505 and I2C_HID_OF_GOODIX as modules
+    - Enable SND_SOC_MT8186_MT6366, SND_SOC_SOF_MT8186 and SND_SOC_MT8186 as
+      modules
+    - Enable SX9324 as a module
+  * udeb: Move i2c-hid-of-goodix module to fb-modules
+
  -- Vagrant Cascadian <vagrant@debian.org>  Tue, 27 Aug 2024 09:55:22 -0700
 
 linux (6.11~rc5-1~exp1) experimental; urgency=medium

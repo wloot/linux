@@ -27,6 +27,19 @@ linux (6.11~rc5-1~exp2) UNRELEASED; urgency=medium
     PINCTRL_SC8180X as modules in order to support Lenovo Flex 5G laptops.
   * [arm64] Include modules for Lenovo Flex 5G (Snapdragon SC8180X)
 
+  [ Diederik de Haas ]
+  * [arm64] Enable additional modules for rk356x devices:
+    - [arm64] drivers/gpu/drm/panel: Enable DRM_PANEL_SITRONIX_ST7789V as
+      module
+    - [arm64] drivers/input/touchscreen: Enable TOUCHSCREEN_ST1232 as module
+    - [arm64] drivers/pci/controller/dwc: Enable PCIE_ROCKCHIP_DW_EP
+    - [arm64] drivers/regulator: Enable REGULATOR_TPS6286X as module
+    - [arm64] drivers/rtc: Enable RTC_DRV_PCF85363 as module
+    - [arm64] drivers/usb/typec: Enable TYPEC_WUSB3801 as module
+    - [arm64] drivers/video/backlight: Enable BACKLIGHT_LM3630A as module
+    - [arm64] sound/soc/codecs: Enable SND_SOC_DMIC and SND_SOC_TAS2562 as
+      module
+
  -- Vagrant Cascadian <vagrant@debian.org>  Tue, 27 Aug 2024 09:55:22 -0700
 
 linux (6.11~rc5-1~exp1) experimental; urgency=medium

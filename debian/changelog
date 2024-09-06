@@ -157,6 +157,9 @@ linux (6.10.8-1) UNRELEASED; urgency=medium
     add it to to provides of kernel-image.
   * [arm64] udeb: ship typec in kernel-image
 
+  [ Salvatore Bonaccorso ]
+  * [hppa/parisc] Delay write-protection until mark_rodata_ro() call
+
  -- Aurelien Jarno <aurel32@debian.org>  Tue, 03 Sep 2024 23:48:25 +0200
 
 linux (6.10.7-1) unstable; urgency=medium

@@ -40,6 +40,10 @@ linux (6.11~rc5-1~exp2) UNRELEASED; urgency=medium
     - [arm64] sound/soc/codecs: Enable SND_SOC_DMIC and SND_SOC_TAS2562 as
       module
 
+  [ Miao Wang ]
+  * [loong64] Enable kernel support for LBT instructions.
+  * [loong64] Enable KVM and para-virt support.
+
  -- Vagrant Cascadian <vagrant@debian.org>  Tue, 27 Aug 2024 09:55:22 -0700
 
 linux (6.11~rc5-1~exp1) experimental; urgency=medium

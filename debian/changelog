@@ -23,6 +23,11 @@ linux (6.11-1~exp1) UNRELEASED; urgency=medium
   * [arm64] Enable SC_GCC_8180X, SM_GPUCC_8150, INTERCONNECT_QCOM_SC8180X and
     PINCTRL_SC8180X as modules in order to support Lenovo Flex 5G laptops.
   * [arm64] Include modules for Lenovo Flex 5G (Snapdragon SC8180X)
+  * [arm64] enable Qualcomm X Elite modules: CLK_X1E80100_GCC and
+    INTERCONNECT_QCOM_X1E80100 as built-in and CLK_X1E80100_CAMCC,
+    CLK_X1E80100_DISPCC, CLK_X1E80100_GPUCC, CLK_X1E80100_TCSRCC,
+    DRM_PANEL_SAMSUNG_ATNA33XC20, PHY_QCOM_SNPS_EUSB2,
+    PHY_QCOM_EUSB2_REPEATER, PINCTRL_X1E80100 and SND_SOC_X1E80100 as modules.
 
   [ Diederik de Haas ]
   * [arm64] Enable additional modules for rk356x devices:

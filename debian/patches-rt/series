@@ -146,7 +146,6 @@ tun-Assign-missing-bpf_net_context.patch
 tun-Add-missing-bpf_net_ctx_clear-in-do_xdp_generic.patch
 bpf-Remove-tst_run-from-lwt_seg6local_prog_ops.patch
 # tw_timer
-0001-net-tcp-dccp-prepare-for-tw_timer-un-pinning.patch
 0002-net-tcp-un-pin-the-tw_timer.patch
 0003-tcp-move-inet_twsk_schedule-helper-out-of-header.patch
 

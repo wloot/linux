@@ -1,4 +1,4 @@
-linux (6.10.8-1) UNRELEASED; urgency=medium
+linux (6.10.9-1) UNRELEASED; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.10.8
@@ -145,6 +145,189 @@ linux (6.10.8-1) UNRELEASED; urgency=medium
     - scsi: aacraid: Fix double-free on probe failure
     - apparmor: fix policy_unpack_test on big endian systems
     - nfsd: fix nfsd4_deleg_getattr_conflict in presence of third party lease
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.10.9
+    - drm/fb-helper: Don't schedule_work() to flush frame buffer during panic()
+    - drm: panel-orientation-quirks: Add quirk for OrangePi Neo
+    - scsi: ufs: core: Check LSDBS cap when !mcq
+    - scsi: ufs: core: Bypass quick recovery if force reset is needed
+    - btrfs: tree-checker: validate dref root and objectid
+    - ALSA: hda/generic: Add a helper to mute speakers at suspend/shutdown
+    - ALSA: hda/conexant: Mute speakers at suspend / shutdown
+    - [x86] CPU/AMD: Add models 0x60-0x6f to the Zen5 range
+    - ALSA: ump: Transmit RPN/NRPN message at each MSB/LSB data reception
+    - ALSA: ump: Explicitly reset RPN with Null RPN
+    - ALSA: seq: ump: Use the common RPN/bank conversion context
+    - ALSA: seq: ump: Transmit RPN/NRPN message at each MSB/LSB data reception
+    - ALSA: seq: ump: Explicitly reset RPN with Null RPN
+    - net/mlx5: DR, Fix 'stack guard page was hit' error in dr_rule
+    - smb: client: fix FSCTL_GET_REPARSE_POINT against NetApp
+    - [x86] ASoC: amd: yc: Support mic on HP 14-em0002la
+    - spi: hisi-kunpeng: Add validation for the minimum value of speed_hz
+    - [x86] platform/x86/amd: pmf: Add quirk for ROG Ally X
+    - [x86] platform/x86/amd/pmf: Add new ACPI ID AMDI0107
+    - btrfs: factor out stripe length calculation into a helper
+    - btrfs: scrub: update last_physical after scrubbing one stripe
+    - btrfs: fix qgroup reserve leaks in cow_file_range
+    - i2c: Fix conditional for substituting empty ACPI functions
+    - virtio-net: check feature before configuring the vq coalescing command
+    - dma-debug: avoid deadlock between dma debug vs printk and netconsole
+    - net: usb: qmi_wwan: add MeiG Smart SRM825L
+    - [x86] ASoC: amd: yc: Support mic on Lenovo Thinkpad E14 Gen 6
+    - ASoC: codecs: ES8326: button detect issue
+    - [arm64] dts: qcom: x1e80100: Describe the PCIe 6a resources
+    - [arm64] dts: qcom: x1e80100-crd: fix up PCIe6a pinctrl node
+    - [arm64] dts: qcom: x1e80100-crd: fix missing PCIe4 gpios
+    - [arm64] dts: qcom: x1e80100-qcp: fix up PCIe6a pinctrl node
+    - [arm64] dts: qcom: x1e80100-qcp: fix missing PCIe4 gpios
+    - drm/amdgpu: Fix uninitialized variable warning in amdgpu_afmt_acr
+    - Revert "drm/amd/display: Fix incorrect pointer assignment"
+    - drm/amd/display: Handle the case which quad_part is equal 0
+    - drm/amd/display: Assign linear_pitch_alignment even for VM
+    - drm/amdgpu: Handle sg size limit for contiguous allocation
+    - drm/amdgpu: fix overflowed array index read warning
+    - drm/amdgpu/pm: Check the return value of smum_send_msg_to_smc
+    - drm/amd/pm: fix uninitialized variable warning
+    - drm/amd/pm: fix uninitialized variable warning for smu8_hwmgr
+    - drm/amd/pm: fix warning using uninitialized value of max_vid_step
+    - drm/amd/pm: Fix negative array index read
+    - drm/amd/pm: fix uninitialized variable warning for smu_v13
+    - drm/amd/pm: fix the Out-of-bounds read warning
+    - drm/amdgpu: fix uninitialized scalar variable warning
+    - drm/amd/pm: fix uninitialized variable warnings for vega10_hwmgr
+    - drm/amdgpu: avoid reading vf2pf info size from FB
+    - drm/amd/display: Ensure array index tg_inst won't be -1
+    - drm/amd/display: Check gpio_id before used as array index
+    - drm/amd/display: Stop amdgpu_dm initialize when stream nums greater than 6
+    - drm/amd/display: Stop amdgpu_dm initialize when link nums greater than
+      max_links
+    - drm/amd/display: Fix incorrect size calculation for loop
+    - drm/amd/display: Check index for aux_rd_interval before using
+    - drm/amd/display: Add missing NULL pointer check within
+      dpcd_extend_address_range
+    - drm/amd/display: Add array index check for hdcp ddc access
+    - drm/amd/display: Check num_valid_sets before accessing reader_wm_sets[]
+    - drm/amd/display: Check msg_id before processing transcation
+    - drm/amd/display: Release state memory if amdgpu_dm_create_color_properties
+      fail
+    - drm/amd/display: Check link_index before accessing dc->links[]
+    - drm/amd/display: Add otg_master NULL check within
+      resource_log_pipe_topology_update
+    - drm/amd/display: Fix Coverity INTERGER_OVERFLOW within
+      construct_integrated_info
+    - drm/amd/display: Fix Coverity INTEGER_OVERFLOW within
+      dal_gpio_service_create
+    - drm/amd/display: Release clck_src memory if clk_src_construct fails
+    - drm/amd/display: Spinlock before reading event
+    - drm/amd/display: Fix Coverity INTEGER_OVERFLOW within
+      decide_fallback_link_setting_max_bw_policy
+    - drm/amd/display: Ensure index calculation will not overflow
+    - drm/amd/display: Skip inactive planes within
+      ModeSupportAndSystemConfiguration
+    - drm/amd/display: Fix writeback job lock evasion within dm_crtc_high_irq
+    - drm/amd/display: Fix index may exceed array range within
+      fpu_update_bw_bounding_box
+    - drm/amd/amdgpu: Check tbo resource pointer
+    - drm/drm-bridge: Drop conditionals around of_node pointers
+    - drm/amd/pm: fix uninitialized variable warnings for vangogh_ppt
+    - drm/amdgpu/pm: Fix uninitialized variable warning for smu10
+    - drm/amdgpu/pm: Fix uninitialized variable agc_btc_response
+    - drm/amdgpu: Fix the uninitialized variable warning
+    - drm/amdgpu: Fix out-of-bounds write warning
+    - drm/amdgpu: fix uninitialized variable warning for amdgpu_xgmi
+    - drm/amdgpu: fix uninitialized variable warning for jpeg_v4
+    - drm/amdgpu: Fix out-of-bounds read of df_v1_7_channel_number
+    - drm/amdgpu: Fix uninitialized variable warning in amdgpu_info_ioctl
+    - drm/amdgpu: fix ucode out-of-bounds read warning
+    - drm/amdgpu: fix mc_data out-of-bounds read warning
+    - drm/amdkfd: Reconcile the definition and use of oem_id in struct
+      kfd_topology_device
+    - apparmor: fix possible NULL pointer dereference
+    - wifi: ath12k: initialize 'ret' in ath12k_qmi_load_file_target_mem()
+    - wifi: ath11k: initialize 'ret' in ath11k_qmi_load_file_target_mem()
+    - wifi: ath12k: initialize 'ret' in
+      ath12k_dp_rxdma_ring_sel_config_wcn7850()
+    - drm/amdgpu/pm: Check input value for CUSTOM profile mode setting on legacy
+      SOCs
+    - drm/amdgpu/pm: Check input value for power profile setting on smu11, smu13
+      and smu14
+    - drm/amdgpu/vcn: remove irq disabling in vcn 5 suspend
+    - drm/amdgpu: Fix the warning division or modulo by zero
+    - drm/amdgpu: fix dereference after null check
+    - drm/amdgpu: fix the waring dereferencing hive
+    - drm/amd/pm: check specific index for aldebaran
+    - drm/amd/pm: check specific index for smu13
+    - drm/amdgpu: the warning dereferencing obj for nbio_v7_4
+    - drm/amdgpu: fix the warning bad bit shift operation for aca_error_type
+      type
+    - drm/amd/pm: check negtive return for table entries
+    - wifi: rtw89: ser: avoid multiple deinit on same CAM
+    - drm/kfd: Correct pinned buffer handling at kfd restore and validate
+      process
+    - drm/amdgpu: fix compiler 'side-effect' check issue for RAS_EVENT_LOG()
+    - drm/amd/display: Fix pipe addition logic in calc_blocks_to_ungate DCN35
+    - drm/amdgpu: Queue KFD reset workitem in VF FED
+    - drm/amdgpu: update type of buf size to u32 for eeprom functions
+    - wifi: iwlwifi: remove fw_running op
+    - wifi: cfg80211: restrict operation during radar detection
+    - cpufreq: scmi: Avoid overflow of target_freq in fast switch
+    - PCI: al: Check IORESOURCE_BUS existence during probe
+    - remoteproc: mediatek: Zero out only remaining bytes of IPI buffer
+    - wifi: iwlwifi: mvm: use only beacon BSS load for active links
+    - wifi: mac80211: check ieee80211_bss_info_change_notify() against MLD
+    - hwspinlock: Introduce hwspin_lock_bust()
+    - [arm64] soc: qcom: smem: Add qcom_smem_bust_hwspin_lock_by_host()
+    - remoteproc: qcom_q6v5_pas: Add hwspinlock bust on stop
+    - RDMA/efa: Properly handle unexpected AQ completions
+    - ionic: fix potential irq name truncation
+    - pwm: xilinx: Fix u32 overflow issue in 32-bit width PWM mode.
+    - rcu/nocb: Remove buggy bypass lock contention mitigation
+    - media: v4l2-cci: Always assign *val
+    - usbip: Don't submit special requests twice
+    - usb: typec: ucsi: Fix null pointer dereference in trace
+    - fsnotify: clear PARENT_WATCHED flags lazily
+    - net: remove NULL-pointer net parameter in ip_metrics_convert
+    - tcp: annotate data-races around tw->tw_ts_recent and
+      tw->tw_ts_recent_stamp
+    - drm/amdgu: fix Unintentional integer overflow for mall size
+    - regmap: spi: Fix potential off-by-one when calculating reserved size
+    - smack: tcp: ipv4, fix incorrect labeling
+    - [x86] platform/chrome: cros_ec_lpc: MEC access can use an AML mutex
+    - net/mlx5e: SHAMPO, Fix incorrect page release
+    - [arm64] drm/meson: plane: Add error handling
+    - crypto: stm32/cryp - call finalize with bh disabled
+    - gfs2: Revert "Add quota_change type"
+    - RAS/AMD/ATL: Validate address map when information is gathered
+    - net: tcp/dccp: prepare for tw_timer un-pinning
+    - drm/bridge: tc358767: Check if fully initialized before signalling HPD
+      event via IRQ
+    - [arm64] pinctrl: renesas: rzg2l: Validate power registers for SD and ETH
+    - thermal: trip: Use READ_ONCE() for lockless access to trip properties
+    - [x86] hwmon: (k10temp) Check return value of amd_smn_read()
+    - wifi: cfg80211: make hash table duplicates more survivable
+    - f2fs: fix to do sanity check on blocks for inline_data inode
+    - driver: iio: add missing checks on iio_info's callback access
+    - block: remove the blk_flush_integrity call in blk_integrity_unregister
+    - drm/amdgpu: add skip_hw_access checks for sriov
+    - drm/amdgpu: add lock in amdgpu_gart_invalidate_tlb
+    - drm/amdgpu: add lock in kfd_process_dequeue_from_device
+    - drm/amdgpu: fix overflowed constant warning in mmhub_set_clockgating()
+    - drm/amd/display: Don't use fsleep for PSR exit waits on dmub replay
+    - drm/amd/display: added NULL check at start of dc_validate_stream
+    - drm/amd/display: Correct the defined value for
+      AMDGPU_DMUB_NOTIFICATION_MAX
+    - drm/amd/display: Remove register from DCN35 DMCUB diagnostic collection
+    - drm/amd/display: use preferred link settings for dp signal only
+    - drm/amd/display: Disable DMCUB timeout for DCN35
+    - drm/amd/display: Avoid overflow from uint32_t to uint8_t
+    - drm/amdgpu: set RAS fed status for more cases
+    - drm/amd/display: Check BIOS images before it is used
+    - drm/amd/display: Skip wbscl_set_scaler_filter if filter is null
+    - crypto: ecc - Fix off-by-one missing to clear most significant digit
+    - media: uvcvideo: Enforce alignment of frame and interval
+    - pinctrl: core: reset gpio_device in loop in pinctrl_pins_show()
+    - mm: Fix filemap_invalidate_inode() to use invalidate_inode_pages2_range()
+    - drm/amdgpu: remove redundant semicolons in RAS_EVENT_LOG
+    - i2c: Use IS_REACHABLE() for substituting empty ACPI functions
 
   [ Aurelien Jarno ]
   * [riscv64] udeb: Ship mtd in kernel-image, drop mtd-core-modules and

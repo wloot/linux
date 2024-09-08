@@ -28,6 +28,7 @@ linux (6.11-1~exp1) UNRELEASED; urgency=medium
     CLK_X1E80100_DISPCC, CLK_X1E80100_GPUCC, CLK_X1E80100_TCSRCC,
     DRM_PANEL_SAMSUNG_ATNA33XC20, PHY_QCOM_SNPS_EUSB2,
     PHY_QCOM_EUSB2_REPEATER, PINCTRL_X1E80100 and SND_SOC_X1E80100 as modules.
+  * [arm64] Include modules for Qualcomm X Elite laptops
 
   [ Diederik de Haas ]
   * [arm64] Enable additional modules for rk356x devices:

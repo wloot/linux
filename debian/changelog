@@ -55,6 +55,9 @@ linux (6.10.12-1) UNRELEASED; urgency=medium
     - USB: usbtmc: prevent kernel-usb-infoleak
     - [x86] powercap: intel_rapl: Change an error pointer to NULL
 
+  [ Helge Deller ]
+  * [hppa] Fix kernel build with CONFIG_DRM=y on parisc.
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 30 Sep 2024 20:24:51 +0200
 
 linux (6.10.11-1) unstable; urgency=medium

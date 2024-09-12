@@ -88,7 +88,6 @@ features/all/db-mok-keyring/KEYS-Make-use-of-platform-keyring-for-module-signatu
 features/all/db-mok-keyring/trust-machine-keyring-by-default.patch
 
 # Security fixes
-debian/i386-686-pae-pci-set-pci-nobios-by-default.patch
 
 # Fix exported symbol versions
 bugfix/all/module-disable-matching-missing-version-crc.patch

@@ -42,7 +42,7 @@ linux (6.11~rc5-1~exp2) UNRELEASED; urgency=medium
   * Revert "Make linux-libc-dev provide all cross packages".
 
   [ Helge Deller ]
-  * [hppa] Fix kernel build with CONFIG_DRM=y on parisc.
+  * [hppa] Fix kernel build with CONFIG_DRM=y on parisc64.
 
  -- Vagrant Cascadian <vagrant@debian.org>  Tue, 27 Aug 2024 09:55:22 -0700
 

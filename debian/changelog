@@ -2,6 +2,9 @@ linux (6.11-1~exp1) experimental; urgency=medium
 
   * New upstream release: https://kernelnewbies.org/Linux_6.11
 
+  [ Josua Mayer ]
+  * [arm64] Enable drivers for AM64 SoC on HummingBoard-T (Closes: #1081837)
+
   [ Marcin Juszkiewicz ]
   * [arm64] udeb: Add kernel modules to get USB/SATA/PCIe working on Rockchip
     RK3588

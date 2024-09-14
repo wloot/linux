@@ -87,3 +87,7 @@ qnoc-x1e80100 ?
 
 # TypeC connector stuff used by phy-qcom-qmp-combo and pmic_glink_altmode modules
 typec ?
+
+# TI AM64 / AM65 ICSSG PRU subsystem
+drivers/irqchip/irq-pruss-intc
+drivers/remoteproc/pru_rproc

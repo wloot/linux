@@ -4,6 +4,7 @@ linux (6.11-1~exp1) experimental; urgency=medium
 
   [ Josua Mayer ]
   * [arm64] Enable drivers for AM64 SoC on HummingBoard-T (Closes: #1081837)
+  * [arm64] udeb: Add kernel modules for I2C, USB and Ethernet on TI AM64
 
   [ Marcin Juszkiewicz ]
   * [arm64] udeb: Add kernel modules to get USB/SATA/PCIe working on Rockchip

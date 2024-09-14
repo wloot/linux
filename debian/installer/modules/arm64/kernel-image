@@ -72,7 +72,6 @@ qcom_glink_rpm
 qcom_smd
 qcom_hwspinlock
 icc-osm-l3
-rtc-pm8xxx
 rpmpd
 qrtr ?
 qrtr-smd ?
@@ -91,3 +90,6 @@ typec ?
 # TI AM64 / AM65 ICSSG PRU subsystem
 drivers/irqchip/irq-pruss-intc
 drivers/remoteproc/pru_rproc
+
+# RTC
+drivers/rtc/**

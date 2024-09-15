@@ -101,6 +101,11 @@ CONFIG_FB_VOODOO1=y
 CONFIG_SYSFS_SYSCALL=y
 
 ##
+## file: kernel/Kconfig.kexec
+##
+# CONFIG_CRASH_DUMP is not set
+
+##
 ## file: mm/Kconfig
 ##
 ## choice: Memory model

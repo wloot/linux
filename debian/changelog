@@ -56,6 +56,10 @@ linux (6.11~rc7-1~exp1) UNRELEASED; urgency=medium
   [ Ben Hutchings ]
   * [x86] ACPI: Enable ACPI_EC_DEBUGFS as module (Closes: #980555)
 
+  [ Miao Wang ]
+  * [loong64] Enable kernel support for LBT instructions.
+  * [loong64] Enable KVM and para-virt support.
+
  -- Vagrant Cascadian <vagrant@debian.org>  Tue, 27 Aug 2024 09:55:22 -0700
 
 linux (6.11~rc5-1~exp1) experimental; urgency=medium

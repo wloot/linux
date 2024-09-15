@@ -10,6 +10,14 @@ CONFIG_NR_CPUS=64
 CONFIG_NUMA=y
 CONFIG_CPU_HAS_LSX=y
 CONFIG_CPU_HAS_LASX=y
+CONFIG_CPU_HAS_LBT=y
+CONFIG_PARAVIRT=y
+
+##
+## file: arch/loongarch/kvm/Kconfig
+##
+CONFIG_VIRTUALIZATION=y
+CONFIG_KVM=y
 
 ##
 ## file: drivers/acpi/Kconfig

@@ -2,6 +2,7 @@ include $(top_rulesdir)/Makefile.inc
 
 MAKE_RTLA := +CFLAGS='$(CFLAGS) $(CPPFLAGS)' LDFLAGS='$(LDFLAGS)' $(MAKE) -C $(top_srcdir)/$(OUTDIR) O=$(CURDIR)
 MAKE_RTLA += PKG_CONFIG='$(PKG_CONFIG)'
+MAKE_RTLA += STRIP=true
 MAKE_RTLA += V=1
 
 all:

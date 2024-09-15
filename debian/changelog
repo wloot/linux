@@ -46,6 +46,10 @@ linux (6.11~rc7-1~exp1) UNRELEASED; urgency=medium
   [ Helge Deller ]
   * [hppa] Fix kernel build with CONFIG_DRM=y on parisc64.
 
+  [ Jair Gonzalez ]
+  * [amd64] drivers/crypto/intel/iaa: Enable CRYPTO_DEV_IAA_CRYPTO
+    (IAA Compression Accelerator Crypto Driver) (Closes: #1079272)
+
  -- Vagrant Cascadian <vagrant@debian.org>  Tue, 27 Aug 2024 09:55:22 -0700
 
 linux (6.11~rc5-1~exp1) experimental; urgency=medium

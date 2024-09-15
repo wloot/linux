@@ -112,6 +112,11 @@ CONFIG_AGP=y
 CONFIG_AGP_AMD64=y
 
 ##
+## file: drivers/crypto/intel/iaa/Kconfig
+##
+CONFIG_CRYPTO_DEV_IAA_CRYPTO=m
+
+##
 ## file: drivers/cxl/Kconfig
 ##
 CONFIG_CXL_BUS=y

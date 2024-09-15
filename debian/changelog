@@ -50,6 +50,9 @@ linux (6.11~rc7-1~exp1) UNRELEASED; urgency=medium
   * [amd64] drivers/crypto/intel/iaa: Enable CRYPTO_DEV_IAA_CRYPTO
     (IAA Compression Accelerator Crypto Driver) (Closes: #1079272)
 
+  [ Dave Vasilevsky ]
+  * [powerpc] Explicitly disable CRASH_DUMP on 32-bit
+
  -- Vagrant Cascadian <vagrant@debian.org>  Tue, 27 Aug 2024 09:55:22 -0700
 
 linux (6.11~rc5-1~exp1) experimental; urgency=medium

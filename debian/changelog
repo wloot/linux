@@ -71,6 +71,10 @@ linux (6.11-1~exp1) UNRELEASED; urgency=medium
   * mm/damon: Enable DAMON, DAMON_VADDR, DAMON_PADDR, DAMON_SYSFS,
     DAMON_RECLAIM, DAMON_LRU_SORT
 
+  [ Vincent Blut ]
+  * drivers/net/wireless: Support some Wi-Fi 7 devices: enable ATH12K,
+    MT7925E, MT7925U, MT7996E and RTW89_8922AE as modules (Closes: #1081114)
+
  -- Vagrant Cascadian <vagrant@debian.org>  Tue, 27 Aug 2024 09:55:22 -0700
 
 linux (6.11~rc5-1~exp1) experimental; urgency=medium

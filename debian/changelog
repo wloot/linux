@@ -36,6 +36,12 @@ linux (6.11~rc7-1~exp1) UNRELEASED; urgency=medium
     - [arm64] drivers/video/backlight: Enable BACKLIGHT_LM3630A as module
     - [arm64] sound/soc/codecs: Enable SND_SOC_DMIC and SND_SOC_TAS2562 as
       module
+  * [arm64] Update rk3588 platform support:
+    - [arm64] drivers/clocksource: Enable ROCKCHIP_TIMER
+    - [arm64] drivers/iommu: Enable IOMMU_IO_PGTABLE_LPAE
+    - [arm64] drivers/mmc/core: Enable PWRSEQ_EMMC
+    - [arm64] drivers/phy/rockchip: Enable PHY_ROCKCHIP_SAMSUNG_HDPTX and
+      PHY_ROCKCHIP_USBDP as module
 
   [ Aurelien Jarno ]
   * [riscv64] Enable INPUT_MISC (Closes: #1079501).

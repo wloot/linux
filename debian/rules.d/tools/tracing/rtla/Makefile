@@ -1,5 +1,8 @@
 include $(top_rulesdir)/Makefile.inc
 
+# Upstream enables LTO by default, but we don't want it
+CFLAGS += -fno-lto
+
 MAKE_RTLA := +CFLAGS='$(CFLAGS) $(CPPFLAGS)' LDFLAGS='$(LDFLAGS)' $(MAKE) -C $(top_srcdir)/$(OUTDIR) O=$(CURDIR)
 MAKE_RTLA += PKG_CONFIG='$(PKG_CONFIG)'
 MAKE_RTLA += STRIP=true

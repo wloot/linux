@@ -51,7 +51,7 @@ linux (6.11~rc7-1~exp1) UNRELEASED; urgency=medium
     (IAA Compression Accelerator Crypto Driver) (Closes: #1079272)
 
   [ Dave Vasilevsky ]
-  * [powerpc] Explicitly disable CRASH_DUMP on 32-bit
+  * [powerpc] Explicitly disable CRASH_DUMP on 32-bit (Closes: #1079755)
 
   [ Ben Hutchings ]
   * [x86] ACPI: Enable ACPI_EC_DEBUGFS as module (Closes: #980555)

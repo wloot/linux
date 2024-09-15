@@ -89,6 +89,7 @@ linux (6.11-1~exp1) UNRELEASED; urgency=medium
     - linux-perf: Work around gcc bug with -ffile-prefix-map and assembly
       sources
     - Documentation: Use relative source filenames in ABI documentation
+    - kbuild, bpf: Fix BTF reproducibility
 
   [ Miao Wang ]
   * [loong64] Enable kernel support for LBT instructions.

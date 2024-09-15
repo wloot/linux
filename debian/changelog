@@ -67,6 +67,7 @@ linux (6.11-1~exp1) UNRELEASED; urgency=medium
       contents"
     - Fix installation from out-of-tree build
   * rtla: Enable verbose build
+  * rtla: Build with dpkg's recommended compiler flags (regression in 6.9)
 
   [ Miao Wang ]
   * [loong64] Enable kernel support for LBT instructions.

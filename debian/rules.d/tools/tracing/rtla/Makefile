@@ -1,8 +1,6 @@
 include $(top_rulesdir)/Makefile.inc
 
-MAKE_RTLA := +$(MAKE) -C $(top_srcdir)/$(OUTDIR) O=$(CURDIR)
-MAKE_RTLA += EXTRA_CFLAGS='$(CFLAGS) $(CPPFLAGS)'
-MAKE_RTLA += EXTRA_LDFLAGS='$(LDFLAGS)'
+MAKE_RTLA := +CFLAGS='$(CFLAGS) $(CPPFLAGS)' LDFLAGS='$(LDFLAGS)' $(MAKE) -C $(top_srcdir)/$(OUTDIR) O=$(CURDIR)
 MAKE_RTLA += PKG_CONFIG='$(PKG_CONFIG)'
 MAKE_RTLA += V=1
 

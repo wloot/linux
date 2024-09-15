@@ -88,6 +88,7 @@ linux (6.11-1~exp1) UNRELEASED; urgency=medium
     - linux-perf: Remove remaining source filenames from executable
     - linux-perf: Work around gcc bug with -ffile-prefix-map and assembly
       sources
+    - Documentation: Use relative source filenames in ABI documentation
 
   [ Miao Wang ]
   * [loong64] Enable kernel support for LBT instructions.

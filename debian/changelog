@@ -66,6 +66,7 @@ linux (6.11-1~exp1) UNRELEASED; urgency=medium
     - Revert "tools/rtla: Restore option to set VERSION var to VERSION file's
       contents"
     - Fix installation from out-of-tree build
+  * rtla: Enable verbose build
 
   [ Miao Wang ]
   * [loong64] Enable kernel support for LBT instructions.

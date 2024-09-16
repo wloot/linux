@@ -24,6 +24,7 @@ debian/perf-traceevent-support-asciidoctor-for-documentatio.patch
 debian/kbuild-look-for-module.lds-under-arch-directory-too.patch
 debian/kbuild-abort-build-if-subdirs-used.patch
 debian/makefile-make-compiler-version-comparison-optional.patch
+bugfix/all/revert-tools-build-clean-cflags-and-ldflags-for-fixdep.patch
 debian/fixdep-allow-overriding-hostcc-and-hostld.patch
 
 # Fixes/improvements to firmware loading

@@ -73,6 +73,14 @@ linux (6.11-1~exp1) UNRELEASED; urgency=medium
   * rtla: Fix missing debug symbols
   * rtla: Disable LTO
   * rtla: Set LD correctly for cross-build
+  * objtool: Build with dpkg's recommended compiler flags (regression in
+    6.5.1-1¬exp1):
+    - Revert "tools build: Clean CFLAGS and LDFLAGS for fixdep"
+    - Update "fixdep: Allow overriding HOSTCC and HOSTLD" to clear the
+      buildflags when overriding
+    - d/rules.d/t/objtool: Put buildflags in the correct variables when
+      recursing
+    - d/rules: Delete blhc ignore regexp for objtool
 
   [ Miao Wang ]
   * [loong64] Enable kernel support for LBT instructions.

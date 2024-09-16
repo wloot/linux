@@ -72,6 +72,7 @@ linux (6.11-1~exp1) UNRELEASED; urgency=medium
   * rtla: Build with dpkg's recommended compiler flags (regression in 6.9)
   * rtla: Fix missing debug symbols
   * rtla: Disable LTO
+  * rtla: Set LD correctly for cross-build
 
   [ Miao Wang ]
   * [loong64] Enable kernel support for LBT instructions.

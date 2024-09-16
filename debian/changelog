@@ -63,6 +63,14 @@ linux (6.11-1~exp1) UNRELEASED; urgency=medium
   [ Ben Hutchings ]
   * [x86] ACPI: Enable ACPI_EC_DEBUGFS as module (Closes: #980555)
   * [i386] Stop building kernel packages
+  * rtla: Switch to out-of-tree build:
+    - Revert "tools/rtla: Restore option to set VERSION var to VERSION file's
+      contents"
+    - Fix installation from out-of-tree build
+  * rtla: Enable verbose build
+  * rtla: Build with dpkg's recommended compiler flags (regression in 6.9)
+  * rtla: Fix missing debug symbols
+  * rtla: Disable LTO
 
   [ Miao Wang ]
   * [loong64] Enable kernel support for LBT instructions.

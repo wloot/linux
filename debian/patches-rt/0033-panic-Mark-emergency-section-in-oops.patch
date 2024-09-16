@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 20 Aug 2024 08:35:59 +0206
 Subject: [PATCH 33/54] panic: Mark emergency section in oops
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 Mark an emergency section beginning with oops_enter() until the
 end of oops_exit(). In this section, every printk() call will

@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 20 Aug 2024 08:36:00 +0206
 Subject: [PATCH 34/54] rcu: Mark emergency sections in rcu stalls
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 Mark emergency sections wherever multiple lines of
 rcu stall information are generated. In an emergency

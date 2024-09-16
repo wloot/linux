@@ -1,7 +1,7 @@
 Subject: ARM: Allow to enable RT
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Fri Oct 11 13:14:29 2019 +0200
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
@@ -25,7 +25,7 @@ Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
  	select ARCH_USE_BUILTIN_BSWAP
  	select ARCH_USE_CMPXCHG_LOCKREF
  	select ARCH_USE_MEMTEST
-@@ -124,6 +125,7 @@ config ARM
+@@ -126,6 +127,7 @@ config ARM
  	select HAVE_PERF_EVENTS
  	select HAVE_PERF_REGS
  	select HAVE_PERF_USER_STACK_DUMP

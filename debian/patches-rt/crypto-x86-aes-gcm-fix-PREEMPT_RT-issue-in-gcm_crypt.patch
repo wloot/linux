@@ -1,7 +1,7 @@
 From: Eric Biggers <ebiggers@google.com>
 Date: Mon, 5 Aug 2024 11:27:13 -0700
 Subject: [PATCH] crypto: x86/aes-gcm - fix PREEMPT_RT issue in gcm_crypt()
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 On PREEMPT_RT, kfree() takes sleeping locks and must not be called with
 preemption disabled.  Therefore, on PREEMPT_RT skcipher_walk_done() must

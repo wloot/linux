@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
-Date: Fri, 19 Jul 2024 21:36:33 +0000
-Subject: [PATCH 38/54] printk: Flush console on unregister_console()
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Date: Wed, 4 Sep 2024 14:11:22 +0206
+Subject: [PATCH 40/54] printk: Flush console on unregister_console()
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 Ensure consoles have flushed pending records before
 unregistering. The console should print up to at least its
@@ -9,6 +9,8 @@ related "console disabled" record.
 
 Signed-off-by: John Ogness <john.ogness@linutronix.de>
 Reviewed-by: Petr Mladek <pmladek@suse.com>
+Link: https://lore.kernel.org/r/20240904120536.115780-4-john.ogness@linutronix.de
+Signed-off-by: Petr Mladek <pmladek@suse.com>
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 ---
  kernel/printk/printk.c |    9 +++++++--
@@ -16,7 +18,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
-@@ -3771,11 +3771,16 @@ static int unregister_console_locked(str
+@@ -3772,11 +3772,16 @@ static int unregister_console_locked(str
  	if (res > 0)
  		return 0;
  

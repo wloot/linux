@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 20 Aug 2024 08:35:27 +0206
 Subject: [PATCH 01/54] printk: Add notation to console_srcu locking
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 kernel/printk/printk.c:284:5: sparse: sparse: context imbalance in
 'console_srcu_read_lock' - wrong count at exit

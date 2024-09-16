@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
-Date: Tue, 30 Jul 2024 20:23:45 +0000
-Subject: [PATCH 40/54] printk: nbcon: Init @nbcon_seq to highest possible
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Date: Wed, 4 Sep 2024 14:11:24 +0206
+Subject: [PATCH 42/54] printk: nbcon: Init @nbcon_seq to highest possible
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 When initializing an nbcon console, have nbcon_alloc() set
 @nbcon_seq to the highest possible sequence number. For all
@@ -14,6 +14,9 @@ introduced because nbcon_alloc() can create/start the kthread
 before the desired initial sequence number is known.
 
 Signed-off-by: John Ogness <john.ogness@linutronix.de>
+Reviewed-by: Petr Mladek <pmladek@suse.com>
+Link: https://lore.kernel.org/r/20240904120536.115780-6-john.ogness@linutronix.de
+Signed-off-by: Petr Mladek <pmladek@suse.com>
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 ---
  kernel/printk/nbcon.c             |    8 +++++++-
@@ -22,7 +25,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
 --- a/kernel/printk/nbcon.c
 +++ b/kernel/printk/nbcon.c
-@@ -1398,7 +1398,13 @@ bool nbcon_alloc(struct console *con)
+@@ -1397,7 +1397,13 @@ bool nbcon_alloc(struct console *con)
  	struct nbcon_state state = { };
  
  	nbcon_state_set(con, &state);
@@ -39,7 +42,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  		/*
 --- a/kernel/printk/printk_ringbuffer.h
 +++ b/kernel/printk/printk_ringbuffer.h
-@@ -403,10 +403,12 @@ u64 prb_next_reserve_seq(struct printk_r
+@@ -404,10 +404,12 @@ u64 prb_next_reserve_seq(struct printk_r
  
  #define __u64seq_to_ulseq(u64seq) (u64seq)
  #define __ulseq_to_u64seq(rb, ulseq) (ulseq)

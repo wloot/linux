@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 20 Aug 2024 08:35:55 +0206
 Subject: [PATCH 29/54] printk: Coordinate direct printing in panic
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 If legacy and nbcon consoles are registered and the nbcon
 consoles are allowed to flush (i.e. no boot consoles
@@ -171,7 +171,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  		defer_console_output();
  	else
  		wake_up_klogd();
-@@ -3292,7 +3331,9 @@ void console_flush_on_panic(enum con_flu
+@@ -3293,7 +3332,9 @@ void console_flush_on_panic(enum con_flu
  	if (!have_boot_console)
  		nbcon_atomic_flush_pending();
  

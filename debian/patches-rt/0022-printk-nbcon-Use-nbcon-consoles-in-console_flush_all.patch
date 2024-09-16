@@ -2,7 +2,7 @@ From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 20 Aug 2024 08:35:48 +0206
 Subject: [PATCH 22/54] printk: nbcon: Use nbcon consoles in
  console_flush_all()
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 Allow nbcon consoles to print messages in the legacy printk()
 caller context (printing via unlock) by integrating them into
@@ -177,7 +177,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  {
  	int waiter;
  
-@@ -3021,13 +3021,20 @@ static bool console_flush_all(bool do_co
+@@ -3022,13 +3022,20 @@ static bool console_flush_all(bool do_co
  		cookie = console_srcu_read_lock();
  		for_each_console_srcu(con) {
  			short flags = console_srcu_read_flags(con);
@@ -199,7 +199,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  
  			/*
  			 * If a handover has occurred, the SRCU read lock
-@@ -3037,8 +3044,8 @@ static bool console_flush_all(bool do_co
+@@ -3038,8 +3045,8 @@ static bool console_flush_all(bool do_co
  				return false;
  
  			/* Track the next of the highest seq flushed. */

@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 20 Aug 2024 08:35:49 +0206
 Subject: [PATCH 23/54] printk: Add is_printk_legacy_deferred()
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 If printk has been explicitly deferred or is called from NMI
 context, legacy console printing must be deferred to an irq_work

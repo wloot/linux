@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
-Date: Thu, 2 May 2024 08:02:58 +0000
-Subject: [PATCH 47/54] proc: consoles: Add notation to c_start/c_stop
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Date: Wed, 4 Sep 2024 14:11:31 +0206
+Subject: [PATCH 49/54] proc: consoles: Add notation to c_start/c_stop
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 fs/proc/consoles.c:78:13: warning: context imbalance in 'c_start'
 	- wrong count at exit
@@ -10,6 +10,8 @@ fs/proc/consoles.c:104:13: warning: context imbalance in 'c_stop'
 
 Signed-off-by: John Ogness <john.ogness@linutronix.de>
 Reviewed-by: Petr Mladek <pmladek@suse.com>
+Link: https://lore.kernel.org/r/20240904120536.115780-13-john.ogness@linutronix.de
+Signed-off-by: Petr Mladek <pmladek@suse.com>
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 ---
  fs/proc/consoles.c |    2 ++

@@ -2,7 +2,7 @@ From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 20 Aug 2024 08:35:35 +0206
 Subject: [PATCH 09/54] printk: nbcon: Use driver synchronization while
  (un)registering
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 Console drivers typically have to deal with access to the
 hardware via user input/output (such as an interactive login
@@ -50,7 +50,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
-@@ -3548,9 +3548,11 @@ static int unregister_console_locked(str
+@@ -3549,9 +3549,11 @@ static int unregister_console_locked(str
   */
  void register_console(struct console *newcon)
  {
@@ -63,7 +63,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	u64 init_seq;
  	int err;
  
-@@ -3638,6 +3640,19 @@ void register_console(struct console *ne
+@@ -3639,6 +3641,19 @@ void register_console(struct console *ne
  	}
  
  	/*
@@ -83,7 +83,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	 * Put this console in the list - keep the
  	 * preferred driver at the head of the list.
  	 */
-@@ -3661,6 +3676,10 @@ void register_console(struct console *ne
+@@ -3662,6 +3677,10 @@ void register_console(struct console *ne
  	 * register_console() completes.
  	 */
  
@@ -94,7 +94,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	console_sysfs_notify();
  
  	/*
-@@ -3689,6 +3708,8 @@ EXPORT_SYMBOL(register_console);
+@@ -3690,6 +3709,8 @@ EXPORT_SYMBOL(register_console);
  /* Must be called under console_list_lock(). */
  static int unregister_console_locked(struct console *console)
  {
@@ -103,7 +103,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	int res;
  
  	lockdep_assert_console_list_lock_held();
-@@ -3707,8 +3728,18 @@ static int unregister_console_locked(str
+@@ -3708,8 +3729,18 @@ static int unregister_console_locked(str
  	if (!console_is_registered_locked(console))
  		return -ENODEV;
  

@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
-Date: Sun, 21 Jul 2024 20:43:19 +0000
-Subject: [PATCH 44/54] printk: nbcon: Rely on kthreads for normal operation
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Date: Wed, 4 Sep 2024 14:11:28 +0206
+Subject: [PATCH 46/54] printk: nbcon: Rely on kthreads for normal operation
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 Once the kthread is running and available
 (i.e. @printk_kthreads_running is set), the kthread becomes
@@ -38,12 +38,15 @@ is set because then _only_ the kthread will print for
 NBCON_PRIO_NORMAL. (#3)
 
 Signed-off-by: John Ogness <john.ogness@linutronix.de>
+Reviewed-by: Petr Mladek <pmladek@suse.com>
+Link: https://lore.kernel.org/r/20240904120536.115780-10-john.ogness@linutronix.de
+Signed-off-by: Petr Mladek <pmladek@suse.com>
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 ---
- kernel/printk/internal.h |   26 ++++++++++++++++++++++++++
- kernel/printk/nbcon.c    |   17 +++++++++++------
- kernel/printk/printk.c   |   43 ++++++++++++++++++++++++++++++++++++++++++-
- 3 files changed, 79 insertions(+), 7 deletions(-)
+ kernel/printk/internal.h |   26 +++++++++++++++++++++++++
+ kernel/printk/nbcon.c    |   17 ++++++++++------
+ kernel/printk/printk.c   |   48 ++++++++++++++++++++++++++++++++++++++++++++++-
+ 3 files changed, 84 insertions(+), 7 deletions(-)
 
 --- a/kernel/printk/internal.h
 +++ b/kernel/printk/internal.h
@@ -110,7 +113,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  			ft->nbcon_atomic = true;
 --- a/kernel/printk/nbcon.c
 +++ b/kernel/printk/nbcon.c
-@@ -1486,6 +1486,7 @@ static int __nbcon_atomic_flush_pending_
+@@ -1494,6 +1494,7 @@ static int __nbcon_atomic_flush_pending_
  static void nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq,
  					   bool allow_unsafe_takeover)
  {
@@ -118,7 +121,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	unsigned long flags;
  	int err;
  
-@@ -1515,10 +1516,12 @@ static void nbcon_atomic_flush_pending_c
+@@ -1523,10 +1524,12 @@ static void nbcon_atomic_flush_pending_c
  
  	/*
  	 * If flushing was successful but more records are available, this
@@ -134,7 +137,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  		stop_seq = prb_next_reserve_seq(prb);
  		goto again;
  	}
-@@ -1745,17 +1748,19 @@ void nbcon_device_release(struct console
+@@ -1754,17 +1757,19 @@ void nbcon_device_release(struct console
  
  	/*
  	 * This context must flush any new records added while the console
@@ -169,7 +172,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	if (ft.legacy_direct) {
  		/*
  		 * The caller may be holding system-critical or
-@@ -2732,6 +2735,7 @@ void suspend_console(void)
+@@ -2733,6 +2736,7 @@ void suspend_console(void)
  
  void resume_console(void)
  {
@@ -177,7 +180,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	struct console *con;
  
  	if (!console_suspend_enabled)
-@@ -2749,6 +2753,10 @@ void resume_console(void)
+@@ -2750,6 +2754,10 @@ void resume_console(void)
  	 */
  	synchronize_srcu(&console_srcu);
  
@@ -188,7 +191,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	pr_flush(1000, true);
  }
  
-@@ -3060,6 +3068,7 @@ static inline void printk_kthreads_check
+@@ -3061,6 +3069,7 @@ static inline void printk_kthreads_check
   */
  static bool console_flush_all(bool do_cond_resched, u64 *next_seq, bool *handover)
  {
@@ -196,7 +199,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	bool any_usable = false;
  	struct console *con;
  	bool any_progress;
-@@ -3071,12 +3080,21 @@ static bool console_flush_all(bool do_co
+@@ -3072,12 +3081,22 @@ static bool console_flush_all(bool do_co
  	do {
  		any_progress = false;
  
@@ -209,16 +212,17 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  			bool progress;
  
 +			/*
-+			 * console_flush_all() is only for legacy consoles when
-+			 * the nbcon consoles have their printer threads.
++			 * console_flush_all() is only responsible for nbcon
++			 * consoles when the nbcon consoles cannot print via
++			 * their atomic or threaded flushing.
 +			 */
-+			if ((flags & CON_NBCON) && ft.nbcon_offload)
++			if ((flags & CON_NBCON) && (ft.nbcon_atomic || ft.nbcon_offload))
 +				continue;
 +
  			if (!console_is_usable(con, flags, !do_cond_resched))
  				continue;
  			any_usable = true;
-@@ -3387,9 +3405,25 @@ EXPORT_SYMBOL(console_stop);
+@@ -3388,9 +3407,25 @@ EXPORT_SYMBOL(console_stop);
  
  void console_start(struct console *console)
  {
@@ -244,7 +248,16 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	__pr_flush(console, 1000, true);
  }
  EXPORT_SYMBOL(console_start);
-@@ -4152,8 +4186,10 @@ static bool __pr_flush(struct console *c
+@@ -4116,6 +4151,8 @@ static bool __pr_flush(struct console *c
+ 
+ 	/* Flush the consoles so that records up to @seq are printed. */
+ 	printk_get_console_flush_type(&ft);
++	if (ft.nbcon_atomic)
++		nbcon_atomic_flush_pending();
+ 	if (ft.legacy_direct) {
+ 		console_lock();
+ 		console_unlock();
+@@ -4153,8 +4190,10 @@ static bool __pr_flush(struct console *c
  			 * that they make forward progress, so only increment
  			 * @diff for usable consoles.
  			 */
@@ -256,7 +269,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  
  			if (flags & CON_NBCON) {
  				printk_seq = nbcon_seq_read(c);
-@@ -4629,8 +4665,13 @@ EXPORT_SYMBOL_GPL(kmsg_dump_rewind);
+@@ -4630,8 +4669,15 @@ EXPORT_SYMBOL_GPL(kmsg_dump_rewind);
   */
  void console_try_replay_all(void)
  {
@@ -265,6 +278,8 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 +	printk_get_console_flush_type(&ft);
  	if (console_trylock()) {
  		__console_rewind_all();
++		if (ft.nbcon_atomic)
++			nbcon_atomic_flush_pending();
 +		if (ft.nbcon_offload)
 +			nbcon_kthreads_wake();
  		/* Consoles are flushed as part of console_unlock(). */

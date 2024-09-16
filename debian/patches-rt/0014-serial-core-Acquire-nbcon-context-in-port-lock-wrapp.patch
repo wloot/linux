@@ -2,7 +2,7 @@ From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 20 Aug 2024 08:35:40 +0206
 Subject: [PATCH 14/54] serial: core: Acquire nbcon context in port->lock
  wrapper
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 Currently the port->lock wrappers uart_port_lock(),
 uart_port_unlock() (and their variants) only lock/unlock

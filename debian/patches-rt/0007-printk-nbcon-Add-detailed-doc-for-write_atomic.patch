@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 20 Aug 2024 08:35:33 +0206
 Subject: [PATCH 07/54] printk: nbcon: Add detailed doc for write_atomic()
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 The write_atomic() callback has special requirements and is
 allowed to use special helper functions. Provide detailed

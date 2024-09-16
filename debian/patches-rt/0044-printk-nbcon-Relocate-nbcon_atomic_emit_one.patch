@@ -1,12 +1,15 @@
 From: John Ogness <john.ogness@linutronix.de>
-Date: Tue, 27 Aug 2024 02:41:54 +0000
-Subject: [PATCH 42/54] printk: nbcon: Relocate nbcon_atomic_emit_one()
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Date: Wed, 4 Sep 2024 14:11:26 +0206
+Subject: [PATCH 44/54] printk: nbcon: Relocate nbcon_atomic_emit_one()
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 Move nbcon_atomic_emit_one() so that it can be used by
 nbcon_kthread_func() in a follow-up commit.
 
 Signed-off-by: John Ogness <john.ogness@linutronix.de>
+Reviewed-by: Petr Mladek <pmladek@suse.com>
+Link: https://lore.kernel.org/r/20240904120536.115780-8-john.ogness@linutronix.de
+Signed-off-by: Petr Mladek <pmladek@suse.com>
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 ---
  kernel/printk/nbcon.c |   78 +++++++++++++++++++++++++-------------------------
@@ -60,7 +63,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  /**
   * nbcon_kthread_should_wakeup - Check whether a printer thread should wakeup
   * @con:	Console to operate on
-@@ -1311,45 +1350,6 @@ enum nbcon_prio nbcon_get_default_prio(v
+@@ -1319,45 +1358,6 @@ enum nbcon_prio nbcon_get_default_prio(v
  	return NBCON_PRIO_NORMAL;
  }
  

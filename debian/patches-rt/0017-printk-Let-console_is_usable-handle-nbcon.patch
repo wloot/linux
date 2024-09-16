@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 20 Aug 2024 08:35:43 +0206
 Subject: [PATCH 17/54] printk: Let console_is_usable() handle nbcon
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 The nbcon consoles use a different printing callback. For nbcon
 consoles, check for the write_atomic() callback instead of

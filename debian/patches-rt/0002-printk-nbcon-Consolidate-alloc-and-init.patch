@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 20 Aug 2024 08:35:28 +0206
 Subject: [PATCH 02/54] printk: nbcon: Consolidate alloc() and init()
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 Rather than splitting the nbcon allocation and initialization into
 two pieces, perform all initialization in nbcon_alloc(). Later,
@@ -98,7 +98,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
   */
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
-@@ -3618,7 +3618,7 @@ void register_console(struct console *ne
+@@ -3619,7 +3619,7 @@ void register_console(struct console *ne
  	console_init_seq(newcon, bootcon_registered);
  
  	if (newcon->flags & CON_NBCON)

@@ -42,7 +42,7 @@ linux (6.11-1~exp1) UNRELEASED; urgency=medium
     - [arm64] drivers/mmc/core: Enable PWRSEQ_EMMC
     - [arm64] drivers/phy/rockchip: Enable PHY_ROCKCHIP_SAMSUNG_HDPTX and
       PHY_ROCKCHIP_USBDP as module
-  * [rt] Update to 6.11-rc5-rt5
+  * [rt] Update to 6.11-rt7
 
   [ Aurelien Jarno ]
   * [riscv64] Enable INPUT_MISC (Closes: #1079501).

@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
-Date: Sat, 20 Jul 2024 15:57:29 +0000
-Subject: [PATCH 39/54] printk: nbcon: Add context to usable() and emit()
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Date: Wed, 4 Sep 2024 14:11:23 +0206
+Subject: [PATCH 41/54] printk: nbcon: Add context to usable() and emit()
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 The nbcon consoles will have two callbacks to be used for
 different contexts. In order to determine if an nbcon console
@@ -19,6 +19,9 @@ Since so far only the write_atomic() callback exists,
 For legacy consoles, @use_atomic is not used.
 
 Signed-off-by: John Ogness <john.ogness@linutronix.de>
+Reviewed-by: Petr Mladek <pmladek@suse.com>
+Link: https://lore.kernel.org/r/20240904120536.115780-5-john.ogness@linutronix.de
+Signed-off-by: Petr Mladek <pmladek@suse.com>
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 ---
  kernel/printk/internal.h |    8 +++++---
@@ -114,7 +117,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  
  	if (!wctxt->outbuf) {
  		/*
-@@ -1119,7 +1123,7 @@ static bool nbcon_atomic_emit_one(struct
+@@ -1118,7 +1122,7 @@ static bool nbcon_atomic_emit_one(struct
  	 * The higher priority printing context takes over responsibility
  	 * to print the pending records.
  	 */
@@ -123,7 +126,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  		return false;
  
  	nbcon_context_release(ctxt);
-@@ -1220,7 +1224,7 @@ static int __nbcon_atomic_flush_pending_
+@@ -1219,7 +1223,7 @@ static int __nbcon_atomic_flush_pending_
  		 * handed over or taken over. In both cases the context is no
  		 * longer valid.
  		 */
@@ -132,7 +135,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  			return -EAGAIN;
  
  		if (!ctxt->backlog) {
-@@ -1306,7 +1310,7 @@ static void __nbcon_atomic_flush_pending
+@@ -1305,7 +1309,7 @@ static void __nbcon_atomic_flush_pending
  		if (!(flags & CON_NBCON))
  			continue;
  
@@ -141,7 +144,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  			continue;
  
  		if (nbcon_seq_read(con) >= stop_seq)
-@@ -1491,7 +1495,7 @@ void nbcon_device_release(struct console
+@@ -1490,7 +1494,7 @@ void nbcon_device_release(struct console
  	 * the console is usable throughout flushing.
  	 */
  	cookie = console_srcu_read_lock();
@@ -152,7 +155,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  		 * If nbcon_atomic flushing is not available, fallback to
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
-@@ -3071,7 +3071,7 @@ static bool console_flush_all(bool do_co
+@@ -3072,7 +3072,7 @@ static bool console_flush_all(bool do_co
  			u64 printk_seq;
  			bool progress;
  
@@ -161,7 +164,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  				continue;
  			any_usable = true;
  
-@@ -3773,7 +3773,7 @@ static int unregister_console_locked(str
+@@ -3774,7 +3774,7 @@ static int unregister_console_locked(str
  
  	if (!console_is_registered_locked(console))
  		res = -ENODEV;
@@ -170,7 +173,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  		__pr_flush(console, 1000, true);
  
  	/* Disable it unconditionally */
-@@ -4043,7 +4043,7 @@ static bool __pr_flush(struct console *c
+@@ -4044,7 +4044,7 @@ static bool __pr_flush(struct console *c
  			 * that they make forward progress, so only increment
  			 * @diff for usable consoles.
  			 */

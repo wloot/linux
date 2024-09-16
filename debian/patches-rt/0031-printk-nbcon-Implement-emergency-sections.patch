@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 20 Aug 2024 08:35:57 +0206
 Subject: [PATCH 31/54] printk: nbcon: Implement emergency sections
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 In emergency situations (something has gone wrong but the
 system continues to operate), usually important information

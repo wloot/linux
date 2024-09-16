@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
-Date: Tue, 4 Jun 2024 01:30:45 +0206
-Subject: [PATCH 45/54] printk: Provide helper for message prepending
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Date: Wed, 4 Sep 2024 14:11:29 +0206
+Subject: [PATCH 47/54] printk: Provide helper for message prepending
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 In order to support prepending different texts to printk
 messages, split out the prepending code into a helper
@@ -9,6 +9,8 @@ function.
 
 Signed-off-by: John Ogness <john.ogness@linutronix.de>
 Reviewed-by: Petr Mladek <pmladek@suse.com>
+Link: https://lore.kernel.org/r/20240904120536.115780-11-john.ogness@linutronix.de
+Signed-off-by: Petr Mladek <pmladek@suse.com>
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 ---
  kernel/printk/printk.c |   36 +++++++++++++++++++++++++-----------
@@ -16,7 +18,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
-@@ -2843,30 +2843,31 @@ static void __console_unlock(void)
+@@ -2844,30 +2844,31 @@ static void __console_unlock(void)
  #ifdef CONFIG_PRINTK
  
  /*
@@ -59,7 +61,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  
  	/*
  	 * Make sure outbuf is sufficiently large before prepending.
-@@ -2889,6 +2890,19 @@ void console_prepend_dropped(struct prin
+@@ -2890,6 +2891,19 @@ void console_prepend_dropped(struct prin
  }
  
  /*

@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
-Date: Sun, 21 Jul 2024 23:51:50 +0000
-Subject: [PATCH 50/54] printk: Implement legacy printer kthread for PREEMPT_RT
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Date: Wed, 4 Sep 2024 14:11:34 +0206
+Subject: [PATCH 52/54] printk: Implement legacy printer kthread for PREEMPT_RT
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 The write() callback of legacy consoles usually makes use of
 spinlocks. This is not permitted with PREEMPT_RT in atomic
@@ -39,12 +39,14 @@ These changes only affect CONFIG_PREEMPT_RT.
 
 Signed-off-by: John Ogness <john.ogness@linutronix.de>
 Reviewed-by: Petr Mladek <pmladek@suse.com>
+Link: https://lore.kernel.org/r/20240904120536.115780-16-john.ogness@linutronix.de
+Signed-off-by: Petr Mladek <pmladek@suse.com>
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 ---
  kernel/printk/internal.h    |   16 ++++
- kernel/printk/printk.c      |  162 +++++++++++++++++++++++++++++++++++++++-----
+ kernel/printk/printk.c      |  157 +++++++++++++++++++++++++++++++++++++++-----
  kernel/printk/printk_safe.c |    4 -
- 3 files changed, 164 insertions(+), 18 deletions(-)
+ 3 files changed, 159 insertions(+), 18 deletions(-)
 
 --- a/kernel/printk/internal.h
 +++ b/kernel/printk/internal.h
@@ -95,15 +97,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  /* All 3 protected by @syslog_lock. */
  /* the next printk record to read by syslog(READ) or /proc/kmsg */
  static u64 syslog_seq;
-@@ -2450,6 +2451,7 @@ static u64 syslog_seq;
- 
- static bool pr_flush(int timeout_ms, bool reset_on_progress) { return true; }
- static bool __pr_flush(struct console *con, int timeout_ms, bool reset_on_progress) { return true; }
-+static inline void legacy_kthread_wake(void) { }
- 
- #endif /* CONFIG_PRINTK */
- 
-@@ -2756,6 +2758,8 @@ void resume_console(void)
+@@ -2757,6 +2758,8 @@ void resume_console(void)
  	printk_get_console_flush_type(&ft);
  	if (ft.nbcon_offload)
  		nbcon_kthreads_wake();
@@ -112,7 +106,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  
  	pr_flush(1000, true);
  }
-@@ -3165,19 +3169,7 @@ static bool console_flush_all(bool do_co
+@@ -3167,19 +3170,7 @@ static bool console_flush_all(bool do_co
  	return false;
  }
  
@@ -133,7 +127,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  {
  	bool do_cond_resched;
  	bool handover;
-@@ -3221,6 +3213,29 @@ void console_unlock(void)
+@@ -3223,6 +3214,29 @@ void console_unlock(void)
  		 */
  	} while (prb_read_valid(prb, next_seq, NULL) && console_trylock());
  }
@@ -163,16 +157,16 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  EXPORT_SYMBOL(console_unlock);
  
  /**
-@@ -3448,6 +3463,8 @@ void console_start(struct console *conso
+@@ -3450,6 +3464,8 @@ void console_start(struct console *conso
  	printk_get_console_flush_type(&ft);
  	if (is_nbcon && ft.nbcon_offload)
  		nbcon_kthread_wake(console);
-+	else if (!is_nbcon && ft.legacy_offload)
++	else if (ft.legacy_offload)
 +		defer_console_output();
  
  	__pr_flush(console, 1000, true);
  }
-@@ -3459,6 +3476,87 @@ static int unregister_console_locked(str
+@@ -3461,6 +3477,88 @@ static int unregister_console_locked(str
  /* True when system boot is far enough to create printer threads. */
  static bool printk_kthreads_ready __ro_after_init;
  
@@ -196,10 +190,11 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 +		u64 printk_seq;
 +
 +		/*
-+		 * The legacy printer thread is only for legacy consoles when
-+		 * the nbcon consoles have their printer threads.
++		 * The legacy printer thread is only responsible for nbcon
++		 * consoles when the nbcon consoles cannot print via their
++		 * atomic or threaded flushing.
 +		 */
-+		if ((flags & CON_NBCON) && ft.nbcon_offload)
++		if ((flags & CON_NBCON) && (ft.nbcon_atomic || ft.nbcon_offload))
 +			continue;
 +
 +		if (!console_is_usable(con, flags, false))
@@ -260,7 +255,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  /**
   * printk_kthreads_shutdown - shutdown all threaded printers
   *
-@@ -3508,6 +3606,27 @@ static void printk_kthreads_check_locked
+@@ -3510,6 +3608,27 @@ static void printk_kthreads_check_locked
  	if (!printk_kthreads_ready)
  		return;
  
@@ -288,18 +283,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	/*
  	 * Printer threads cannot be started as long as any boot console is
  	 * registered because there is no way to synchronize the hardware
-@@ -4277,14 +4396,23 @@ static bool pr_flush(int timeout_ms, boo
- 
- static DEFINE_PER_CPU(int, printk_pending);
- 
-+static void legacy_kthread_wake(void)
-+{
-+	if (printk_legacy_kthread)
-+		wake_up_interruptible(&legacy_wait);
-+}
-+
- static void wake_up_klogd_work_func(struct irq_work *irq_work)
- {
+@@ -4286,9 +4405,13 @@ static void wake_up_klogd_work_func(stru
  	int pending = this_cpu_xchg(printk_pending, 0);
  
  	if (pending & PRINTK_PENDING_OUTPUT) {
@@ -307,7 +291,8 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 -		if (console_trylock())
 -			console_unlock();
 +		if (force_legacy_kthread()) {
-+			legacy_kthread_wake();
++			if (printk_legacy_kthread)
++				wake_up_interruptible(&legacy_wait);
 +		} else {
 +			if (console_trylock())
 +				console_unlock();
@@ -315,8 +300,8 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	}
  
  	if (pending & PRINTK_PENDING_WAKEUP)
-@@ -4697,6 +4825,8 @@ void console_try_replay_all(void)
- 		__console_rewind_all();
+@@ -4703,6 +4826,8 @@ void console_try_replay_all(void)
+ 			nbcon_atomic_flush_pending();
  		if (ft.nbcon_offload)
  			nbcon_kthreads_wake();
 +		if (ft.legacy_offload)

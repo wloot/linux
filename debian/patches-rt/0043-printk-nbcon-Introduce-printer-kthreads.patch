@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
-Date: Sat, 20 Jul 2024 13:09:07 +0000
-Subject: [PATCH 41/54] printk: nbcon: Introduce printer kthreads
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Date: Wed, 4 Sep 2024 14:11:25 +0206
+Subject: [PATCH 43/54] printk: nbcon: Introduce printer kthreads
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 Provide the main implementation for running a printer kthread
 per nbcon console that is takeover/handover aware. This
@@ -100,13 +100,16 @@ kthreads.
 Co-developed-by: John Ogness <john.ogness@linutronix.de>
 Signed-off-by: John Ogness <john.ogness@linutronix.de>
 Signed-off-by: Thomas Gleixner (Intel) <tglx@linutronix.de>
+Reviewed-by: Petr Mladek <pmladek@suse.com>
+Link: https://lore.kernel.org/r/20240904120536.115780-7-john.ogness@linutronix.de
+Signed-off-by: Petr Mladek <pmladek@suse.com>
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 ---
- include/linux/console.h  |   40 ++++++++
+ include/linux/console.h  |   40 +++++++
  kernel/printk/internal.h |   27 +++++
- kernel/printk/nbcon.c    |  235 +++++++++++++++++++++++++++++++++++++++++++++++
- kernel/printk/printk.c   |  108 +++++++++++++++++++++
- 4 files changed, 410 insertions(+)
+ kernel/printk/nbcon.c    |  245 +++++++++++++++++++++++++++++++++++++++++++++++
+ kernel/printk/printk.c   |  108 ++++++++++++++++++++
+ 4 files changed, 420 insertions(+)
 
 --- a/include/linux/console.h
 +++ b/include/linux/console.h
@@ -272,7 +275,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  
  	if (!wctxt->outbuf) {
  		/*
-@@ -1036,6 +1042,219 @@ static bool nbcon_emit_next_record(struc
+@@ -1036,6 +1042,228 @@ static bool nbcon_emit_next_record(struc
  	return nbcon_context_exit_unsafe(ctxt);
  }
  
@@ -433,6 +436,9 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 +
 +	cookie = console_srcu_read_lock();
 +	for_each_console_srcu(con) {
++		if (!(console_srcu_read_flags(con) & CON_NBCON))
++			continue;
++
 +		/*
 +		 * Only schedule irq_work if the printing thread is
 +		 * actively waiting. If not waiting, the thread will
@@ -466,8 +472,14 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 + * Return:	True if the kthread was started or already exists.
 + *		Otherwise false and @con must not be registered.
 + *
-+ * If @con was already registered, it must be unregistered before
-+ * the global state variable @printk_kthreads_running can be set.
++ * This function is called when it will be expected that nbcon consoles are
++ * flushed using the kthread. The messages printed with NBCON_PRIO_NORMAL
++ * will be no longer flushed by the legacy loop. This is why failure must
++ * be fatal for console registration.
++ *
++ * If @con was already registered and this function fails, @con must be
++ * unregistered before the global state variable @printk_kthreads_running
++ * can be set.
 + */
 +bool nbcon_kthread_create(struct console *con)
 +{
@@ -492,7 +504,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  /* Track the nbcon emergency nesting per CPU. */
  static DEFINE_PER_CPU(unsigned int, nbcon_pcpu_emergency_nesting);
  static unsigned int early_nbcon_pcpu_emergency_nesting __initdata;
-@@ -1397,6 +1616,12 @@ bool nbcon_alloc(struct console *con)
+@@ -1396,6 +1624,12 @@ bool nbcon_alloc(struct console *con)
  {
  	struct nbcon_state state = { };
  
@@ -505,7 +517,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	nbcon_state_set(con, &state);
  
  	/*
-@@ -1419,6 +1644,13 @@ bool nbcon_alloc(struct console *con)
+@@ -1418,6 +1652,14 @@ bool nbcon_alloc(struct console *con)
  			con_printk(KERN_ERR, con, "failed to allocate printing buffer\n");
  			return false;
  		}
@@ -513,13 +525,14 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 +		if (printk_kthreads_running) {
 +			if (!nbcon_kthread_create(con)) {
 +				kfree(con->pbufs);
++				con->pbufs = NULL;
 +				return false;
 +			}
 +		}
  	}
  
  	return true;
-@@ -1432,6 +1664,9 @@ void nbcon_free(struct console *con)
+@@ -1431,6 +1673,9 @@ void nbcon_free(struct console *con)
  {
  	struct nbcon_state state = { };
  
@@ -549,7 +562,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  struct latched_seq {
  	seqcount_latch_t	latch;
  	u64			val[2];
-@@ -3027,6 +3031,8 @@ static bool console_emit_next_record(str
+@@ -3028,6 +3032,8 @@ static bool console_emit_next_record(str
  	return false;
  }
  
@@ -558,7 +571,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  #endif /* CONFIG_PRINTK */
  
  /*
-@@ -3387,6 +3393,102 @@ void console_start(struct console *conso
+@@ -3388,6 +3394,102 @@ void console_start(struct console *conso
  }
  EXPORT_SYMBOL(console_start);
  
@@ -661,7 +674,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  static int __read_mostly keep_bootcon;
  
  static int __init keep_bootcon_setup(char *str)
-@@ -3745,6 +3847,9 @@ void register_console(struct console *ne
+@@ -3746,6 +3848,9 @@ void register_console(struct console *ne
  				unregister_console_locked(con);
  		}
  	}
@@ -671,7 +684,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  unlock:
  	console_list_unlock();
  }
-@@ -3841,6 +3946,9 @@ static int unregister_console_locked(str
+@@ -3842,6 +3947,9 @@ static int unregister_console_locked(str
  	if (!found_nbcon_con)
  		have_nbcon_console = found_nbcon_con;
  

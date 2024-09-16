@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
-Date: Mon, 25 Mar 2024 21:00:40 +0000
-Subject: [PATCH 46/54] printk: nbcon: Show replay message on takeover
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Date: Wed, 4 Sep 2024 14:11:30 +0206
+Subject: [PATCH 48/54] printk: nbcon: Show replay message on takeover
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 An emergency or panic context can takeover console ownership
 while the current owner was printing a printk message. The
@@ -25,6 +25,8 @@ the user that the previous message is being printed again.
 
 Signed-off-by: John Ogness <john.ogness@linutronix.de>
 Reviewed-by: Petr Mladek <pmladek@suse.com>
+Link: https://lore.kernel.org/r/20240904120536.115780-12-john.ogness@linutronix.de
+Signed-off-by: Petr Mladek <pmladek@suse.com>
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 ---
  include/linux/console.h  |    2 ++
@@ -101,7 +103,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	if (!nbcon_context_exit_unsafe(ctxt))
  		return false;
  
-@@ -1638,6 +1663,7 @@ bool nbcon_alloc(struct console *con)
+@@ -1646,6 +1671,7 @@ bool nbcon_alloc(struct console *con)
  
  	rcuwait_init(&con->rcuwait);
  	init_irq_work(&con->irq_work, nbcon_irq_work);
@@ -111,7 +113,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	/*
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
-@@ -2903,6 +2903,17 @@ void console_prepend_dropped(struct prin
+@@ -2904,6 +2904,17 @@ void console_prepend_dropped(struct prin
  }
  
  /*

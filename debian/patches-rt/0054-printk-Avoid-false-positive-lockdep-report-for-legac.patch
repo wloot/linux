@@ -1,8 +1,8 @@
 From: John Ogness <john.ogness@linutronix.de>
-Date: Mon, 11 Dec 2023 09:34:16 +0000
-Subject: [PATCH 52/54] printk: Avoid false positive lockdep report for legacy
+Date: Wed, 4 Sep 2024 14:11:36 +0206
+Subject: [PATCH 54/54] printk: Avoid false positive lockdep report for legacy
  printing
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 Legacy console printing from printk() caller context may invoke
 the console driver from atomic context. This leads to a lockdep
@@ -25,6 +25,8 @@ to the write callback usage.
 
 Signed-off-by: John Ogness <john.ogness@linutronix.de>
 Reviewed-by: Petr Mladek <pmladek@suse.com>
+Link: https://lore.kernel.org/r/20240904120536.115780-18-john.ogness@linutronix.de
+Signed-off-by: Petr Mladek <pmladek@suse.com>
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 ---
  kernel/printk/printk.c |   83 +++++++++++++++++++++++++++++++++++++------------

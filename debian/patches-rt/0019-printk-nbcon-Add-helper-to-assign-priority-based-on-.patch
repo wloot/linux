@@ -2,7 +2,7 @@ From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 20 Aug 2024 08:35:45 +0206
 Subject: [PATCH 19/54] printk: nbcon: Add helper to assign priority based on
  CPU state
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 Add a helper function to use the current state of the CPU to
 determine which priority to assign to the printing context.

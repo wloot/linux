@@ -1,7 +1,7 @@
 From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 20 Aug 2024 08:35:44 +0206
 Subject: [PATCH 18/54] printk: Add @flags argument for console_is_usable()
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 The caller of console_is_usable() usually needs @console->flags
 for its own checks. Rather than having console_is_usable() read
@@ -46,7 +46,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
-@@ -3012,9 +3012,10 @@ static bool console_flush_all(bool do_co
+@@ -3013,9 +3013,10 @@ static bool console_flush_all(bool do_co
  
  		cookie = console_srcu_read_lock();
  		for_each_console_srcu(con) {
@@ -58,7 +58,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  				continue;
  			any_usable = true;
  
-@@ -3925,7 +3926,7 @@ static bool __pr_flush(struct console *c
+@@ -3926,7 +3927,7 @@ static bool __pr_flush(struct console *c
  			 * that they make forward progress, so only increment
  			 * @diff for usable consoles.
  			 */

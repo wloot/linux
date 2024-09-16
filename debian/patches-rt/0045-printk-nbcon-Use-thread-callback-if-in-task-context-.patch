@@ -1,8 +1,8 @@
 From: John Ogness <john.ogness@linutronix.de>
-Date: Sun, 21 Jul 2024 19:02:02 +0000
-Subject: [PATCH 43/54] printk: nbcon: Use thread callback if in task context
+Date: Wed, 4 Sep 2024 14:11:27 +0206
+Subject: [PATCH 45/54] printk: nbcon: Use thread callback if in task context
  for legacy
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 When printing via console_lock, the write_atomic() callback is
 used for nbcon consoles. However, if it is known that the
@@ -21,6 +21,9 @@ As a side-effect, it also allows consolidating the printing
 code for legacy printing and the kthread printer.
 
 Signed-off-by: John Ogness <john.ogness@linutronix.de>
+Reviewed-by: Petr Mladek <pmladek@suse.com>
+Link: https://lore.kernel.org/r/20240904120536.115780-9-john.ogness@linutronix.de
+Signed-off-by: Petr Mladek <pmladek@suse.com>
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 ---
  kernel/printk/internal.h |    4 -
@@ -144,7 +147,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  
  		console_srcu_read_unlock(cookie);
  
-@@ -1359,6 +1355,13 @@ enum nbcon_prio nbcon_get_default_prio(v
+@@ -1367,6 +1363,13 @@ enum nbcon_prio nbcon_get_default_prio(v
   *		both the console_lock and the SRCU read lock. Otherwise it
   *		is set to false.
   * @cookie:	The cookie from the SRCU read lock.
@@ -158,7 +161,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
   *
   * Context:	Any context except NMI.
   * Return:	True, when a record has been printed and there are still
-@@ -1374,26 +1377,36 @@ enum nbcon_prio nbcon_get_default_prio(v
+@@ -1382,26 +1385,36 @@ enum nbcon_prio nbcon_get_default_prio(v
   * Essentially it is the nbcon version of console_emit_next_record().
   */
  bool nbcon_legacy_emit_next_record(struct console *con, bool *handover,
@@ -207,7 +210,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  }
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
-@@ -3077,12 +3077,13 @@ static bool console_flush_all(bool do_co
+@@ -3078,12 +3078,13 @@ static bool console_flush_all(bool do_co
  			u64 printk_seq;
  			bool progress;
  

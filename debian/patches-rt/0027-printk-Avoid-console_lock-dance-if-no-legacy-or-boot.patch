@@ -2,7 +2,7 @@ From: John Ogness <john.ogness@linutronix.de>
 Date: Tue, 20 Aug 2024 08:35:53 +0206
 Subject: [PATCH 27/54] printk: Avoid console_lock dance if no legacy or boot
  consoles
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 Currently the console lock is used to attempt legacy-type
 printing even if there are no legacy or boot consoles registered.
@@ -72,7 +72,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  		defer_console_output();
  	else
  		wake_up_klogd();
-@@ -2718,7 +2733,7 @@ void resume_console(void)
+@@ -2719,7 +2734,7 @@ void resume_console(void)
   */
  static int console_cpu_notify(unsigned int cpu)
  {
@@ -81,7 +81,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  		/* If trylock fails, someone else is doing the printing */
  		if (console_trylock())
  			console_unlock();
-@@ -3625,6 +3640,7 @@ void register_console(struct console *ne
+@@ -3626,6 +3641,7 @@ void register_console(struct console *ne
  	if (newcon->flags & CON_NBCON) {
  		nbcon_seq_force(newcon, init_seq);
  	} else {
@@ -89,7 +89,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  		newcon->seq = init_seq;
  	}
  
-@@ -3701,6 +3717,7 @@ EXPORT_SYMBOL(register_console);
+@@ -3702,6 +3718,7 @@ EXPORT_SYMBOL(register_console);
  static int unregister_console_locked(struct console *console)
  {
  	bool use_device_lock = (console->flags & CON_NBCON) && console->write_atomic;
@@ -97,7 +97,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	bool found_boot_con = false;
  	unsigned long flags;
  	struct console *c;
-@@ -3768,9 +3785,13 @@ static int unregister_console_locked(str
+@@ -3769,9 +3786,13 @@ static int unregister_console_locked(str
  	for_each_console(c) {
  		if (c->flags & CON_BOOT)
  			found_boot_con = true;
@@ -111,7 +111,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  
  	return res;
  }
-@@ -3931,8 +3952,10 @@ static bool __pr_flush(struct console *c
+@@ -3932,8 +3953,10 @@ static bool __pr_flush(struct console *c
  	seq = prb_next_reserve_seq(prb);
  
  	/* Flush the consoles so that records up to @seq are printed. */
@@ -124,7 +124,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  
  	for (;;) {
  		unsigned long begin_jiffies;
-@@ -3945,6 +3968,12 @@ static bool __pr_flush(struct console *c
+@@ -3946,6 +3969,12 @@ static bool __pr_flush(struct console *c
  		 * console->seq. Releasing console_lock flushes more
  		 * records in case @seq is still not printed on all
  		 * usable consoles.

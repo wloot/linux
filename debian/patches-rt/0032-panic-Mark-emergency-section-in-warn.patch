@@ -1,7 +1,7 @@
 From: Thomas Gleixner <tglx@linutronix.de>
 Date: Tue, 20 Aug 2024 08:35:58 +0206
 Subject: [PATCH 32/54] panic: Mark emergency section in warn
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rc5-rt5.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.11/older/patches-6.11-rt7.tar.xz
 
 Mark the full contents of __warn() as an emergency section. In
 this section, every printk() call will attempt to directly

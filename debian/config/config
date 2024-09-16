@@ -3944,6 +3944,11 @@ CONFIG_ATH11K_PCI=m
 # CONFIG_ATH11K_TRACING is not set
 
 ##
+## file: drivers/net/wireless/ath/ath12k/Kconfig
+##
+CONFIG_ATH12K=m
+
+##
 ## file: drivers/net/wireless/ath/ath5k/Kconfig
 ##
 CONFIG_ATH5K=m
@@ -4153,6 +4158,17 @@ CONFIG_MT7921E=m
 CONFIG_MT7921U=m
 
 ##
+## file: drivers/net/wireless/mediatek/mt76/mt7925/Kconfig
+##
+CONFIG_MT7925E=m
+CONFIG_MT7925U=m
+
+##
+## file: drivers/net/wireless/mediatek/mt76/mt7996/Kconfig
+##
+CONFIG_MT7996E=m
+
+##
 ## file: drivers/net/wireless/mediatek/mt7601u/Kconfig
 ##
 CONFIG_MT7601U=m
@@ -4245,6 +4261,7 @@ CONFIG_RTW89=m
 CONFIG_RTW89_8852AE=m
 CONFIG_RTW89_8852BE=m
 CONFIG_RTW89_8852CE=m
+CONFIG_RTW89_8922AE=m
 
 ##
 ## file: drivers/net/wireless/rsi/Kconfig

@@ -76,6 +76,7 @@ linux (6.11-1~exp1) UNRELEASED; urgency=medium
   [ Miao Wang ]
   * [loong64] Enable kernel support for LBT instructions.
   * [loong64] Enable KVM and para-virt support.
+  * [loong64] Enable USB EHCI and OHCI host support.
 
   [ Yunseong Kim ]
   * mm/damon: Enable DAMON, DAMON_VADDR, DAMON_PADDR, DAMON_SYSFS,

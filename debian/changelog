@@ -90,6 +90,8 @@ linux (6.11-1~exp1) UNRELEASED; urgency=medium
       sources
     - Documentation: Use relative source filenames in ABI documentation
     - kbuild, bpf: Fix BTF reproducibility
+    - d/rules.real: Add -fdebug-prefix-map option for assembly sources in
+      kernel
 
   [ Miao Wang ]
   * [loong64] Enable kernel support for LBT instructions.

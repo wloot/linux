@@ -81,6 +81,7 @@ linux (6.11-1~exp1) UNRELEASED; urgency=medium
     - d/rules.d/t/objtool: Put buildflags in the correct variables when
       recursing
     - d/rules: Delete blhc ignore regexp for objtool
+  * d/rules.real: Try harder to set the locale to C.UTF-8
 
   [ Miao Wang ]
   * [loong64] Enable kernel support for LBT instructions.

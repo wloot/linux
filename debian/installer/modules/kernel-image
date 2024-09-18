@@ -43,3 +43,6 @@ intel_lpss_pci ?
 i2c-core ?
 i2c-algo-bit ?
 i2c-designware-platform ?
+
+# EFI
+efivarfs ?

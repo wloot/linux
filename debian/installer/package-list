@@ -3,8 +3,10 @@
 # architecture, which is derived from the files in the modules directory.
 #
 Package: kernel-image
-Provides_arm64: drm-core-modules, mmc-core-modules, mtd-core-modules
-Provides_armmp: mmc-core-modules, mtd-core-modules
+Provides_amd64: efi-modules
+Provides_arm64: drm-core-modules, mmc-core-modules, mtd-core-modules, efi-modules
+Provides_armmp: mmc-core-modules, mtd-core-modules, efi-modules
+Provides_loong64: efi-modules
 Provides_mips: mtd-core-modules, mtd-modules
 Provides_mips64: mtd-core-modules, mtd-modules
 Provides_mips64el: mtd-core-modules, mtd-modules
@@ -15,7 +17,7 @@ Provides_mipsr6: mtd-core-modules, mtd-modules
 Provides_mipsr6el: mtd-core-modules, mtd-modules
 Provides_parisc64: drm-core-modules
 Provides_powerpc64:
-Provides_riscv64: mtd-core-modules
+Provides_riscv64: mtd-core-modules, efi-modules
 Provides_sh4: fb-modules, input-modules, nic-shared-modules, uinput-modules, usb-modules
 Priority: standard
 Description: Linux kernel image and core modules for the Debian installer
@@ -295,12 +297,6 @@ Depends: kernel-image, md-modules
 Priority: optional
 Description: devicemapper crypto module
  This package contains the devicemapper crypto (dm-crypt) module.
-
-Package: efi-modules
-Depends: kernel-image
-Priority: optional
-Description: EFI modules
- This package contains EFI modules.
 
 Package: ata-modules
 Depends: kernel-image, scsi-core-modules

@@ -274,12 +274,6 @@ Priority: standard
 Description: SATA drivers
  This package contains SATA drivers for the kernel.
 
-Package: acpi-modules
-Depends: kernel-image
-Priority: optional
-Description: ACPI support modules
- This package contains kernel modules for ACPI.
-
 Package: crc-modules
 Depends: kernel-image
 Priority: optional

@@ -1,1 +1,5 @@
 #include <kernel-image>
+
+# ACPI drivers
+fan
+thermal

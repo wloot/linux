@@ -343,12 +343,6 @@ Priority: optional
 Description: sound support
  This package contains sound modules.
 
-Package: leds-modules
-Depends: kernel-image
-Priority: optional
-Description: LED modules
- This package contains LED modules.
-
 Package: mtd-modules
 Depends: kernel-image, mtd-core-modules
 Priority: optional

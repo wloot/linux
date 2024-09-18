@@ -38,3 +38,8 @@ drivers/char/hw_random/**
 intel_lpss ?
 intel_lpss_acpi ?
 intel_lpss_pci ?
+
+# I²C subsystem and common drivers
+i2c-core ?
+i2c-algo-bit ?
+i2c-designware-platform ?

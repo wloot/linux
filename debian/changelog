@@ -4,6 +4,7 @@ linux (6.11-1~exp2) UNRELEASED; urgency=medium
   * udeb: Delete obsolete configuration for armel/marvell
   * udeb: Delete obsolete configuration for ide{-core,}-modules, ipv6-modules
   * udeb: Delete obsolete rtc-modules from kernel-image Provides
+  * udeb: Fold i2c-modules into kernel-image (fixes FTBFS on alpha, sparc64)
 
  -- Ben Hutchings <benh@debian.org>  Fri, 20 Sep 2024 03:18:27 +0200
 

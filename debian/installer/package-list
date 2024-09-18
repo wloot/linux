@@ -5,16 +5,15 @@
 Package: kernel-image
 Provides_arm64: drm-core-modules, mmc-core-modules, mtd-core-modules
 Provides_armmp: mmc-core-modules, mtd-core-modules
-Provides_mips: i2c-modules, mtd-core-modules, mtd-modules
-Provides_mips64: i2c-modules, mtd-core-modules, mtd-modules
-Provides_mips64el: i2c-modules, mtd-core-modules, mtd-modules
-Provides_mips64r6: i2c-modules, mtd-core-modules, mtd-modules
-Provides_mips64r6el: i2c-modules, mtd-core-modules, mtd-modules
-Provides_mipsel: i2c-modules, mtd-core-modules, mtd-modules
-Provides_mipsr6: i2c-modules, mtd-core-modules, mtd-modules
-Provides_mipsr6el: i2c-modules, mtd-core-modules, mtd-modules
-Provides_parisc64: i2c-modules, drm-core-modules
-Provides_powerpc: i2c-modules
+Provides_mips: mtd-core-modules, mtd-modules
+Provides_mips64: mtd-core-modules, mtd-modules
+Provides_mips64el: mtd-core-modules, mtd-modules
+Provides_mips64r6: mtd-core-modules, mtd-modules
+Provides_mips64r6el: mtd-core-modules, mtd-modules
+Provides_mipsel: mtd-core-modules, mtd-modules
+Provides_mipsr6: mtd-core-modules, mtd-modules
+Provides_mipsr6el: mtd-core-modules, mtd-modules
+Provides_parisc64: drm-core-modules
 Provides_powerpc64:
 Provides_riscv64: mtd-core-modules
 Provides_sh4: event-modules, fb-modules, input-modules, mouse-modules, nic-shared-modules, uinput-modules, usb-modules
@@ -25,7 +24,7 @@ Description: Linux kernel image and core modules for the Debian installer
  Debian system.
 
 Package: nic-modules
-Depends: kernel-image, nic-shared-modules, i2c-modules, crc-modules, mtd-core-modules
+Depends: kernel-image, nic-shared-modules, crc-modules, mtd-core-modules
 Provides: nic-extra-modules
 Priority: standard
 Description: NIC drivers
@@ -40,7 +39,7 @@ Description: Wireless NIC drivers
  Includes crypto modules only needed for wireless (WEP, WPA).
 
 Package: nic-shared-modules
-Depends: kernel-image, crc-modules, i2c-modules
+Depends: kernel-image, crc-modules
 Priority: standard
 Description: Shared NIC drivers
  This package contains NIC drivers needed by combinations of nic-modules,
@@ -237,14 +236,14 @@ Description: Frame buffer support
  This package contains core DRM modules for the kernel.
 
 Package: fb-modules
-Depends: kernel-image, drm-core-modules, i2c-modules, input-modules
+Depends: kernel-image, drm-core-modules, input-modules
 Priority: optional
 Priority_hppa: standard
 Description: Frame buffer support
  This package contains Frame buffer drivers for the kernel.
 
 Package: input-modules
-Depends: kernel-image, usb-modules, i2c-modules, rfkill-modules, crc-modules
+Depends: kernel-image, usb-modules, rfkill-modules, crc-modules
 Priority: optional
 Description: Input devices support
  This package contains input device drivers for the kernel.
@@ -290,12 +289,6 @@ Depends: kernel-image
 Priority: optional
 Description: ACPI support modules
  This package contains kernel modules for ACPI.
-
-Package: i2c-modules
-Depends: kernel-image
-Priority: optional
-Description: i2c support modules
- This package contains basic i2c support modules.
 
 Package: crc-modules
 Depends: kernel-image
@@ -361,7 +354,7 @@ Description: uinput support
  This package contains the uinput module.
 
 Package: sound-modules
-Depends: kernel-image, i2c-modules, usb-modules, pcmcia-modules, firewire-core-modules, crc-modules
+Depends: kernel-image, usb-modules, pcmcia-modules, firewire-core-modules, crc-modules
 Priority: optional
 Description: sound support
  This package contains sound modules.

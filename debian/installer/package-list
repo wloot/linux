@@ -4,7 +4,6 @@
 #
 Package: kernel-image
 Provides_arm64: drm-core-modules, mmc-core-modules, mtd-core-modules
-Provides_armel: rtc-modules
 Provides_armmp: mmc-core-modules, mtd-core-modules
 Provides_mips: i2c-modules, rtc-modules, mtd-core-modules, mtd-modules
 Provides_mips64: i2c-modules, rtc-modules, mtd-core-modules, mtd-modules
@@ -245,7 +244,6 @@ Description: Frame buffer support
 
 Package: fb-modules
 Depends: kernel-image, drm-core-modules, i2c-modules, input-modules
-Depends_armel: kernel-image, usb-modules
 Priority: optional
 Priority_hppa: standard
 Description: Frame buffer support

@@ -1,3 +1,10 @@
+linux (6.11-1~exp2) UNRELEASED; urgency=medium
+
+  [ Ben Hutchings ]
+  * udeb: Delete obsolete configuration for armel/marvell
+
+ -- Ben Hutchings <benh@debian.org>  Fri, 20 Sep 2024 03:18:27 +0200
+
 linux (6.11-1~exp1) experimental; urgency=medium
 
   * New upstream release: https://kernelnewbies.org/Linux_6.11

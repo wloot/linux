@@ -16,7 +16,7 @@ Provides_mipsr6el: mtd-core-modules, mtd-modules
 Provides_parisc64: drm-core-modules
 Provides_powerpc64:
 Provides_riscv64: mtd-core-modules
-Provides_sh4: event-modules, fb-modules, input-modules, mouse-modules, nic-shared-modules, uinput-modules, usb-modules
+Provides_sh4: fb-modules, input-modules, nic-shared-modules, uinput-modules, usb-modules
 Priority: standard
 Description: Linux kernel image and core modules for the Debian installer
  This package contains the kernel image and core modules for the Debian
@@ -247,18 +247,6 @@ Depends: kernel-image, usb-modules, rfkill-modules, crc-modules
 Priority: optional
 Description: Input devices support
  This package contains input device drivers for the kernel.
-
-Package: event-modules
-Depends: kernel-image
-Priority: optional
-Description: Event support
- This package contains event drivers for the kernel.
-
-Package: mouse-modules
-Depends: kernel-image, event-modules, input-modules, usb-modules
-Priority: optional
-Description: Mouse support
- This package contains mouse drivers for the kernel.
 
 Package: nic-pcmcia-modules
 Depends: kernel-image, nic-shared-modules, nic-wireless-modules, pcmcia-modules, mmc-core-modules

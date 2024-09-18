@@ -1,3 +1,5 @@
+evdev
+
 # Include HID drivers by default
 drivers/hid/**
 
@@ -48,3 +50,4 @@ hyperv-keyboard ?
 virtio_console ?
 virtio_input ?
 olpc_apsp ?
+psmouse ?

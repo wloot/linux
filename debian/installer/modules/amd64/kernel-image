@@ -3,3 +3,6 @@
 # ACPI drivers
 fan
 thermal
+
+# Optimised CRC32
+crc32_pclmul

@@ -355,13 +355,6 @@ Priority: optional
 Description: rfkill modules
  This package contains the rfkill module.
 
-Package: srm-modules
-Depends: kernel-image
-Priority: standard
-Description: SRM modules
- This package contains the srm_env module which provides access to the SRM
- environment.
-
 Package: hypervisor-modules
 Depends: kernel-image
 Priority: standard

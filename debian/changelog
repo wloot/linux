@@ -9,6 +9,7 @@ linux (6.11-1~exp2) UNRELEASED; urgency=medium
   * udeb: Fold efi-modules into kernel-image
   * [arm64,armhf] udeb: Fold leds-modules into kernel-image
   * [amd64] udeb: Fold acpi-modules into kernel-image
+  * [powerpc*] udeb: Fold fancontrol-modules into kernel-image
 
  -- Ben Hutchings <benh@debian.org>  Fri, 20 Sep 2024 03:18:27 +0200
 

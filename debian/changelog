@@ -63,6 +63,8 @@ linux (6.11-1~exp1) UNRELEASED; urgency=medium
   [ Jair Gonzalez ]
   * [amd64] drivers/crypto/intel/iaa: Enable CRYPTO_DEV_IAA_CRYPTO
     (IAA Compression Accelerator Crypto Driver) (Closes: #1079272)
+  * [amd64] arch/x86: Enable CONFIG_ADDRESS_MASKING
+    (Linear Address Masking support) (Closes: #1082296)
 
   [ Dave Vasilevsky ]
   * [powerpc] Explicitly disable CRASH_DUMP on 32-bit (Closes: #1079755)

@@ -8,6 +8,7 @@ hibmc-drm
 # For panel/backlight on some chromeos devices
 panel-simple
 panel-edp
+panel-samsung-atna33xc20
 pwm_bl
 pwm-cros-ec
 
@@ -45,3 +46,5 @@ dispcc-sdm845
 gpucc-sdm845
 dispcc-sm8250
 gpucc-sm8150
+dispcc-x1e80100
+gpucc-x1e80100

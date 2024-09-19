@@ -1,4 +1,4 @@
-linux (6.10.10-1) UNRELEASED; urgency=medium
+linux (6.10.11-1) UNRELEASED; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.10.10
@@ -361,6 +361,129 @@ linux (6.10.10-1) UNRELEASED; urgency=medium
       quirk
     - [x86] drm/i915/display: Increase Fast Wake Sync length as a quirk
     - btrfs: fix race between direct IO write and fsync when using same fd
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.10.11
+    - usb: typec: ucsi: Always set number of alternate modes
+    - usb: typec: ucsi: Fix cable registration
+    - drm/mediatek: Set sensible cursor width/height values to fix crash
+    - ksmbd: override fsids for share path check
+    - ksmbd: override fsids for smb2_query_info()
+    - usbnet: ipheth: remove extraneous rx URB length check
+    - usbnet: ipheth: drop RX URBs with no payload
+    - usbnet: ipheth: do not stop RX on failing RX callback
+    - usbnet: ipheth: fix carrier detection in modes 1 and 4
+    - net: ethernet: use ip_hdrlen() instead of bit shift
+    - drm: panel-orientation-quirks: Add quirk for Ayn Loki Zero
+    - drm: panel-orientation-quirks: Add quirk for Ayn Loki Max
+    - net: phy: vitesse: repair vsc73xx autonegotiation
+    - [powerpc*] mm: Fix boot warning with hugepages and CONFIG_DEBUG_VIRTUAL
+    - wifi: mt76: mt7921: fix NULL pointer access in mt7921_ipv6_addr_change
+    - drm/amdgpu: Update kmd_fw_shared for VCN5
+    - [arm64] net: hns3: use correct release function during uninitialization
+    - btrfs: update target inode's ctime on unlink
+    - Input: ads7846 - ratelimit the spi_sync error message
+    - Input: synaptics - enable SMBus for HP Elitebook 840 G2
+    - hid-asus: add ROG Ally X prod ID to quirk list
+    - HID: multitouch: Add support for GT7868Q
+    - Input: edt-ft5x06 - add support for FocalTech FT8201
+    - cgroup/cpuset: Eliminate unncessary sched domains rebuilds in hotplug
+    - scripts: kconfig: merge_config: config files: add a trailing newline
+    - [x86] platform/x86: asus-wmi: Add quirk for ROG Ally X
+    - [x86] platform/surface: aggregator_registry: Add Support for Surface Pro
+      10
+    - [x86] platform/surface: aggregator_registry: Add support for Surface
+      Laptop Go 3
+    - [x86] platform/surface: aggregator_registry: Add support for Surface
+      Laptop Studio 2
+    - [x86] platform/surface: aggregator_registry: Add fan and thermal sensor
+      support for Surface Laptop 5
+    - [x86] platform/surface: aggregator_registry: Add support for Surface
+      Laptop 6
+    - spi: zynqmp-gqspi: Scale timeout by data size
+    - drm/msm/adreno: Fix error return if missing firmware-name
+    - Input: i8042 - add Fujitsu Lifebook E756 to i8042 quirk table
+    - [s390x] mm: Pin identity mapping base to zero
+    - smb/server: fix return value of smb2_open()
+    - NFSv4: Fix clearing of layout segments in layoutreturn
+    - NFS: Avoid unnecessary rescanning of the per-server delegation list
+    - [x86] platform/x86: panasonic-laptop: Fix SINF array out of bounds
+      accesses
+    - [x86] platform/x86: panasonic-laptop: Allocate 1 entry extra in the sinf
+      array
+    - mptcp: pm: Fix uaf in __timer_delete_sync
+    - [arm64] dts: rockchip: fix eMMC/SPI corruption when audio has been used on
+      RK3399 Puma
+    - [arm64] dts: rockchip: override BIOS_DISABLE signal via GPIO hog on RK3399
+      Puma
+    - minmax: reduce min/max macro expansion in atomisp driver
+    - net: tighten bad gso csum offset check in virtio_net_hdr
+    - net: libwx: fix number of Rx and Tx descriptors
+    - dm-integrity: fix a race condition when accessing recalc_sector
+    - clocksource: hyper-v: Use lapic timer in a TDX VM without paravisor
+    - [x86] hyperv: fix kexec crash due to VP assist page corruption
+    - mm: avoid leaving partial pfn mappings around in error case
+    - bcachefs: Fix bch2_extents_match() false positive
+    - bcachefs: Revert lockless buffered IO path
+    - bcachefs: Don't delete open files in online fsck
+    - [arm64] dts: rockchip: fix PMIC interrupt pin in pinctrl for ROCK Pi E
+    - [arm64] firmware: qcom: uefisecapp: Fix deadlock in qcuefi_acquire()
+    - [riscv64] dts: starfive: jh7110-common: Fix lower rate of CPUfreq by
+      setting PLL0 rate to 1.5GHz
+    - drm/amd/display: Disable error correction if it's not supported
+    - drm/amd/display: Fix FEC_READY write on DP LT
+    - eeprom: digsy_mtc: Fix 93xx46 driver probe failure
+    - clk/sophgo: Using BUG() instead of unreachable() in mmux_get_parent_id()
+    - cxl/core: Fix incorrect vendor debug UUID define
+    - cxl: Restore XOR'd position bits during address translation
+    - net: hsr: Send supervisory frames to HSR network with ProxyNodeTable data
+    - hwmon: (pmbus) Conditionally clear individual status bits for pmbus rev >=
+      1.2
+    - ice: Fix lldp packets dropping after changing the number of channels
+    - ice: fix accounting for filters shared by multiple VSIs
+    - ice: fix VSI lists confusion when adding VLANs
+    - igb: Always call igb_xdp_ring_update_tail() under Tx lock
+    - net/mlx5: Update the list of the PCI supported devices
+    - net/mlx5e: Add missing link modes to ptys2ethtool_map
+    - net/mlx5e: Add missing link mode to ptys2ext_ethtool_map
+    - net/mlx5: Explicitly set scheduling element and TSAR type
+    - net/mlx5: Add missing masks and QoS bit masks for scheduling elements
+    - net/mlx5: Correct TASR typo into TSAR
+    - net/mlx5: Verify support for scheduling element and TSAR type
+    - net/mlx5: Fix bridge mode operations when there are no VFs
+    - fou: fix initialization of grc
+    - net: ftgmac100: Enable TX interrupt to avoid TX timeout
+    - net: phy: dp83822: Fix NULL pointer dereference on DP83825 devices
+    - drivers: perf: Fix smp_processor_id() use in preemptible code
+    - [riscv64] Disable preemption while handling PR_RISCV_CTX_SW_FENCEI_OFF
+    - netfilter: nft_socket: fix sk refcount leaks
+    - net: hsr: prevent NULL pointer dereference in hsr_proxy_announce()
+    - net: dsa: felix: ignore pending status of TAS module when it's disabled
+    - net: dpaa: Pad packets to ETH_ZLEN
+    - netlink: specs: mptcp: fix port endianness
+    - tracing/osnoise: Fix build when timerlat is not enabled
+    - spi: nxp-fspi: fix the KASAN report out-of-bounds bug
+    - soundwire: stream: Revert "soundwire: stream: fix programming slave ports
+      for non-continous port maps"
+    - drm/syncobj: Fix syncobj leak in drm_syncobj_eventfd_ioctl
+    - dma-buf: heaps: Fix off-by-one in CMA heap fault handler
+    - drm/nouveau/fb: restore init() for ramgp102
+    - drm/amdgpu/atomfirmware: Silence UBSAN warning
+    - drm/amd/display: Avoid race between dcn10_set_drr() and
+      dc_state_destruct()
+    - drm/amd/display: Avoid race between dcn35_set_drr() and
+      dc_state_destruct()
+    - drm/amd/amdgpu: apply command submission parser for JPEG v1
+    - drm/amd/amdgpu: apply command submission parser for JPEG v2+
+    - tracing/kprobes: Fix build error when find_module() is not available
+    - [x86] ASoC: Intel: soc-acpi-intel-lnl-match: add missing empty item
+    - [x86] ASoC: Intel: soc-acpi-intel-mtl-match: add missing empty item
+    - spi: geni-qcom: Undo runtime PM changes at driver exit time
+    - spi: geni-qcom: Fix incorrect free_irq() sequence
+    - [x86] drm/i915/guc: prevent a possible int overflow in wq offsets
+    - ASoC: codecs: avoid possible garbage value in peb2466_reg_read()
+    - cifs: Fix signature miscalculation
+    - pinctrl: meteorlake: Add Arrow Lake-H/U ACPI ID
+    - ASoC: meson: axg-card: fix 'use-after-free'
+    - usb: typec: ucsi: Only set number of plug altmodes after registration
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 12 Sep 2024 23:09:11 +0200
 

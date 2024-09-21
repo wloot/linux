@@ -24,6 +24,10 @@ linux (6.11-1~exp2) UNRELEASED; urgency=medium
   * [powerpc*] udeb: Fold fancontrol-modules into kernel-image
   * [alpha] udeb: Fold srm-modules into kernel-image
   * udeb: Fold crc-modules into kernel-image
+  * Remove d/b/genorig.py in favour of uscan:
+    - d/salsa-ci.yml: In extract-source, use origtagz instead of genorig.py
+    - d/README.source: Document running uscan instead of genorig.py
+    - d/rules: Expect orig tarballs to be in ../ and never in ../orig/
 
   [ Salvatore Bonaccorso ]
   * net/netfilter/ipvs: Enable IP_VS_TWOS as module (Closes: #1082903)

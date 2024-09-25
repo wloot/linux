@@ -1,3 +1,19 @@
+linux (6.11-1~exp2) UNRELEASED; urgency=medium
+
+  * Revert "perf tools: Use $KBUILD_BUILD_TIMESTAMP as man page date" which is
+    no longer useful
+  * Fix some reproducibility issues (Closes: #1033663):
+    - d/rules.real: Fix missing -ffile-prefix-map options for user-space
+    - linux-perf: Remove remaining source filenames from executable
+    - linux-perf: Work around gcc bug with -ffile-prefix-map and assembly
+      sources
+    - Documentation: Use relative source filenames in ABI documentation
+    - kbuild, bpf: Fix BTF reproducibility
+    - d/rules.real: Add -fdebug-prefix-map option for assembly sources in
+      kernel
+
+ -- Ben Hutchings <benh@debian.org>  Wed, 25 Sep 2024 19:56:39 +0200
+
 linux (6.11-1~exp1) experimental; urgency=medium
 
   * New upstream release: https://kernelnewbies.org/Linux_6.11
@@ -87,17 +103,6 @@ linux (6.11-1~exp1) experimental; urgency=medium
     - d/rules.d/t/objtool: Put buildflags in the correct variables when
       recursing
     - d/rules: Delete blhc ignore regexp for objtool
-  * Revert "perf tools: Use $KBUILD_BUILD_TIMESTAMP as man page date" which is
-    no longer useful
-  * Fix some reproducibility issues (Closes: #1033663):
-    - d/rules.real: Fix missing -ffile-prefix-map options for user-space
-    - linux-perf: Remove remaining source filenames from executable
-    - linux-perf: Work around gcc bug with -ffile-prefix-map and assembly
-      sources
-    - Documentation: Use relative source filenames in ABI documentation
-    - kbuild, bpf: Fix BTF reproducibility
-    - d/rules.real: Add -fdebug-prefix-map option for assembly sources in
-      kernel
 
   [ Miao Wang ]
   * [loong64] Enable kernel support for LBT instructions.

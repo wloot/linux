@@ -26,6 +26,7 @@ debian/kbuild-abort-build-if-subdirs-used.patch
 debian/makefile-make-compiler-version-comparison-optional.patch
 bugfix/all/revert-tools-build-clean-cflags-and-ldflags-for-fixdep.patch
 debian/fixdep-allow-overriding-hostcc-and-hostld.patch
+debian/linux-perf-remove-remaining-source-filenames-from-executable.patch
 
 # Fixes/improvements to firmware loading
 features/all/drivers-media-dvb-usb-af9005-request_firmware.patch
@@ -72,6 +73,7 @@ features/x86/x86-make-x32-syscall-support-conditional.patch
 # Miscellaneous bug fixes
 bugfix/all/disable-some-marvell-phys.patch
 bugfix/all/fs-add-module_softdep-declarations-for-hard-coded-cr.patch
+bugfix/all/documentation-use-relative-source-paths-in-abi-documentation.patch
 
 # Miscellaneous features
 
@@ -94,7 +96,6 @@ bugfix/all/module-disable-matching-missing-version-crc.patch
 # Tools bug fixes
 bugfix/all/usbip-document-tcp-wrappers.patch
 bugfix/all/kbuild-fix-recordmcount-dependency.patch
-bugfix/all/tools-perf-man-date.patch
 bugfix/all/tools-perf-remove-shebangs.patch
 bugfix/x86/revert-perf-build-fix-libunwind-feature-detection-on.patch
 bugfix/all/tools-build-remove-bpf-run-time-check-at-build-time.patch
@@ -105,6 +106,7 @@ bugfix/all/tools_lib_symbol_use_d_fortify_source_2_for_non_debug_builds.patch
 bugfix/all/perf-tools-support-extra-cxxflags.patch
 bugfix/all/perf-tools-pass-extra_cflags-through-to-libbpf-build-again.patch
 bugfix/all/tools-rtla-fix-installation-from-out-of-tree-build.patch
+bugfix/all/kbuild-bpf-fix-btf-reproducibility.patch
 
 # debian-installer fixes
 bugfix/powerpc/fbdev-offb-Update-expected-device-name.patch

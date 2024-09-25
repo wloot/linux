@@ -11,6 +11,7 @@ linux (6.11-1~exp2) UNRELEASED; urgency=medium
     - kbuild, bpf: Fix BTF reproducibility
     - d/rules.real: Add -fdebug-prefix-map option for assembly sources in
       kernel
+  * d/rules.real: Try harder to set the locale to C.UTF-8
 
  -- Ben Hutchings <benh@debian.org>  Wed, 25 Sep 2024 19:56:39 +0200
 

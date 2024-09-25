@@ -27,8 +27,13 @@ export DEB_HOST_ARCH DEB_HOST_GNU_TYPE DEB_BUILD_ARCH
 # for dpkg-buildflags
 export DEB_BUILD_PATH = $(CURDIR)
 export DEB_RULES_REQUIRES_ROOT ?= no
-export LC_ALL = C.UTF-8
-undefine LANGUAGE
+
+# Set LANG rather than LC_ALL because upstream wants to override
+# specific categories and may undefine LC_ALL.  To ensure that the
+# build environment does not affect our locale, undefine all other
+# locale variables.
+export LANG = C.UTF-8
+$(foreach var,LC_ALL LANGUAGE LC_ADDRESS LC_COLLATE LC_CTYPE LC_IDENTIFICATION LC_MEASUREMENT LC_MESSAGES LC_MONETARY LC_NAME LC_NUMERIC LC_PAPER LC_TELEPHONE LC_TIME,$(eval undefine $(var)))
 
 stamp = [ -d $(dir $@) ] || mkdir $(dir $@); touch $@
 

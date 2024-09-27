@@ -31,6 +31,10 @@ linux (6.11.1-1~exp1) UNRELEASED; urgency=medium
   [ Salvatore Bonaccorso ]
   * net/netfilter/ipvs: Enable IP_VS_TWOS as module (Closes: #1082903)
 
+  [ Uwe Kleine-König ]
+  * [armhf] Enable support for GPIOs, i2c, spi and G-sensor for Terasic's
+    DE10-nano board.
+
  -- Ben Hutchings <benh@debian.org>  Wed, 25 Sep 2024 19:56:39 +0200
 
 linux (6.11-1~exp1) experimental; urgency=medium

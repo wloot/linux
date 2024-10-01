@@ -98,6 +98,10 @@ linux (6.11.2-1) unstable; urgency=medium
   * [armhf] Enable support for GPIOs, i2c, spi and G-sensor for Terasic's
     DE10-nano board.
 
+  [ Ricardo Salveti ]
+  * [arm64] Enable Qualcomm CONFIG_SC_GCC and CONFIG_PINCTRL for 7280,
+    7280, 8180X and 8280XP as builtin
+
  -- Ben Hutchings <benh@debian.org>  Sun, 06 Oct 2024 01:00:02 +0200
 
 linux (6.11-1~exp1) experimental; urgency=medium

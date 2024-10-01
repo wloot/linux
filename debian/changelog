@@ -1,4 +1,4 @@
-linux (6.10.12-1) UNRELEASED; urgency=medium
+linux (6.10.12-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.10.12
@@ -58,7 +58,7 @@ linux (6.10.12-1) UNRELEASED; urgency=medium
   [ Helge Deller ]
   * [hppa] Fix kernel build with CONFIG_DRM=y on parisc64.
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 30 Sep 2024 20:24:51 +0200
+ -- Salvatore Bonaccorso <carnil@debian.org>  Tue, 01 Oct 2024 19:08:55 +0200
 
 linux (6.10.11-1) unstable; urgency=medium
 

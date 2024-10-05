@@ -27,6 +27,8 @@ linux (6.11.1-1~exp1) UNRELEASED; urgency=medium
   * [powerpc*] udeb: Fold fancontrol-modules into kernel-image
   * [alpha] udeb: Fold srm-modules into kernel-image
   * udeb: Fold crc-modules into kernel-image
+  * [arm64,armhf] udeb: Add all watchdog drivers to kernel-image
+    (Closes: #1081550)
 
   [ Salvatore Bonaccorso ]
   * net/netfilter/ipvs: Enable IP_VS_TWOS as module (Closes: #1082903)

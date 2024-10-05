@@ -1,7 +1,8 @@
-linux (6.11.1-1~exp1) UNRELEASED; urgency=medium
+linux (6.11.2-1~exp1) UNRELEASED; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.11.1
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.11.2
 
   [ Ben Hutchings ]
   * Revert "perf tools: Use $KBUILD_BUILD_TIMESTAMP as man page date" which is
@@ -36,6 +37,7 @@ linux (6.11.1-1~exp1) UNRELEASED; urgency=medium
 
   [ Salvatore Bonaccorso ]
   * net/netfilter/ipvs: Enable IP_VS_TWOS as module (Closes: #1082903)
+  * libcpupower: Update symbols file for changes in 6.11.2-1~exp1.
 
   [ Josua Mayer ]
   * [arm64] Enable drivers for AM64 SoC on HummingBoard-T (Closes: #1081837)

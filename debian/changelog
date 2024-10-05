@@ -31,6 +31,11 @@ linux (6.11.1-1~exp1) UNRELEASED; urgency=medium
   [ Salvatore Bonaccorso ]
   * net/netfilter/ipvs: Enable IP_VS_TWOS as module (Closes: #1082903)
 
+  [ Josua Mayer ]
+  * [arm64] Enable drivers for AM64 SoC on HummingBoard-T (Closes: #1081837)
+  * [arm64] udeb: Add kernel modules for I2C, USB and Ethernet on TI AM64
+  * [arm64] udeb: Add kernel modules for RTC
+
  -- Ben Hutchings <benh@debian.org>  Wed, 25 Sep 2024 19:56:39 +0200
 
 linux (6.11-1~exp1) experimental; urgency=medium

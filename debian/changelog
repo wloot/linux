@@ -31,6 +31,7 @@ linux (6.11.2-1~exp1) UNRELEASED; urgency=medium
 
   [ Salvatore Bonaccorso ]
   * net/netfilter/ipvs: Enable IP_VS_TWOS as module (Closes: #1082903)
+  * libcpupower: Update symbols file for changes in 6.11.2-1~exp1.
 
  -- Ben Hutchings <benh@debian.org>  Wed, 25 Sep 2024 19:56:39 +0200
 

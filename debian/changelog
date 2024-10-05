@@ -29,6 +29,10 @@ linux (6.11.1-1~exp1) UNRELEASED; urgency=medium
   * udeb: Fold crc-modules into kernel-image
   * [arm64,armhf] udeb: Add all watchdog drivers to kernel-image
     (Closes: #1081550)
+  * Remove d/b/genorig.py in favour of uscan:
+    - d/salsa-ci.yml: In extract-source, use origtagz instead of genorig.py
+    - d/README.source: Document running uscan instead of genorig.py
+    - d/rules: Expect orig tarballs to be in ../ and never in ../orig/
 
   [ Salvatore Bonaccorso ]
   * net/netfilter/ipvs: Enable IP_VS_TWOS as module (Closes: #1082903)

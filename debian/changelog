@@ -1,4 +1,4 @@
-linux (6.11.2-1~exp1) UNRELEASED; urgency=medium
+linux (6.11.2-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.11.1
@@ -52,7 +52,7 @@ linux (6.11.2-1~exp1) UNRELEASED; urgency=medium
   * [armhf] Enable support for GPIOs, i2c, spi and G-sensor for Terasic's
     DE10-nano board.
 
- -- Ben Hutchings <benh@debian.org>  Wed, 25 Sep 2024 19:56:39 +0200
+ -- Ben Hutchings <benh@debian.org>  Sun, 06 Oct 2024 01:00:02 +0200
 
 linux (6.11-1~exp1) experimental; urgency=medium
 

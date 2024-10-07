@@ -1,3 +1,31 @@
+linux (6.12~rc2-1~exp1) UNRELEASED; urgency=medium
+
+  * New upstream release candidate
+
+  [ Ben Hutchings ]
+  * Update to 6.12-rc2:
+    - Drop patches applied upstream:
+      - "tools/rtla: Fix installation from out-of-tree build"
+    - Refresh patches:
+      - Update "Revert "tools build: Clean CFLAGS and LDFLAGS for fixdep"" and
+        "fixdep: Allow overriding HOSTCC and HOSTLD" to use $(SILENT_MAKE)
+      - Adjust context in "fanotify: Taint on use of
+        FANOTIFY_ACCESS_PERMISSIONS"
+      - Adjust context in "kbuild: Look for module.lds under arch directory
+        too"
+      - Adjust context in "Include package version along with kernel release in
+        stack traces"
+      - Adjust context in "arm64: add kernel config option to lock down when in
+        Secure Boot mode"
+      - Adjust context in "efi: Lock down the kernel if booted in secure boot
+        mode"
+      - Adjust context in "security,perf: Allow further restriction of
+        perf_event_open"
+      - Adjust context in "intel-iommu: Add option to exclude integrated GPU
+        only"
+
+ -- Ben Hutchings <benh@debian.org>  Mon, 07 Oct 2024 15:23:24 +0200
+
 linux (6.11.2-1) unstable; urgency=medium
 
   * New upstream stable update:

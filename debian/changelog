@@ -23,6 +23,7 @@ linux (6.12~rc2-1~exp1) UNRELEASED; urgency=medium
         perf_event_open"
       - Adjust context in "intel-iommu: Add option to exclude integrated GPU
         only"
+  * [rt] Update to 6.12-rc1-rt2
 
  -- Ben Hutchings <benh@debian.org>  Mon, 07 Oct 2024 15:23:24 +0200
 

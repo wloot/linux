@@ -26,6 +26,18 @@ linux (6.12~rc2-1~exp1) UNRELEASED; urgency=medium
   * [rt] Update to 6.12-rc1-rt2
   * d/rules.d/certs: Add newly required include directory to CPPFLAGS
   * libcpupower: Update symbols file for change in 6.12
+  * d/config: Update with the help of kconfigeditor2:
+    - i2c: Remove I2C_COMPAT
+    - input/touchscreen: Remove TOUCHSCREEN_MCS5000
+    - mm: Enable Z3FOLD_DEPRECATED instead of Z3FOLD
+    - [amd64] sound/soc/intel: Enable AVS drivers to replace old Skylake SoC
+      drivers:
+      + Enable SND_SOC_INTEL_AVS_MACH_RT286 and
+        SND_SOC_INTEL_AVS_MACH_RT5514
+      + Leave SND_SOC_INTEL_AVS_MACH_MAX98357A disabled until we know it's safe
+      + Remove SND_SOC_INTEL_SKYLAKE, SND_SOC_INTEL_CML_LP,
+        SND_SOC_INTEL_SKYLAKE_HDAUDIO_CODEC, SND_SOC_INTEL_SKL_*_MACH,
+        SND_SOC_INTEL_KBL_*_MACH
 
  -- Ben Hutchings <benh@debian.org>  Mon, 07 Oct 2024 15:23:24 +0200
 

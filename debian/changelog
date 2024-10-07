@@ -25,6 +25,7 @@ linux (6.12~rc2-1~exp1) UNRELEASED; urgency=medium
         only"
   * [rt] Update to 6.12-rc1-rt2
   * d/rules.d/certs: Add newly required include directory to CPPFLAGS
+  * libcpupower: Update symbols file for change in 6.12
 
  -- Ben Hutchings <benh@debian.org>  Mon, 07 Oct 2024 15:23:24 +0200
 

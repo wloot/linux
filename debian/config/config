@@ -7701,7 +7701,7 @@ CONFIG_FORTIFY_SOURCE=y
 ## choice: First legacy 'major LSM' to be initialized
 CONFIG_DEFAULT_SECURITY_APPARMOR=y
 ## end choice
-CONFIG_LSM="landlock,lockdown,yama,loadpin,safesetid,integrity,apparmor,selinux,smack,tomoyo,bpf"
+CONFIG_LSM="landlock,lockdown,yama,loadpin,safesetid,integrity,apparmor,selinux,smack,tomoyo,bpf,ipe"
 
 ##
 ## file: security/Kconfig.hardening
@@ -7749,6 +7749,11 @@ CONFIG_IMA_DEFAULT_HASH_SHA256=y
 # CONFIG_IMA_READ_POLICY is not set
 CONFIG_IMA_APPRAISE=y
 CONFIG_IMA_ARCH_POLICY=y
+
+##
+## file: security/ipe/Kconfig
+##
+CONFIG_SECURITY_IPE=y
 
 ##
 ## file: security/keys/Kconfig

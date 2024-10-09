@@ -69,6 +69,10 @@ linux (6.12~rc6-1~exp1) UNRELEASED; urgency=medium
   [ Matthias Geiger ]
   * [x86] Enable CIO2 and IPU3 as modules (Closes: #1086335)
 
+  [ Luca Boccassi ]
+  * Enable new IPE LSM. For more information on how to write policies see:
+    https://docs.kernel.org/security/ipe.html
+
  -- Ben Hutchings <benh@debian.org>  Mon, 07 Oct 2024 15:23:24 +0200
 
 linux (6.11.6-1) unstable; urgency=medium

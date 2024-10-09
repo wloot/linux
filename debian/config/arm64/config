@@ -574,6 +574,10 @@ CONFIG_TURRIS_MOX_RWTM=m
 ## file: drivers/firmware/arm_scmi/Kconfig
 ##
 CONFIG_ARM_SCMI_PROTOCOL=y
+
+##
+## file: drivers/firmware/arm_scmi/transports/Kconfig
+##
 CONFIG_ARM_SCMI_TRANSPORT_SMC=y
 
 ##

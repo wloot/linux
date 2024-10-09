@@ -11,7 +11,6 @@
 # CONFIG_X86_MCE is not set
 # CONFIG_X86_16BIT is not set
 # CONFIG_AMD_NUMA is not set
-# CONFIG_NUMA_EMU is not set
 # CONFIG_ISA_DMA_API is not set
 # CONFIG_ISA is not set
 # CONFIG_X86_X32_ABI is not set
@@ -53,3 +52,8 @@ CONFIG_GOOGLE_FRAMEBUFFER_COREBOOT=m
 ##
 CONFIG_I6300ESB_WDT=m
 # CONFIG_PCIPCWATCHDOG is not set
+
+##
+## file: mm/Kconfig
+##
+# CONFIG_NUMA_EMU is not set

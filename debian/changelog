@@ -47,6 +47,10 @@ linux (6.12~rc4-1~exp1) UNRELEASED; urgency=medium
   * debian/patches: Correct misspelled filename extension for patch.
     Thanks to Jing Luo (Closes: #1085600)
 
+  [ Aurelien Jarno ]
+  * [arm64,armhf,riscv64,x86] Enable I2C_DESIGNWARE_CORE, now gating the other
+    I2C_DESIGNWARE options.
+
  -- Ben Hutchings <benh@debian.org>  Mon, 07 Oct 2024 15:23:24 +0200
 
 linux (6.11.4-1) unstable; urgency=medium

@@ -848,6 +848,11 @@ CONFIG_DRM_VIRTIO_GPU=m
 # CONFIG_DRM_VMWGFX is not set
 
 ##
+## file: drivers/gpu/drm/xe/Kconfig
+##
+CONFIG_DRM_XE=m
+
+##
 ## file: drivers/greybus/Kconfig
 ##
 # CONFIG_GREYBUS is not set

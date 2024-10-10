@@ -39,6 +39,9 @@ linux (6.12~rc2-1~exp1) UNRELEASED; urgency=medium
         SND_SOC_INTEL_SKYLAKE_HDAUDIO_CODEC, SND_SOC_INTEL_SKL_*_MACH,
         SND_SOC_INTEL_KBL_*_MACH
 
+  [ Han Gao ]
+  * Enable DRM_XE for intel arc graphic card for non-x86 device
+
  -- Ben Hutchings <benh@debian.org>  Mon, 07 Oct 2024 15:23:24 +0200
 
 linux (6.11.2-1) unstable; urgency=medium

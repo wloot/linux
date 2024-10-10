@@ -644,6 +644,12 @@ CONFIG_DRM_VBOXVIDEO=m
 CONFIG_DRM_VMWGFX=m
 
 ##
+## file: drivers/gpu/drm/xe/Kconfig
+##
+#. As explained in #1081563 disable DRM_XE for x86
+# CONFIG_DRM_XE is not set
+
+##
 ## file: drivers/gpu/drm/xen/Kconfig
 ##
 CONFIG_DRM_XEN_FRONTEND=m

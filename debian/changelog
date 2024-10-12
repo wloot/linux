@@ -40,7 +40,7 @@ linux (6.12~rc2-1~exp1) UNRELEASED; urgency=medium
         SND_SOC_INTEL_KBL_*_MACH
 
   [ Han Gao ]
-  * Enable DRM_XE for intel arc graphic card for non-x86 device
+  * Enable DRM_XE for intel arc graphic card
 
  -- Ben Hutchings <benh@debian.org>  Mon, 07 Oct 2024 15:23:24 +0200
 

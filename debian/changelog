@@ -563,6 +563,10 @@ linux (6.11.3-1) UNRELEASED; urgency=medium
     - pmdomain: core: Reduce debug summary table width
     - perf python: Allow checking for the existence of warning options in clang
 
+  [ Salvatore Bonaccorso ]
+  * d/config: Update with the help of kconfigeditor2
+    - mm: Enable Z3FOLD_DEPRECATED instead of Z3FOLD
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 12 Oct 2024 17:42:17 +0200
 
 linux (6.11.2-1) unstable; urgency=medium

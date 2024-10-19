@@ -42,6 +42,9 @@ linux (6.12~rc3-1~exp1) UNRELEASED; urgency=medium
   [ Han Gao ]
   * Enable DRM_XE for intel arc graphic card for non-x86 device
 
+  [ Salvatore Bonaccorso ]
+  * mm: Do not enable Z3FOLD_DEPRECATED
+
  -- Ben Hutchings <benh@debian.org>  Mon, 07 Oct 2024 15:23:24 +0200
 
 linux (6.11.2-1) unstable; urgency=medium

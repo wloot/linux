@@ -1,16 +1,17 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Date: Wed, 28 Jun 2023 09:39:33 +0200
-Subject: [PATCH 4/4] ARM: vfp: Move sending signals outside of vfp_lock()ed
- section.
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.12/older/patches-6.12-rc1-rt2.tar.xz
+Date: Mon, 1 Jul 2024 12:56:56 +0200
+Subject: [PATCH 4/4] ARM: vfp: Move sending signals outside of
+ vfp_state_hold()ed section.
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.12/older/patches-6.12-rc4-rt6.tar.xz
 
 VFP_bounce() is invoked from within vfp_support_entry() and may send a
 signal. Sending a signal uses spinlock_t which becomes a sleeping lock
 on PREEMPT_RT and must not be acquired within a preempt-disabled
 section.
 
-Move the vfp_raise_sigfpe() block outside of the vfp_lock() section.
+Move the vfp_raise_sigfpe() block outside of the vfp_state_hold() section.
 
+Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 ---
  arch/arm/vfp/vfpmodule.c |   29 ++++++++++++++++++-----------
@@ -91,7 +92,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 -		vfp_raise_exceptions(exceptions, trigger, orig_fpscr, regs);
 +		si_code = vfp_raise_exceptions(exceptions, trigger, orig_fpscr);
 +exit:
-+	vfp_unlock();
++	vfp_state_release();
 +	if (si_code2)
 +		vfp_raise_sigfpe(si_code2, regs);
 +	if (si_code)
@@ -103,7 +104,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  		 * replay the instruction that trapped.
  		 */
  		fmxr(FPEXC, fpexc);
-+		vfp_unlock();
++		vfp_state_release();
  	} else {
  		/* Check for synchronous or asynchronous exceptions */
  		if (!(fpexc & (FPEXC_EX | FPEXC_DEX))) {
@@ -111,11 +112,11 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  			}
  		}
  bounce:		regs->ARM_pc += 4;
-+		/* VFP_bounce() will invoke vfp_unlock() */
++		/* VFP_bounce() will invoke vfp_state_release() */
  		VFP_bounce(trigger, fpexc, regs);
  	}
  
--	vfp_unlock();
+-	vfp_state_release();
  	return 0;
  }
  

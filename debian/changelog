@@ -44,6 +44,8 @@ linux (6.12~rc3-1~exp1) UNRELEASED; urgency=medium
 
   [ Salvatore Bonaccorso ]
   * mm: Do not enable Z3FOLD_DEPRECATED
+  * debian/patches: Correct misspelled filename extension for patch.
+    Thanks to Jing Luo (Closes: #1085600)
 
  -- Ben Hutchings <benh@debian.org>  Mon, 07 Oct 2024 15:23:24 +0200
 

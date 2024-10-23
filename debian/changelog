@@ -1,3 +1,155 @@
+linux (6.11.5-1) UNRELEASED; urgency=medium
+
+  * New upstream stable update:
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.11.5
+    - btrfs: fix uninitialized pointer free in add_inode_ref()
+    - btrfs: fix uninitialized pointer free on read_alloc_one_name() error
+    - ksmbd: fix user-after-free from session log off
+    - ALSA: scarlett2: Add error check after retrieving PEQ filter values
+    - ALSA: hda/conexant - Fix audio routing for HP EliteOne 1000 G2
+    - mptcp: pm: fix UaF read in mptcp_pm_nl_rm_addr_or_subflow
+    - net: enetc: remove xdp_drops statistic from enetc_xdp_drop()
+    - net: enetc: block concurrent XDP transmissions during ring reconfiguration
+    - net: enetc: disable Tx BD rings after they are empty
+    - net: enetc: disable NAPI after all rings are disabled
+    - net: enetc: add missing static descriptor and inline keyword
+    - posix-clock: Fix missing timespec64 check in pc_clock_settime()
+    - udp: Compute L4 checksum as usual when not segmenting the skb
+    - [arm64] dts: marvell: cn9130-sr-som: fix cp0 mdio pin numbers
+    - [arm64] probes: Remove broken LDR (literal) uprobe support
+    - [arm64] probes: Fix simulate_ldr*_literal()
+    - [arm64] probes: Fix uprobes for big-endian kernels
+    - net: macb: Avoid 20s boot delay by skipping MDIO bus registration for
+      fixed-link PHY
+    - net: microchip: vcap api: Fix memory leaks in vcap_api_encode_rule_test()
+    - maple_tree: correct tree corruption on spanning store
+    - nilfs2: propagate directory read errors from nilfs_find_entry()
+    - fat: fix uninitialized variable
+    - mm/mremap: fix move_normal_pmd/retract_page_tables race (CVE-2024-50066)
+    - mm: khugepaged: fix the arguments order in khugepaged_collapse_file trace
+      point
+    - mm/mglru: only clear kswapd_failures if reclaimable
+    - mm/swapfile: skip HugeTLB pages for unuse_vma
+    - mm/damon/tests/sysfs-kunit.h: fix memory leak in
+      damon_sysfs_test_add_targets()
+    - tcp: fix mptcp DSS corruption due to large pmtu xmit
+    - net: fec: Move `fec_ptp_read()` to the top of the file
+    - net: fec: Remove duplicated code
+    - mptcp: prevent MPC handshake on port-based signal endpoints
+    - [amd64] iommu/vt-d: Fix incorrect pci_for_each_dma_alias() for non-PCI
+      devices
+    - [s390x] sclp: Deactivate sclp after all its users
+    - [s390x] sclp_vt220: Convert newlines to CRLF instead of LFCR
+    - [s390x] KVM: s390: gaccess: Check if guest address is in memslot
+    - [s390x] KVM: s390: Change virtual to physical address access in diag 0x258
+      handler
+    - [x86] cpufeatures: Define X86_FEATURE_AMD_IBPB_RET
+    - [x86] cpufeatures: Add a IBPB_NO_RET BUG flag
+    - [x86] entry: Have entry_ibpb() invalidate return predictions
+    - [x86] bugs: Skip RSB fill at VMEXIT
+    - [x86] bugs: Do not use UNTRAIN_RET with IBPB on entry
+    - fgraph: Use CPU hotplug mechanism to initialize idle shadow stacks
+    - Input: xpad - add support for 8BitDo Ultimate 2C Wireless Controller
+    - blk-rq-qos: fix crash on rq_qos_wait vs. rq_qos_wake_function race
+    - io_uring/sqpoll: close race on waiting for sqring entries
+    - blk-mq: setup queue ->tag_set before initializing hctx
+    - ublk: don't allow user copy for unprivileged device
+    - io_uring/sqpoll: ensure task state is TASK_RUNNING when running task_work
+    - Input: xpad - add support for MSI Claw A1M
+    - scsi: mpi3mr: Validate SAS port assignments
+    - scsi: ufs: core: Set SDEV_OFFLINE when UFS is shut down
+    - scsi: ufs: core: Fix the issue of ICU failure
+    - scsi: ufs: core: Requeue aborted request
+    - drm/radeon: Fix encoder->possible_clones
+    - [x86] drm/i915/dp_mst: Handle error during DSC BW overhead/slice
+      calculation
+    - [x86] drm/i915/dp_mst: Don't require DSC hblank quirk for a non-DSC
+      compatible mode
+    - drm/vmwgfx: Cleanup kms setup without 3d
+    - drm/vmwgfx: Handle surface check failure correctly
+    - drm/amdgpu/mes: fix issue of writing to the same log buffer from 2 MES
+      pipes
+    - drm/amdgpu/smu13: always apply the powersave optimization
+    - drm/amdgpu/swsmu: Only force workload setup on init
+    - drm/amdgpu: prevent BO_HANDLES error from being overwritten
+    - iio: dac: ad5770r: add missing select REGMAP_SPI in Kconfig
+    - iio: dac: ltc1660: add missing select REGMAP_SPI in Kconfig
+    - iio: dac: stm32-dac-core: add missing select REGMAP_MMIO in Kconfig
+    - iio: adc: ti-ads8688: add missing select IIO_(TRIGGERED_)BUFFER in Kconfig
+    - iio: hid-sensors: Fix an error handling path in
+      _hid_sensor_set_report_latency()
+    - iio: light: veml6030: fix ALS sensor resolution
+    - iio: light: veml6030: fix IIO device retrieval from embedded device
+    - iio: light: opt3001: add missing full-scale range value
+    - iio: amplifiers: ada4250: add missing select REGMAP_SPI in Kconfig
+    - iio: frequency: adf4377: add missing select REMAP_SPI in Kconfig
+    - iio: chemical: ens160: add missing select IIO_(TRIGGERED_)BUFFER in
+      Kconfig
+    - iio: light: bu27008: add missing select IIO_(TRIGGERED_)BUFFER in Kconfig
+    - iio: magnetometer: af8133j: add missing select IIO_(TRIGGERED_)BUFFER in
+      Kconfig
+    - iio: resolver: ad2s1210 add missing select REGMAP in Kconfig
+    - iio: pressure: bm1390: add missing select IIO_(TRIGGERED_)BUFFER in
+      Kconfig
+    - iio: dac: ad5766: add missing select IIO_(TRIGGERED_)BUFFER in Kconfig
+    - iio: proximity: mb1232: add missing select IIO_(TRIGGERED_)BUFFER in
+      Kconfig
+    - iio: dac: ad3552r: add missing select IIO_(TRIGGERED_)BUFFER in Kconfig
+    - iio: adc: ti-lmp92064: add missing select IIO_(TRIGGERED_)BUFFER in
+      Kconfig
+    - iio: adc: ti-lmp92064: add missing select REGMAP_SPI in Kconfig
+    - iio: adc: ti-ads124s08: add missing select IIO_(TRIGGERED_)BUFFER in
+      Kconfig
+    - iio: resolver: ad2s1210: add missing select (TRIGGERED_)BUFFER in Kconfig
+    - iio: adc: ad7944: add missing select IIO_(TRIGGERED_)BUFFER in Kconfig
+    - iio: accel: kx022a: add missing select IIO_(TRIGGERED_)BUFFER in Kconfig
+    - Bluetooth: Call iso_exit() on module unload
+    - Bluetooth: Remove debugfs directory on module init failure
+    - Bluetooth: ISO: Fix multiple init when debugfs is disabled
+    - Bluetooth: btusb: Fix not being able to reconnect after suspend
+    - Bluetooth: btusb: Fix regression with fake CSR controllers 0a12:0001
+    - vt: prevent kernel-infoleak in con_font_get()
+    - xhci: tegra: fix checked USB2 port number
+    - xhci: Fix incorrect stream context type macro
+    - xhci: Mitigate failed set dequeue pointer commands
+    - USB: serial: option: add support for Quectel EG916Q-GL
+    - USB: serial: option: add Telit FN920C04 MBIM compositions
+    - usb: typec: qcom-pmic-typec: fix sink status being overwritten with RP_DEF
+    - USB: gadget: dummy-hcd: Fix "task hung" problem
+    - usb: gadget: f_uac2: fix return value for UAC2_ATTRIBUTE_STRING store
+    - usb: dwc3: Wait for EndXfer completion before restoring GUSB2PHYCFG
+    - usb: dwc3: core: Fix system suspend on TI AM62 platforms
+    - misc: microchip: pci1xxxx: add support for NVMEM_DEVID_AUTO for EEPROM
+      device
+    - misc: microchip: pci1xxxx: add support for NVMEM_DEVID_AUTO for OTP device
+    - serial: imx: Update mctrl old_status on RTSD interrupt
+    - parport: Proper fix for array out-of-bounds access
+    - [x86] resctrl: Annotate get_mem_config() functions as __init
+    - [x86] apic: Always explicitly disarm TSC-deadline timer
+    - [x86] CPU/AMD: Only apply Zenbleed fix for Zen2 during late microcode load
+    - [x86] entry_32: Do not clobber user EFLAGS.ZF
+    - [x86] entry_32: Clear CPU buffers after register restore in NMI return
+    - tty: n_gsm: Fix use-after-free in gsm_cleanup_mux
+    - [x86] bugs: Use code segment selector for VERW operand
+    - pinctrl: nuvoton: fix a double free in ma35_pinctrl_dt_node_to_map_func()
+    - pinctrl: intel: platform: fix error path in device_for_each_child_node()
+    - pinctrl: ocelot: fix system hang on level based interrupts
+    - pinctrl: stm32: check devm_kasprintf() returned value
+    - pinctrl: apple: check devm_kasprintf() returned value
+    - irqchip/gic-v4: Don't allow a VMOVP on a dying VPE
+    - irqchip/sifive-plic: Unmask interrupt in plic_irq_enable()
+    - irqchip/sifive-plic: Return error code on failure
+    - serial: qcom-geni: fix polled console initialisation
+    - serial: qcom-geni: revert broken hibernation support
+    - serial: qcom-geni: fix shutdown race
+    - serial: qcom-geni: fix dma rx cancellation
+    - serial: qcom-geni: fix receiver enable
+    - mm: vmscan.c: fix OOM on swap stress test
+    - ALSA: hda/conexant - Use cached pin control for Node 0x1d on HP EliteOne
+      1000 G2
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Wed, 23 Oct 2024 11:00:05 +0200
+
 linux (6.11.4-1) unstable; urgency=medium
 
   * New upstream stable update:

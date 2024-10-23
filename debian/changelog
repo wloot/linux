@@ -148,6 +148,10 @@ linux (6.11.5-1) UNRELEASED; urgency=medium
     - ALSA: hda/conexant - Use cached pin control for Node 0x1d on HP EliteOne
       1000 G2
 
+  [ Aurelien Jarno ]
+  * Revert upstream commit causing data corrution (Closes: #1085425)
+    - Revert "mmc: dw_mmc: Fix IDMAC operation with pages bigger than 4K"
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Wed, 23 Oct 2024 11:00:05 +0200
 
 linux (6.11.4-1) unstable; urgency=medium

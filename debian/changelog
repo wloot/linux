@@ -1,6 +1,14 @@
 linux (6.12~rc6-1~exp2) UNRELEASED; urgency=medium
 
+  [ Aurelien Jarno ]
   * libbpf: Add missing per-arch include path (fixes FTBFS on riscv64).
+
+  [ Miguel Bernal Marin ]
+  * [amd64] Enable Compute Acceleration Framework and drivers
+    (Closes: #1086054)
+    - drivers/accel: Enable DRM_ACCEL
+    - drivers/accel/habanalabs: Enable DRM_ACCEL_HABANALABS as module
+    - drivers/accel/ivpu: Enable DRM_ACCEL_IVPU as module
 
  -- Aurelien Jarno <aurel32@debian.org>  Wed, 13 Nov 2024 06:14:56 +0100
 

@@ -86,6 +86,11 @@ CONFIG_XEN_512GB=y
 CONFIG_SIGNED_PE_FILE_VERIFICATION=y
 
 ##
+## file: drivers/accel/Kconfig
+##
+CONFIG_DRM_ACCEL=y
+
+##
 ## file: drivers/accel/habanalabs/Kconfig
 ##
 CONFIG_DRM_ACCEL_HABANALABS=m

@@ -152,6 +152,10 @@ linux (6.11.5-1) UNRELEASED; urgency=medium
   * Revert upstream commit causing data corrution (Closes: #1085425)
     - Revert "mmc: dw_mmc: Fix IDMAC operation with pages bigger than 4K"
 
+  [ Salvatore Bonaccorso ]
+  * netfilter: xtables: fix typo causing some targets not to load on IPv6
+    (Closes: #1085953)
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Wed, 23 Oct 2024 11:00:05 +0200
 
 linux (6.11.4-1) unstable; urgency=medium

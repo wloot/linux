@@ -1,4 +1,4 @@
-linux (6.11.5-1) UNRELEASED; urgency=medium
+linux (6.11.5-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.11.5
@@ -156,7 +156,7 @@ linux (6.11.5-1) UNRELEASED; urgency=medium
   * netfilter: xtables: fix typo causing some targets not to load on IPv6
     (Closes: #1085953)
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Wed, 23 Oct 2024 11:00:05 +0200
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 27 Oct 2024 07:25:33 +0100
 
 linux (6.11.4-1) unstable; urgency=medium
 

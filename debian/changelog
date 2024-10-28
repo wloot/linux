@@ -47,6 +47,14 @@ linux (6.12~rc4-1~exp1) UNRELEASED; urgency=medium
   * debian/patches: Correct misspelled filename extension for patch.
     Thanks to Jing Luo (Closes: #1085600)
 
+  [ Aurelien Jarno ]
+  * [arm64,armhf,riscv64,x86] Enable I2C_DESIGNWARE_CORE, now gating the other
+    I2C_DESIGNWARE options.
+  * [riscv64] Enable GPIO_DWAPB, PINCTRL_SOPHGO_CV1800B,
+    PINCTRL_SOPHGO_CV1812H, PINCTRL_SOPHGO_SG2000, PINCTRL_SOPHGO_SG2002,
+    SENSORS_SG2042_MCU, SPI_DESIGNWARE, SPI_DW_MMIO.
+  * [riscv64] Enable STAGING_MEDIA, VIDEO_CADENCE_CSI2RX, VIDEO_STARFIVE_CAMSS.
+
  -- Ben Hutchings <benh@debian.org>  Mon, 07 Oct 2024 15:23:24 +0200
 
 linux (6.11.5-1) unstable; urgency=medium

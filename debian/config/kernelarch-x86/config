@@ -965,6 +965,11 @@ CONFIG_IPU_BRIDGE=m
 CONFIG_VIDEO_INTEL_IPU6=m
 
 ##
+## file: drivers/media/pci/intel/ipu3/Kconfig
+##
+CONFIG_VIDEO_IPU3_CIO2=m
+
+##
 ## file: drivers/media/pci/intel/ivsc/Kconfig
 ##
 CONFIG_INTEL_VSC=m
@@ -1737,6 +1742,11 @@ CONFIG_SPI_LJCA=m
 ## file: drivers/staging/media/Kconfig
 ##
 CONFIG_STAGING_MEDIA=y
+
+##
+## file: drivers/staging/media/ipu3/Kconfig
+##
+CONFIG_VIDEO_IPU3_IMGU=m
 
 ##
 ## file: drivers/staging/rtl8192e/Kconfig

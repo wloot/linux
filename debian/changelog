@@ -55,6 +55,9 @@ linux (6.12~rc5-1~exp1) UNRELEASED; urgency=medium
     SENSORS_SG2042_MCU, SPI_DESIGNWARE, SPI_DW_MMIO.
   * [riscv64] Enable STAGING_MEDIA, VIDEO_CADENCE_CSI2RX, VIDEO_STARFIVE_CAMSS.
 
+  [ Uwe Kleine-König ]
+  * [arm64] Enable ARM64_VA_BITS_52
+
  -- Ben Hutchings <benh@debian.org>  Mon, 07 Oct 2024 15:23:24 +0200
 
 linux (6.11.5-1) unstable; urgency=medium

@@ -18,7 +18,7 @@ CONFIG_ARM64_ERRATUM_1418040=y
 CONFIG_ARM64_4K_PAGES=y
 ## end choice
 ## choice: Virtual address space size
-CONFIG_ARM64_VA_BITS_48=y
+CONFIG_ARM64_VA_BITS_52=y
 ## end choice
 CONFIG_SCHED_MC=y
 CONFIG_SCHED_SMT=y

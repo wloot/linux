@@ -1,4 +1,4 @@
-linux (6.11.6-1) UNRELEASED; urgency=medium
+linux (6.11.6-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.11.6
@@ -259,7 +259,7 @@ linux (6.11.6-1) UNRELEASED; urgency=medium
     - ACPI: PRM: Clean up guid type in struct prm_handler_info
     - [arm64] ASoC: qcom: Select missing common Soundwire module code on SDM845
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 01 Nov 2024 22:18:57 +0100
+ -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 04 Nov 2024 22:57:57 +0100
 
 linux (6.11.5-1) unstable; urgency=medium
 

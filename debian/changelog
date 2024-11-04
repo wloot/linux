@@ -69,6 +69,10 @@ linux (6.12~rc6-1~exp1) UNRELEASED; urgency=medium
   [ Matthias Geiger ]
   * [x86] Enable CIO2 and IPU3 as modules (Closes: #1086335)
 
+  [ Miguel Bernal Marin ]
+  * [amd64] arch/x86: Enable X86_USER_SHADOW_STACK
+    (X86 userspace shadow stack) (Closes: #1086695)
+
  -- Ben Hutchings <benh@debian.org>  Mon, 07 Oct 2024 15:23:24 +0200
 
 linux (6.11.6-1) unstable; urgency=medium

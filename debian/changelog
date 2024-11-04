@@ -58,6 +58,10 @@ linux (6.12~rc5-1~exp1) UNRELEASED; urgency=medium
   [ Uwe Kleine-König ]
   * [arm64] Enable ARM64_VA_BITS_52
 
+  [ Ricardo Salveti ]
+  * [arm64] Enable Qualcomm CONFIG_SC_GCC and CONFIG_PINCTRL for 7280,
+    7280, 8180X and 8280XP as builtin
+
  -- Ben Hutchings <benh@debian.org>  Mon, 07 Oct 2024 15:23:24 +0200
 
 linux (6.11.5-1) unstable; urgency=medium

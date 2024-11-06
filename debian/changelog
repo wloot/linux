@@ -65,6 +65,9 @@ linux (6.12~rc6-1~exp1) UNRELEASED; urgency=medium
   [ Sjoerd Simons ]
   * [x86] Enable Intel IPU supported camera sensors (Closes: #1082906)
 
+  [ Matthias Geiger ]
+  * [x86] Enable CIO2 and IPU3 as modules (Closes: #1086335)
+
  -- Ben Hutchings <benh@debian.org>  Mon, 07 Oct 2024 15:23:24 +0200
 
 linux (6.11.6-1) unstable; urgency=medium

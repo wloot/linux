@@ -7,6 +7,9 @@
 ###########################################################################
 # Posted
 ###########################################################################
+0001-hrtimer-Use-__raise_softirq_irqoff-to-raise-the-soft.patch
+0002-timers-Use-__raise_softirq_irqoff-to-raise-the-softi.patch
+0003-softirq-Use-a-dedicated-thread-for-timer-wakeups-on-.patch
 
 ###########################################################################
 # John's printk queue
@@ -29,12 +32,6 @@
 0003-locking-rt-Add-sparse-annotation-for-RCU.patch
 0004-locking-rt-Annotate-unlock-followed-by-lock-for-spar.patch
 
-# Needs discussion first.
-softirq-Use-a-dedicated-thread-for-timer-wakeups.patch
-rcutorture-Also-force-sched-priority-to-timersd-on-b.patch
-tick-Fix-timer-storm-since-introduction-of-timersd.patch
-softirq-Wake-ktimers-thread-also-in-softirq.patch
-
 ###########################################################################
 # DRM:
 ###########################################################################
@@ -49,7 +46,16 @@ softirq-Wake-ktimers-thread-also-in-softirq.patch
 0008-Revert-drm-i915-Depend-on-PREEMPT_RT.patch
 
 # Lazy preemption
-PREEMPT_AUTO.patch
+0001-sched-Add-TIF_NEED_RESCHED_LAZY-infrastructure.patch
+0002-sched-Add-Lazy-preemption-model.patch
+0003-sched-Enable-PREEMPT_DYNAMIC-for-PREEMPT_RT.patch
+0004-sched-x86-Enable-Lazy-preemption.patch
+0005-sched-Add-laziest-preempt-model.patch
+sched-Fixup-the-IS_ENABLED-check-for-PREEMPT_LAZY.patch
+#
+tracing-Remove-TRACE_FLAG_IRQS_NOSUPPORT.patch
+0002-tracing-Record-task-flag-NEED_RESCHED_LAZY.patch
+0003-riscv-add-PREEMPT_LAZY-support.patch
 
 ###########################################################################
 # ARM
@@ -57,10 +63,10 @@ PREEMPT_AUTO.patch
 0001-arm-Disable-jump-label-on-PREEMPT_RT.patch
 ARM__enable_irq_in_translation_section_permission_fault_handlers.patch
 arm-Disable-FAST_GUP-on-PREEMPT_RT-if-HIGHPTE-is-als.patch
-0001-ARM-vfp-Provide-vfp_lock-for-VFP-locking.patch
-0002-ARM-vfp-Use-vfp_lock-in-vfp_sync_hwstate.patch
-0003-ARM-vfp-Use-vfp_lock-in-vfp_support_entry.patch
-0004-ARM-vfp-Move-sending-signals-outside-of-vfp_lock-ed-.patch
+0001-ARM-vfp-Provide-vfp_state_hold-for-VFP-locking.patch
+0002-ARM-vfp-Use-vfp_state_hold-in-vfp_sync_hwstate.patch
+0003-ARM-vfp-Use-vfp_state_hold-in-vfp_support_entry.patch
+0004-ARM-vfp-Move-sending-signals-outside-of-vfp_state_ho.patch
 ARM__Allow_to_enable_RT.patch
 
 ###########################################################################
@@ -72,11 +78,6 @@ powerpc-pseries-Select-the-generic-memory-allocator.patch
 powerpc_kvm__Disable_in-kernel_MPIC_emulation_for_PREEMPT_RT.patch
 powerpc_stackprotector__work_around_stack-guard_init_from_atomic.patch
 POWERPC__Allow_to_enable_RT.patch
-
-###########################################################################
-# RISC-V
-###########################################################################
-riscv-add-PREEMPT_AUTO-support.patch
 
 # Sysfs file vs uname() -v
 sysfs__Add__sys_kernel_realtime_entry.patch

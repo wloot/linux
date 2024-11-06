@@ -46,6 +46,7 @@ linux (6.12~rc6-1~exp1) UNRELEASED; urgency=medium
   * mm: Do not enable Z3FOLD_DEPRECATED
   * debian/patches: Correct misspelled filename extension for patch.
     Thanks to Jing Luo (Closes: #1085600)
+  * [rt] Update to 6.12-rc4-rt6
 
   [ Aurelien Jarno ]
   * [arm64,armhf,riscv64,x86] Enable I2C_DESIGNWARE_CORE, now gating the other

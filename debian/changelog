@@ -62,6 +62,9 @@ linux (6.12~rc6-1~exp1) UNRELEASED; urgency=medium
   * [arm64] Enable Qualcomm CONFIG_SC_GCC and CONFIG_PINCTRL for 7280,
     7280, 8180X and 8280XP as builtin
 
+  [ Sjoerd Simons ]
+  * [x86] Enable Intel IPU supported camera sensors (Closes: #1082906)
+
  -- Ben Hutchings <benh@debian.org>  Mon, 07 Oct 2024 15:23:24 +0200
 
 linux (6.11.6-1) unstable; urgency=medium

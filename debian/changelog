@@ -78,6 +78,10 @@ linux (6.12~rc6-1~exp1) UNRELEASED; urgency=medium
   * [arm64] drivers/usb/host: Enable USB_XHCI_PCI_RENESAS as module
     (Closes: #1032671)
 
+  [ Miguel Bernal Marin ]
+  * [amd64] arch/x86: Enable X86_USER_SHADOW_STACK
+    (X86 userspace shadow stack) (Closes: #1086695)
+
  -- Ben Hutchings <benh@debian.org>  Mon, 07 Oct 2024 15:23:24 +0200
 
 linux (6.11.6-1) unstable; urgency=medium

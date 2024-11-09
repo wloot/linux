@@ -38,6 +38,7 @@ linux (6.12~rc6-1~exp1) UNRELEASED; urgency=medium
       + Remove SND_SOC_INTEL_SKYLAKE, SND_SOC_INTEL_CML_LP,
         SND_SOC_INTEL_SKYLAKE_HDAUDIO_CODEC, SND_SOC_INTEL_SKL_*_MACH,
         SND_SOC_INTEL_KBL_*_MACH
+  * drivers/usb/host: Enable XHCI_PCI_RENESAS on all architectures
 
   [ Han Gao ]
   * Enable DRM_XE for intel arc graphic card
@@ -72,6 +73,10 @@ linux (6.12~rc6-1~exp1) UNRELEASED; urgency=medium
   [ Luca Boccassi ]
   * Enable new IPE LSM. For more information on how to write policies see:
     https://docs.kernel.org/security/ipe.html
+
+  [ Cyril Brulebois ]
+  * [arm64] drivers/usb/host: Enable USB_XHCI_PCI_RENESAS as module
+    (Closes: #1032671)
 
  -- Ben Hutchings <benh@debian.org>  Mon, 07 Oct 2024 15:23:24 +0200
 

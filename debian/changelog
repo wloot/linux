@@ -1,4 +1,4 @@
-linux (6.12~rc6-1~exp1) UNRELEASED; urgency=medium
+linux (6.12~rc6-1~exp1) experimental; urgency=medium
 
   * New upstream release candidate
 
@@ -82,7 +82,7 @@ linux (6.12~rc6-1~exp1) UNRELEASED; urgency=medium
   * [amd64] arch/x86: Enable X86_USER_SHADOW_STACK
     (X86 userspace shadow stack) (Closes: #1086695)
 
- -- Ben Hutchings <benh@debian.org>  Mon, 07 Oct 2024 15:23:24 +0200
+ -- Ben Hutchings <benh@debian.org>  Sun, 10 Nov 2024 01:12:45 +0100
 
 linux (6.11.6-1) unstable; urgency=medium
 

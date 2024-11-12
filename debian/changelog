@@ -11,6 +11,7 @@ linux (6.12~rc7-1~exp1) UNRELEASED; urgency=medium
   [ Ben Hutchings ]
   * d/b/gencontrol.py: Fix generation of debian/tests/control
   * linux-kbuild: Add scripts/module-common.c (Closes: #1087495)
+  * objtool: Fix compiler flags leaking to fixdep in cross-build
 
  -- Aurelien Jarno <aurel32@debian.org>  Wed, 13 Nov 2024 06:14:56 +0100
 

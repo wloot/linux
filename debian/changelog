@@ -8,6 +8,9 @@ linux (6.12~rc7-1~exp1) UNRELEASED; urgency=medium
   [ Salvatore Bonaccorso ]
   * tpm: Disable TPM on tpm2_create_primary() failure (Closes: #1087331)
 
+  [ Ben Hutchings ]
+  * d/b/gencontrol.py: Fix generation of debian/tests/control
+
  -- Aurelien Jarno <aurel32@debian.org>  Wed, 13 Nov 2024 06:14:56 +0100
 
 linux (6.12~rc6-1~exp1) experimental; urgency=medium

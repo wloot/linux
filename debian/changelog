@@ -13,6 +13,10 @@ linux (6.12~rc7-1~exp1) UNRELEASED; urgency=medium
   * linux-kbuild: Add scripts/module-common.c (Closes: #1087495)
   * objtool: Fix compiler flags leaking to fixdep in cross-build
 
+  [ Zhang Ning ]
+  * [x86] add patches from maillist to fix intel_soc_pmic_bxtwc irq issues.
+  * [x86] enable INTEL_BXTWC_PMIC_TMU, TYPEC_WCOVE as module.
+
  -- Aurelien Jarno <aurel32@debian.org>  Wed, 13 Nov 2024 06:14:56 +0100
 
 linux (6.12~rc6-1~exp1) experimental; urgency=medium

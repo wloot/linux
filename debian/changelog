@@ -17,6 +17,13 @@ linux (6.12~rc7-1~exp1) UNRELEASED; urgency=medium
   * [x86] add patches from maillist to fix intel_soc_pmic_bxtwc irq issues.
   * [x86] enable INTEL_BXTWC_PMIC_TMU, TYPEC_WCOVE as module.
 
+  [ Miguel Bernal Marin ]
+  * [amd64] Enable Compute Acceleration Framework and drivers
+    (Closes: #1086054)
+    - drivers/accel: Enable DRM_ACCEL
+    - drivers/accel/habanalabs: Enable DRM_ACCEL_HABANALABS as module
+    - drivers/accel/ivpu: Enable DRM_ACCEL_IVPU as module
+
  -- Aurelien Jarno <aurel32@debian.org>  Wed, 13 Nov 2024 06:14:56 +0100
 
 linux (6.12~rc6-1~exp1) experimental; urgency=medium

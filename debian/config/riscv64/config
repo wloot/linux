@@ -385,6 +385,11 @@ CONFIG_USB_MUSB_POLARFIRE_SOC=m
 CONFIG_NOP_USB_XCEIV=m
 
 ##
+## file: drivers/video/fbdev/Kconfig
+##
+CONFIG_FB_EFI=y
+
+##
 ## file: drivers/watchdog/Kconfig
 ##
 CONFIG_DA9063_WATCHDOG=m

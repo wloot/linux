@@ -4,6 +4,7 @@ linux (6.12~rc7-1~exp1) UNRELEASED; urgency=medium
 
   [ Aurelien Jarno ]
   * libbpf: Add missing per-arch include path (fixes FTBFS on riscv64).
+  * [riscv64] Enable EFI_FB
 
   [ Salvatore Bonaccorso ]
   * tpm: Disable TPM on tpm2_create_primary() failure (Closes: #1087331)

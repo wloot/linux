@@ -27,6 +27,9 @@ linux (6.12~rc7-1~exp1) UNRELEASED; urgency=medium
   [ Matthias Geiger ]
   * [x86] Enable VIDEO_OV5670 as module
 
+  [ Uwe Kleine-König ]
+  * [arm64] Enable Texas Instruments ADS8688 driver (TI_ADS8688) as a module.
+
  -- Aurelien Jarno <aurel32@debian.org>  Wed, 13 Nov 2024 06:14:56 +0100
 
 linux (6.12~rc6-1~exp1) experimental; urgency=medium

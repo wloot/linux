@@ -114,4 +114,23 @@ bugfix/powerpc/fbdev-offb-Update-expected-device-name.patch
 features/all/0001-Skip-tcp-collapse-processing-if-the-current-rmem-is-.patch
 features/all/0001-Reduce-TCP-initial-rto.patch
 
+features/all/0001-net-tcp_bbr-broaden-app-limited-rate-sample-detectio.patch
+features/all/0002-net-tcp_bbr-v2-shrink-delivered_mstamp-first_tx_msta.patch
+features/all/0003-net-tcp_bbr-v2-snapshot-packets-in-flight-at-transmi.patch
+features/all/0004-net-tcp_bbr-v2-count-packets-lost-over-TCP-rate-samp.patch
+features/all/0005-net-tcp_bbr-v2-export-FLAG_ECE-in-rate_sample.is_ece.patch
+features/all/0006-net-tcp_bbr-v2-introduce-ca_ops-skb_marked_lost-CC-m.patch
+features/all/0007-net-tcp_bbr-v2-adjust-skb-tx.in_flight-upon-merge-in.patch
+features/all/0008-net-tcp_bbr-v2-adjust-skb-tx.in_flight-upon-split-in.patch
+features/all/0009-net-tcp-add-new-ca-opts-flag-TCP_CONG_WANTS_CE_EVENT.patch
+features/all/0010-net-tcp-re-generalize-TSO-sizing-in-TCP-CC-module-AP.patch
+features/all/0011-net-tcp-add-fast_ack_mode-1-skip-rwin-check-in-tcp_f.patch
+features/all/0012-net-tcp_bbr-v2-record-app-limited-status-of-TLP-repa.patch
+features/all/0013-net-tcp_bbr-v2-inform-CC-module-of-losses-repaired-b.patch
+features/all/0014-net-tcp_bbr-v2-introduce-is_acking_tlp_retrans_seq-i.patch
+features/all/0015-tcp-introduce-per-route-feature-RTAX_FEATURE_ECN_LOW.patch
+features/all/0016-net-tcp_bbr-v3-update-TCP-bbr-congestion-control-mod.patch
+features/all/0017-net-tcp_bbr-v3-ensure-ECN-enabled-BBR-flows-set-ECT-.patch
+features/all/0018-tcp-export-TCPI_OPT_ECN_LOW-in-tcp_info-tcpi_options.patch
+
 # ABI maintenance

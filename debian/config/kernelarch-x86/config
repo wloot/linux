@@ -964,14 +964,14 @@ CONFIG_VIDEO_OV8865=m
 CONFIG_IPU_BRIDGE=m
 
 ##
-## file: drivers/media/pci/intel/ipu6/Kconfig
-##
-CONFIG_VIDEO_INTEL_IPU6=m
-
-##
 ## file: drivers/media/pci/intel/ipu3/Kconfig
 ##
 CONFIG_VIDEO_IPU3_CIO2=m
+
+##
+## file: drivers/media/pci/intel/ipu6/Kconfig
+##
+CONFIG_VIDEO_INTEL_IPU6=m
 
 ##
 ## file: drivers/media/pci/intel/ivsc/Kconfig

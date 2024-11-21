@@ -916,6 +916,7 @@ CONFIG_QCOM_SPMI_IADC=m
 CONFIG_QCOM_SPMI_VADC=m
 CONFIG_QCOM_SPMI_ADC5=m
 CONFIG_ROCKCHIP_SARADC=m
+CONFIG_TI_ADS8688=m
 
 ##
 ## file: drivers/iio/common/cros_ec_sensors/Kconfig

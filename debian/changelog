@@ -1,13 +1,11 @@
-linux (6.12~rc7-1~exp1) UNRELEASED; urgency=medium
+linux (6.12-1~exp1) UNRELEASED; urgency=medium
 
-  * New upstream release candidate
+  * New upstream release: https://kernelnewbies.org/Linux_6.12
+    - tpm: Disable TPM on tpm2_create_primary() failure (Closes: #1087331)
 
   [ Aurelien Jarno ]
   * libbpf: Add missing per-arch include path (fixes FTBFS on riscv64).
   * [riscv64] Enable EFI_FB
-
-  [ Salvatore Bonaccorso ]
-  * tpm: Disable TPM on tpm2_create_primary() failure (Closes: #1087331)
 
   [ Ben Hutchings ]
   * d/b/gencontrol.py: Fix generation of debian/tests/control

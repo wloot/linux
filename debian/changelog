@@ -13,6 +13,7 @@ linux (6.12.1-1~exp1) UNRELEASED; urgency=medium
   * d/b/gencontrol.py: Fix generation of debian/tests/control
   * linux-kbuild: Add scripts/module-common.c (Closes: #1087495)
   * objtool: Fix compiler flags leaking to fixdep in cross-build
+  * linux-image: bug: Update list of related firmware packages
 
   [ Zhang Ning ]
   * [x86] add patches from maillist to fix intel_soc_pmic_bxtwc irq issues.

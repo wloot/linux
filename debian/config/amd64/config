@@ -71,6 +71,11 @@ CONFIG_CRYPTO_GHASH_CLMUL_NI_INTEL=m
 CONFIG_CRYPTO_CRCT10DIF_PCLMUL=m
 
 ##
+## file: arch/x86/kvm/Kconfig
+##
+CONFIG_KVM_XEN=y
+
+##
 ## file: arch/x86/ras/Kconfig
 ##
 CONFIG_RAS_CEC=y

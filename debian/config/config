@@ -6134,6 +6134,11 @@ CONFIG_FANOTIFY_ACCESS_PERMISSIONS=y
 CONFIG_INOTIFY_USER=y
 
 ##
+## file: fs/ntfs3/Kconfig
+##
+CONFIG_NTFS3_FS=m
+
+##
 ## file: fs/ocfs2/Kconfig
 ##
 CONFIG_OCFS2_FS=m

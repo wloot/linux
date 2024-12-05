@@ -27,7 +27,6 @@
 ###########################################################################
 
 # sparse
-0001-locking-rt-Add-sparse-annotation-PREEMPT_RT-s-sleepi.patch
 0002-locking-rt-Remove-one-__cond_lock-in-RT-s-spin_trylo.patch
 0003-locking-rt-Add-sparse-annotation-for-RCU.patch
 0004-locking-rt-Annotate-unlock-followed-by-lock-for-spar.patch

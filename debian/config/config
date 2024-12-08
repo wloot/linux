@@ -6481,6 +6481,7 @@ CONFIG_MODULE_SIG_SHA256=y
 # CONFIG_MODULE_SIG_SHA384 is not set
 # CONFIG_MODULE_SIG_SHA512 is not set
 ## end choice
+CONFIG_MODULE_COMPRESS=y
 ## choice: Module compression type
 CONFIG_MODULE_COMPRESS_XZ=y
 ## end choice

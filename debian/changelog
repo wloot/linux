@@ -1,5 +1,156 @@
-linux (6.12.3-2) UNRELEASED; urgency=medium
+linux (6.12.4-1) UNRELEASED; urgency=medium
 
+  * New upstream stable update:
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.4
+    - xfs: remove unknown compat feature check in superblock write validation
+    - quota: flush quota_release_work upon quota writeback
+    - btrfs: drop unused parameter file_offset from
+      btrfs_encoded_read_regular_fill_pages()
+    - btrfs: change btrfs_encoded_read() so that reading of extent is done by
+      caller
+    - btrfs: move priv off stack in btrfs_encoded_read_regular_fill_pages()
+    - btrfs: fix use-after-free in btrfs_encoded_read_endio()
+    - btrfs: don't loop for nowait writes when checking for cross references
+    - btrfs: add a sanity check for btrfs root in btrfs_search_slot()
+    - btrfs: ref-verify: fix use-after-free after invalid ref action
+    - netkit: Add option for scrubbing skb meta data
+    - md/raid5: Wait sync io to finish before changing group cnt
+    - md/md-bitmap: Add missing destroy_work_on_stack()
+    - [arm64] dts: allwinner: pinephone: Add mount matrix to accelerometer
+    - [arm64] dts: mediatek: mt8186-corsola: Fix GPU supply coupling max-spread
+    - [arm64] dts: freescale: imx8mm-verdin: Fix SD regulator startup delay
+    - [arm64] dts: ti: k3-am62-verdin: Fix SD regulator startup delay
+    - [arm64] dts: mediatek: mt8186-corsola: Fix IT6505 reset line polarity
+    - [arm64] dts: freescale: imx8mp-verdin: Fix SD regulator startup delay
+    - media: platform: rga: fix 32-bit DMA limitation
+    - [arm64,armhf] media: verisilicon: av1: Fix reference video buffer pointer
+      assignment
+    - media: ts2020: fix null-ptr-deref in ts2020_probe()
+    - efi/libstub: Free correct pointer on failure
+    - net: phy: dp83869: fix status reporting for 1000base-x autonegotiation
+    - [arm64] media: venus: Fix pm_runtime_set_suspended() with runtime pm
+      enabled
+    - media: gspca: ov534-ov772x: Fix off-by-one error in set_frame_rate()
+    - [amd64] media: ov08x40: Fix burst write sequence
+    - media: uvcvideo: Stop stream during unregister
+    - media: uvcvideo: Require entities to have a non-zero unique ID
+    - tracing: Fix function timing profiler to initialize hashtable
+    - kunit: Fix potential null dereference in kunit_device_driver_test()
+    - kunit: string-stream: Fix a UAF bug in kunit_init_suite()
+    - ovl: Filter invalid inodes with missing lookup function
+    - maple_tree: refine mas_store_root() on storing NULL
+    - ftrace: Fix regression with module command in stack_trace_filter
+    - vmstat: call fold_vm_zone_numa_events() before show per zone NUMA event
+    - zram: clear IDLE flag after recompression
+    - [arm64,armhf] iommu/io-pgtable-arm: Fix stage-2 map/unmap for concatenated
+      tables
+    - [arm64] iommu/arm-smmu: Defer probe of clients after smmu device bound
+    - mm/damon/vaddr: fix issue in damon_va_evenly_split_region()
+    - [powerpc*] vdso: Drop -mstack-protector-guard flags in 32-bit files with
+      clang
+    - cpufreq: scmi: Fix cleanup path when boost enablement fails
+    - clk: qcom: gcc-qcs404: fix initial rate of GPLL3
+    - ad7780: fix division by zero in ad7780_write_raw()
+    - nvmem: core: Check read_only flag for force_ro in bin_attr_nvmem_write()
+    - driver core: fw_devlink: Stop trying to optimize cycle detection logic
+    - spmi: pmic-arb: fix return path in for_each_available_child_of_node()
+    - [armel,armhf] 9429/1: ioremap: Sync PGDs for VMALLOC shadow
+    - [s390x] entry: Mark IRQ entries to fix stack depot warnings
+    - [armel,armhf] 9430/1: entry: Do a dummy read from VMAP shadow
+    - [armel,armhf] 9431/1: mm: Pair atomic_set_release() with _read_acquire()
+    - net: stmmac: set initial EEE policy configuration
+    - vfio/qat: fix overflow check in qat_vf_resume_write()
+    - [arm64] PCI: qcom: Disable ASPM L0s for X1E80100
+    - perf jevents: fix breakage when do perf stat on system metric
+    - remoteproc: qcom_q6v5_pas: disable auto boot for wpss
+    - [arm64,armhf] PCI: imx6: Fix suspend/resume support on i.MX6QDL
+    - mm/slub: Avoid list corruption when removing a slab from the full list
+    - f2fs: fix to drop all discards after creating snapshot on lvm device
+    - ceph: extract entity name from device id
+    - ceph: pass cred pointer to ceph_mds_auth_match()
+    - ceph: fix cred leak in ceph_mds_check_access()
+    - [arm64] mtd: spinand: winbond: Fix 512GW and 02JW OOB layout
+    - [arm64] mtd: spinand: winbond: Fix 512GW, 01GW, 01JW and 02JW ECC
+      information
+    - util_macros.h: fix/rework find_closest() macros
+    - [s390x] stacktrace: Use break instead of return statement
+    - scsi: ufs: exynos: Add check inside exynos_ufs_config_smu()
+    - scsi: ufs: exynos: Fix hibern8 notify callbacks
+    - i3c: master: svc: Fix pm_runtime_set_suspended() with runtime pm enabled
+    - i3c: master: Fix miss free init_dyn_addr at i3c_master_put_i3c_addrs()
+    - i3c: master: svc: fix possible assignment of the same address to two
+      devices
+    - i3c: master: svc: Modify enabled_events bit 7:0 to act as IBI enable
+      counter
+    - slab: Fix too strict alignment check in create_cache()
+    - fs/proc/kcore.c: Clear ret value in read_kcore_iter after successful
+      iov_iter_zero
+    - thermal: int3400: Fix reading of current_uuid for active policy
+    - leds: flash: mt6360: Fix device_for_each_child_node() refcounting in error
+      paths
+    - ovl: properly handle large files in ovl_security_fileattr
+    - mm/vmalloc: combine all TLB flush operations of KASAN shadow virtual
+      address into one operation
+    - dm: Fix typo in error message
+    - dm thin: Add missing destroy_work_on_stack()
+    - PCI: dwc: ep: Fix advertised resizable BAR size regression
+    - PCI: of_property: Assign PCI instead of CPU bus address to dynamic PCI
+      nodes
+    - PCI: rockchip-ep: Fix address translation unit programming
+    - nfsd: make sure exp active before svc_export_show
+    - nfsd: fix nfs4_openowner leak when concurrent nfsd4_open occur
+    - iio: accel: kx022a: Fix raw read format
+    - iio: invensense: fix multiple odr switch when FIFO is off
+    - iio: Fix fwnode_handle in __fwnode_iio_channel_get_by_name()
+    - iio: adc: ad7923: Fix buffer overflow for tx_buf and ring_xfer
+    - iio: gts: fix infinite loop for gain_to_scaletables()
+    - [powerpc*] Fix stack protector Kconfig test for clang
+    - [powerpc*] Adjust adding stack protector flags to KBUILD_CLAGS for clang
+    - [arm*] binder: fix node UAF in binder_add_freeze_work()
+    - [arm*] binder: fix OOB in binder_add_freeze_work()
+    - [arm*] binder: fix freeze UAF in binder_release_work()
+    - [arm*] binder: fix BINDER_WORK_FROZEN_BINDER debug logs
+    - [arm*] binder: fix BINDER_WORK_CLEAR_FREEZE_NOTIFICATION debug logs
+    - [arm*] binder: allow freeze notification for dead nodes
+    - [arm*] binder: fix memleak of proc->delivered_freeze
+    - [arm*] binder: add delivered_freeze to debugfs output
+    - dt-bindings: net: fec: add pps channel property
+    - [arm64,armhf] net: fec: refactor PPS channel configuration
+    - [arm64,armhf] net: fec: make PPS channel configurable
+    - drm/panic: Fix uninitialized spinlock acquisition with CONFIG_DRM_PANIC=n
+    - drm/sti: avoid potential dereference of error pointers in
+      sti_hqvdp_atomic_check
+    - drm/sti: avoid potential dereference of error pointers in
+      sti_gdp_atomic_check
+    - drm: panel: jd9365da-h3: Remove unused num_init_cmds structure member
+    - drm/sti: avoid potential dereference of error pointers
+    - drm/fbdev-dma: Select FB_DEFERRED_IO
+    - [arm64] drm/mediatek: Fix child node refcount handling in early exit
+    - drm/bridge: it6505: Fix inverted reset polarity
+    - [arm64,armhf] drm/etnaviv: flush shader L1 cache after user commandstream
+    - drm/xe/xe_guc_ads: save/restore OA registers and allowlist regs
+    - drm/xe/migrate: fix pat index usage
+    - Revert "drm/radeon: Delay Connector detecting when HPD singals is
+      unstable"
+    - drm/xe/migrate: use XE_BO_FLAG_PAGETABLE
+    - drm/xe/guc_submit: fix race around suspend_pending
+    - drm/amdgpu/pm: add gen5 display to the user on smu v14.0.2/3
+    - drm/amd: Add some missing straps from NBIO 7.11.0
+    - drm/amdgpu: fix usage slab after free
+    - drm/amd/pm: skip setting the power source on smu v14.0.2/3
+    - drm/amd: Fix initialization mistake for NBIO 7.11 devices
+    - drm/amd/pm: update current_socclk and current_uclk in gpu_metrics on smu
+      v13.0.7
+    - drm/amd/pm: disable pcie speed switching on Intel platform for smu
+      v14.0.2/3
+    - drm/amd/pm: Remove arcturus min power limit
+    - drm/amd/display: Fix handling of plane refcount
+    - drm/amd/display: update pipe selection policy to check head pipe
+    - drm/amd/display: Remove PIPE_DTO_SRC_SEL programming from set_dtbclk_dto
+    - posix-timers: Target group sigqueue to current task only if not exiting
+    - Revert "drm/xe/xe_guc_ads: save/restore OA registers and allowlist regs"
+
+  [ Bastian Blank ]
   * Re-enable compressing all modules: (closes: #1089515)
     - Set MODULE_COMPRESS.
 

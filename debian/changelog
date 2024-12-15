@@ -183,6 +183,11 @@ linux (6.12.6-1) UNRELEASED; urgency=medium
   [ Uwe Kleine-König ]
   * [arm64] Enable rx8025 driver as module.
 
+  [ Salvatore Bonaccorso ]
+  * drivers/block/zram: Enable lz4, lz4hc and zstd compression support
+    - Enable ZRAM_BACKEND_LZ4, ZRAM_BACKEND_LZ4HC and ZRAM_BACKEND_ZSTD
+    (Closes: #1086172)
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 19 Dec 2024 19:38:17 +0100
 
 linux (6.12.5-1) unstable; urgency=medium

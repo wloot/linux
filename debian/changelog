@@ -1,4 +1,4 @@
-linux (6.12.5-1) UNRELEASED; urgency=medium
+linux (6.12.5-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.4
@@ -636,7 +636,7 @@ linux (6.12.5-1) UNRELEASED; urgency=medium
   [ Salvatore Bonaccorso ]
   * d/u/signing-key.asc: Merge keys into a single OpenPGP ASCII Armored block
 
- -- Bastian Blank <waldi@debian.org>  Sun, 08 Dec 2024 11:10:22 +0100
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 15 Dec 2024 14:51:39 +0100
 
 linux (6.12.3-1) unstable; urgency=medium
 

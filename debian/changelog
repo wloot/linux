@@ -180,6 +180,9 @@ linux (6.12.6-1) UNRELEASED; urgency=medium
     - [x86] xen: remove hypercall page (CVE-2024-53241)
     - [x86] static-call: fix 32-bit build
 
+  [ Uwe Kleine-König ]
+  * [arm64] Enable rx8025 driver as module.
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 19 Dec 2024 19:38:17 +0100
 
 linux (6.12.5-1) unstable; urgency=medium

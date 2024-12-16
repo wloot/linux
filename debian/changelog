@@ -1,6 +1,10 @@
 linux (6.12.12-1~bpo12+1) UNRELEASED; urgency=medium
 
+  [ Ben Hutchings ]
   * Rebuild for bookworm-backports
+
+  [ Salvatore Bonaccorso ]
+  * d/salsa-ci.yml: Suppress aliased-location lintian errors
 
  -- Ben Hutchings <benh@debian.org>  Sat, 22 Feb 2025 21:44:27 +0100
 

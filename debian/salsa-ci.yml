@@ -14,6 +14,9 @@ variables:
   # a bit faster.
   DEB_BUILD_OPTIONS: 'terse parallel=4'
   DEBIAN_KERNEL_DISABLE_BUILD_PACKAGE_ARM64: 0
+  # Suppress 'aliased-location' as usrmerge-migration is not done in
+  # bookworm
+  SALSA_CI_LINTIAN_SUPPRESS_TAGS: 'aliased-location'
 
 # Add stages for signed packages
 stages:

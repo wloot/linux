@@ -1,4 +1,4 @@
-linux (6.12.6-1) UNRELEASED; urgency=medium
+linux (6.12.6-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.6
@@ -190,7 +190,7 @@ linux (6.12.6-1) UNRELEASED; urgency=medium
   * drivers/block/zram: Enable ZRAM_BACKEND_DEFLATE
   * drivers/hwmon: Enable SENSORS_SPD5118 as module (Closes: #1090071)
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 19 Dec 2024 19:38:17 +0100
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 21 Dec 2024 09:13:54 +0100
 
 linux (6.12.5-1) unstable; urgency=medium
 

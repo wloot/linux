@@ -168,6 +168,7 @@ linux (6.12.7-1) UNRELEASED; urgency=medium
     pipeline.
   * nfsd: fix legacy client tracking initialization (Closes: #1087900)
   * drivers/nvme/host: Enable NVME_HOST_AUTH
+  * drivers/nvme/target: Enable NVME_TARGET_AUTH
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 27 Dec 2024 14:41:47 +0100
 

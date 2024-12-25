@@ -117,6 +117,11 @@ linux (6.12.11-1) UNRELEASED; urgency=medium
     - drm/amd/display: Validate mdoe under MST LCT=1 case as well
     - apparmor: allocate xmatch for nullpdb inside aa_alloc_null
 
+  [ наб ]
+  * d/p/debian/cdc_ncm-cdc_mbim-use-ncm-by-default.patch: drop
+    (Modern userland supports MBIM, disabling breaks connections by default,
+     Ubuntu ships kernels without this patch and it's reliable there.)
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 23 Jan 2025 21:50:40 +0100
 
 linux (6.12.10-1) unstable; urgency=medium

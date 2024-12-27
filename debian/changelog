@@ -1,3 +1,169 @@
+linux (6.12.7-1) UNRELEASED; urgency=medium
+
+  * New upstream stable update:
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.7
+    - net: sched: fix ordering of qlen adjustment (CVE-2024-53164)
+    - net: stmmac: fix TSO DMA API usage causing oops
+    - firmware: arm_ffa: Fix the race around setting ffa_dev->properties
+    - [riscv64] KVM: Fix csr_write -> csr_set for HVIEN PMU overflow bit
+    - sched/fair: Fix NEXT_BUDDY
+    - sched/fair: Fix sched_can_stop_tick() for fair tasks
+    - sched/eevdf: More PELT vs DELAYED_DEQUEUE
+    - [amd64] p2sb: Factor out p2sb_read_from_cache()
+    - [amd64] p2sb: Introduce the global flag p2sb_hidden_by_bios
+    - [amd64] p2sb: Move P2SB hide and unhide code to p2sb_scan_and_cache()
+    - [amd64] p2sb: Do not scan and remove the P2SB device when it is unhidden
+    - i2c: pnx: Fix timeout in wait functions
+    - [s390x] ipl: Fix never less than zero warning
+    - erofs: fix PSI memstall accounting
+    - sched/dlserver: Fix dlserver double enqueue
+    - sched/dlserver: Fix dlserver time accounting
+    - [s390x] mm: Consider KMSAN modules metadata for paging levels
+    - erofs: add erofs_sb_free() helper
+    - erofs: use `struct erofs_device_info` for the primary device
+    - erofs: reference `struct erofs_device_info` for erofs_map_dev
+    - erofs: use buffered I/O for file-backed mounts by default
+    - xfs: sb_spino_align is not verified
+    - xfs: fix sparse inode limits on runt AG
+    - xfs: fix off-by-one error in fsmap's end_daddr usage
+    - xfs: fix sb_spino_align checks for large fsblock sizes
+    - xfs: fix zero byte checking in the superblock scrubber
+    - cxl/pci: Fix potential bogus return value upon successful probing
+    - cxl/region: Fix region creation for greater than x2 switches
+    - net/smc: protect link down work from execute after lgr freed
+    - net/smc: check sndbuf_space again after NOSPACE flag is set in smc_poll
+    - net/smc: check iparea_offset and ipv6_prefixes_cnt when receiving proposal
+      msg
+    - net/smc: check v2_ext_offset/eid_cnt/ism_gid_cnt when receiving proposal
+      msg
+    - net/smc: check smcd_v2_ext_offset when receiving proposal msg
+    - net/smc: check return value of sock_recvmsg when draining clc data
+    - [arm64] net: mscc: ocelot: fix incorrect IFH SRC_PORT field in
+      ocelot_ifh_set_basic()
+    - ionic: Fix netdev notifier unregister on failure
+    - ionic: no double destroy workqueue
+    - ionic: use ee->offset when returning sprom data
+    - ksmbd: count all requests in req_running counter
+    - ksmbd: fix broken transfers when exceeding max simultaneous operations
+    - netdev: fix repeated netlink messages in queue dump
+    - netdev: fix repeated netlink messages in queue stats
+    - team: Fix feature exposure when no ports are present
+    - [amd64,arm64] net: hinic: Fix cleanup in create_rxqs/txqs()
+    - net: ethernet: bgmac-platform: fix an OF node reference leak
+    - can: m_can: set init flag earlier in probe
+    - can: m_can: fix missed interrupts with m_can_pci
+    - ipvs: Fix clamp() of ip_vs_conn_tab on small memory systems
+    - netfilter: ipset: Fix for recursive locking warning
+    - net: dsa: restore dsa_software_vlan_untag() ability to operate on
+      VLAN-untagged traffic
+    - netdev-genl: avoid empty messages in queue dump
+    - psample: adjust size if rate_as_probability is set
+    - net: mdiobus: fix an OF node reference leak
+    - [arm64,armhf] mmc: sdhci-tegra: Remove
+      SDHCI_QUIRK_BROKEN_ADMA_ZEROLEN_DESC quirk
+    - [arm64] mmc: mtk-sd: disable wakeup in .remove() and in the error path of
+      .probe()
+    - irqchip/gic-v3: Work around insecure GIC integrations
+    - [amd64] EDAC/amd64: Simplify ECC check on unified memory controllers
+    - [arm64] KVM: arm64: Do not allow ID_AA64MMFR0_EL1.ASIDbits to be
+      overridden
+    - [amd64] KVM: x86: Cache CPUID.0xD XSTATE offsets+sizes during module init
+    - net: tun: fix tun_napi_alloc_frags()
+    - chelsio/chtls: prevent potential integer overflow on 32bit
+    - net: mctp: handle skb cleanup on sock_queue failures
+    - block: Revert "block: Fix potential deadlock while freezing queue and
+      acquiring sysfs_lock"
+    - i2c: riic: Always round-up when calculating bus period
+    - efivarfs: Fix error on non-existent file
+    - USB: serial: option: add TCL IK512 MBIM & ECM
+    - USB: serial: option: add MeiG Smart SLM770A
+    - USB: serial: option: add Netprisma LCUK54 modules for WWAN Ready
+    - USB: serial: option: add MediaTek T7XX compositions
+    - USB: serial: option: add Telit FE910C04 rmnet compositions
+    - xhci: Turn NEC specific quirk for handling Stop Endpoint errors generic
+    - [amd64] thunderbolt: Add support for Intel Panther Lake-M/P
+    - [amd64] thunderbolt: Improve redrive mode handling
+    - [amd64] thunderbolt: Don't display nvm_version unless upgrade supported
+    - drm/display: use ERR_PTR on DP tunnel manager creation fail
+    - drm/amd: Update strapping for NBIO 2.5.0
+    - drm/modes: Avoid divide by zero harder in drm_mode_vrefresh()
+    - drm/amdgpu: fix amdgpu_coredump
+    - drm/amdgpu: Handle NULL bo->tbo.resource (again) in amdgpu_vm_bo_update
+    - [amd64] udmabuf: udmabuf_create pin folio codestyle cleanup
+    - [amd64] udmabuf: fix memory leak on last export_udmabuf() error path
+    - dma-buf: Fix __dma_buf_debugfs_list_del argument for !CONFIG_DEBUG_FS
+    - [amd64] i915/guc: Reset engine utilization buffer before registration
+    - [amd64] i915/guc: Ensure busyness counter increases motonically
+    - [amd64] i915/guc: Accumulate active runtime on gt reset
+    - drm/amdgpu: don't access invalid sched
+    - hwmon: (tmp513) Fix interpretation of values of Shunt Voltage and Limit
+      Registers
+    - hwmon: (tmp513) Fix Current Register value interpretation
+    - hwmon: (tmp513) Fix interpretation of values of Temperature Result and
+      Limit Registers
+    - block: avoid to reuse `hctx` not removed from cpuhp callback list
+    - trace/ring-buffer: Do not use TP_printk() formatting for boot mapped
+      buffers
+    - drm/amdgpu/nbio7.11: fix IP version check
+    - drm/amdgpu/nbio7.7: fix IP version check
+    - drm/amdgpu/smu14.0.2: fix IP version check
+    - zram: refuse to use zero sized block device as backing device
+    - zram: fix uninitialized ZRAM not releasing backing device
+    - vmalloc: fix accounting with i915
+    - mm/page_alloc: don't call pfn_to_page() on possibly non-existent PFN in
+      split_large_buddy()
+    - ring-buffer: Fix overflow in __rb_map_vma
+    - alloc_tag: fix set_codetag_empty() when !CONFIG_MEM_ALLOC_PROFILING_DEBUG
+    - btrfs: split bios to the fs sector size boundary
+    - btrfs: fix improper generation check in snapshot delete
+    - btrfs: tree-checker: reject inline extent items with 0 ref count
+    - [s390x] mm: Fix DirectMap accounting
+    - drm/amdgpu/nbio7.0: fix IP version check
+    - drm/amdgpu/gfx12: fix IP version check
+    - drm/amdgpu/mmhub4.1: fix IP version check
+    - fgraph: Still initialize idle shadow stacks when starting
+    - Drivers: hv: util: Avoid accessing a ringbuffer not initialized yet
+    - tools: hv: Fix a complier warning in the fcopy uio daemon
+    - [x86] hyperv: Fix hv tsc page based sched_clock for hibernation
+    - [x86] KVM: x86: Play nice with protected guests in
+      complete_hypercall_exit()
+    - smb: client: fix TCP timers deadlock after rmmod
+    - accel/ivpu: Fix general protection fault in ivpu_bo_list()
+    - accel/ivpu: Fix WARN in ivpu_ipc_send_receive_internal()
+    - tracing: Fix test_event_printk() to process entire print argument
+    - tracing: Add missing helper functions in event pointer dereference check
+    - tracing: Add "%s" check in test_event_printk()
+    - tracing: Check "%s" dereference via the field and not the TP_printk format
+    - io_uring: Fix registered ring file refcount leak
+    - io_uring: check if iowq is killed before queuing
+    - NFS/pnfs: Fix a live lock between recalled layouts and layoutget
+    - [x86] KVM: SVM: Allow guest writes to set MSR_AMD64_DE_CFG bits
+    - of/irq: Fix interrupt-map cell length check in of_irq_parse_imap_parent()
+    - of/irq: Fix using uninitialized variable @addr_len in API
+      of_irq_parse_one()
+    - ocfs2: fix the space leak in LA when releasing LA
+    - nilfs2: fix buffer head leaks in calls to truncate_inode_pages()
+    - nilfs2: prevent use of deleted inode
+    - [amd64] udmabuf: fix racy memfd sealing check
+    - [amd64] udmabuf: also check for F_SEAL_FUTURE_WRITE
+    - of: property: fw_devlink: Do not use interrupt-parent directly
+    - of: address: Preserve the flags portion on 1:1 dma-ranges mapping
+    - of: Fix error path in of_parse_phandle_with_args_map()
+    - of: Fix refcount leakage for OF node returned by __of_get_dma_parent()
+    - ceph: give up on paths longer than PATH_MAX
+    - ceph: validate snapdirname option length when mounting
+    - ceph: improve error handling and short/overflow-read logic in
+      __ceph_sync_read()
+    - ceph: fix memory leaks in __ceph_sync_read()
+    - ceph: fix memory leak in ceph_direct_read_write()
+    - mm: use aligned address in clear_gigantic_page()
+    - mm: use aligned address in copy_user_gigantic_page()
+    - mm: shmem: fix ShmemHugePages at swapout
+    - mm: convert partially_mapped set/clear operations to be atomic
+    - epoll: Add synchronous wakeup support for ep_poll_callback
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 27 Dec 2024 14:41:47 +0100
+
 linux (6.12.6-1) unstable; urgency=medium
 
   * New upstream stable update:

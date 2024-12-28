@@ -820,6 +820,8 @@ linux (6.12.24-1) UNRELEASED; urgency=medium
     - Enable SC_LPASS_CORECC_7180, SND_SOC_ADAU7002, SND_SOC_SC7180 as modules
     - Enable IIO_CROS_EC_SENSORS_LID_ANGLE and CROS_EC_MKBP_PROXIMITY as modules
     - Enable EDAC_QCOM and SPI_QCOM_QSPI as modules
+  * [arm64] udeb: Add modules fo Qualcomm SC7180 Chromebooks
+    - Add gcc-sc7180 and qnoc-sc7180 to kernel-image
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 11 Apr 2025 17:52:16 +0200
 

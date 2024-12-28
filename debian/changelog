@@ -822,6 +822,7 @@ linux (6.12.24-1) UNRELEASED; urgency=medium
     - Enable EDAC_QCOM and SPI_QCOM_QSPI as modules
   * [arm64] udeb: Add modules fo Qualcomm SC7180 Chromebooks
     - Add gcc-sc7180 and qnoc-sc7180 to kernel-image
+  * [arm64] Enable SC_LPASSCC_7280 as module
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 11 Apr 2025 17:52:16 +0200
 

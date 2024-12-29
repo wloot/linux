@@ -3,7 +3,7 @@ linux (6.12.7-1) UNRELEASED; urgency=medium
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.7
     - net: sched: fix ordering of qlen adjustment (CVE-2024-53164)
-    - net: stmmac: fix TSO DMA API usage causing oops
+    - net: stmmac: fix TSO DMA API usage causing oops (CVE-2024-56719)
     - firmware: arm_ffa: Fix the race around setting ffa_dev->properties
     - [riscv64] KVM: Fix csr_write -> csr_set for HVIEN PMU overflow bit
     - sched/fair: Fix NEXT_BUDDY
@@ -31,6 +31,7 @@ linux (6.12.7-1) UNRELEASED; urgency=medium
     - cxl/pci: Fix potential bogus return value upon successful probing
     - cxl/region: Fix region creation for greater than x2 switches
     - net/smc: protect link down work from execute after lgr freed
+      (CVE-2024-56718)
     - net/smc: check sndbuf_space again after NOSPACE flag is set in smc_poll
     - net/smc: check iparea_offset and ipv6_prefixes_cnt when receiving proposal
       msg
@@ -40,8 +41,8 @@ linux (6.12.7-1) UNRELEASED; urgency=medium
     - net/smc: check return value of sock_recvmsg when draining clc data
     - [arm64] net: mscc: ocelot: fix incorrect IFH SRC_PORT field in
       ocelot_ifh_set_basic()
-    - ionic: Fix netdev notifier unregister on failure
-    - ionic: no double destroy workqueue
+    - ionic: Fix netdev notifier unregister on failure (CVE-2024-56715)
+    - ionic: no double destroy workqueue (CVE-2024-56714)
     - ionic: use ee->offset when returning sprom data
     - ksmbd: count all requests in req_running counter
     - ksmbd: fix broken transfers when exceeding max simultaneous operations
@@ -135,7 +136,7 @@ linux (6.12.7-1) UNRELEASED; urgency=medium
     - tracing: Add "%s" check in test_event_printk()
     - tracing: Check "%s" dereference via the field and not the TP_printk format
     - io_uring: Fix registered ring file refcount leak
-    - io_uring: check if iowq is killed before queuing
+    - io_uring: check if iowq is killed before queuing (CVE-2024-56709)
     - NFS/pnfs: Fix a live lock between recalled layouts and layoutget
     - [x86] KVM: SVM: Allow guest writes to set MSR_AMD64_DE_CFG bits
     - of/irq: Fix interrupt-map cell length check in of_irq_parse_imap_parent()
@@ -155,7 +156,7 @@ linux (6.12.7-1) UNRELEASED; urgency=medium
     - ceph: improve error handling and short/overflow-read logic in
       __ceph_sync_read()
     - ceph: fix memory leaks in __ceph_sync_read()
-    - ceph: fix memory leak in ceph_direct_read_write()
+    - ceph: fix memory leak in ceph_direct_read_write() (CVE-2024-56710)
     - mm: use aligned address in clear_gigantic_page()
     - mm: use aligned address in copy_user_gigantic_page()
     - mm: shmem: fix ShmemHugePages at swapout

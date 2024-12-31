@@ -163,6 +163,10 @@ linux (6.12.7-1) UNRELEASED; urgency=medium
     - mm: convert partially_mapped set/clear operations to be atomic
     - epoll: Add synchronous wakeup support for ep_poll_callback
 
+  [ Salvatore Bonaccorso ]
+  * debian/salsa-ci.yml: Include run of .build-after-script from common
+    pipeline.
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 27 Dec 2024 14:41:47 +0100
 
 linux (6.12.6-1) unstable; urgency=medium

@@ -171,6 +171,8 @@ linux (6.12.7-1) UNRELEASED; urgency=medium
   * drivers/nvme/target: Enable NVME_TARGET_AUTH
   * drivers/nvme/host: Enable NVME_TCP_TLS
   * drivers/nvme/target: Enable NVME_TARGET_TCP_TLS
+  * debian/salsa-ci.yml: Reference .build-after-script from after_script
+    section
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 27 Dec 2024 14:41:47 +0100
 

@@ -1,4 +1,4 @@
-linux (6.12.8-1) UNRELEASED; urgency=medium
+linux (6.12.8-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.7
@@ -292,7 +292,7 @@ linux (6.12.8-1) UNRELEASED; urgency=medium
   * debian/salsa-ci.yml: Reference .build-after-script from after_script
     section
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 27 Dec 2024 14:41:47 +0100
+ -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 02 Jan 2025 17:09:32 +0100
 
 linux (6.12.6-1) unstable; urgency=medium
 

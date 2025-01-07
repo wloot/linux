@@ -122,6 +122,9 @@ linux (6.12.11-1) UNRELEASED; urgency=medium
     (Modern userland supports MBIM, disabling breaks connections by default,
      Ubuntu ships kernels without this patch and it's reliable there.)
 
+  [ Diederik de Haas ]
+  * [arm64] drivers/char/hw_random: Enable HW_RANDOM_ROCKCHIP as module
+
   [ Jochen Sprickerhof ]
   * [arm64] Enable modules for Google Pixel 6 (Exynos)
 

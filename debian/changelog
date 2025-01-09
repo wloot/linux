@@ -1,5 +1,172 @@
-linux (6.12.8-2) UNRELEASED; urgency=medium
+linux (6.12.9-1) UNRELEASED; urgency=medium
 
+  * New upstream stable update:
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.9
+    - [x86] platform/x86: mlx-platform: call pci_dev_put() to balance the
+      refcount
+    - drm/amdgpu: fix backport of commit 73dae652dcac (Closes: #1092187)
+    - [x86] platform/x86: thinkpad-acpi: Add support for hotkey 0x1401
+    - [x86] platform/x86: hp-wmi: mark 8A15 board for timed OMEN thermal profile
+    - selinux: ignore unknown extended permissions
+    - mmc: sdhci-msm: fix crypto key eviction
+    - [arm64,armhf] pmdomain: imx: gpcv2: fix an OF node reference leak in
+      imx_gpcv2_probe()
+    - pmdomain: core: add dummy release function to genpd device
+    - tracing: Have process_string() also allow arrays
+    - block: lift bio_is_zone_append to bio.h
+    - btrfs: use bio_is_zone_append() in the completion handler
+    - RDMA/bnxt_re: Remove always true dattr validity check
+    - sched_ext: fix application of sizeof to pointer
+    - RDMA/mlx5: Enforce same type port association for multiport RoCE
+    - RDMA/bnxt_re: Fix max SGEs for the Work Request
+    - RDMA/bnxt_re: Avoid initializing the software queue for user queues
+    - RDMA/bnxt_re: Avoid sending the modify QP workaround for latest adapters
+    - RDMA/core: Fix ENODEV error for iWARP test over vlan
+    - nvme-pci: 512 byte aligned dma pool segment quirk
+    - wifi: iwlwifi: fix CRF name for Bz
+    - RDMA/bnxt_re: Fix the check for 9060 condition
+    - RDMA/bnxt_re: Add check for path mtu in modify_qp
+    - RDMA/bnxt_re: Fix reporting hw_ver in query_device
+    - RDMA/nldev: Set error code in rdma_nl_notify_event
+    - RDMA/siw: Remove direct link to net_device
+    - RDMA/bnxt_re: Fix max_qp_wrs reported
+    - RDMA/bnxt_re: Disable use of reserved wqes
+    - RDMA/bnxt_re: Add send queue size check for variable wqe
+    - RDMA/bnxt_re: Fix MSN table size for variable wqe mode
+    - RDMA/bnxt_re: Fix the locking while accessing the QP table
+    - net: phy: micrel: Dynamically control external clock of KSZ PHY
+    - [arm64] drm/bridge: adv7511_audio: Update Audio InfoFrame properly
+    - netdev-genl: avoid empty messages in napi get
+    - [arm64] RDMA/hns: Fix mapping error of zero-hop WQE buffer
+    - [arm64] RDMA/hns: Fix accessing invalid dip_ctx during destroying QP
+    - [arm64] RDMA/hns: Fix warning storm caused by invalid input in IO path
+    - [arm64] RDMA/hns: Fix missing flush CQE for DWQE
+    - drm/xe: Revert some changes that break a mesa debug tool
+    - drm/xe/pf: Use correct function to check LMEM provisioning
+    - drm/xe: Fix fault on fd close after unbind
+    - net: stmmac: restructure the error path of stmmac_probe_config_dt()
+    - net: fix memory leak in tcp_conn_request()
+    - net: Fix netns for ip_tunnel_init_flow()
+    - netrom: check buffer length before accessing it
+    - net: pse-pd: tps23881: Fix power on/off issue
+    - net/mlx5: DR, select MSIX vector 0 for completion queue creation
+    - net/mlx5e: macsec: Maintain TX SA from encoding_sa
+    - net/mlx5e: Skip restore TC rules for vport rep without loaded flag
+    - net/mlx5e: Keep netdev when leave switchdev for devlink set legacy only
+    - RDMA/rxe: Remove the direct link to net_device
+    - [amd64] drm/i915/cx0_phy: Fix C10 pll programming sequence
+    - [amd64] drm/i915/dg1: Fix power gate sequence.
+    - workqueue: add printf attribute to __alloc_workqueue()
+    - netfilter: nft_set_hash: unaligned atomic read on struct nft_set_ext
+    - net: llc: reset skb->transport_header
+    - nvmet: Don't overflow subsysnqn
+    - ALSA: usb-audio: US16x08: Initialize array before use
+    - eth: bcmsysport: fix call balance of priv->clk handling routines
+    - net: mv643xx_eth: fix an OF node reference leak
+    - net: wwan: t7xx: Fix FSM command timeout issue
+    - RDMA/rtrs: Ensure 'ib_sge list' is accessible
+    - RDMA/bnxt_re: Fix error recovery sequence
+    - io_uring/net: always initialize kmsg->msg.msg_inq upfront
+    - net: sfc: Correct key_len for efx_tc_ct_zone_ht_params
+    - net: reenable NETIF_F_IPV6_CSUM offload for BIG TCP packets
+    - net: restrict SO_REUSEPORT to inet sockets
+    - net: wwan: iosm: Properly check for valid exec stage in ipc_mmio_init()
+    - af_packet: fix vlan_get_tci() vs MSG_PEEK
+    - af_packet: fix vlan_get_protocol_dgram() vs MSG_PEEK
+    - ila: serialize calls to nf_register_net_hooks()
+    - net: ti: icssg-prueth: Fix firmware load sequence.
+    - net: ti: icssg-prueth: Fix clearing of IEP_CMP_CFG registers during
+      iep_init
+    - btrfs: allow swap activation to be interruptible
+    - [x86] perf/x86/intel: Add Arrow Lake U support
+    - wifi: mac80211: fix mbss changed flags corruption on 32 bit systems
+    - wifi: cfg80211: clear link ID from bitmap during link delete after clean
+      up
+    - wifi: mac80211: wake the queues in case of failure in resume
+    - drm/amdgpu: use sjt mec fw on gfx943 for sriov
+    - ALSA: hda: cs35l56: Remove calls to
+      cs35l56_force_sync_asp1_registers_from_cache()
+    - ALSA: hda/realtek - Add support for ASUS Zen AIO 27 Z272SD_A272SD audio
+    - btrfs: handle bio_split() errors
+    - btrfs: flush delalloc workers queue before stopping cleaner kthread during
+      unmount
+    - ALSA: hda/ca0132: Use standard HD-audio quirk matching helpers
+    - ALSA: hda/realtek: Add new alc2xx-fixup-headset-mic model
+    - sound: usb: enable DSD output for ddHiFi TC44C
+    - sound: usb: format: don't warn that raw DSD is unsupported
+    - spi: spi-cadence-qspi: Disable STIG mode for Altera SoCFPGA.
+    - ASoC: audio-graph-card: Call of_node_put() on correct node
+    - ARC: build: disallow invalid PAE40 + 4K page config
+    - ARC: build: Use __force to suppress per-CPU cmpxchg warnings
+    - ARC: bpf: Correct conditional check in 'check_jmp_32'
+    - bpf: fix potential error return
+    - ksmbd: retry iterate_dir in smb2_query_dir
+    - ksmbd: set ATTR_CTIME flags when setting mtime
+    - smb: client: destroy cfid_put_wq on module exit
+    - net: usb: qmi_wwan: add Telit FE910C04 compositions
+    - Bluetooth: hci_core: Fix sleeping function called from invalid context
+    - irqchip/gic: Correct declaration of *percpu_base pointer in union gic_base
+    - bpf: refactor bpf_helper_changes_pkt_data to use helper number
+    - bpf: consider that tail calls invalidate packet pointers
+    - clk: thead: Fix TH1520 emmc and shdci clock rate
+    - scripts/mksysmap: Fix escape chars '$'
+    - modpost: fix the missed iteration for the max bit in do_input()
+    - kbuild: pacman-pkg: provide versioned linux-api-headers package
+    - Revert "ALSA: ump: Don't enumeration invalid groups for legacy rawmidi"
+    - RDMA/mlx5: Enable multiplane mode only when it is supported
+    - io_uring/kbuf: use pre-committed buffer address for non-pollable file
+    - ALSA: seq: Check UMP support for midi_version change
+    - ftrace: Fix function profiler's filtering functionality
+    - drm/xe: Use non-interruptible wait when moving BO to system
+    - drm/xe: Wait for migration job before unmapping pages
+    - ALSA hda/realtek: Add quirk for Framework F111:000C
+    - ALSA: seq: oss: Fix races at processing SysEx messages
+    - ocfs2: fix slab-use-after-free due to dangling pointer dqi_priv
+    - kcov: mark in_softirq_really() as __always_inline
+    - maple_tree: reload mas before the second call for mas_empty_area
+    - clk: clk-imx8mp-audiomix: fix function signature
+    - scripts/sorttable: fix orc_sort_cmp() to maintain symmetry and
+      transitivity
+    - sched_ext: Fix invalid irq restore in scx_ops_bypass()
+    - RDMA/uverbs: Prevent integer overflow issue
+    - pinctrl: mcp23s08: Fix sleeping in atomic context due to regmap locking
+    - workqueue: Do not warn when cancelling WQ_MEM_RECLAIM work from
+      !WQ_MEM_RECLAIM worker
+    - sky2: Add device ID 11ab:4373 for Marvell 88E8075
+    - sched_ext: initialize kit->cursor.flags
+    - net/sctp: Prevent autoclose integer overflow in sctp_association_init()
+    - io_uring/rw: fix downgraded mshot read
+    - drm: adv7511: Drop dsi single lane support
+    - dt-bindings: display: adi,adv7533: Drop single lane support
+    - drm: adv7511: Fix use-after-free in adv7533_attach_dsi()
+    - wifi: iwlwifi: mvm: Fix __counted_by usage in cfg80211_wowlan_nd_*
+    - fgraph: Add READ_ONCE() when accessing fgraph_array[]
+    - net: ethernet: ti: am65-cpsw: default to round-robin for host port receive
+    - mm/damon/core: fix ignored quota goals and filters of newly committed
+      schemes
+    - mm/damon/core: fix new damon_target objects leaks on
+      damon_commit_targets()
+    - mm: shmem: fix the update of 'shmem_falloc->nr_unswapped'
+    - mm: shmem: fix incorrect index alignment for within_size policy
+    - fs/proc/task_mmu: fix pagemap flags with PMD THP entries on 32bit
+    - [amd64,arm64] gve: process XSK TX descriptors as part of RX NAPI
+    - [amd64,arm64] gve: clean XDP queues in gve_tx_stop_ring_gqi
+    - [amd64,arm64] gve: guard XSK operations on the existence of queues
+    - [amd64,arm64] gve: fix XDP allocation path in edge cases
+    - [amd64,arm64] gve: guard XDP xmit NDO on existence of xdp queues
+    - [amd64,arm64] gve: trigger RX NAPI instead of TX NAPI in gve_xsk_wakeup
+    - mm/readahead: fix large folio support in async readahead
+    - mm/kmemleak: fix sleeping function called from invalid context at print
+      message
+    - mm: vmscan: account for free pages to prevent infinite Loop in
+      throttle_direct_reclaim()
+    - mm: reinstate ability to map write-sealed memfd mappings read-only
+    - mm: hugetlb: independent PMD page table shared count
+    - mptcp: fix TCP options overflow.
+    - mptcp: fix recvbuffer adjust on sleeping rcvmsg
+    - mptcp: don't always assume copied data in mptcp_cleanup_rbuf()
+
+  [ Salvatore Bonaccorso ]
   * [mips*] Increase RELOCATION_TABLE_SIZE to 0x00201000 (fixes FTBFS)
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 05 Jan 2025 20:26:56 +0100

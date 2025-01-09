@@ -168,6 +168,7 @@ linux (6.12.9-1) UNRELEASED; urgency=medium
 
   [ Salvatore Bonaccorso ]
   * [mips*] Increase RELOCATION_TABLE_SIZE to 0x00201000 (fixes FTBFS)
+  * [rt] Update to 6.12.8-rt8
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 05 Jan 2025 20:26:56 +0100
 

@@ -51,6 +51,8 @@
 0004-sched-x86-Enable-Lazy-preemption.patch
 0005-sched-Add-laziest-preempt-model.patch
 sched-Fixup-the-IS_ENABLED-check-for-PREEMPT_LAZY.patch
+0001-powerpc-Add-preempt-lazy-support.patch
+0002-powerpc-Large-user-copy-aware-of-full-rt-lazy-preemp.patch
 #
 tracing-Remove-TRACE_FLAG_IRQS_NOSUPPORT.patch
 0002-tracing-Record-task-flag-NEED_RESCHED_LAZY.patch

@@ -1,7 +1,7 @@
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Mon, 1 Jul 2024 12:56:55 +0200
 Subject: [PATCH 3/4] ARM: vfp: Use vfp_state_hold() in vfp_support_entry().
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.12/older/patches-6.12-rc4-rt6.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.12/older/patches-6.12.8-rt8.tar.xz
 
 vfp_entry() is invoked from exception handler and is fully preemptible.
 It uses local_bh_disable() to remain uninterrupted while checking the

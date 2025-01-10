@@ -1,4 +1,4 @@
-linux (6.12.9-1) UNRELEASED; urgency=medium
+linux (6.12.9-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.9
@@ -170,7 +170,7 @@ linux (6.12.9-1) UNRELEASED; urgency=medium
   * [mips*] Increase RELOCATION_TABLE_SIZE to 0x00201000 (fixes FTBFS)
   * [rt] Update to 6.12.8-rt8
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 05 Jan 2025 20:26:56 +0100
+ -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 10 Jan 2025 11:03:22 +0100
 
 linux (6.12.8-1) unstable; urgency=medium
 

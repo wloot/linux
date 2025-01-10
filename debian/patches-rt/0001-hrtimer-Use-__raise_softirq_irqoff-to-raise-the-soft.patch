@@ -2,7 +2,7 @@ From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 Date: Wed, 23 Oct 2024 15:36:15 +0200
 Subject: [PATCH v2 1/3] hrtimer: Use __raise_softirq_irqoff() to raise the
  softirq.
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.12/older/patches-6.12-rc4-rt6.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.12/older/patches-6.12.8-rt8.tar.xz
 
 As an optimisation use __raise_softirq_irqoff() to raise the softirq.
 This is always called from an interrupt handler so it can be reduced to

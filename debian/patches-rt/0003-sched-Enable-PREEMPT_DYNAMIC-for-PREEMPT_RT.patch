@@ -1,7 +1,7 @@
 From: Peter Zijlstra <peterz@infradead.org>
 Date: Mon, 7 Oct 2024 09:46:12 +0200
 Subject: [PATCH 3/5] sched: Enable PREEMPT_DYNAMIC for PREEMPT_RT
-Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.12/older/patches-6.12-rc4-rt6.tar.xz
+Origin: https://www.kernel.org/pub/linux/kernel/projects/rt/6.12/older/patches-6.12.8-rt8.tar.xz
 
 In order to enable PREEMPT_DYNAMIC for PREEMPT_RT, remove PREEMPT_RT
 from the 'Preemption Model' choice. Strictly speaking PREEMPT_RT is
@@ -85,7 +85,7 @@ Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
  	default y if HAVE_PREEMPT_DYNAMIC_CALL
 --- a/kernel/sched/core.c
 +++ b/kernel/sched/core.c
-@@ -7406,11 +7406,13 @@ int preempt_dynamic_mode = preempt_dynam
+@@ -7432,11 +7432,13 @@ int preempt_dynamic_mode = preempt_dynam
  
  int sched_dynamic_mode(const char *str)
  {

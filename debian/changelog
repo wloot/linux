@@ -124,6 +124,7 @@ linux (6.12.11-1) UNRELEASED; urgency=medium
 
   [ Diederik de Haas ]
   * [arm64] drivers/char/hw_random: Enable HW_RANDOM_ROCKCHIP as module
+  * [arm64] drivers/pci/endpoint: Enable PCI_ENDPOINT
 
   [ Jochen Sprickerhof ]
   * [arm64] Enable modules for Google Pixel 6 (Exynos)

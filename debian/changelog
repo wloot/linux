@@ -192,6 +192,7 @@ linux (6.12.10-1) UNRELEASED; urgency=medium
 
   [ Salvatore Bonaccorso ]
   * [amd64/cloud] drivers/idle: Enable INTEL_IDLE (Closes: #1078005)
+  * drivers/bluetooth: Enable BT_INTEL_PCIE as module (Closes: #1092465)
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 11 Jan 2025 17:20:14 +0100
 

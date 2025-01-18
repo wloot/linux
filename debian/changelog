@@ -1,4 +1,4 @@
-linux (6.12.10-1) UNRELEASED; urgency=medium
+linux (6.12.10-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.10
@@ -194,7 +194,7 @@ linux (6.12.10-1) UNRELEASED; urgency=medium
   * [amd64/cloud] drivers/idle: Enable INTEL_IDLE (Closes: #1078005)
   * drivers/bluetooth: Enable BT_INTEL_PCIE as module (Closes: #1092465)
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 11 Jan 2025 17:20:14 +0100
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 18 Jan 2025 10:10:54 +0100
 
 linux (6.12.9-1) unstable; urgency=medium
 

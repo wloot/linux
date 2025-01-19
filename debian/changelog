@@ -1,11 +1,11 @@
-linux (6.12.9-1~bpo12+1) UNRELEASED; urgency=medium
+linux (6.12.9-1~bpo12+1) bookworm-backports; urgency=medium
 
   * Rebuild for bookworm-backports:
     - d/salsa-ci.yml: Set RELEASE to bookworm-backports
     - Revert compiler version to gcc-12
     - debian_linux.config_v2: Add workaround for a bug in older dacite
 
- -- Ben Hutchings <benh@debian.org>  Mon, 20 Jan 2025 00:43:54 +0100
+ -- Ben Hutchings <benh@debian.org>  Mon, 20 Jan 2025 00:46:37 +0100
 
 linux (6.12.9-1) unstable; urgency=medium
 

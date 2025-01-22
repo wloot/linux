@@ -126,6 +126,10 @@ linux (6.12.11-1) UNRELEASED; urgency=medium
   * [arm64] drivers/char/hw_random: Enable HW_RANDOM_ROCKCHIP as module
   * [arm64] drivers/pci/endpoint: Enable PCI_ENDPOINT
 
+  [ Uwe Kleine-König ]
+  * [arm64] Enable CONFIG_GPIO_THUNDERX=m which is a dependency for
+    MMC_CAVIUM_THUNDERX that is already supposed to be enabled.
+
   [ Jochen Sprickerhof ]
   * [arm64] Enable modules for Google Pixel 6 (Exynos)
 

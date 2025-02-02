@@ -43,6 +43,9 @@ linux (6.12.12-1) UNRELEASED; urgency=medium
     - io_uring/rsrc: require cloned buffers to share accounting contexts
     - [arm64] drm/v3d: Assign job pointer to NULL before signaling the fence
 
+  [ Salvatore Bonaccorso ]
+  * kbuild: switch from lz4c to lz4 for compression
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 01 Feb 2025 20:07:57 +0100
 
 linux (6.12.11-1) unstable; urgency=medium

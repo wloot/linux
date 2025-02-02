@@ -1,4 +1,4 @@
-linux (6.12.12-1) UNRELEASED; urgency=medium
+linux (6.12.12-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.12
@@ -46,7 +46,7 @@ linux (6.12.12-1) UNRELEASED; urgency=medium
   [ Salvatore Bonaccorso ]
   * kbuild: switch from lz4c to lz4 for compression
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 01 Feb 2025 20:07:57 +0100
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 02 Feb 2025 14:17:45 +0100
 
 linux (6.12.11-1) unstable; urgency=medium
 

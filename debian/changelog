@@ -601,10 +601,6 @@ linux (6.12.13-1) UNRELEASED; urgency=medium
   * [amd64, arm64] Add pmem modules to amd64 and arm64 kernel-image udeb
     to support UEFI HTTP boot (or u-boot) in debian-installer
 
-  [ Diederik de Haas ]
-  * [arm64] drivers/gpu/drm/rockchip: Enable ROCKCHIP_DW_HDMI_QP
-    (Closes: #1093557)
-
  -- Emanuele Rocca <ema@debian.org>  Wed, 05 Feb 2025 08:53:35 +0000
 
 linux (6.12.12-1) unstable; urgency=medium

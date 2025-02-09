@@ -1,5 +1,6 @@
-linux (6.12.13-1) UNRELEASED; urgency=medium
+linux (6.12.13-1) unstable; urgency=medium
 
+  [ Emanuele Rocca ]
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.13
     - coredump: Do not lock during 'comm' reporting
@@ -601,7 +602,7 @@ linux (6.12.13-1) UNRELEASED; urgency=medium
   * [amd64, arm64] Add pmem modules to amd64 and arm64 kernel-image udeb
     to support UEFI HTTP boot (or u-boot) in debian-installer
 
- -- Emanuele Rocca <ema@debian.org>  Wed, 05 Feb 2025 08:53:35 +0000
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 09 Feb 2025 10:19:08 +0100
 
 linux (6.12.12-1) unstable; urgency=medium
 

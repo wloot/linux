@@ -416,6 +416,30 @@ linux (6.12.15-1) UNRELEASED; urgency=medium
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.15
     - xfs: don't lose solo dquot update transactions
 
+  [ Sebastian Siewior ]
+  * Enable RCU_LAZY to not wake up the CPU for RCU callbacks
+
+  [ Yoann Congal ]
+  * [arm64/rt] Re-enable KVM
+
+  [ Salvatore Bonaccorso ]
+  * [mips*] Increase RELOCATION_TABLE_SIZE to 0x00280000 (fixes FTBFS)
+  * nfsd: validate the nfsd_serv pointer before calling svc_wake_up
+    (Closes: #1093734)
+  * [x86] xen: allow larger contiguous memory regions in PV guests
+    (Closes: #1093371, #1088159, #1087807)
+  * xen/swiotlb: relax alignment requirements
+    (Closes: #1093371, #1088159, #1087807)
+  * USB: Add USB_QUIRK_NO_LPM quirk for sony xperia xz1 smartphone
+    (Closes: #1091517)
+
+  [ Bastian Blank ]
+  * [amd64, arm64] Enable NITRO_ENCLAVES, NSM. (closes: #1095647)
+  * Support zstd for firmware loader, enable FW_LOADER_COMPRESS_ZSTD
+
+  [ Luca Boccassi ]
+  * linux-bpf-dev: mark as MA: same
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 17 Feb 2025 21:51:05 +0100
 
 linux (6.12.13-1) unstable; urgency=medium

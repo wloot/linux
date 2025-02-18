@@ -422,6 +422,9 @@ linux (6.12.15-1) UNRELEASED; urgency=medium
   [ Yoann Congal ]
   * [arm64/rt] Re-enable KVM
 
+  [ Salvatore Bonaccorso ]
+  * [mips*] Increase RELOCATION_TABLE_SIZE to 0x00280000 (fixes FTBFS)
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 17 Feb 2025 21:51:05 +0100
 
 linux (6.12.13-1) unstable; urgency=medium

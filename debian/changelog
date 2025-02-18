@@ -1,4 +1,4 @@
-linux (6.12.14-1) UNRELEASED; urgency=medium
+linux (6.12.15-1) UNRELEASED; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.14
@@ -413,6 +413,8 @@ linux (6.12.14-1) UNRELEASED; urgency=medium
     - statmount: let unset strings be empty
     - [arm64] dts: rockchip: add reset-names for combphy on rk3568
     - ocfs2: check dir i_size in ocfs2_find_entry
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.15
+    - xfs: don't lose solo dquot update transactions
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 17 Feb 2025 21:51:05 +0100
 

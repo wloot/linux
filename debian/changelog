@@ -427,6 +427,7 @@ linux (6.12.15-1) UNRELEASED; urgency=medium
 
   [ Bastian Blank ]
   * [amd64, arm64] Enable NITRO_ENCLAVES, NSM. (closes: #1095647)
+  * Support zstd for firmware loader, enable FW_LOADER_COMPRESS_ZSTD
 
   [ Luca Boccassi ]
   * linux-bpf-dev: mark as MA: same

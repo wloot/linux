@@ -428,6 +428,9 @@ linux (6.12.15-1) UNRELEASED; urgency=medium
   [ Bastian Blank ]
   * [amd64, arm64] Enable NITRO_ENCLAVES, NSM. (closes: #1095647)
 
+  [ Luca Boccassi ]
+  * linux-bpf-dev: mark as MA: same
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 17 Feb 2025 21:51:05 +0100
 
 linux (6.12.13-1) unstable; urgency=medium

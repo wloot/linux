@@ -220,6 +220,11 @@ linux (6.12.16-1) UNRELEASED; urgency=medium
   [ Marcin Juszkiewicz ]
   * [arm64] Enable SND_SOC_RT5616 for FriendlyElec NanoPC-T6.
 
+  [ Bastian Blank ]
+  * Support BTF id generation for external modules:
+    - Install resolve_btfid tool. (closes: #1093655)
+    - Copy base BTF ids into headers package.
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 21 Feb 2025 15:57:45 +0100
 
 linux (6.12.15-1) unstable; urgency=medium

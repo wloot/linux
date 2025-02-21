@@ -225,6 +225,9 @@ linux (6.12.16-1) UNRELEASED; urgency=medium
     - Install resolve_btfid tool. (closes: #1093655)
     - Copy base BTF ids into headers package.
 
+  [ Salvatore Bonaccorso ]
+  * sound/pci/hda: Set SND_HDA_POWER_SAVE_DEFAULT value to 10 (Closes: #1094755)
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 21 Feb 2025 15:57:45 +0100
 
 linux (6.12.15-1) unstable; urgency=medium

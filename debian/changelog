@@ -1,4 +1,4 @@
-linux (6.12.16-1) UNRELEASED; urgency=medium
+linux (6.12.16-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.16
@@ -232,7 +232,7 @@ linux (6.12.16-1) UNRELEASED; urgency=medium
   * drivers/usb/gadget/legacy: Enable USB_MASS_STORAGE as module
     (Closes: #962708)
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 21 Feb 2025 15:57:45 +0100
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 22 Feb 2025 08:49:24 +0100
 
 linux (6.12.15-1) unstable; urgency=medium
 

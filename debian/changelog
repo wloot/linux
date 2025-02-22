@@ -217,6 +217,21 @@ linux (6.12.16-1) UNRELEASED; urgency=medium
     - vsock: Orphan socket after transport release
     - Revert "vfio/platform: check the bounds of read/write syscalls"
 
+  [ Marcin Juszkiewicz ]
+  * [arm64] Enable SND_SOC_RT5616 for FriendlyElec NanoPC-T6.
+
+  [ Bastian Blank ]
+  * Support BTF id generation for external modules:
+    - Install resolve_btfid tool. (closes: #1093655)
+    - Copy base BTF ids into headers package.
+
+  [ Salvatore Bonaccorso ]
+  * sound/pci/hda: Set SND_HDA_POWER_SAVE_DEFAULT value to 10 (Closes: #1094755)
+  * [x86] drivers/misc/mei: Enable INTEL_MEI_GSC_PROXY as module
+    (Closes: #1096058)
+  * drivers/usb/gadget/legacy: Enable USB_MASS_STORAGE as module
+    (Closes: #962708)
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 21 Feb 2025 15:57:45 +0100
 
 linux (6.12.15-1) unstable; urgency=medium

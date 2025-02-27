@@ -166,6 +166,8 @@ linux (6.12.17-1) UNRELEASED; urgency=medium
 
   [ Salvatore Bonaccorso ]
   * kbuild: Add Depends on pahole (Closes: #1098706)
+  * [arm64] phy: rockchip: naneng-combphy: compatible reset with old DT
+    (Closes: #1095745, #1098250, #1098354)
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 23 Feb 2025 16:15:31 +0100
 

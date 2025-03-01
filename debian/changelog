@@ -1,4 +1,4 @@
-linux (6.12.17-1) UNRELEASED; urgency=medium
+linux (6.12.17-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.17
@@ -173,7 +173,7 @@ linux (6.12.17-1) UNRELEASED; urgency=medium
   * [amd64,arm64] drivers/iommu: Enable VIRTIO_IOMMU as module
     (Closes: #1099158)
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 23 Feb 2025 16:15:31 +0100
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 01 Mar 2025 17:57:27 +0100
 
 linux (6.12.16-1) unstable; urgency=medium
 

@@ -164,6 +164,10 @@ linux (6.12.18-1) UNRELEASED; urgency=medium
   [ Bastian Blank ]
   * Compress kernel with zstd where supported. (Closes: #1099722)
 
+  [ Matt Mower ]
+  * [amd64] sound/soc/amd/acp: Enable SND_AMD_ASOC_ACP70, SND_SOC_AMD_ACP_PCI
+    and SND_SOC_AMD_LEGACY_MACH as modules (Closes: #1096006)
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 07 Mar 2025 21:10:10 +0100
 
 linux (6.12.17-1) unstable; urgency=medium

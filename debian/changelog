@@ -162,7 +162,7 @@ linux (6.12.18-1) UNRELEASED; urgency=medium
     - thermal: gov_power_allocator: Add missing NULL pointer check
 
   [ Bastian Blank ]
-  * Compress kernel with zstd where supported.
+  * Compress kernel with zstd where supported. (Closes: #1099722)
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 07 Mar 2025 21:10:10 +0100
 

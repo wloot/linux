@@ -128,7 +128,7 @@ linux (6.12.18-1) UNRELEASED; urgency=medium
       context_setup_pass_through_cb
     - [amd64] iommu/vt-d: Fix suspicious RCU usage
     - [amd64] intel_idle: Handle older CPUs, which stop the TSC in deeper C
-      states, correctly
+      states, correctly (Closes: #1088682)
     - mptcp: always handle address removal under msk socket lock
     - mptcp: reset when MPTCP opts are dropped after join
     - vmlinux.lds: Ensure that const vars with relocations are mapped R/O

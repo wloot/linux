@@ -1,3 +1,168 @@
+linux (6.12.18-1) UNRELEASED; urgency=medium
+
+  * New upstream stable update:
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.18
+    - RDMA/mlx5: Fix the recovery flow of the UMR QP
+    - IB/mlx5: Set and get correct qp_num for a DCT QP
+    - RDMA/mlx5: Fix a race for DMABUF MR which can lead to CQE with error
+    - RDMA/mlx5: Fix a WARN during dereg_mr for DM type
+    - RDMA/mana_ib: Allocate PAGE aligned doorbell index
+    - RDMA/hns: Fix mbox timing out by adding retry mechanism
+    - RDMA/bnxt_re: Fail probe early when not enough MSI-x vectors are reserved
+    - RDMA/bnxt_re: Refactor NQ allocation
+    - RDMA/bnxt_re: Cache MSIx info to a local structure
+    - RDMA/bnxt_re: Add sanity checks on rdev validity
+    - RDMA/bnxt_re: Allocate dev_attr information dynamically
+    - RDMA/bnxt_re: Fix the statistics for Gen P7 VF
+    - landlock: Fix non-TCP sockets restriction
+    - scsi: ufs: core: Fix ufshcd_is_ufs_dev_busy() and ufshcd_eh_timed_out()
+    - ovl: fix UAF in ovl_dentry_update_reval by moving dput() in ovl_link_up
+    - NFS: O_DIRECT writes must check and adjust the file length
+    - NFS: Adjust delegated timestamps for O_DIRECT reads and writes
+    - SUNRPC: Prevent looping due to rpc_signal_task() races
+    - NFSv4: Fix a deadlock when recovering state on a sillyrenamed file
+    - SUNRPC: Handle -ETIMEDOUT return from tlshd
+    - RDMA/mlx5: Fix implicit ODP hang on parent deregistration
+    - RDMA/mlx5: Fix AH static rate parsing
+    - scsi: core: Clear driver private data when retrying request
+    - scsi: ufs: core: Set default runtime/system PM levels before
+      ufshcd_hba_init()
+    - RDMA/mlx5: Fix bind QP error cleanup flow
+    - RDMA/bnxt_re: Fix the page details for the srq created by kernel consumers
+    - sunrpc: suppress warnings for unused procfs functions
+    - ALSA: usb-audio: Avoid dropping MIDI events at closing multiple ports
+    - Bluetooth: L2CAP: Fix L2CAP_ECRED_CONN_RSP response
+    - rxrpc: rxperf: Fix missing decoding of terminal magic cookie
+    - afs: Fix the server_list to unuse a displaced server rather than putting
+      it
+    - afs: Give an afs_server object a ref on the afs_cell object it points to
+    - net: loopback: Avoid sending IP packets without an Ethernet header
+    - net: set the minimum for net_hotdata.netdev_budget_usecs
+    - ipv4: Convert icmp_route_lookup() to dscp_t.
+    - ipv4: Convert ip_route_input() to dscp_t.
+    - ipvlan: Prepare ipvlan_process_v4_outbound() to future .flowi4_tos
+      conversion.
+    - ipvlan: ensure network headers are in skb linear part
+    - net: cadence: macb: Synchronize stats calculations
+    - net: dsa: rtl8366rb: Fix compilation problem
+    - [armhf] ASoC: es8328: fix route from DAC to output
+    - [arm64,armhf] ASoC: fsl: Rename stream name of SAI DAI driver
+    - ipvs: Always clear ipvs_property flag in skb_scrub_packet()
+    - drm/xe/oa: Signal output fences
+    - drm/xe/oa: Move functions up so they can be reused for config ioctl
+    - drm/xe/oa: Add syncs support to OA config ioctl
+    - drm/xe/oa: Allow only certain property changes from config
+    - drm/xe/oa: Allow oa_exponent value of 0
+    - firmware: cs_dsp: Remove async regmap writes
+    - [amd64] ASoC: cs35l56: Prevent races when soft-resetting using SPI control
+    - ALSA: hda/realtek: Fix wrong mic setup for ASUS VivoBook 15
+    - net: ethernet: ti: am65-cpsw: select PAGE_POOL
+    - tcp: devmem: don't write truncated dmabuf CMSGs to userspace
+    - ice: add E830 HW VF mailbox message limit support
+    - ice: Fix deinitializing VF in error path
+    - ice: Avoid setting default Rx VSI twice in switchdev setup
+    - tcp: Defer ts_recent changes until req is owned
+    - net: Clear old fragment checksum value in napi_reuse_skb
+    - [arm64,armhf] net: mvpp2: cls: Fixed Non IP flow, with vlan tag flow
+      defination.
+    - net/mlx5: IRQ, Fix null string in debug print
+    - net: ipv6: fix dst ref loop on input in seg6 lwt
+    - net: ipv6: fix dst ref loop on input in rpl lwt
+    - idpf: fix checksums set in idpf_rx_rsc()
+    - net: ti: icss-iep: Reject perout generation request
+    - thermal: gov_power_allocator: Fix incorrect calculation in
+      divvy_up_power()
+    - perf/core: Order the PMU list to fix warning about unordered pmu_ctx_list
+    - uprobes: Reject the shared zeropage in uprobe_write_opcode()
+    - thermal: of: Simplify thermal_of_should_bind with scoped for each OF child
+    - thermal/of: Fix cdev lookup in thermal_of_should_bind()
+    - thermal: core: Move lists of thermal instances to trip descriptors
+    - thermal: gov_power_allocator: Update total_weight on bind and cdev updates
+    - io_uring/net: save msg_control for compat
+    - unreachable: Unify
+    - objtool: Remove annotate_{,un}reachable()
+    - objtool: Fix C jump table annotations for Clang
+    - [x86] CPU: Fix warm boot hang regression on AMD SC1100 SoC systems
+    - phy: rockchip: fix Kconfig dependency more
+    - [riscv64] KVM: Fix hart suspend status check
+    - [riscv64] KVM: Fix hart suspend_type use
+    - [riscv64] KVM: Fix SBI IPI error generation
+    - [riscv64] KVM: Fix SBI TIME error generation
+    - tracing: Fix bad hist from corrupting named_triggers list
+    - ftrace: Avoid potential division by zero in function_stat_show()
+    - ALSA: usb-audio: Re-add sample rate quirk for Pioneer DJM-900NXS2
+    - ALSA: hda/realtek: Fix microphone regression on ASUS N705UD
+    - [arm64] KVM: arm64: Ensure a VMID is allocated before programming
+      VTTBR_EL2
+    - perf/core: Add RCU read lock protection to perf_iterate_ctx()
+    - [x86] perf/x86: Fix low freqency setting issue
+    - perf/core: Fix low freq setting via IOC_PERIOD
+    - drm/xe/regs: remove a duplicate definition for RING_CTL_SIZE(size)
+    - drm/xe/userptr: restore invalidation list on error
+    - drm/xe/userptr: fix EFAULT handling
+    - drm/amdkfd: Preserve cp_hqd_pq_control on update_mqd
+    - drm/amdgpu: disable BAR resize on Dell G5 SE
+    - drm/amdgpu: init return value in amdgpu_ttm_clear_buffer
+    - drm/amd/display: Disable PSR-SU on eDP panels
+    - drm/amd/display: add a quirk to enable eDP0 on DP1
+    - drm/amd/display: Fix HPD after gpu reset
+    - [arm64] mm: Fix Boot panic on Ampere Altra
+    - block: Remove zone write plugs when handling native zone append writes
+    - i2c: npcm: disable interrupt enable bit before devm_request_irq
+    - i2c: ls2x: Fix frequency division register access
+    - usbnet: gl620a: fix endpoint checking in genelink_bind()
+    - net: phy: qcom: qca807x fix condition for DAC_DSP_BIAS_CURRENT
+    - [arm64] net: enetc: fix the off-by-one issue in enetc_map_tx_buffs()
+    - [arm64] net: enetc: keep track of correct Tx BD count in
+      enetc_map_tx_tso_buffs()
+    - [arm64] net: enetc: VFs do not support HWTSTAMP_TX_ONESTEP_SYNC
+    - [arm64] net: enetc: update UDP checksum when updating originTimestamp
+      field
+    - [arm64] net: enetc: correct the xdp_tx statistics
+    - [arm64] net: enetc: fix the off-by-one issue in enetc_map_tx_tso_buffs()
+    - [arm64,armhf] phy: exynos5-usbdrd: fix MPLL_MULTIPLIER and SSC_REFCLKSEL
+      masks in refclk
+    - [arm64,armhf] phy: exynos5-usbdrd: gs101: ensure power is gated to SS phy
+      in phy_exit()
+    - [amd64] iommu/vt-d: Remove device comparison in
+      context_setup_pass_through_cb
+    - [amd64] iommu/vt-d: Fix suspicious RCU usage
+    - [amd64] intel_idle: Handle older CPUs, which stop the TSC in deeper C
+      states, correctly
+    - mptcp: always handle address removal under msk socket lock
+    - mptcp: reset when MPTCP opts are dropped after join
+    - vmlinux.lds: Ensure that const vars with relocations are mapped R/O
+    - rcuref: Plug slowpath race in rcuref_put()
+    - sched/core: Prevent rescheduling when interrupts are disabled
+    - sched_ext: Fix pick_task_scx() picking non-queued tasks when it's called
+      without balance()
+    - dm-integrity: Avoid divide by zero in table status in Inline mode
+    - dm vdo: add missing spin_lock_init
+    - ima: Reset IMA_NONACTION_RULE_FLAGS after post_setattr
+    - scsi: ufs: core: bsg: Fix crash when arpmb command fails
+    - [riscv64] futex: sign extend compare value in atomic cmpxchg
+    - [riscv64] signal: fix signal frame size
+    - [riscv64] cacheinfo: Use of_property_present() for non-boolean properties
+    - [riscv64] signal: fix signal_minsigstksz
+    - [riscv64] cpufeature: use bitmap_equal() instead of memcmp()
+    - efi: Don't map the entire mokvar table to determine its size
+    - amdgpu/pm/legacy: fix suspend/resume issues
+    - [x86] microcode/AMD: Return bool from find_blobs_in_containers()
+    - [x86] microcode/AMD: Have __apply_microcode_amd() return bool
+    - [x86] microcode/AMD: Remove ugly linebreak in __verify_patch_section()
+      signature
+    - [x86] microcode/AMD: Remove unused save_microcode_in_initrd_amd()
+      declarations
+    - [x86] microcode/AMD: Merge early_apply_microcode() into its single
+      callsite
+    - [x86] microcode/AMD: Get rid of the _load_microcode_amd() forward
+      declaration
+    - [x86] microcode/AMD: Add get_patch_level()
+    - [x86] microcode/AMD: Load only SHA256-checksummed patches
+    - thermal: gov_power_allocator: Add missing NULL pointer check
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 07 Mar 2025 21:10:10 +0100
+
 linux (6.12.17-1) unstable; urgency=medium
 
   * New upstream stable update:

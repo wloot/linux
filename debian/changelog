@@ -456,6 +456,9 @@ linux (6.12.41-1) UNRELEASED; urgency=medium
   * Store build time signing key encrypted.
   * Enable CRYPTO_ECDSA.
 
+  [ Aurelien Jarno ]
+  * Fix installation of DTB files
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 17 Jul 2025 22:27:30 +0200
 
 linux (6.12.38-1) unstable; urgency=medium

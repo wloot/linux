@@ -383,7 +383,7 @@ linux (6.12.19-1) UNRELEASED; urgency=medium
     SND_SOC_CS35L56_SDW as modules
 
   [ Steev Klimaszewski ]
-  * [arm64] Enable modules for Thinkpad X13s webcam
+  * [arm64] Enable modules for Thinkpad X13s webcam (Closes: #1100036)
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 07 Mar 2025 21:10:10 +0100
 

@@ -352,7 +352,9 @@ linux (6.12.19-1) UNRELEASED; urgency=medium
     - mm: hugetlb: Add huge page size param to huge_ptep_get_and_clear()
     - [arm64] hugetlb: Fix huge_ptep_get_and_clear() for non-present ptes
     - fs/netfs/read_pgpriv2: skip folio queues without `marks3`
+      (Closes: #1098698, #1099591)
     - fs/netfs/read_collect: fix crash due to uninitialized `prev` variable
+      (Closes: #1098698, #1099591)
     - ALSA: hda: realtek: fix incorrect IS_REACHABLE() usage
     - nvme-tcp: Fix a C2HTermReq error message
     - Revert "KVM: e500: always restore irqs"

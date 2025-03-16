@@ -1,4 +1,4 @@
-linux (6.12.19-1) UNRELEASED; urgency=medium
+linux (6.12.19-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.18
@@ -392,7 +392,7 @@ linux (6.12.19-1) UNRELEASED; urgency=medium
   * fs/netfs/read_collect: add to next->prev_donated
     (Closes: #1098698, #1099591)
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 07 Mar 2025 21:10:10 +0100
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 16 Mar 2025 22:08:59 +0100
 
 linux (6.12.17-1) unstable; urgency=medium
 

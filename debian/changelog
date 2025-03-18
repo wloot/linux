@@ -210,7 +210,7 @@ linux (6.12.20-1) UNRELEASED; urgency=medium
     as modules
 
   [ Salvatore Bonaccorso ]
-  * net/sunrpc: Enable RPCSEC_GSS_KRB5_ENCTYPES_AES_SHA2
+  * net/sunrpc: Enable RPCSEC_GSS_KRB5_ENCTYPES_AES_SHA2 (Closes: #1100641)
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 22 Mar 2025 22:33:17 +0100
 

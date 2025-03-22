@@ -211,6 +211,8 @@ linux (6.12.20-1) UNRELEASED; urgency=medium
 
   [ Salvatore Bonaccorso ]
   * net/sunrpc: Enable RPCSEC_GSS_KRB5_ENCTYPES_AES_SHA2 (Closes: #1100641)
+  * [x86] drivers/pinctrl/intel: Enable PINCTRL_INTEL_PLATFORM as module
+    (Closes: #1100694)
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 22 Mar 2025 22:33:17 +0100
 

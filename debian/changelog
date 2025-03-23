@@ -1,4 +1,4 @@
-linux (6.12.20-1) UNRELEASED; urgency=medium
+linux (6.12.20-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.20
@@ -216,7 +216,7 @@ linux (6.12.20-1) UNRELEASED; urgency=medium
   * ata: libata-core: Add ATA_QUIRK_NO_LPM_ON_ATI for certain Samsung SSDs
     (Closes: #1091696)
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 22 Mar 2025 22:33:17 +0100
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 23 Mar 2025 14:34:08 +0100
 
 linux (6.12.19-1) unstable; urgency=medium
 

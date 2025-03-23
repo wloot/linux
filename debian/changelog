@@ -204,6 +204,18 @@ linux (6.12.20-1) UNRELEASED; urgency=medium
     - nvme-fc: rely on state transitions to handle connectivity loss
     - HID: apple: disable Fn key handling on the Omoton KB066
 
+  [ Madhu Adav M J ]
+  * drivers/nvme/target: Enable NVME_TARGET_PASSTHRU
+  * drivers/nvme/target: Enable NVME_TARGET_LOOP and NVME_TARGET_FCLOOP
+    as modules
+
+  [ Salvatore Bonaccorso ]
+  * net/sunrpc: Enable RPCSEC_GSS_KRB5_ENCTYPES_AES_SHA2 (Closes: #1100641)
+  * [x86] drivers/pinctrl/intel: Enable PINCTRL_INTEL_PLATFORM as module
+    (Closes: #1100694)
+  * ata: libata-core: Add ATA_QUIRK_NO_LPM_ON_ATI for certain Samsung SSDs
+    (Closes: #1091696)
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 22 Mar 2025 22:33:17 +0100
 
 linux (6.12.19-1) unstable; urgency=medium

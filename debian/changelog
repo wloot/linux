@@ -111,6 +111,16 @@ linux (6.12.21-1) UNRELEASED; urgency=medium
     - mm/huge_memory: drop beyond-EOF folios with the right number of refs
     - mptcp: Fix data stream corruption in the address announcement
 
+  [ Ben Hutchings ]
+  * lintian: Restore override for perf-read-vdso32 in linux-perf
+  * linux-perf: Fix perf-check manual page built with asciidoctor
+  * rtla: Add man page link for hwnoise(1)
+  * intel-sdsi, rtla: Add "Depends: ${misc:Depends}"
+  * d/copyright: Update filenames under arch/arm/boot/dts
+  * d/copyright: Remove special case for drivers/crypto/vmx/*.pl
+  * lintian: Override superfluous-file-pattern for d/copyright in
+    linux-signed-*
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 28 Mar 2025 23:24:39 +0100
 
 linux (6.12.20-1) unstable; urgency=medium

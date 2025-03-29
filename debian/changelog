@@ -1,3 +1,118 @@
+linux (6.12.21-1) UNRELEASED; urgency=medium
+
+  * New upstream stable update:
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.21
+    - [arm64] firmware: qcom: scm: Fix error code in probe()
+    - [arm64] dts: freescale: tqma8mpql: Fix vqmmc-supply
+    - [arm64] dts: rockchip: remove supports-cqe from rk3588 jaguar
+    - [arm64] dts: rockchip: remove supports-cqe from rk3588 tiger
+    - xfrm: fix tunnel mode TX datapath in packet offload mode
+    - xfrm_output: Force software GSO only in tunnel mode
+    - [arm64] soc: imx8m: Remove global soc_uid
+    - [arm64] soc: imx8m: Use devm_* to simplify probe failure handling
+    - [arm64] soc: imx8m: Unregister cpufreq and soc dev in cleanup path
+    - [arm64] dts: bcm2712: PL011 UARTs are actually r1p5
+    - [arm64] dts: rockchip: Remove undocumented sdmmc property from lubancat-1
+    - RDMA/rxe: Fix the failure of ibv_query_device() and ibv_query_device_ex()
+      tests
+    - RDMA/bnxt_re: Add missing paranthesis in map_qp_id_to_tbl_indx
+    - RDMA/mlx5: Handle errors returned from mlx5r_ib_rate()
+    - dma-mapping: fix missing clear bdr in check_ram_in_range_map()
+    - RDMA/bnxt_re: Avoid clearing VLAN_ID mask in modify qp path
+    - [arm64] RDMA/hns: Fix soft lockup during bt pages loop
+    - [arm64] RDMA/hns: Fix unmatched condition in error path of
+      alloc_user_qp_db()
+    - [arm64] RDMA/hns: Fix invalid sq params not being blocked
+    - [arm64] RDMA/hns: Fix a missing rollback in error path of
+      hns_roce_create_qp_common()
+    - [arm64] RDMA/hns: Fix missing xa_destroy()
+    - [arm64] RDMA/hns: Fix wrong value of max_sge_rd
+    - Bluetooth: Fix error code in chan_alloc_skb_cb()
+    - Bluetooth: hci_event: Fix connection regression between LE and non-LE
+      adapters
+    - tracing: tprobe-events: Fix to clean up tprobe correctly when module
+      unload
+    - [arm64] net: ethernet: ti: am65-cpsw: Fix NAPI registration sequence
+    - net: ipv6: fix TCP GSO segmentation with NAT
+    - ipv6: Fix memleak of nhc_pcpu_rth_output in fib_check_nh_v6_gw().
+    - ipv6: Set errno after ip_fib_metrics_init() in ip6_route_info_create().
+    - devlink: fix xa_alloc_cyclic() error handling
+    - dpll: fix xa_alloc_cyclic() error handling
+    - phy: fix xa_alloc_cyclic() error handling
+    - [arm64,armhf] gpu: host1x: Do not assume that a NULL domain means no DMA
+      IOMMU
+    - net: atm: fix use after free in lec_send()
+    - net: ti: icssg-prueth: Add lock to stats
+    - net: lwtunnel: fix recursion loops
+    - net: ipv6: ioam6: fix lwtunnel_output() loop
+    - libfs: Fix duplicate directory entry in offset_dir_lookup
+    - net/neighbor: add missing policy for NDTPA_QUEUE_LENBYTES
+    - Revert "gre: Fix IPv6 link-local address generation."
+    - tracing: tprobe-events: Fix leakage of module refcount
+    - i2c: omap: fix IRQ storms
+    - net: mana: Support holes in device list reply msg
+    - dt-bindings: can: renesas,rcar-canfd: Fix typo in pattern properties for
+      R-Car V4M
+    - can: ucan: fix out of bound read in strscpy() source
+    - [arm64,armhf] can: flexcan: only change CAN state when link up in system
+      PM
+    - [arm64,armhf] can: flexcan: disable transceiver during system PM
+    - drm/xe: Fix exporting xe buffers multiple times
+    - [arm64] drm/v3d: Don't run jobs that have errors flagged in its fence
+    - io_uring/net: don't clear REQ_F_NEED_CLEANUP unconditionally
+    - [riscv64] dts: starfive: Fix a typo in StarFive JH7110 pin function
+      definitions
+    - netfs: Call `invalidate_cache` only if implemented
+    - regulator: dummy: force synchronous probing
+    - regulator: check that dummy regulator has been probed before using it
+    - [arm64] dts: freescale: imx8mp-verdin-dahlia: add Microphone Jack to sound
+      card
+    - [arm64] dts: freescale: imx8mm-verdin-dahlia: add Microphone Jack to sound
+      card
+    - [arm64] dts: rockchip: fix pinmux of UART0 for PX30 Ringneck on Haikou
+    - [arm64] dts: rockchip: fix pinmux of UART5 for PX30 Ringneck on Haikou
+    - mm: fix error handling in __filemap_get_folio() with FGP_NOWAIT
+    - mm/migrate: fix shmem xarray update during migration
+    - mm/page_alloc: fix memory accept before watermarks gets initialized
+    - proc: fix UAF in proc_get_inode()
+    - memcg: drain obj stock on cpu hotplug teardown
+    - [arm64] firmware: qcom: uefisecapp: fix efivars registration race
+    - efi/libstub: Avoid physical address 0x0 when doing random allocation
+    - keys: Fix UAF in key_put()
+    - xsk: fix an integer overflow in xp_create_and_assign_umem()
+    - batman-adv: Ignore own maximum aggregation size during RX
+    - [arm64] soc: qcom: pdr: Fix the potential deadlock
+    - pmdomain: amlogic: fix T7 ISP secpower
+    - drm/radeon: fix uninitialized size issue in radeon_vce_cs_parse()
+    - drm/sched: Fix fence reference count leak
+    - drm/amdgpu/gfx12: correct cleanup of 'me' field with gfx_v12_0_me_fini()
+    - drm/amd/display: Fix message for support_edp0_on_dp1
+    - drm/amd/display: Use HW lock mgr for PSR1 when only one eDP
+    - drm/amd/pm: add unique_id for gfx12
+    - drm/amdgpu: Restore uncached behaviour on GFX12
+    - drm/amdgpu/pm: Handle SCLK offset correctly in overdrive for smu 14.0.2
+    - drm/amdgpu/pm: wire up hwmon fan speed for smu 14.0.2
+    - drm/amdgpu: Remove JPEG from vega and carrizo video caps
+    - drm/amdgpu: Fix MPEG2, MPEG4 and VC1 video caps max size
+    - drm/amdgpu: Fix JPEG video caps max size for navi1x and raven
+    - ksmbd: fix incorrect validation for num_aces field of smb_acl
+    - io_uring/net: fix sendzc double notif flush
+    - [arm64] KVM: arm64: Calculate cptr_el2 traps on activating traps
+    - [arm64] KVM: arm64: Unconditionally save+flush host FPSIMD/SVE/SME state
+    - [arm64] KVM: arm64: Remove host FPSIMD saving for non-protected KVM
+    - [arm64] KVM: arm64: Remove VHE host restore of CPACR_EL1.ZEN
+    - [arm64] KVM: arm64: Remove VHE host restore of CPACR_EL1.SMEN
+    - [arm64] KVM: arm64: Refactor exit handlers
+    - [arm64] KVM: arm64: Mark some header functions as inline
+    - [arm64] KVM: arm64: Eagerly switch ZCR_EL{1,2}
+    - Revert "sched/core: Reduce cost of sched_move_task when config autogroup"
+    - libsubcmd: Silence compiler warning
+    - [arm64] dts: rockchip: fix u2phy1_host status for NanoPi R4S
+    - mm/huge_memory: drop beyond-EOF folios with the right number of refs
+    - mptcp: Fix data stream corruption in the address announcement
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 28 Mar 2025 23:24:39 +0100
+
 linux (6.12.20-1) unstable; urgency=medium
 
   * New upstream stable update:

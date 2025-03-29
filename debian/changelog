@@ -125,6 +125,9 @@ linux (6.12.21-1) UNRELEASED; urgency=medium
   [ Salvatore Bonaccorso ]
   * sound/soc/amd/acp: Enable SND_AMD_ASOC_RENOIR as module (Closes: #1101155)
 
+  [ Vagrant Cascadian ]
+  * drivers/net/wireless/realtek/rtw88: Enable RTW88_8723CS as a module
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 28 Mar 2025 23:24:39 +0100
 
 linux (6.12.20-1) unstable; urgency=medium

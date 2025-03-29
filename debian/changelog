@@ -111,6 +111,36 @@ linux (6.12.21-1) UNRELEASED; urgency=medium
     - mm/huge_memory: drop beyond-EOF folios with the right number of refs
     - mptcp: Fix data stream corruption in the address announcement
 
+  [ Ben Hutchings ]
+  * lintian: Restore override for perf-read-vdso32 in linux-perf
+  * linux-perf: Fix perf-check manual page built with asciidoctor
+  * rtla: Add man page link for hwnoise(1)
+  * intel-sdsi, rtla: Add "Depends: ${misc:Depends}"
+  * d/copyright: Update filenames under arch/arm/boot/dts
+  * d/copyright: Remove special case for drivers/crypto/vmx/*.pl
+  * lintian: Override superfluous-file-pattern for d/copyright in
+    linux-signed-*
+  * d/salsa-ci.yml: Run lintian from the target release, not always unstable
+  * [powerpc*] Revert "fbdev/offb: Update expected device name" (Closes:
+    #1085949)
+  * d/b/genpatch-rt: Fix subprocess cleanup with Python 3.13
+
+  [ Salvatore Bonaccorso ]
+  * sound/soc/amd/acp: Enable SND_AMD_ASOC_RENOIR as module (Closes: #1101155)
+  * d/b/genpatch-rt: Drop now unused 'io' module.
+
+  [ Vagrant Cascadian ]
+  * drivers/net/wireless/realtek/rtw88: Enable RTW88_8723CS as a module
+
+  [ Miguel Bernal Marin ]
+  * [amd64,arm64/cloud] Enable virtualisation drivers on cloud flavours,
+    (Closes: #1101378)
+    - drivers/virt: Enable VIRT_DRIVERS
+    - drivers/virt: Enable VMGENID
+    - drivers/virt/nitro_enclaves: Enable NITRO_ENCLAVES as module
+    - drivers/virt/coco/sev-guest: Enable SEV_GUEST as module
+    - drivers/virt/coco/tdx-guest: Enable TDX_GUEST_DRIVER as module
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 28 Mar 2025 23:24:39 +0100
 
 linux (6.12.20-1) unstable; urgency=medium

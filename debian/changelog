@@ -123,9 +123,11 @@ linux (6.12.21-1) UNRELEASED; urgency=medium
   * d/salsa-ci.yml: Run lintian from the target release, not always unstable
   * [powerpc*] Revert "fbdev/offb: Update expected device name" (Closes:
     #1085949)
+  * d/b/genpatch-rt: Fix subprocess cleanup with Python 3.13
 
   [ Salvatore Bonaccorso ]
   * sound/soc/amd/acp: Enable SND_AMD_ASOC_RENOIR as module (Closes: #1101155)
+  * d/b/genpatch-rt: Drop now unused 'io' module.
 
   [ Vagrant Cascadian ]
   * drivers/net/wireless/realtek/rtw88: Enable RTW88_8723CS as a module

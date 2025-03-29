@@ -132,6 +132,15 @@ linux (6.12.21-1) UNRELEASED; urgency=medium
   [ Vagrant Cascadian ]
   * drivers/net/wireless/realtek/rtw88: Enable RTW88_8723CS as a module
 
+  [ Miguel Bernal Marin ]
+  * [amd64,arm64/cloud] Enable virtualisation drivers on cloud flavours,
+    (Closes: #1101378)
+    - drivers/virt: Enable VIRT_DRIVERS
+    - drivers/virt: Enable VMGENID
+    - drivers/virt/nitro_enclaves: Enable NITRO_ENCLAVES as module
+    - drivers/virt/coco/sev-guest: Enable SEV_GUEST as module
+    - drivers/virt/coco/tdx-guest: Enable TDX_GUEST_DRIVER as module
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 28 Mar 2025 23:24:39 +0100
 
 linux (6.12.20-1) unstable; urgency=medium

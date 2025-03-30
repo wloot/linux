@@ -1,4 +1,4 @@
-linux (6.12.21-1) UNRELEASED; urgency=medium
+linux (6.12.21-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.21
@@ -141,7 +141,7 @@ linux (6.12.21-1) UNRELEASED; urgency=medium
     - drivers/virt/coco/sev-guest: Enable SEV_GUEST as module
     - drivers/virt/coco/tdx-guest: Enable TDX_GUEST_DRIVER as module
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 28 Mar 2025 23:24:39 +0100
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 30 Mar 2025 16:50:14 +0200
 
 linux (6.12.20-1) unstable; urgency=medium
 

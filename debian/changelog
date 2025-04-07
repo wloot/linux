@@ -1,3 +1,31 @@
+linux (6.12.22-1) UNRELEASED; urgency=medium
+
+  * New upstream stable update:
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.22
+    - ALSA: usb-audio: Add quirk for Plantronics headsets to fix control names
+    - HID: hid-plantronics: Add mic mute mapping and generalize quirks
+    - atm: Fix NULL pointer dereference
+    - drm/amd/display: Don't write DP_MSTM_CTRL after LT
+    - netfilter: socket: Lookup orig tuple for IPv6 SNAT
+    - ALSA: hda/realtek: Support mute LED on HP Laptop 15s-du3xxx
+    - tty: serial: 8250: Add some more device IDs
+    - tty: serial: 8250: Add Brainboxes XC devices
+    - tty: serial: fsl_lpuart: disable transmitter before changing RS485 related
+      registers
+    - net: usb: qmi_wwan: add Telit Cinterion FN990B composition
+    - net: usb: qmi_wwan: add Telit Cinterion FE990B composition
+    - net: usb: usbnet: restore usb%d name exception for local mac addresses
+    - usb: xhci: Don't skip on Stopped - Length Invalid
+    - usb: xhci: Apply the link chain quirk on NEC isoc endpoints
+    - memstick: rtsx_usb_ms: Fix slab-use-after-free in rtsx_usb_ms_drv_remove
+    - perf tools: Fix up some comments and code to properly use the event_source
+      bus
+    - [armhf] serial: stm32: do not deassert RS485 RTS GPIO prematurely
+    - serial: 8250_dma: terminate correct DMA in tx_dma_flush()
+    - bcachefs: bch2_ioctl_subvolume_destroy() fixes
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 07 Apr 2025 15:36:57 +0200
+
 linux (6.12.21-1) unstable; urgency=medium
 
   * New upstream stable update:

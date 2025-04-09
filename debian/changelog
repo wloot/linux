@@ -24,6 +24,11 @@ linux (6.12.22-1) UNRELEASED; urgency=medium
     - serial: 8250_dma: terminate correct DMA in tx_dma_flush()
     - bcachefs: bch2_ioctl_subvolume_destroy() fixes
 
+  [ Salvatore Bonaccorso ]
+  * ALSA: hda/realtek: Fix built-in mic on another ASUS VivoBook model
+    (Closes: #1100928)
+  * md: fix mddev uaf while iterating all_mddevs list (Closes: #1086175)
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 07 Apr 2025 15:36:57 +0200
 
 linux (6.12.21-1) unstable; urgency=medium

@@ -1,4 +1,4 @@
-linux (6.12.22-1) UNRELEASED; urgency=medium
+linux (6.12.22-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.22
@@ -29,7 +29,7 @@ linux (6.12.22-1) UNRELEASED; urgency=medium
     (Closes: #1100928)
   * md: fix mddev uaf while iterating all_mddevs list (Closes: #1086175)
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 07 Apr 2025 15:36:57 +0200
+ -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 10 Apr 2025 15:32:40 +0200
 
 linux (6.12.21-1) unstable; urgency=medium
 

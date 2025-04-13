@@ -1,4 +1,4 @@
-From 1377652e9e38001358b5f0ce7a07c608382f19ca Mon Sep 17 00:00:00 2001
+From 3679f3b8da5a5b2528b6e14c5510617ed83db72b Mon Sep 17 00:00:00 2001
 From: Neal Cardwell <ncardwell@google.com>
 Date: Thu, 12 Oct 2017 23:44:27 -0400
 Subject: [PATCH 04/18] net-tcp_bbr: v2: count packets lost over TCP rate
@@ -17,10 +17,10 @@ Change-Id: I594c2500868d9c530770e7ddd68ffc87c57f4fd5
  2 files changed, 7 insertions(+), 1 deletion(-)
 
 diff --git a/include/net/tcp.h b/include/net/tcp.h
-index 809f3bdb6b46..1de9c361c0a8 100644
+index 79e33bfab..a2c54ce8c 100644
 --- a/include/net/tcp.h
 +++ b/include/net/tcp.h
-@@ -985,6 +985,7 @@ struct tcp_skb_cb {
+@@ -999,6 +999,7 @@ struct tcp_skb_cb {
  #define TCPCB_IN_FLIGHT_MAX ((1U << TCPCB_IN_FLIGHT_BITS) - 1)
  			u32 in_flight:20,   /* packets in flight at transmit */
  			    unused2:12;
@@ -28,7 +28,7 @@ index 809f3bdb6b46..1de9c361c0a8 100644
  		} tx;   /* only used for outgoing skbs */
  		union {
  			struct inet_skb_parm	h4;
-@@ -1130,11 +1131,13 @@ struct ack_sample {
+@@ -1153,11 +1154,13 @@ struct ack_sample {
   */
  struct rate_sample {
  	u64  prior_mstamp; /* starting timestamp for interval */
@@ -44,7 +44,7 @@ index 809f3bdb6b46..1de9c361c0a8 100644
  	u32 snd_interval_us;	/* snd interval for delivered packets */
  	u32 rcv_interval_us;	/* rcv interval for delivered packets */
 diff --git a/net/ipv4/tcp_rate.c b/net/ipv4/tcp_rate.c
-index 1424911b1b9e..8737f2134648 100644
+index 1424911b1..8737f2134 100644
 --- a/net/ipv4/tcp_rate.c
 +++ b/net/ipv4/tcp_rate.c
 @@ -84,6 +84,7 @@ void tcp_rate_skb_sent(struct sock *sk, struct sk_buff *skb)
@@ -72,5 +72,5 @@ index 1424911b1b9e..8737f2134648 100644
  	rs->delivered_ce = tp->delivered_ce - rs->prior_delivered_ce;
  	/* delivered_ce occupies less than 32 bits in the skb control block */
 -- 
-2.39.5 (Apple Git-154)
+2.39.5
 

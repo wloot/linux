@@ -132,6 +132,5 @@ features/all/0015-tcp-introduce-per-route-feature-RTAX_FEATURE_ECN_LOW.patch
 features/all/0016-net-tcp_bbr-v3-update-TCP-bbr-congestion-control-mod.patch
 features/all/0017-net-tcp_bbr-v3-ensure-ECN-enabled-BBR-flows-set-ECT-.patch
 features/all/0018-tcp-export-TCPI_OPT_ECN_LOW-in-tcp_info-tcpi_options.patch
-features/all/0001-x86-cfi-bpf-Add-tso_segs-and-skb_marked_lost-to-bpf_.patch
 
 # ABI maintenance

@@ -1,4 +1,4 @@
-From 271b966168f0cc5887a43b22d1025d2ef11d8e93 Mon Sep 17 00:00:00 2001
+From 88aff899355d12fe1053997facec835aecd9f7d6 Mon Sep 17 00:00:00 2001
 From: Adithya Abraham Philip <abrahamphilip@google.com>
 Date: Fri, 11 Jun 2021 21:56:10 +0000
 Subject: [PATCH 17/18] net-tcp_bbr: v3: ensure ECN-enabled BBR flows set ECT
@@ -23,10 +23,10 @@ Change-Id: I8b048eaab35e136fe6501ef6cd89fd9faa15e6d2
  3 files changed, 6 insertions(+), 1 deletion(-)
 
 diff --git a/include/net/tcp.h b/include/net/tcp.h
-index 9f446b7e8804..97be6fb7f17c 100644
+index ddbf1301a..1ac0efa5a 100644
 --- a/include/net/tcp.h
 +++ b/include/net/tcp.h
-@@ -376,6 +376,7 @@ static inline void tcp_dec_quickack_mode(struct sock *sk)
+@@ -377,6 +377,7 @@ static inline void tcp_dec_quickack_mode(struct sock *sk)
  #define	TCP_ECN_DEMAND_CWR	4
  #define	TCP_ECN_SEEN		8
  #define	TCP_ECN_LOW		16
@@ -35,10 +35,10 @@ index 9f446b7e8804..97be6fb7f17c 100644
  enum tcp_tw_status {
  	TCP_TW_SUCCESS = 0,
 diff --git a/net/ipv4/tcp_bbr.c b/net/ipv4/tcp_bbr.c
-index ce2b027d5096..bc7f913c9ea3 100644
+index 547344526..e09389c37 100644
 --- a/net/ipv4/tcp_bbr.c
 +++ b/net/ipv4/tcp_bbr.c
-@@ -2151,6 +2151,9 @@ __bpf_kfunc static void bbr_init(struct sock *sk)
+@@ -2152,6 +2152,9 @@ __bpf_kfunc static void bbr_init(struct sock *sk)
  	bbr->plb.pause_until = 0;
  
  	tp->fast_ack_mode = bbr_fast_ack_mode ? 1 : 0;
@@ -49,10 +49,10 @@ index ce2b027d5096..bc7f913c9ea3 100644
  
  /* BBR marks the current round trip as a loss round. */
 diff --git a/net/ipv4/tcp_output.c b/net/ipv4/tcp_output.c
-index 6cf099e6be58..3f4bdd2b6476 100644
+index ed3f0935f..d4c45ca6f 100644
 --- a/net/ipv4/tcp_output.c
 +++ b/net/ipv4/tcp_output.c
-@@ -390,7 +390,8 @@ static void tcp_ecn_send(struct sock *sk, struct sk_buff *skb,
+@@ -393,7 +393,8 @@ static void tcp_ecn_send(struct sock *sk, struct sk_buff *skb,
  				th->cwr = 1;
  				skb_shinfo(skb)->gso_type |= SKB_GSO_TCP_ECN;
  			}
@@ -63,5 +63,5 @@ index 6cf099e6be58..3f4bdd2b6476 100644
  			INET_ECN_dontxmit(sk);
  		}
 -- 
-2.39.5 (Apple Git-154)
+2.39.5
 

@@ -1,4 +1,4 @@
-From 07fe9fa44cb5ce6cf36315e6b99e1a51a7f5d528 Mon Sep 17 00:00:00 2001
+From 9120f8037e8b7a025e3998d1ec51b5e0fad837be Mon Sep 17 00:00:00 2001
 From: David Morley <morleyd@google.com>
 Date: Fri, 14 Jul 2023 11:07:56 -0400
 Subject: [PATCH 15/18] tcp: introduce per-route feature RTAX_FEATURE_ECN_LOW
@@ -24,17 +24,17 @@ Signed-off-by: Yuchung Cheng <ycheng@google.com>
 Tested-by: David Morley <morleyd@google.com>
 Change-Id: I6bc06e9c6cb426fbae7243fc71c9a8c18175f5d3
 ---
- include/net/tcp.h              | 9 +++++++++
- include/uapi/linux/rtnetlink.h | 4 +++-
- net/ipv4/tcp_minisocks.c       | 2 ++
- net/ipv4/tcp_output.c          | 6 ++++--
- 4 files changed, 18 insertions(+), 3 deletions(-)
+ include/net/tcp.h              | 10 ++++++++++
+ include/uapi/linux/rtnetlink.h |  4 +++-
+ net/ipv4/tcp_minisocks.c       |  2 ++
+ net/ipv4/tcp_output.c          |  6 ++++--
+ 4 files changed, 19 insertions(+), 3 deletions(-)
 
 diff --git a/include/net/tcp.h b/include/net/tcp.h
-index af753c24a903..eb12ddb63b0f 100644
+index 5a34889a1..d13268435 100644
 --- a/include/net/tcp.h
 +++ b/include/net/tcp.h
-@@ -375,6 +375,7 @@ static inline void tcp_dec_quickack_mode(struct sock *sk)
+@@ -376,6 +376,7 @@ static inline void tcp_dec_quickack_mode(struct sock *sk)
  #define	TCP_ECN_QUEUE_CWR	2
  #define	TCP_ECN_DEMAND_CWR	4
  #define	TCP_ECN_SEEN		8
@@ -42,46 +42,47 @@ index af753c24a903..eb12ddb63b0f 100644
  
  enum tcp_tw_status {
  	TCP_TW_SUCCESS = 0,
-@@ -777,6 +778,14 @@ static inline void tcp_fast_path_check(struct sock *sk)
- 		tcp_fast_path_on(tp);
- }
+@@ -793,6 +794,15 @@ static inline void tcp_fast_path_check(struct sock *sk)
+ 
+ u32 tcp_delack_max(const struct sock *sk);
  
 +static inline void tcp_set_ecn_low_from_dst(struct sock *sk,
 +					    const struct dst_entry *dst)
 +{
 +	struct tcp_sock *tp = tcp_sk(sk);
++
 +	if (dst_feature(dst, RTAX_FEATURE_ECN_LOW))
 +		tp->ecn_flags |= TCP_ECN_LOW;
 +}
 +
- u32 tcp_delack_max(const struct sock *sk);
- 
  /* Compute the actual rto_min value */
+ static inline u32 tcp_rto_min(const struct sock *sk)
+ {
 diff --git a/include/uapi/linux/rtnetlink.h b/include/uapi/linux/rtnetlink.h
-index 3b687d20c9ed..49c197eb8762 100644
+index db7254d52..38de18d92 100644
 --- a/include/uapi/linux/rtnetlink.h
 +++ b/include/uapi/linux/rtnetlink.h
 @@ -507,12 +507,14 @@ enum {
  #define RTAX_FEATURE_TIMESTAMP		(1 << 2) /* unused */
  #define RTAX_FEATURE_ALLFRAG		(1 << 3) /* unused */
  #define RTAX_FEATURE_TCP_USEC_TS	(1 << 4)
-+#define RTAX_FEATURE_ECN_LOW	(1 << 5)
++#define RTAX_FEATURE_ECN_LOW		(1 << 5)
  
  #define RTAX_FEATURE_MASK	(RTAX_FEATURE_ECN |		\
  				 RTAX_FEATURE_SACK |		\
  				 RTAX_FEATURE_TIMESTAMP |	\
  				 RTAX_FEATURE_ALLFRAG |		\
 -				 RTAX_FEATURE_TCP_USEC_TS)
-+				 RTAX_FEATURE_TCP_USEC_TS | \
++				 RTAX_FEATURE_TCP_USEC_TS |	\
 +				 RTAX_FEATURE_ECN_LOW)
  
  struct rta_session {
  	__u8	proto;
 diff --git a/net/ipv4/tcp_minisocks.c b/net/ipv4/tcp_minisocks.c
-index d5da3ec8f846..7b25413ad225 100644
+index 789e495d3..dea9123e5 100644
 --- a/net/ipv4/tcp_minisocks.c
 +++ b/net/ipv4/tcp_minisocks.c
-@@ -465,6 +465,8 @@ void tcp_ca_openreq_child(struct sock *sk, const struct dst_entry *dst)
+@@ -466,6 +466,8 @@ void tcp_ca_openreq_child(struct sock *sk, const struct dst_entry *dst)
  	u32 ca_key = dst_metric(dst, RTAX_CC_ALGO);
  	bool ca_got_dst = false;
  
@@ -91,10 +92,10 @@ index d5da3ec8f846..7b25413ad225 100644
  		const struct tcp_congestion_ops *ca;
  
 diff --git a/net/ipv4/tcp_output.c b/net/ipv4/tcp_output.c
-index 006c646588c5..6cf099e6be58 100644
+index 915e7c1c7..ed3f0935f 100644
 --- a/net/ipv4/tcp_output.c
 +++ b/net/ipv4/tcp_output.c
-@@ -336,10 +336,9 @@ static void tcp_ecn_send_syn(struct sock *sk, struct sk_buff *skb)
+@@ -339,10 +339,9 @@ static void tcp_ecn_send_syn(struct sock *sk, struct sk_buff *skb)
  	bool bpf_needs_ecn = tcp_bpf_ca_needs_ecn(sk);
  	bool use_ecn = READ_ONCE(sock_net(sk)->ipv4.sysctl_tcp_ecn) == 1 ||
  		tcp_ca_needs_ecn(sk) || bpf_needs_ecn;
@@ -106,7 +107,7 @@ index 006c646588c5..6cf099e6be58 100644
  		if (dst && dst_feature(dst, RTAX_FEATURE_ECN))
  			use_ecn = true;
  	}
-@@ -351,6 +350,9 @@ static void tcp_ecn_send_syn(struct sock *sk, struct sk_buff *skb)
+@@ -354,6 +353,9 @@ static void tcp_ecn_send_syn(struct sock *sk, struct sk_buff *skb)
  		tp->ecn_flags = TCP_ECN_OK;
  		if (tcp_ca_needs_ecn(sk) || bpf_needs_ecn)
  			INET_ECN_xmit(sk);
@@ -117,5 +118,5 @@ index 006c646588c5..6cf099e6be58 100644
  }
  
 -- 
-2.39.5 (Apple Git-154)
+2.39.5
 

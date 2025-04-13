@@ -1,4 +1,4 @@
-From 1a7c327c45736a9902312f20dc2c87fa670dde82 Mon Sep 17 00:00:00 2001
+From f2078939d4a8cee55dc24cb4736b1fbb9eae5f97 Mon Sep 17 00:00:00 2001
 From: Neal Cardwell <ncardwell@google.com>
 Date: Tue, 7 Aug 2018 21:52:06 -0400
 Subject: [PATCH 06/18] net-tcp_bbr: v2: introduce ca_ops->skb_marked_lost() CC
@@ -28,10 +28,10 @@ Change-Id: I54826ab53df636be537e5d3c618a46145d12d51a
  2 files changed, 8 insertions(+)
 
 diff --git a/include/net/tcp.h b/include/net/tcp.h
-index 4ddaf9e9344e..6d4ddf3f3ed8 100644
+index a74ac6ce5..61a4b761c 100644
 --- a/include/net/tcp.h
 +++ b/include/net/tcp.h
-@@ -1176,6 +1176,9 @@ struct tcp_congestion_ops {
+@@ -1199,6 +1199,9 @@ struct tcp_congestion_ops {
  	/* override sysctl_tcp_min_tso_segs */
  	u32 (*min_tso_segs)(struct sock *sk);
  
@@ -42,10 +42,10 @@ index 4ddaf9e9344e..6d4ddf3f3ed8 100644
  	 * after all the ca_state processing. (optional)
  	 */
 diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
-index baa98c5fdf10..e48ccb8df815 100644
+index 7fdbc7917..85b97003e 100644
 --- a/net/ipv4/tcp_input.c
 +++ b/net/ipv4/tcp_input.c
-@@ -1120,7 +1120,12 @@ static void tcp_verify_retransmit_hint(struct tcp_sock *tp, struct sk_buff *skb)
+@@ -1126,7 +1126,12 @@ static void tcp_verify_retransmit_hint(struct tcp_sock *tp, struct sk_buff *skb)
   */
  static void tcp_notify_skb_loss_event(struct tcp_sock *tp, const struct sk_buff *skb)
  {
@@ -59,5 +59,5 @@ index baa98c5fdf10..e48ccb8df815 100644
  
  void tcp_mark_skb_lost(struct sock *sk, struct sk_buff *skb)
 -- 
-2.39.5 (Apple Git-154)
+2.39.5
 

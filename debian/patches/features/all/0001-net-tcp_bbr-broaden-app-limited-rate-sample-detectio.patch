@@ -1,4 +1,4 @@
-From ef3c13ee46c590c73b22b8fd4e89110c8528ecff Mon Sep 17 00:00:00 2001
+From 137a508c950878712068b1d7a67ece75e4f2835c Mon Sep 17 00:00:00 2001
 From: Neal Cardwell <ncardwell@google.com>
 Date: Tue, 11 Jun 2019 12:26:55 -0400
 Subject: [PATCH 01/18] net-tcp_bbr: broaden app-limited rate sample detection
@@ -30,10 +30,10 @@ Change-Id: I37221506f5166877c2b110753d39bb0757985e68
  2 files changed, 2 insertions(+)
 
 diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
-index f130eccade39..4b2d15f890b1 100644
+index 0ee22e10f..52ea2c3a8 100644
 --- a/net/ipv4/tcp_input.c
 +++ b/net/ipv4/tcp_input.c
-@@ -3930,6 +3930,7 @@ static int tcp_ack(struct sock *sk, const struct sk_buff *skb, int flag)
+@@ -3967,6 +3967,7 @@ static int tcp_ack(struct sock *sk, const struct sk_buff *skb, int flag)
  
  	prior_fack = tcp_is_sack(tp) ? tcp_highest_sack_seq(tp) : tp->snd_una;
  	rs.prior_in_flight = tcp_packets_in_flight(tp);
@@ -42,10 +42,10 @@ index f130eccade39..4b2d15f890b1 100644
  	/* ts_recent update must be made after we are sure that the packet
  	 * is in window.
 diff --git a/net/ipv4/tcp_timer.c b/net/ipv4/tcp_timer.c
-index 4d40615dc8fc..f27941201ef2 100644
+index b412ed88c..d70f8b742 100644
 --- a/net/ipv4/tcp_timer.c
 +++ b/net/ipv4/tcp_timer.c
-@@ -689,6 +689,7 @@ void tcp_write_timer_handler(struct sock *sk)
+@@ -699,6 +699,7 @@ void tcp_write_timer_handler(struct sock *sk)
  		return;
  	}
  
@@ -54,5 +54,5 @@ index 4d40615dc8fc..f27941201ef2 100644
  	event = icsk->icsk_pending;
  
 -- 
-2.39.5 (Apple Git-154)
+2.39.5
 

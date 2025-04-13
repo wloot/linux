@@ -1,4 +1,4 @@
-From f197aa2ca7cff90390ea45d6dd7b1844e44aa6cd Mon Sep 17 00:00:00 2001
+From 6642024274d7f80ed00044962dcfbe301484edc9 Mon Sep 17 00:00:00 2001
 From: Yousuk Seung <ysseung@google.com>
 Date: Wed, 23 May 2018 17:55:54 -0700
 Subject: [PATCH 09/18] net-tcp: add new ca opts flag TCP_CONG_WANTS_CE_EVENTS
@@ -21,10 +21,10 @@ Change-Id: I2255506985242f376d910c6fd37daabaf4744f24
  2 files changed, 15 insertions(+), 3 deletions(-)
 
 diff --git a/include/net/tcp.h b/include/net/tcp.h
-index 48bbfd44f43f..520afc5c9276 100644
+index 09d837f88..ca5aa5de3 100644
 --- a/include/net/tcp.h
 +++ b/include/net/tcp.h
-@@ -1111,7 +1111,11 @@ enum tcp_ca_ack_event_flags {
+@@ -1134,7 +1134,11 @@ enum tcp_ca_ack_event_flags {
  #define TCP_CONG_NON_RESTRICTED 0x1
  /* Requires ECN/ECT set on all packets */
  #define TCP_CONG_NEEDS_ECN	0x2
@@ -37,7 +37,7 @@ index 48bbfd44f43f..520afc5c9276 100644
  
  union tcp_cc_info;
  
-@@ -1243,6 +1247,14 @@ static inline char *tcp_ca_get_name_by_key(u32 key, char *buffer)
+@@ -1266,6 +1270,14 @@ static inline char *tcp_ca_get_name_by_key(u32 key, char *buffer)
  }
  #endif
  
@@ -53,10 +53,10 @@ index 48bbfd44f43f..520afc5c9276 100644
  {
  	const struct inet_connection_sock *icsk = inet_csk(sk);
 diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
-index c6ee61d32638..a095c9f79cfb 100644
+index c0c965a55..fdae07d29 100644
 --- a/net/ipv4/tcp_input.c
 +++ b/net/ipv4/tcp_input.c
-@@ -370,7 +370,7 @@ static void __tcp_ecn_check_ce(struct sock *sk, const struct sk_buff *skb)
+@@ -376,7 +376,7 @@ static void __tcp_ecn_check_ce(struct sock *sk, const struct sk_buff *skb)
  			tcp_enter_quickack_mode(sk, 2);
  		break;
  	case INET_ECN_CE:
@@ -65,7 +65,7 @@ index c6ee61d32638..a095c9f79cfb 100644
  			tcp_ca_event(sk, CA_EVENT_ECN_IS_CE);
  
  		if (!(tp->ecn_flags & TCP_ECN_DEMAND_CWR)) {
-@@ -381,7 +381,7 @@ static void __tcp_ecn_check_ce(struct sock *sk, const struct sk_buff *skb)
+@@ -387,7 +387,7 @@ static void __tcp_ecn_check_ce(struct sock *sk, const struct sk_buff *skb)
  		tp->ecn_flags |= TCP_ECN_SEEN;
  		break;
  	default:
@@ -75,5 +75,5 @@ index c6ee61d32638..a095c9f79cfb 100644
  		tp->ecn_flags |= TCP_ECN_SEEN;
  		break;
 -- 
-2.39.5 (Apple Git-154)
+2.39.5
 

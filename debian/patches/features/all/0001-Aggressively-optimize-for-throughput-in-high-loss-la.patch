@@ -1,0 +1,62 @@
+From cda57aaae855ac551a9ae4a2c96df61357a86f63 Mon Sep 17 00:00:00 2001
+From: Julian Lau <wlootlxt123@gmail.com>
+Date: Wed, 16 Apr 2025 12:50:29 +0800
+Subject: [PATCH] Aggressively optimize for throughput in high loss/latency
+
+---
+ net/ipv4/tcp_bbr.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/net/ipv4/tcp_bbr.c b/net/ipv4/tcp_bbr.c
+index e09389c37..87cf32023 100644
+--- a/net/ipv4/tcp_bbr.c
++++ b/net/ipv4/tcp_bbr.c
+@@ -269,7 +269,7 @@ static const u32 bbr_ecn_max_rtt_us = 5000;
+ /* On losses, scale down inflight and pacing rate by beta scaled by BBR_SCALE.
+  * No loss response when 0.
+  */
+-static const u32 bbr_beta = BBR_UNIT * 30 / 100;
++static const u32 bbr_beta = BBR_UNIT * 10 / 100;
+ 
+ /* Gain factor for ECN mark ratio samples, scaled by BBR_SCALE (1/16 = 6.25%) */
+ static const u32 bbr_ecn_alpha_gain = BBR_UNIT * 1 / 16;
+@@ -296,16 +296,16 @@ static const u32 bbr_ecn_thresh = BBR_UNIT * 1 / 2;  /* 1/2 = 50% */
+ static const u32 bbr_ecn_reprobe_gain = BBR_UNIT * 1 / 2;
+ 
+ /* Estimate bw probing has gone too far if loss rate exceeds this level. */
+-static const u32 bbr_loss_thresh = BBR_UNIT * 2 / 100;  /* 2% loss */
++static const u32 bbr_loss_thresh = BBR_UNIT * 10 / 100;
+ 
+ /* Slow down for a packet loss recovered by TLP? */
+-static const bool bbr_loss_probe_recovery = true;
++static const bool bbr_loss_probe_recovery = false;
+ 
+ /* Exit STARTUP if number of loss marking events in a Recovery round is >= N,
+  * and loss rate is higher than bbr_loss_thresh.
+  * Disabled if 0.
+  */
+-static const u32 bbr_full_loss_cnt = 6;
++static const u32 bbr_full_loss_cnt = 12;
+ 
+ /* Exit STARTUP if number of round trips with ECN mark rate above ecn_thresh
+  * meets this count.
+@@ -313,14 +313,14 @@ static const u32 bbr_full_loss_cnt = 6;
+ static const u32 bbr_full_ecn_cnt = 2;
+ 
+ /* Fraction of unutilized headroom to try to leave in path upon high loss. */
+-static const u32 bbr_inflight_headroom = BBR_UNIT * 15 / 100;
++static const u32 bbr_inflight_headroom = BBR_UNIT * 0 / 100;
+ 
+ /* How much do we increase cwnd_gain when probing for bandwidth in
+  * BBR_BW_PROBE_UP? This specifies the increment in units of
+  * BBR_UNIT/4. The default is 1, meaning 0.25.
+  * The min value is 0 (meaning 0.0); max is 3 (meaning 0.75).
+  */
+-static const u32 bbr_bw_probe_cwnd_gain = 1;
++static const u32 bbr_bw_probe_cwnd_gain = 2;
+ 
+ /* Max number of packet-timed rounds to wait before probing for bandwidth.  If
+  * we want to tolerate 1% random loss per round, and not have this cut our
+-- 
+2.39.5 (Apple Git-154)
+

@@ -408,6 +408,9 @@ linux (6.12.23-1) UNRELEASED; urgency=medium
   * [arm64,powerpc,ppc64,ppc64el,riscv64,s390x] Enable KALLSYMS_ALL on
     all architectures where DEBUG_INFO_BTF is on (Closes: #1100634)
 
+  [ Salvatore Bonaccorso ]
+  * hfs/hfsplus: fix slab-out-of-bounds in hfs_bnode_read_key
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 11 Apr 2025 17:52:16 +0200
 
 linux (6.12.22-1) unstable; urgency=medium

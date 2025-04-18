@@ -186,6 +186,11 @@ CONFIG_MOUSE_PS2_LIFEBOOK=y
 CONFIG_MOUSE_PS2_TRACKPOINT=y
 
 ##
+## file: drivers/iommu/Kconfig
+##
+CONFIG_VIRTIO_IOMMU=m
+
+##
 ## file: drivers/iommu/amd/Kconfig
 ##
 CONFIG_AMD_IOMMU=y
@@ -195,6 +200,11 @@ CONFIG_AMD_IOMMU=y
 ##
 CONFIG_MACINTOSH_DRIVERS=y
 CONFIG_MAC_EMUMOUSEBTN=y
+
+##
+## file: drivers/misc/Kconfig
+##
+CONFIG_NSM=m
 
 ##
 ## file: drivers/net/Kconfig
@@ -211,6 +221,11 @@ CONFIG_AMD_XGBE=m
 ##
 CONFIG_NET_VENDOR_GOOGLE=y
 CONFIG_GVE=m
+
+##
+## file: drivers/net/ethernet/intel/idpf/Kconfig
+##
+CONFIG_IDPF=m
 
 ##
 ## file: drivers/net/ethernet/microsoft/Kconfig
@@ -307,6 +322,11 @@ CONFIG_FB_MATROX_MAVEN=m
 CONFIG_TDX_GUEST_DRIVER=m
 
 ##
+## file: drivers/virt/nitro_enclaves/Kconfig
+##
+CONFIG_NITRO_ENCLAVES=m
+
+##
 ## file: drivers/virtio/Kconfig
 ##
 CONFIG_VIRTIO_MEM=m
@@ -363,3 +383,11 @@ CONFIG_LSM_MMAP_MIN_ADDR=65536
 CONFIG_SND_SOC_AMD_ACP3x=m
 CONFIG_SND_SOC_AMD_RENOIR=m
 CONFIG_SND_SOC_AMD_RENOIR_MACH=m
+
+##
+## file: sound/soc/amd/acp/Kconfig
+##
+CONFIG_SND_SOC_AMD_ACP_PCI=m
+CONFIG_SND_AMD_ASOC_RENOIR=m
+CONFIG_SND_AMD_ASOC_ACP70=m
+CONFIG_SND_SOC_AMD_LEGACY_MACH=m

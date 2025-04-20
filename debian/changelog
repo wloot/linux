@@ -1,6 +1,7 @@
 linux (6.12.21-1~bpo12+1) UNRELEASED; urgency=medium
 
-  * Rebuild for bookworm-backports
+  * Rebuild for bookworm-backports:
+    - lintian: Override invalid-arch-string-in-source-relation for loong64
   * Revert "d/salsa-ci.yml: Suppress aliased-location lintian errors"
 
  -- Ben Hutchings <benh@debian.org>  Fri, 18 Apr 2025 22:30:16 +0200

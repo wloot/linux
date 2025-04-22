@@ -790,6 +790,9 @@ linux (6.12.24-1) UNRELEASED; urgency=medium
   [ Salvatore Bonaccorso ]
   * hfs/hfsplus: fix slab-out-of-bounds in hfs_bnode_read_key
 
+  [ Uwe Kleine-König ]
+  * Put all clock modules in the kernel image udeb
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 11 Apr 2025 17:52:16 +0200
 
 linux (6.12.22-1) unstable; urgency=medium

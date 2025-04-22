@@ -1,25 +1,28 @@
-From bfc25f8fb478ae8c539b72a6e8a3548c70e5e3db Mon Sep 17 00:00:00 2001
+From dd4b4210f6ffa8b226b37298f3de7953f120bf6f Mon Sep 17 00:00:00 2001
 From: Julian Lau <wlootlxt123@gmail.com>
 Date: Wed, 16 Apr 2025 13:16:01 +0800
 Subject: [PATCH] Aggressively optimize for throughput in high loss/latency
 
 ---
- net/ipv4/tcp_bbr.c | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
+ net/ipv4/tcp_bbr.c | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
 
 diff --git a/net/ipv4/tcp_bbr.c b/net/ipv4/tcp_bbr.c
-index e09389c37..e36c8aea4 100644
+index e09389c37..f3b579d94 100644
 --- a/net/ipv4/tcp_bbr.c
 +++ b/net/ipv4/tcp_bbr.c
-@@ -212,7 +212,7 @@ static const int bbr_pacing_margin_percent = 1;
+@@ -212,9 +212,9 @@ static const int bbr_pacing_margin_percent = 1;
   * and send the same number of packets per RTT that an un-paced, slow-starting
   * Reno or CUBIC flow would:
   */
 -static const int bbr_startup_pacing_gain = BBR_UNIT * 277 / 100 + 1;
 +static const int bbr_startup_pacing_gain = BBR_UNIT * 300 / 100;
  /* The gain for deriving startup cwnd: */
- static const int bbr_startup_cwnd_gain = BBR_UNIT * 2;
+-static const int bbr_startup_cwnd_gain = BBR_UNIT * 2;
++static const int bbr_startup_cwnd_gain = BBR_UNIT * 250 / 100;
  /* The pacing gain in BBR_DRAIN is calculated to typically drain
+  * the queue created in BBR_STARTUP in a single round:
+  */
 @@ -269,7 +269,7 @@ static const u32 bbr_ecn_max_rtt_us = 5000;
  /* On losses, scale down inflight and pacing rate by beta scaled by BBR_SCALE.
   * No loss response when 0.

@@ -789,6 +789,31 @@ linux (6.12.24-1) UNRELEASED; urgency=medium
 
   [ Salvatore Bonaccorso ]
   * hfs/hfsplus: fix slab-out-of-bounds in hfs_bnode_read_key
+  * [amd64] drivers/hwmon/pmbus: Enable PMBUS and SENSORS_PMBUS as modules
+    (Closes: #1103437)
+ 
+  [ Uwe Kleine-König ]
+  * Put all clock modules in the kernel image udeb
+  * [arm64] Drop some clk modules from fb-modules that are also in the kernel
+    udeb.
+
+  [ Alper Nebi Yasak ]
+  * [arm64] Enable BT_MTKSDIO as module
+  * [arm64] Change REGULATOR_MT6358 and MFD_MT6397 to built-in
+  * [arm64] Change COMMON_CLK_MT8173 and MTK_PMIC_WRAP to built-in
+  * [arm64] Enable DRM_PANEL_HIMAX_HX83102, DRM_PANEL_ILITEK_ILI9882T as module
+  * [arm64] Enable SND_SOC_MT8188, SND_SOC_MT8188_MT6359 as module
+  * [arm64] Enable SND_SOC_MT8192, SND_SOC_MT8192_MT6359_RT1015_RT5682 as module
+  * [arm64] udeb: Add modules for MediaTek devices
+    - Add nvmem_mtk-efuse, phy-mtk-tphy, pwm-mediatek and i2c-mt65xx modules
+      to kernel-image
+    - Add mediatek-drm, mediatek-drm-hdmi, mediatek_dp, mtk_iommu, mtk-smi,
+      phy-mtk-dp, phy-mtk-hdmi-drv, phy-mtk-mipi-dsi-drv, pwm-mtk-disp,
+      anx7625, parade-ps8640 and ite-it6505 to fb-modules
+    - Add panel-himax-hx83102 and panel-ilitek-ili9882t to fb-modules
+    - Add elan_i2c to input-modules
+    - Add mtu3 to usb-modules
+  * udeb: Add onboard_usb_dev to usb-modules
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 11 Apr 2025 17:52:16 +0200
 

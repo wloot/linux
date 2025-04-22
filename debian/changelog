@@ -789,7 +789,9 @@ linux (6.12.24-1) UNRELEASED; urgency=medium
 
   [ Salvatore Bonaccorso ]
   * hfs/hfsplus: fix slab-out-of-bounds in hfs_bnode_read_key
-
+  * [amd64] drivers/hwmon/pmbus: Enable PMBUS and SENSORS_PMBUS as modules
+    (Closes: #1103437)
+ 
   [ Uwe Kleine-König ]
   * Put all clock modules in the kernel image udeb
   * [arm64] Drop some clk modules from fb-modules that are also in the kernel

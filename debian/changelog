@@ -792,6 +792,8 @@ linux (6.12.24-1) UNRELEASED; urgency=medium
 
   [ Uwe Kleine-König ]
   * Put all clock modules in the kernel image udeb
+  * [arm64] Drop some clk modules from fb-modules that are also in the kernel
+    udeb.
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 11 Apr 2025 17:52:16 +0200
 

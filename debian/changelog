@@ -814,6 +814,21 @@ linux (6.12.24-1) UNRELEASED; urgency=medium
     - Add elan_i2c to input-modules
     - Add mtu3 to usb-modules
   * udeb: Add onboard_usb_dev to usb-modules
+  * [arm64] Enable modules for Qualcomm SC7180 Chromebooks
+    - Enable SC_GPUCC_7180 and INTERCONNECT_QCOM_SC7180 as modules
+    - Enable SC_DISPCC_7180, SC_VIDEOCC_7180 and SC_CAMCC_7180 as modules
+    - Enable SC_LPASS_CORECC_7180, SND_SOC_ADAU7002, SND_SOC_SC7180 as modules
+    - Enable IIO_CROS_EC_SENSORS_LID_ANGLE and CROS_EC_MKBP_PROXIMITY as modules
+    - Enable EDAC_QCOM and SPI_QCOM_QSPI as modules
+  * [arm64] udeb: Add modules fo Qualcomm SC7180 Chromebooks
+    - Add gcc-sc7180 and qnoc-sc7180 to kernel-image
+  * [arm64] Enable SC_LPASSCC_7280 as module
+  * [arm64] Enable I2C_HID_OF_ELAN as module
+  * udeb: Move i2c-hid-of-elan module to fb-modules
+
+  [ Ben Hutchings ]
+  * d/rules.real: Export CROSS_COMPILE_COMPAT, CROSS32_COMPILE variables.
+    This re-enables the compat vDSO on arm64.
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 11 Apr 2025 17:52:16 +0200
 

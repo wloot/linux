@@ -830,6 +830,9 @@ linux (6.12.24-1) UNRELEASED; urgency=medium
   * d/rules.real: Export CROSS_COMPILE_COMPAT, CROSS32_COMPILE variables.
     This re-enables the compat vDSO on arm64.
 
+  [ Bastian Blank ]
+  * Include modprobe config in bug reports.
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 11 Apr 2025 17:52:16 +0200
 
 linux (6.12.22-1) unstable; urgency=medium

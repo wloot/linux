@@ -1,4 +1,4 @@
-linux (6.12.24-1) UNRELEASED; urgency=medium
+linux (6.12.25-1) UNRELEASED; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.23
@@ -782,13 +782,212 @@ linux (6.12.24-1) UNRELEASED; urgency=medium
     - [s390x] cpumf: Fix double free on error in cpumf_pmu_event_init()
     - [armhf] HSI: ssi_protocol: Fix use after free vulnerability in
       ssi_protocol Driver Due to Race Condition (CVE-2025-37838)
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.25
+    - [arm64] scsi: hisi_sas: Enable force phy when SATA disk directly connected
+    - wifi: at76c50x: fix use after free access in at76_disconnect
+    - wifi: mac80211: Update skb's control block key in ieee80211_tx_dequeue()
+    - wifi: mac80211: Purge vif txq in ieee80211_do_stop()
+    - wifi: wl1251: fix memory leak in wl1251_tx_work
+    - scsi: iscsi: Fix missing scsi_host_put() in error path
+    - driver core: bus: add irq_get_affinity callback to bus_type
+    - blk-mq: introduce blk_mq_map_hw_queues
+    - scsi: replace blk_mq_pci_map_queues with blk_mq_map_hw_queues
+    - scsi: smartpqi: Use is_kdump_kernel() to check for kdump
+    - md/raid10: fix missing discard IO accounting
+    - md/md-bitmap: fix stats collection for external bitmaps
+    - [amd64,riscv64] ASoC: dwc: always enable/disable i2s irqs
+    - [amd64] ASoC: Intel: avs: Fix null-ptr-deref in avs_component_probe()
+    - ovl: remove unused forward declaration
+    - [amd64] RDMA/usnic: Fix passing zero to PTR_ERR in usnic_ib_pci_probe()
+    - [arm64] RDMA/hns: Fix wrong maximum DMA segment size
+    - ALSA: hda/cirrus_scodec_test: Don't select dependencies
+    - ALSA: hda: improve bass speaker support for ASUS Zenbook UM5606WA
+    - ALSA: hda/realtek: Workaround for resume on Dell Venue 11 Pro 7130
+    - ALSA: hda/realtek - Fixed ASUS platform headset Mic issue
+    - [amd64] ASoC: cs42l43: Reset clamp override on jack removal
+    - RDMA/core: Silence oversized kvmalloc() warning
+    - Bluetooth: hci_event: Fix sending MGMT_EV_DEVICE_FOUND for invalid address
+    - Bluetooth: btrtl: Prevent potential NULL dereference
+    - Bluetooth: l2cap: Check encryption key size on incoming connection
+    - ipv6: add exception routes to GC list in rt6_insert_exception
+    - xen: fix multicall debug feature
+    - Revert "wifi: mac80211: Update skb's control block key in
+      ieee80211_tx_dequeue()"
+    - igc: fix PTM cycle trigger logic
+    - igc: increase wait time before retrying PTM
+    - igc: move ktime snapshot into PTM retry loop
+    - igc: handle the IGC_PTP_ENABLED flag correctly
+    - igc: cleanup PTP module if probe fails
+    - igc: add lock preventing multiple simultaneous PTM transactions
+    - dt-bindings: soc: fsl: fsl,ls1028a-reset: Fix maintainer entry
+    - smc: Fix lockdep false-positive for IPPROTO_SMC.
+    - pds_core: fix memory leak in pdsc_debugfs_add_qcq()
+    - ethtool: cmis_cdb: use correct rpl size in ethtool_cmis_module_poll()
+    - net: mctp: Set SOCK_RCU_FREE
+    - block: fix resource leak in blk_register_queue() error path
+    - netlink: specs: ovs_vport: align with C codegen capabilities
+    - net: openvswitch: fix nested key length validation in the set() action
+    - [arm64] net: ethernet: ti: am65-cpsw: fix port_np reference counting
+    - eth: bnxt: fix missing ring index trim on error path
+    - loop: aio inherit the ioprio of original request
+    - loop: stop using vfs_iter_{read,write} for buffered I/O
+    - ata: libata-sata: Save all fields from sense data descriptor
+    - cxgb4: fix memory leak in cxgb4_init_ethtool_filters() error path
+    - netlink: specs: rt-link: add an attr layer around alt-ifname
+    - netlink: specs: rt-link: adjust mctp attribute naming
+    - net: b53: enable BPDU reception for management port
+    - net: bridge: switchdev: do not notify new brentries as changed
+    - net: txgbe: fix memory leak in txgbe_probe() error path
+    - [arm64,armhf] net: dsa: mv88e6xxx: avoid unregistering devlink regions
+      which were never registered
+    - [arm64,armhf] net: dsa: mv88e6xxx: fix -ENOENT when deleting VLANs and MST
+      is unsupported
+    - [arm64,armhf] net: dsa: clean up FDB, MDB, VLAN entries on unbind
+    - [arm64,armhf] net: dsa: free routing table on probe failure
+    - [arm64,armhf] net: dsa: avoid refcount warnings when
+      ds->ops->tag_8021q_vlan_del() fails
+    - ptp: ocp: fix start time alignment in ptp_ocp_signal_set
+    - [arm64] net: ti: icss-iep: Add pwidth configuration for perout signal
+    - [arm64] net: ti: icss-iep: Add phase offset configuration for perout
+      signal
+    - [arm64] net: ti: icss-iep: Fix possible NULL pointer dereference for
+      perout request
+    - [arm64] net: ethernet: mtk_eth_soc: reapply mdc divider on reset
+    - [arm64] net: ethernet: mtk_eth_soc: correct the max weight of the queue
+      limit for 100Mbps
+    - [arm64] net: ethernet: mtk_eth_soc: revise QDMA packet scheduler settings
+    - [riscv64] Use kvmalloc_array on relocation_hashtable
+    - [riscv64] Properly export reserved regions in /proc/iomem
+    - [riscv64] module: Fix out-of-bounds relocation access
+    - [riscv64] module: Allocate PLT entries for R_RISCV_PLT32
+    - cpufreq/sched: Fix the usage of CPUFREQ_NEED_UPDATE_LIMITS
+    - writeback: fix false warning in inode_to_wb()
+    - Revert "PCI: Avoid reset when disabled via sysfs"
+    - [arm64] ASoC: codecs:lpass-wsa-macro: Fix vi feedback rate
+    - [arm64] ASoC: codecs:lpass-wsa-macro: Fix logic of enabling vi channels
+    - [amd64] ASoC: Intel: sof_sdw: Add quirk for Asus Zenbook S16
+    - [arm64] ASoC: qcom: Fix sc7280 lpass potential buffer overflow
+    - [amd64] asus-laptop: Fix an uninitialized variable
+    - block: integrity: Do not call set_page_dirty_lock()
+    - [arm64] drm/v3d: Fix Indirect Dispatch configuration for V3D 7.1.6 and
+      later
+    - nfs: add missing selections of CONFIG_CRC32
+    - nfsd: decrease sc_count directly if fail to queue dl_recall
+    - i2c: atr: Fix wrong include
+    - ftrace: fix incorrect hash size in register_ftrace_direct()
+    - [arm64] drm/msm/a6xx+: Don't let IB_SIZE overflow
+    - Bluetooth: l2cap: Process valid commands in too long frame
+    - Bluetooth: vhci: Avoid needless snprintf() calls
+    - btrfs: correctly escape subvol in btrfs_show_options()
+    - cpufreq/sched: Explicitly synchronize limits_changed flag handling
+    - hfs/hfsplus: fix slab-out-of-bounds in hfs_bnode_read_key
+    - i2c: cros-ec-tunnel: defer probe if parent EC is not present
+    - isofs: Prevent the use of too small fid
+    - loop: properly send KOBJ_CHANGED uevent for disk device
+    - loop: LOOP_SET_FD: send uevents for partitions
+    - mm/compaction: fix bug in hugetlb handling pathway
+    - mm/gup: fix wrongly calculated returned value in fault_in_safe_writeable()
+    - mm: fix filemap_get_folios_contig returning batches of identical folios
+    - mm: fix apply_to_existing_page_range()
+    - ovl: don't allow datadir only
+    - ksmbd: Fix dangling pointer in krb_authenticate
+    - ksmbd: fix use-after-free in smb_break_all_levII_oplock()
+    - ksmbd: Prevent integer overflow in calculation of deadtime
+    - ksmbd: fix the warning from __kernel_write_iter
+    - Revert "smb: client: Fix netns refcount imbalance causing leaks and
+      use-after-free"
+    - Revert "smb: client: fix TCP timers deadlock after rmmod" (CVE-2025-22077)
+    - [riscv64] Avoid fortify warning in syscall_get_arguments()
+    - slab: ensure slab->obj_exts is clear in a newly allocated slab page
+    - smb3 client: fix open hardlink on deferred close file error
+    - string: Add load_unaligned_zeropad() code path to sized_strscpy()
+    - tracing: Fix filter string testing
+    - virtiofs: add filesystem context source name check
+    - [x86] microcode/AMD: Extend the SHA check to Zen5, block loading of any
+      unreleased standalone Zen5 microcode patches
+    - [x86] cpu/amd: Fix workaround for erratum 1054
+    - [x86] boot/sev: Avoid shared GHCB page for early memory acceptance
+    - scsi: megaraid_sas: Block zero-length ATA VPD inquiry
+    - scsi: ufs: exynos: Ensure consistent phy reference counts
+    - RDMA/cma: Fix workqueue crash in cma_netevent_work_handler
+    - [amd64] RAS/AMD/ATL: Include row[13] bit in row retirement
+    - [amd64] RAS/AMD/FMPM: Get masked address
+    - [x86] platform/x86: amd: pmf: Fix STT limits
+    - [x86] perf/x86/intel: Allow to update user space GPRs from PEBS records
+    - [x86] perf/x86/intel/uncore: Fix the scale of IIO free running counters on
+      SNR
+    - [x86] perf/x86/intel/uncore: Fix the scale of IIO free running counters on
+      ICX
+    - [x86] perf/x86/intel/uncore: Fix the scale of IIO free running counters on
+      SPR
+    - drm/ast: Fix ast_dp connection status
+    - [arm64] drm/msm/dsi: Add check for devm_kstrdup()
+    - [arm64] drm/msm/a6xx: Fix stale rpmh votes from GPU
+    - drm/amdgpu: Prefer shadow rom when available
+    - drm/amd/display: prevent hang on link training fail
+    - drm/amd: Handle being compiled without SI or CIK support better
+    - drm/amd/display: Actually do immediate vblank disable
+    - drm/amd/display: Increase vblank offdelay for PSR panels
+    - drm/amd/pm: Prevent division by zero
+    - drm/amd/pm/powerplay: Prevent division by zero
+    - drm/amd/pm/smu11: Prevent division by zero
+    - drm/amd/pm/powerplay/hwmgr/smu7_thermal: Prevent division by zero
+    - drm/amd/pm/swsmu/smu13/smu_v13_0: Prevent division by zero
+    - drm/amd/pm/powerplay/hwmgr/vega20_thermal: Prevent division by zero
+    - drm/amdgpu/mes12: optimize MES pipe FW version fetching
+    - [amd64] drm/i915/vrr: Add vrr.vsync_{start, end} in vrr_params_changed
+    - drm/xe: Use local fence in error path of xe_migrate_clear
+    - drm/amd/display: Add HP Elitebook 645 to the quirk list for eDP on DP1
+    - drm/amd/display: Protect FPU in dml2_validate()/dml21_validate()
+    - drm/amd/display: Protect FPU in dml21_copy()
+    - drm/amdgpu/mes11: optimize MES pipe FW version fetching
+    - drm/amdgpu/dma_buf: fix page_link check
+    - drm/nouveau: prime: fix ttm_bo_delayed_delete oops
+    - drm/xe: Fix an out-of-bounds shift when invalidating TLB
+    - [amd64] drm/i915/gvt: fix unterminated-string-initialization warning
+    - drm/amdgpu: immediately use GTT for new allocations
+    - drm/amd/display: Do not enable Replay and PSR while VRR is on in
+      amdgpu_dm_commit_planes()
+    - drm/amd/display: Protect FPU in dml2_init()/dml21_init()
+    - drm/amd/display: Add HP Probook 445 and 465 to the quirk list for eDP on
+      DP1
+    - drm/xe/dma_buf: stop relying on placement in unmap
+    - drm/xe/userptr: fix notifier vs folio deadlock
+    - drm/xe: Set LRC addresses before guc load
+    - drm/amdgpu: fix warning of drm_mm_clean
+    - [amd64] drm/mgag200: Fix value in <VBLKSTR> register
+    - [arm64] sysreg: Update register fields for ID_AA64MMFR0_EL1
+    - [arm64] sysreg: Add register fields for HDFGRTR2_EL2
+    - [arm64] sysreg: Add register fields for HDFGWTR2_EL2
+    - [arm64] sysreg: Add register fields for HFGITR2_EL2
+    - [arm64] sysreg: Add register fields for HFGRTR2_EL2
+    - [arm64] sysreg: Add register fields for HFGWTR2_EL2
+    - [arm64] boot: Enable EL2 requirements for FEAT_PMUv3p9
+    - cpufreq: Reference count policy in cpufreq_update_limits()
+    - kbuild: Add '-fno-builtin-wcslen'
+    - [x86] platform/x86: msi-wmi-platform: Rename "data" variable
+    - [x86] platform/x86: msi-wmi-platform: Workaround a ACPI firmware bug
+    - drm/amd/display: Temporarily disable hostvm on DCN31
+    - nvmet-fc: Remove unused functions
+    - block: remove rq_list_move
+    - block: add a rq_list type
+    - block: don't reorder requests in blk_add_rq_to_plug
+    - mm/vma: add give_up_on_oom option on modify/merge, use in uffd release
+    - Revert "wifi: ath12k: Fix invalid entry fetch in
+      ath12k_dp_mon_srng_process"
+    - [mips*] ds1287: Match ds1287_set_base_clock() function types
+    - wifi: ath12k: Fix invalid entry fetch in ath12k_dp_mon_srng_process
+    - bpf: add find_containing_subprog() utility function
+    - bpf: track changes_pkt_data property for global functions
+    - bpf: check changes_pkt_data property for extension programs
+    - bpf: fix null dereference when computing changes_pkt_data of prog w/o
+      subprogs
 
   [ Emanuele Rocca ]
   * [arm64,powerpc,ppc64,ppc64el,riscv64,s390x] Enable KALLSYMS_ALL on
     all architectures where DEBUG_INFO_BTF is on (Closes: #1100634)
 
   [ Salvatore Bonaccorso ]
-  * hfs/hfsplus: fix slab-out-of-bounds in hfs_bnode_read_key
   * [amd64] drivers/hwmon/pmbus: Enable PMBUS and SENSORS_PMBUS as modules
     (Closes: #1103437)
  

@@ -1,4 +1,4 @@
-linux (6.12.25-1) UNRELEASED; urgency=medium
+linux (6.12.25-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.23
@@ -1038,7 +1038,7 @@ linux (6.12.25-1) UNRELEASED; urgency=medium
   [ Raphaël Hertzog ]
   * udeb: add dm-thin-pool md-modules (Closes: #956226)
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 11 Apr 2025 17:52:16 +0200
+ -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 25 Apr 2025 17:07:45 +0200
 
 linux (6.12.22-1) unstable; urgency=medium
 

@@ -1,10 +1,10 @@
-linux (6.12.22-1~bpo12+1) UNRELEASED; urgency=medium
+linux (6.12.22-1~bpo12+1) bookworm-backports; urgency=medium
 
   * Rebuild for bookworm-backports:
     - lintian: Override invalid-arch-string-in-source-relation for loong64
   * Revert "d/salsa-ci.yml: Suppress aliased-location lintian errors"
 
- -- Ben Hutchings <benh@debian.org>  Fri, 18 Apr 2025 22:30:16 +0200
+ -- Ben Hutchings <benh@debian.org>  Fri, 25 Apr 2025 03:42:21 +0200
 
 linux (6.12.22-1) unstable; urgency=medium
 

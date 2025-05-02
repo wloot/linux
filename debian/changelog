@@ -260,6 +260,21 @@ linux (6.12.26-1) UNRELEASED; urgency=medium
     (Closes: #1104529)
   * Revert "rndis_host: Flag RNDIS modems as WWAN devices" (Closes: #1104511)
 
+  [ Ben Hutchings ]
+  * lintian: Override some false positives:
+    - linux-headers: Override another error and warning for vmlinux
+    - [riscv64] linux-image-dbg: Override shared-library-lacks-stack-section
+      for vdso.so
+    - [arm64] linux-perf: Override statically-linked-binary for asm_pure_loop
+  * [ppc64*] linux-image: Fix version in NEWS entry
+  * linux-source: Suggest pkgconf, not the obsolete pkg-config
+  * linux-image-dbg: lintian: Drop mismatched override for
+    wrong-section-according-to-package-name
+  * [amd64] linux-image-cloud-amd64-dbg: lintian: Drop overrides for vdsox32.so
+  * d/copyright: Replace old FSF addresses with current GNU license URL
+  * d/rules.real: Exclude vDSOs from processing by dh_makeshlibs
+  * linux-doc: Use dh_sphinxdoc to replace embedded Javascript
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 02 May 2025 15:24:42 +0200
 
 linux (6.12.25-1) unstable; urgency=medium

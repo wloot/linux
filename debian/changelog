@@ -275,6 +275,9 @@ linux (6.12.26-1) UNRELEASED; urgency=medium
   * d/rules.real: Exclude vDSOs from processing by dh_makeshlibs
   * linux-doc: Use dh_sphinxdoc to replace embedded Javascript
 
+  [ Alper Nebi Yasak ]
+  * [arm64] udeb: Add mtk-cmdq-mailbox to kernel-image
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 02 May 2025 15:24:42 +0200
 
 linux (6.12.25-1) unstable; urgency=medium

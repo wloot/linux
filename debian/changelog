@@ -255,6 +255,11 @@ linux (6.12.26-1) UNRELEASED; urgency=medium
     - crypto: Kconfig - Select LIB generic option
     - mq-deadline: don't call req_get_ioprio from the I/O completion handler
 
+  [ Salvatore Bonaccorso ]
+  * drivers/net/wireless/realtek/rtw88: Enable RTW88_8723DS as module
+    (Closes: #1104529)
+  * Revert "rndis_host: Flag RNDIS modems as WWAN devices" (Closes: #1104511)
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 02 May 2025 15:24:42 +0200
 
 linux (6.12.25-1) unstable; urgency=medium

@@ -1,4 +1,4 @@
-linux (6.12.26-1) UNRELEASED; urgency=medium
+linux (6.12.27-1) UNRELEASED; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.26
@@ -254,6 +254,8 @@ linux (6.12.26-1) UNRELEASED; urgency=medium
     - usb: typec: class: Unlocked on error in typec_register_partner()
     - crypto: Kconfig - Select LIB generic option
     - mq-deadline: don't call req_get_ioprio from the I/O completion handler
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.27
+    - bpf: Fix BPF_INTERNAL namespace import
 
   [ Salvatore Bonaccorso ]
   * drivers/net/wireless/realtek/rtw88: Enable RTW88_8723DS as module

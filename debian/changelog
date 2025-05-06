@@ -1,4 +1,4 @@
-linux (6.12.27-1) UNRELEASED; urgency=medium
+linux (6.12.27-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.26
@@ -280,7 +280,7 @@ linux (6.12.27-1) UNRELEASED; urgency=medium
   [ Alper Nebi Yasak ]
   * [arm64] udeb: Add mtk-cmdq-mailbox to kernel-image
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 02 May 2025 15:24:42 +0200
+ -- Salvatore Bonaccorso <carnil@debian.org>  Tue, 06 May 2025 21:33:52 +0200
 
 linux (6.12.25-1) unstable; urgency=medium
 

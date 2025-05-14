@@ -132,7 +132,7 @@ linux (6.12.28-1) UNRELEASED; urgency=medium
     - [arm64] net: hns3: fix an interrupt residual problem
     - [arm64] net: hns3: fixed debugfs tm_qset size
     - [arm64] net: hns3: defer calling ptp_clock_register()
-    - blk-mq: create correct map for fallback case
+    - blk-mq: create correct map for fallback case (Closes: #1104669)
     - mm, slab: clean up slab->obj_exts always
     - bcachefs: Remove incorrect __counted_by annotation
     - net: Fix the devmem sock opts and msgs for parisc

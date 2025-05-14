@@ -164,6 +164,9 @@ linux (6.12.28-1) UNRELEASED; urgency=medium
     - drm/amd/display: Fix slab-use-after-free in hdcp
     - dm: fix copying after src array boundaries
 
+  [ Ross Vandegrift ]
+  * drivers/char: set VIRTIO_CONSOLE=y (Closes: #989153, #1041891)
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 10 May 2025 10:32:02 +0200
 
 linux (6.12.27-1) unstable; urgency=medium

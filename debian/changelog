@@ -1,4 +1,4 @@
-linux (6.12.29-1) UNRELEASED; urgency=medium
+linux (6.12.29-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.28
@@ -338,7 +338,7 @@ linux (6.12.29-1) UNRELEASED; urgency=medium
   [ Aurelien Jarno ]
   * [riscv64] Enable BT_HCIUART (Closes: #1105002)
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 10 May 2025 10:32:02 +0200
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sun, 18 May 2025 13:26:40 +0200
 
 linux (6.12.27-1) unstable; urgency=medium
 

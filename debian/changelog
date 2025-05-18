@@ -1,4 +1,4 @@
-linux (6.12.28-1) UNRELEASED; urgency=medium
+linux (6.12.29-1) UNRELEASED; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.28
@@ -163,6 +163,174 @@ linux (6.12.28-1) UNRELEASED; urgency=medium
     - drm/amd/display: Add scoped mutexes for amdgpu_dm_dhcp
     - drm/amd/display: Fix slab-use-after-free in hdcp
     - dm: fix copying after src array boundaries
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.29
+    - dm: add missing unlock on in dm_keyslot_evict()
+    - fs/erofs/fileio: call erofs_onlinefolio_split() after bio_add_folio()
+    - Revert "btrfs: canonicalize the device path before adding it"
+    - [arm64] firmware: arm_scmi: Fix timeout checks on polling path
+    - [arm64] can: mcan: m_can_class_unregister(): fix order of unregistration
+      calls
+    - [s390] pci: Fix missing check for zpci_create_device() error return
+    - wifi: cfg80211: fix out-of-bounds access during multi-link element
+      defragmentation
+    - vfio/pci: Align huge faults to order
+    - [s390x] pci: Fix duplicate pci_dev_put() in disable_slot() when PF has
+      child VFs
+    - can: mcp251xfd: mcp251xfd_remove(): fix order of unregistration calls
+    - ksmbd: prevent rename with empty string
+    - ksmbd: prevent out-of-bounds stream writes by validating *pos
+    - ksmbd: Fix UAF in __close_file_table_ids
+    - openvswitch: Fix unsafe attribute parsing in output_userspace()
+    - ksmbd: fix memory leak in parse_lease_state()
+    - [s390x] entry: Fix last breaking event handling in case of stack
+      corruption
+    - sch_htb: make htb_deactivate() idempotent
+    - virtio_net: xsk: bind/unbind xsk for tx
+    - virtio-net: free xsk_buffs on error in virtnet_xsk_pool_enable()
+    - gre: Fix again IPv6 link-local address generation.
+    - [arm64] net: ethernet: mtk_eth_soc: reset all TX queues on DMA free
+    - [arm64] net: ethernet: mtk_eth_soc: do not reset PSE when setting FE
+    - [arm64] can: m_can: m_can_class_allocate_dev(): initialize spin lock on
+      device probe
+    - can: gw: fix RCU/BH usage in cgw_create_job()
+    - wifi: mac80211: fix the type of status_code for negotiated TID to Link
+      Mapping
+    - ice: Initial support for E825C hardware in ice_adapter
+    - ice: use DSN instead of PCI BDF for ice_adapter index
+    - erofs: ensure the extra temporary copy is valid for shortened bvecs
+    - ipvs: fix uninit-value for saddr in do_output_route4
+    - netfilter: ipset: fix region locking in hash types
+    - bpf: Scrub packet on bpf_redirect_peer
+    - [armhf] net: dsa: b53: allow leaky reserved multicast
+    - [armhf] net: dsa: b53: keep CPU port always tagged again
+    - [armhf] net: dsa: b53: fix clearing PVID of a port
+    - [armhf] net: dsa: b53: fix flushing old pvid VLAN on pvid change
+    - [armhf] net: dsa: b53: fix VLAN ID for untagged vlan on bridge leave
+    - [armhf] net: dsa: b53: always rejoin default untagged VLAN on bridge leave
+    - [armhf] net: dsa: b53: do not allow to configure VLAN 0
+    - [armhf] net: dsa: b53: do not program vlans when vlan filtering is off
+    - [armhf] net: dsa: b53: fix toggling vlan_filtering
+    - [armhf] net: dsa: b53: fix learning on VLAN unaware bridges
+    - [armhf] net: dsa: b53: do not set learning and unicast/multicast on up
+    - net: export a helper for adding up queue stats
+    - virtio-net: fix total qstat values
+    - Input: xpad - fix Share button on Xbox One controllers
+    - Input: xpad - add support for 8BitDo Ultimate 2 Wireless Controller
+    - Input: xpad - fix two controller table values
+    - Input: synaptics - enable InterTouch on Dynabook Portege X30-D
+    - Input: synaptics - enable InterTouch on Dynabook Portege X30L-G
+    - Input: synaptics - enable InterTouch on Dell Precision M3800
+    - Input: synaptics - enable SMBus for HP Elitebook 850 G1
+    - Input: synaptics - enable InterTouch on TUXEDO InfinityBook Pro 14 v5
+    - [arm*] staging: bcm2835-camera: Initialise dev in v4l2_dev
+    - [x86] mm: Eliminate window where TLB flushes may be inadvertently skipped
+    - mm: fix folio_pte_batch() on XEN PV
+    - mm: vmalloc: support more granular vrealloc() sizing
+    - mm/huge_memory: fix dereferencing invalid pmd migration entry
+    - mm/userfaultfd: fix uninitialized output field for -EAGAIN race
+    - [amd64] KVM: SVM: Forcibly leave SMM mode on SHUTDOWN interception
+    - drm/amd/display: Shift DMUB AUX reply command if necessary
+    - io_uring: ensure deferred completions are flushed for multishot
+    - iio: adc: ad7606: fix serial register access
+    - [arm64,armhf] iio: adc: rockchip: Fix clock initialization sequence
+    - iio: adis16201: Correct inclinometer channel resolution
+    - iio: imu: inv_mpu6050: align buffer for timestamp
+    - iio: imu: st_lsm6dsx: fix possible lockup in st_lsm6dsx_read_fifo
+    - iio: imu: st_lsm6dsx: fix possible lockup in st_lsm6dsx_read_tagged_fifo
+    - [arm64] drm/v3d: Add job to pending list if the reset was skipped
+    - drm/xe: Add page queue multiplier
+    - drm/amdgpu/vcn: using separate VCN1_AON_SOC offset
+    - drm/amd/display: Fix invalid context error in dml helper
+    - drm/amd/display: more liberal vmin/vmax update for freesync
+    - drm/amd/display: Fix the checking condition in dmub aux handling
+    - drm/amd/display: Remove incorrect checking in dmub aux handler
+    - drm/amd/display: Fix wrong handling for AUX_DEFER case
+    - drm/amd/display: Copy AUX read reply data whenever length > 0
+    - drm/amdgpu/hdp4: use memcfg register to post the write for HDP flush
+    - drm/amdgpu/hdp5.2: use memcfg register to post the write for HDP flush
+    - drm/amdgpu/hdp5: use memcfg register to post the write for HDP flush
+    - drm/amdgpu/hdp6: use memcfg register to post the write for HDP flush
+      (Closes: #1092624)
+    - drm/amdgpu/hdp7: use memcfg register to post the write for HDP flush
+    - usb: uhci-platform: Make the clock really optional
+    - smb: client: Avoid race in open_cached_dir with lease breaks
+    - xen: swiotlb: Use swiotlb bouncing if kmalloc allocation demands it
+    - xenbus: Use kref to track req lifetime
+    - [amd64] accel/ivpu: Increase state dump msg timeout
+    - [arm64] cpufeature: Move arm64_use_ng_mappings to the .data section to
+      prevent wrong idmap generation
+    - clocksource/i8253: Use raw_spinlock_irqsave() in
+      clockevent_i8253_disable()
+    - memblock: Accept allocated memory before use in memblock_double_array()
+    - module: ensure that kobject_put() is safe for module type kobjects
+    - [x86] microcode: Consolidate the loader enablement checking
+    - ocfs2: fix the issue with discontiguous allocation in the global_bitmap
+    - ocfs2: switch osb->disable_recovery to enum
+    - ocfs2: implement handshaking with ocfs2 recovery thread
+    - ocfs2: stop quota recovery before disabling quotas
+    - usb: dwc3: gadget: Make gadget_wakeup asynchronous
+    - usb: gadget: f_ecm: Add get_status callback
+    - usb: gadget: Use get_status callback to set remote wakeup capability
+    - [arm64,armhf] usb: host: tegra: Prevent host controller crash when OTG
+      port is used
+    - usb: misc: onboard_usb_dev: fix support for Cypress HX3 hubs
+    - [amd64,arm64] usb: typec: tcpm: delay SNK_TRY_WAIT_DEBOUNCE to SRC_TRYWAIT
+      transition
+    - usb: typec: ucsi: displayport: Fix NULL pointer access
+    - USB: usbtmc: use interruptible sleep in usbtmc_read
+    - usb: usbtmc: Fix erroneous get_stb ioctl error returns
+    - usb: usbtmc: Fix erroneous wait_srq ioctl return
+    - usb: usbtmc: Fix erroneous generic_read ioctl return
+    - iio: temp: maxim-thermocouple: Fix potential lack of DMA safe buffer.
+    - types: Complement the aligned types with signed 64-bit one
+    - [mips*] Fix MAX_REG_OFFSET
+    - [riscv64] misaligned: Add handling for ZCB instructions
+    - loop: Use bdev limit helpers for configuring discard
+    - loop: Simplify discard granularity calc
+    - loop: Fix ABBA locking race
+    - loop: refactor queue limits updates
+    - loop: factor out a loop_assign_backing_file helper
+    - loop: Add sanity check for read/write_iter
+    - drm/panel: simple: Update timings for AUO G101EVN010
+    - nvme: unblock ctrl state transition for firmware update
+    - [riscv64] misaligned: factorize trap handling
+    - [riscv64] misaligned: enable IRQs while handling misaligned accesses
+    - io_uring/sqpoll: Increase task_work submission batch size
+    - do_umount(): add missing barrier before refcount checks in sync case
+    - Revert "um: work around sched_yield not yielding in time-travel mode"
+    - io_uring: always arm linked timeouts prior to issue
+    - Bluetooth: btmtk: Remove resetting mt7921 before downloading the fw
+    - Bluetooth: btmtk: Remove the resetting step before downloading the fw
+    - mm: page_alloc: don't steal single pages from biggest buddy
+    - mm: page_alloc: speed up fallbacks in rmqueue_bulk()
+    - sched/eevdf: Fix se->slice being set to U64_MAX and resulting crash
+      (CVE-2025-37821)
+    - [arm64] insn: Add support for encoding DSB
+    - [arm64] proton-pack: Expose whether the platform is mitigated by firmware
+    - [arm64] proton-pack: Expose whether the branchy loop k value
+    - [arm64] bpf: Add BHB mitigation to the epilogue for cBPF programs
+    - [arm64] bpf: Only mitigate cBPF programs loaded by unprivileged users
+    - [arm64] proton-pack: Add new CPUs 'k' values for branch mitigation
+    - [x86] bpf: Call branch history clearing sequence on exit
+    - [x86] bpf: Add IBHF call at end of classic BPF
+    - [x86] bhi: Do not set BHI_DIS_S in 32-bit mode
+    - [x86] speculation: Simplify and make CALL_NOSPEC consistent
+    - [x86] speculation: Add a conditional CS prefix to CALL_NOSPEC
+    - [x86] speculation: Remove the extra #ifdef around CALL_NOSPEC
+    - [amd64] Mitigations Indirect Target Selection (ITS) (CVE-2024-28956)
+      + Documentation: x86/bugs/its: Add ITS documentation
+      + x86/its: Enumerate Indirect Target Selection (ITS) bug
+      + x86/its: Add support for ITS-safe indirect thunk
+      + x86/its: Add support for ITS-safe return thunk
+      + x86/its: Enable Indirect Target Selection mitigation
+      + x86/its: Add "vmexit" option to skip mitigation on some CPUs
+      + x86/its: Add support for RSB stuffing mitigation
+      + x86/its: Align RETs in BHB clear sequence to avoid thunking
+      + x86/ibt: Keep IBT disabled during alternative patching
+      + x86/its: Use dynamic thunks for indirect branches
+      + selftest/x86/bugs: Add selftests for ITS
+      + x86/its: Fix build errors when CONFIG_MODULES=n
+      + x86/its: FineIBT-paranoid vs ITS
 
   [ Ross Vandegrift ]
   * drivers/char: set VIRTIO_CONSOLE=y (Closes: #989153, #1041891)

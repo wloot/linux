@@ -1,3 +1,151 @@
+linux (6.12.30-1) UNRELEASED; urgency=medium
+
+  * New upstream stable update:
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.30
+    - [arm64] dts: rockchip: Assign RT5616 MCLK rate on
+      rk3588-friendlyelec-cm3588
+    - fs/xattr.c: fix simple_xattr_list to always include security.* xattrs
+    - [amd64] drivers/platform/x86/amd: pmf: Check for invalid sideloaded Smart
+      PC Policies
+    - [amd64] drivers/platform/x86/amd: pmf: Check for invalid Smart PC Policies
+    - [riscv64] dts: sophgo: fix DMA data-width configuration for CV18xx
+    - binfmt_elf: Move brk for static PIE even if ASLR disabled
+    - [amd64] platform/x86/amd/pmc: Declare quirk_spurious_8042 for MECHREVO
+      Wujie 14XA (GX4HRXL)
+    - [amd64] platform/x86: asus-wmi: Fix wlan_ctrl_by_user detection
+    - cgroup/cpuset: Extend kthread_is_per_cpu() check to all PF_NO_SETAFFINITY
+      tasks
+    - tracing: probes: Fix a possible race in trace_probe_log APIs
+    - tpm: tis: Double the timeout B to 4s
+    - uio_hv_generic: Fix sysfs creation path for ring buffer
+    - KVM: Add member to struct kvm_gfn_range to indicate private/shared
+    - [amd64] KVM: x86/mmu: Prevent installing hugepages when mem attributes are
+      changing
+    - iio: adc: ad7266: Fix potential timestamp alignment issue.
+    - drm/amd: Add Suspend/Hibernate notification callback support
+    - Revert "drm/amd: Stop evicting resources on APUs in suspend"
+    - xhci: dbc: Improve performance by removing delay in transfer event
+      polling.
+    - xhci: dbc: Avoid event polling busyloop if pending rx transfers are
+      inactive.
+    - iio: adc: ad7768-1: Fix insufficient alignment of timestamp.
+    - virtio_ring: add a func argument 'recycle_done' to virtqueue_reset()
+    - virtio_net: ensure netdev_tx_reset_queue is called on bind xsk for tx
+    - RDMA/rxe: Fix slab-use-after-free Read in rxe_queue_cleanup bug
+    - HID: thrustmaster: fix memory leak in thrustmaster_interrupts()
+    - HID: uclogic: Add NULL check in uclogic_input_configured()
+    - nfs: handle failure of nfs_get_lock_context in unlock path
+    - RDMA/core: Fix "KASAN: slab-use-after-free Read in ib_register_device"
+      problem
+    - Bluetooth: MGMT: Fix MGMT_OP_ADD_DEVICE invalid device flags
+    - net_sched: Flush gso_skb list too during ->change()
+    - tools/net/ynl: ethtool: fix crash when Hardware Clock info is missing
+    - mctp: no longer rely on net->dev_index_head[]
+    - net: mctp: Don't access ifa_index when missing
+    - net: mctp: Ensure keys maintain only one ref to corresponding dev
+    - ALSA: seq: Fix delivery of UMP events to group ports
+    - ALSA: ump: Fix a typo of snd_ump_stream_msg_device_info
+    - [arm64] net: cadence: macb: Fix a possible deadlock in macb_halt_tx.
+    - nvme-pci: make nvme_pci_npages_prp() __always_inline
+    - nvme-pci: acquire cq_poll_lock in nvme_poll_irqdisable
+    - ALSA: sh: SND_AICA should depend on SH_DMA_API
+    - [armhf] net: dsa: b53: prevent standalone from trying to forward to other
+      ports
+    - net/mlx5e: Disable MACsec offload for uplink representor profile
+    - qlcnic: fix memory leak in qlcnic_sriov_channel_cfg_cmd()
+    - regulator: max20086: fix invalid memory access
+    - drm/xe: Save CTX_TIMESTAMP mmio value instead of LRC value
+    - netlink: specs: tc: fix a couple of attribute names
+    - netlink: specs: tc: all actions are indexed arrays
+    - [arm64] net: ethernet: mtk_eth_soc: fix typo for declaration MT7988 ESW
+      capability
+    - wifi: mac80211: Set n_channels after allocating struct
+      cfg80211_scan_request
+    - mlxsw: spectrum_router: Fix use-after-free when deleting GRE net devices
+    - net/tls: fix kernel panic when alloc_page failed
+    - tsnep: fix timestamping with a stacked DSA driver
+    - NFSv4/pnfs: Reset the layout state after a layoutreturn
+    - dmaengine: Revert "dmaengine: dmatest: Fix dmatest waiting less when
+      interrupted"
+    - sched_ext: bpf_iter_scx_dsq_new() should always initialize iterator
+    - udf: Make sure i_lenExtents is uptodate on inode eviction
+    - HID: bpf: abort dispatch if device destroyed
+    - btrfs: fix discard worker infinite loop after disabling discard
+    - btrfs: fix folio leak in submit_one_async_extent()
+    - btrfs: add back warning for mount option commit values exceeding 300
+    - Revert "drm/amd/display: Hardware cursor changes color when switched to
+      software cursor"
+    - drm/amdgpu: fix incorrect MALL size for GFX1151
+    - drm/amdgpu: csa unmap use uninterruptible lock
+    - drm/amd/display: Correct the reply value when AUX write incomplete
+    - drm/amd/display: Avoid flooding unnecessary info messages
+    - MAINTAINERS: Update Alexey Makhalov's email address
+    - [arm64,armhf] gpio: pca953x: fix IRQ storm on system wake up
+    - ACPI: PPTT: Fix processor subtable walk
+    - ALSA: es1968: Add error handling for snd_pcm_hw_constraint_pow2()
+    - ALSA: usb-audio: Add sample rate quirk for Audioengine D1
+    - ALSA: usb-audio: Add sample rate quirk for Microdia JP001 USB Camera
+    - dma-buf: insert memory barrier before updating num_fences
+    - hv_netvsc: Use vmbus_sendpacket_mpb_desc() to send VMBus messages
+    - hv_netvsc: Preserve contiguous PFN grouping in the page buffer array
+    - hv_netvsc: Remove rmsg_pgcnt
+    - [arm64] dts: amlogic: dreambox: fix missing clkc_audio node
+    - [arm64] dts: rockchip: Remove overdrive-mode OPPs from RK3588J SoC dtsi
+    - Drivers: hv: Allow vmbus_sendpacket_mpb_desc() to create multiple ranges
+    - Drivers: hv: vmbus: Remove vmbus_sendpacket_pagebuffer()
+    - ftrace: Fix preemption accounting for stacktrace trigger command
+    - ftrace: Fix preemption accounting for stacktrace filter command
+    - tracing: samples: Initialize trace_array_printk() with the correct
+      function
+    - [arm64,armhf] phy: Fix error handling in tegra_xusb_port_init
+    - [arm64] phy: renesas: rcar-gen3-usb2: Fix role detection on unbind/bind
+    - [arm64] phy: renesas: rcar-gen3-usb2: Set timing registers only once
+    - scsi: sd_zbc: block: Respect bio vector limits for REPORT ZONES buffer
+    - smb: client: fix memory leak during error handling for POSIX mkdir
+    - [arm64,armhf] spi: tegra114: Use value to check for invalid delays
+    - tpm: Mask TPM RC in tpm2_start_auth_session()
+    - wifi: mt76: disable napi on driver removal
+    - ring-buffer: Fix persistent buffer when commit page is the reader page
+    - net: qede: Initialize qede_ll_ops with designated initializer
+    - mm: userfaultfd: correct dirty flags set for both present and swap pte
+    - [arm64] dmaengine: ti: k3-udma: Add missing locking
+    - [arm64] dmaengine: ti: k3-udma: Use cap_mask directly from dma_device
+      structure instead of a local copy
+    - [amd64] dmaengine: idxd: fix memory leak in error handling path of
+      idxd_setup_wqs
+    - [amd64] dmaengine: idxd: fix memory leak in error handling path of
+      idxd_setup_engines
+    - [amd64] dmaengine: idxd: fix memory leak in error handling path of
+      idxd_setup_groups
+    - [amd64] dmaengine: idxd: Add missing cleanup for early error out in
+      idxd_setup_internals
+    - [amd64] dmaengine: idxd: Add missing cleanups in cleanup internals
+    - [amd64] dmaengine: idxd: Add missing idxd cleanup to fix memory leak in
+      remove call
+    - [amd64] dmaengine: idxd: fix memory leak in error handling path of
+      idxd_alloc
+    - [amd64] dmaengine: idxd: fix memory leak in error handling path of
+      idxd_pci_probe
+    - [amd64] dmaengine: idxd: Refactor remove call with idxd_cleanup() helper
+    - CIFS: New mount option for cifs.upcall namespace resolution
+    - drm/xe/gsc: do not flush the GSC worker from the reset path
+    - mm/page_alloc: fix race condition in unaccepted memory handling
+    - [amd64] accel/ivpu: Rename ivpu_log_level to fw_log_level
+    - [amd64] accel/ivpu: Reset fw log on cold boot
+    - [amd64] accel/ivpu: Refactor functions in ivpu_fw_log.c
+    - [amd64] accel/ivpu: Fix fw log printing
+    - iio: light: opt3001: fix deadlock due to concurrent flag access
+      (CVE-2025-37968)
+    - Bluetooth: btnxpuart: Fix kernel panic during FW release (CVE-2025-22102)
+    - drm/fbdev-dma: Support struct drm_driver.fbdev_probe
+    - drm/panel-mipi-dbi: Run DRM default client setup
+    - drm/tiny: panel-mipi-dbi: Use drm_client_setup_with_fourcc()
+    - usb: typec: ucsi: displayport: Fix deadlock (CVE-2025-37967)
+    - phy: tegra: xusb: remove a stray unlock
+    - drm/amdgpu: fix pm notifier handling
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 22 May 2025 22:43:08 +0200
+
 linux (6.12.29-1) unstable; urgency=medium
 
   * New upstream stable update:

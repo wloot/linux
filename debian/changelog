@@ -144,6 +144,10 @@ linux (6.12.30-1) UNRELEASED; urgency=medium
     - phy: tegra: xusb: remove a stray unlock
     - drm/amdgpu: fix pm notifier handling
 
+  [ Salvatore Bonaccorso ]
+  * loop: don't require ->write_iter for writable files in loop_configure
+    (Closes: #1106070)
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 22 May 2025 22:43:08 +0200
 
 linux (6.12.29-1) unstable; urgency=medium

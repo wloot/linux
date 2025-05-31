@@ -632,6 +632,9 @@ linux (6.12.31-1) UNRELEASED; urgency=medium
       bounce buffers bounce buffers
     - drm/gem: Internally test import_attach for imported objects
 
+  [ Salvatore Bonaccorso ]
+  * [amd64] drivers/acpi: Make ACPI_HED built-in
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 29 May 2025 15:00:21 +0200
 
 linux (6.12.30-1) unstable; urgency=medium

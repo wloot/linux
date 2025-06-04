@@ -1,4 +1,4 @@
-linux (6.12.31-1) UNRELEASED; urgency=medium
+linux (6.12.32-1) UNRELEASED; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.31
@@ -631,6 +631,65 @@ linux (6.12.31-1) UNRELEASED; urgency=medium
       add_pages(), to not increase max_pfn and trigger dma_addressing_limited()
       bounce buffers bounce buffers
     - drm/gem: Internally test import_attach for imported objects
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.32
+    - [arm64] dts: qcom: ipq9574: Add missing properties for cryptobam
+    - [arm64] dts: qcom: sa8775p: Remove extra entries from the iommus property
+    - [arm64] dts: qcom: sa8775p: Remove cdsp compute-cb@10
+    - [arm64] dts: qcom: sm8350: Fix typo in pil_camera_mem node
+    - [arm64] dts: qcom: sm8450: Add missing properties for cryptobam
+    - [arm64] dts: qcom: sm8550: Add missing properties for cryptobam
+    - [arm64] dts: qcom: sm8650: Add missing properties for cryptobam
+    - [arm64] dts: qcom: x1e80100-asus-vivobook-s15: Fix vreg_l2j_1p2 voltage
+    - [arm64] dts: qcom: x1e80100-lenovo-yoga-slim7x: Fix vreg_l2j_1p2 voltage
+    - [arm64] dts: qcom: x1e80100-qcp: Fix vreg_l2j_1p2 voltage
+    - [arm64] dts: qcom: x1e80100-qcp: mark l12b and l15b always-on
+    - [arm64] dts: qcom: x1e80100-yoga-slim7x: mark l12b and l15b always-on
+    - [arm64] dts: qcom: x1e80100: Fix video thermal zone
+    - [arm64] dts: ti: k3-am62-main: Set eMMC clock parent to default
+    - [arm64] dts: ti: k3-am62a-main: Set eMMC clock parent to default
+    - [arm64] dts: ti: k3-am62p-j722s-common-main: Set eMMC clock parent to
+      default
+    - [arm64] dts: ti: k3-am62x: Remove clock-names property from IMX219 overlay
+    - [arm64] dts: ti: k3-am62x: Rename I2C switch to I2C mux in IMX219 overlay
+    - [arm64] dts: ti: k3-am62x: Rename I2C switch to I2C mux in OV5640 overlay
+    - [arm64] dts: ti: k3-am65-main: Add missing taps to sdhci0
+    - [arm64] dts: ti: k3-am68-sk: Fix regulator hierarchy
+    - [arm64] dts: ti: k3-j721e-sk: Add DT nodes for power regulators
+    - [arm64] dts: ti: k3-j721e-sk: Remove clock-names property from IMX219
+      overlay
+    - [arm64] dts: ti: k3-j721e-sk: Add requiried voltage supplies for IMX219
+    - [arm64] dts: ti: k3-j722s-evm: Enable "serdes_wiz0" and "serdes_wiz1"
+    - [arm64] dts: ti: k3-j722s-main: Disable "serdes_wiz0" and "serdes_wiz1"
+    - [arm64] dts: ti: k3-j784s4-j742s2-main-common: Fix length of
+      serdes_ln_ctrl
+    - net_sched: hfsc: Address reentrant enqueue adding class to eltree twice
+    - [arm64] perf/arm-cmn: Fix REQ2/SNP2 mixup
+    - [arm64] perf/arm-cmn: Initialise cmn->cpu earlier
+    - [arm64] perf/arm-cmn: Add CMN S3 ACPI binding
+    - coredump: fix error handling for replace_fd()
+    - coredump: hand a pidfd to the usermode coredump helper
+    - [amd64] dmaengine: idxd: cdev: Fix uninitialized use of sva in
+      idxd_cdev_open
+    - HID: quirks: Add ADATA XPG alpha wireless mouse support
+    - nfs: don't share pNFS DS connections between net namespaces
+    - [x86] platform/x86: thinkpad_acpi: Support also NEC Lavie X1475JAS
+    - gpio: virtuser: fix potential out-of-bound write
+    - drm/amd/display: fix link_set_dpms_off multi-display MST corner case
+    - drm/amd/display: check stream id dml21 wrapper to get plane_id
+    - [arm64] phy: phy-rockchip-samsung-hdptx: Fix PHY PLL output 50.25MHz error
+    - [armhf] spi: spi-sun4i: fix early activation
+    - nvme-pci: add NVME_QUIRK_NO_DEEPEST_PS quirk for SOLIDIGM P44 Pro
+    - drm/xe/xe2hpg: Add Wa_22021007897
+    - drm/xe: Save the gt pointer in lrc and drop the tile
+    - char: tpm: tpm-buf: Add sanity check fallback in read helpers
+    - NFS: Avoid flushing data while holding directory locks in nfs_rename()
+    - [x86] platform/x86: fujitsu-laptop: Support Lifebook S2110 hotkeys
+    - ALSA: hda/realtek - restore auto-mute mode for Dell Chrome platform
+    - [x86] platform/x86: thinkpad_acpi: Ignore battery threshold change event
+      notification
+    - [arm64] net: ethernet: ti: am65-cpsw: Lower random mac address error print
+      to info
+    - ksmbd: use list_first_entry_or_null for opinfo_get_list()
 
   [ Salvatore Bonaccorso ]
   * [amd64] drivers/acpi: Make ACPI_HED built-in

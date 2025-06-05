@@ -693,6 +693,7 @@ linux (6.12.32-1) UNRELEASED; urgency=medium
 
   [ Salvatore Bonaccorso ]
   * [amd64] drivers/acpi: Make ACPI_HED built-in
+  * [amd64] Add drivers/pinctrl/intel to kernel-image udeb (Closes: #1106658)
 
   [ Ben Hutchings ]
   * linux-image, linux-headers: Use linux-run-hooks instead of run-parts
@@ -700,6 +701,10 @@ linux (6.12.32-1) UNRELEASED; urgency=medium
 
   [ Max Staudt ]
   * drivers/net/can: Enable can327 as a module
+
+  [ Uwe Kleine-König ]
+  * drivers/gnss: Enable GNSS_MTK_SERIAL and GNSS_USB as modules
+    (Closes: 1106744)
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 29 May 2025 15:00:21 +0200
 

@@ -693,6 +693,7 @@ linux (6.12.32-1) UNRELEASED; urgency=medium
 
   [ Salvatore Bonaccorso ]
   * [amd64] drivers/acpi: Make ACPI_HED built-in
+  * [amd64] Add drivers/pinctrl/intel to kernel-image udeb (Closes: #1106658)
 
   [ Ben Hutchings ]
   * linux-image, linux-headers: Use linux-run-hooks instead of run-parts

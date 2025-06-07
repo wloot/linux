@@ -1,4 +1,4 @@
-linux (6.12.32-1) UNRELEASED; urgency=medium
+linux (6.12.32-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.31
@@ -708,7 +708,7 @@ linux (6.12.32-1) UNRELEASED; urgency=medium
   * drivers/gnss: Enable GNSS_MTK_SERIAL and GNSS_USB as modules
     (Closes: 1106744)
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 29 May 2025 15:00:21 +0200
+ -- Salvatore Bonaccorso <carnil@debian.org>  Sat, 07 Jun 2025 14:21:10 +0200
 
 linux (6.12.30-1) unstable; urgency=medium
 

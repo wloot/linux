@@ -31,6 +31,8 @@ linux (6.12.33-1) UNRELEASED; urgency=medium
   [ Ben Hutchings ]
   * d/rules: Include target suite as an input to gencontrol.py
   * Move package revision and ABI name rules to configuration
+  * Include target Debian release number in ABI name
+  * Add suffix to ABI name to distinguish Debian versions with same upstream
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Tue, 10 Jun 2025 17:54:37 +0200
 

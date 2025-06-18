@@ -34,6 +34,9 @@ linux (6.12.33-1) UNRELEASED; urgency=medium
   * Include target Debian release number in ABI name
   * Add suffix to ABI name to distinguish Debian versions with same upstream
 
+  [ Uwe Kleine-König ]
+  * [arm64] Enable Marvell OcteonTX2 NIC driver (Closes: #1098437)
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Tue, 10 Jun 2025 17:54:37 +0200
 
 linux (6.12.32-1) unstable; urgency=medium

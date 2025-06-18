@@ -38,6 +38,9 @@ linux (6.12.33-1) UNRELEASED; urgency=medium
   * [arm64] Enable Marvell OcteonTX2 NIC driver (Closes: #1098437)
   * [armhf] Enable M_CAN support, used e.g. on stm32mp153 and stm32mp157
 
+  [ Macpaul Lin ]
+  * [arm64] usb/typec: Enable TYPEC_RT1711H as module
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Tue, 10 Jun 2025 17:54:37 +0200
 
 linux (6.12.32-1) unstable; urgency=medium

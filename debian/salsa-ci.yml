@@ -330,7 +330,7 @@ build-signed:
 
     # Install build-dependencies produced by build job
     - |
-      apt-get install --no-install-recommends -y \
+      apt-get install --no-install-recommends -y -t ${RELEASE} \
         ${WORKING_DIR}/linux-image-*-unsigned_*_${BUILD_ARCH}.deb
 
     # Do the same as the common .build-definition script

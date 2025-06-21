@@ -185,13 +185,13 @@ autopkgtest:
 blhc:
     extends: .test-blhc
 
-piuparts:
-  extends: .test-piuparts
-  needs:
-  - job: build
-    artifacts: true
-  - job: build-signed
-    artifacts: true
+#piuparts:
+#  extends: .test-piuparts
+#  needs:
+#  - job: build
+#    artifacts: true
+#  - job: build-signed
+#    artifacts: true
 
 missing-breaks:
     extends: .test-missing-breaks

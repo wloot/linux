@@ -1,7 +1,7 @@
 linux (6.12.32-1~bpo12+1) UNRELEASED; urgency=medium
 
   * Rebuild for bookworm-backports:
-    - d/salsa-ci.yml: Fix build-signed job using apt-get -t option
+    - d/salsa-ci.yml: Fix build-signed job using aspcud solver
 
  -- Ben Hutchings <benh@debian.org>  Wed, 18 Jun 2025 21:06:29 +0200
 

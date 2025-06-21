@@ -328,9 +328,28 @@ build-signed:
       dpkg-source -x ${WORKING_DIR}/linux-signed-${BUILD_ARCH}_*.dsc \
         ${WORKING_DIR}/${SOURCE_DIR}
 
-    # Install build-dependencies produced by build job
+    # Install build-dependencies produced by build job.
+    # Use aspcud solver for experimental and backports.
+    - apt_solver_opts=""
     - |
-      apt-get install --no-install-recommends -y -t ${RELEASE} \
+      case "$RELEASE" in
+      experimental | *-backports)
+        eatmydata apt-get install --no-install-recommends -y aspcud apt-cudf
+        apt_solver_opts="$apt_solver_opts --solver aspcud -oAPT::Solver::Strict-Pinning=false -oAPT::Solver::aspcud::Preferences="
+        # minimize number of packages from experimental and backports
+        case "$RELEASE" in
+        experimental)
+          apt_solver_opts="$apt_solver_opts-count(solution,APT-Release:=/a=experimental/),"
+          ;;
+        *-backports)
+          apt_solver_opts="$apt_solver_opts-count(solution,APT-Release:~/a=.*-backports/),"
+          ;;
+        esac
+        apt_solver_opts="$apt_solver_opts-removed,-changed,-new"
+        ;;
+      esac
+    - |
+      apt-get install --no-install-recommends -y $apt_solver_opts \
         ${WORKING_DIR}/linux-image-*-unsigned_*_${BUILD_ARCH}.deb
 
     # Do the same as the common .build-definition script

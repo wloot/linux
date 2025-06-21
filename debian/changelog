@@ -1,11 +1,11 @@
-linux (6.12.32-1~bpo12+1) UNRELEASED; urgency=medium
+linux (6.12.32-1~bpo12+1) bookworm-backports; urgency=medium
 
   * Rebuild for bookworm-backports:
     - d/salsa-ci.yml: Fix build-signed job using aspcud solver
     - d/salsa-ci.yml: Disable piuparts job which does not handle backports
       dependencies (salsa-ci-team/pipeline#58)
 
- -- Ben Hutchings <benh@debian.org>  Wed, 18 Jun 2025 21:06:29 +0200
+ -- Ben Hutchings <benh@debian.org>  Sat, 21 Jun 2025 18:56:12 +0200
 
 linux (6.12.32-1) unstable; urgency=medium
 

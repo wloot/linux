@@ -1,4 +1,4 @@
-linux (6.12.35-1) UNRELEASED; urgency=medium
+linux (6.12.35-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.34
@@ -926,7 +926,7 @@ linux (6.12.35-1) UNRELEASED; urgency=medium
   [ Bastian Blank ]
   * [cloud] Enable SATA_AHCI.
 
- -- Uwe Kleine-König <ukleinek@debian.org>  Thu, 03 Jul 2025 09:26:03 +0200
+ -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 03 Jul 2025 21:01:19 +0200
 
 linux (6.12.33-1) unstable; urgency=medium
 

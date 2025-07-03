@@ -893,6 +893,10 @@ linux (6.12.35-1) UNRELEASED; urgency=medium
   [ Uwe Kleine-König ]
   * Disable CONFIG_CDROM_PKTCDVD for all archs as this driver is
     orphaned, buggy and not needed. (Closes: #1107479)
+  * [armhf] Enable various kernel modules for the machines defined in the
+    device-trees st/stm32mp153c-lxa-tac-gen3,
+    st/stm32mp153c-lxa-fairytux2-gen1 and st/stm32mp153c-lxa-fairytux2-gen2
+    (Closes: #1105865)
 
   [ Macpaul Lin ]
   * [arm64] drivers/usb/typec/mux: Enable TYPEC_MUX_IT5205 as module
@@ -906,6 +910,21 @@ linux (6.12.35-1) UNRELEASED; urgency=medium
     - Enable NET_MEDIATEK_STAR_EMAC as module
   * drivers/bluetooth: set BT_HCIBTUSB_POLL_SYNC=y
   * All the above Closes: #1108597
+
+  [ наб ]
+  * Don't compress perf's tips.txt (Closes: #1088747)
+
+  [ Aurelien Jarno ]
+  * [riscv64] Enable BRCMFMAC_SDIO (Closes: #1108215)
+
+  [ Salvatore Bonaccorso ]
+  * ALSA: hda/realtek: Fix built-in mic on ASUS VivoBook X507UAR
+    (Closes: #1108069)
+  * Revert "mmc: sdhci: Disable SD card clock before changing parameters"
+    (Closes: #1108065)
+
+  [ Bastian Blank ]
+  * [cloud] Enable SATA_AHCI.
 
  -- Uwe Kleine-König <ukleinek@debian.org>  Thu, 03 Jul 2025 09:26:03 +0200
 

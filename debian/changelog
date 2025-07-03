@@ -893,6 +893,10 @@ linux (6.12.35-1) UNRELEASED; urgency=medium
   [ Uwe Kleine-König ]
   * Disable CONFIG_CDROM_PKTCDVD for all archs as this driver is
     orphaned, buggy and not needed. (Closes: #1107479)
+  * [armhf] Enable various kernel modules for the machines defined in the
+    device-trees st/stm32mp153c-lxa-tac-gen3,
+    st/stm32mp153c-lxa-fairytux2-gen1 and st/stm32mp153c-lxa-fairytux2-gen2
+    (Closes: #1105865)
 
   [ Macpaul Lin ]
   * [arm64] drivers/usb/typec/mux: Enable TYPEC_MUX_IT5205 as module

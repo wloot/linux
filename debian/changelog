@@ -911,6 +911,9 @@ linux (6.12.35-1) UNRELEASED; urgency=medium
   * drivers/bluetooth: set BT_HCIBTUSB_POLL_SYNC=y
   * All the above Closes: #1108597
 
+  [ наб ]
+  * Don't compress perf's tips.txt (Closes: #1088747)
+
  -- Uwe Kleine-König <ukleinek@debian.org>  Thu, 03 Jul 2025 09:26:03 +0200
 
 linux (6.12.33-1) unstable; urgency=medium

@@ -923,6 +923,9 @@ linux (6.12.35-1) UNRELEASED; urgency=medium
   * Revert "mmc: sdhci: Disable SD card clock before changing parameters"
     (Closes: #1108065)
 
+  [ Bastian Blank ]
+  * [cloud] Enable SATA_AHCI.
+
  -- Uwe Kleine-König <ukleinek@debian.org>  Thu, 03 Jul 2025 09:26:03 +0200
 
 linux (6.12.33-1) unstable; urgency=medium

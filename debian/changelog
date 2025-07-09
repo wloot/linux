@@ -1,3 +1,54 @@
+linux (6.12.33-1~bpo12+1) bookworm-backports; urgency=medium
+
+  * Rebuild for bookworm-backports
+
+ -- Ben Hutchings <benh@debian.org>  Wed, 09 Jul 2025 18:51:26 +0200
+
+linux (6.12.33-1) unstable; urgency=medium
+
+  * New upstream stable update:
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.33
+    - tracing: Fix compilation warning on arm32
+    - f2fs: fix to avoid accessing uninitialized curseg (CVE-2025-22123)
+    - [arm64] pinctrl: armada-37xx: use correct OUTPUT_VAL register for GPIOs >
+      31
+    - [arm64] pinctrl: armada-37xx: set GPIO output value before setting
+      direction
+    - acpi-cpufreq: Fix nominal_freq units to KHz in get_max_boost_ratio()
+    - Documentation: ACPI: Use all-string data node references
+    - rtc: Make rtc_time64_to_tm() support dates before 1970
+    - rtc: Fix offset calculation for .start_secs < 0
+    - [amd64] accel/ivpu: Add initial Panther Lake support
+    - [amd64] accel/ivpu: Update power island delays
+    - PCI/ASPM: Disable L1 before disabling L1 PM Substates
+    - block: fix adding folio to bio (CVE-2025-22122)
+    - Revert "cpufreq: tegra186: Share policy per cluster"
+    - usb: quirks: Add NO_LPM quirk for SanDisk Extreme 55AE
+    - usb: storage: Ignore UAS driver for SanDisk 3.2 Gen2 storage device
+    - USB: serial: pl2303: add new chip PL2303GC-Q20 and PL2303GT-2AB
+    - Bluetooth: hci_qca: move the SoC type check to the right place
+    - serial: jsm: fix NPE during jsm_uart_port_init
+    - usb: usbtmc: Fix timeout value in get_stb
+    - [amd64] thunderbolt: Do not double dequeue a configuration request
+    - dt-bindings: usb: cypress,hx3: Add support for all variants
+    - dt-bindings: phy: imx8mq-usb: fix fsl,phy-tx-vboost-level-microvolt
+      property
+
+  [ Ben Hutchings ]
+  * d/rules: Include target suite as an input to gencontrol.py
+  * Move package revision and ABI name rules to configuration
+  * Include target Debian release number in ABI name
+  * Add suffix to ABI name to distinguish Debian versions with same upstream
+
+  [ Uwe Kleine-König ]
+  * [arm64] Enable Marvell OcteonTX2 NIC driver (Closes: #1098437)
+  * [armhf] Enable M_CAN support, used e.g. on stm32mp153 and stm32mp157
+
+  [ Macpaul Lin ]
+  * [arm64] usb/typec: Enable TYPEC_RT1711H as module
+
+ -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 19 Jun 2025 17:38:19 +0200
+
 linux (6.12.32-1~bpo12+1) bookworm-backports; urgency=medium
 
   * Rebuild for bookworm-backports:

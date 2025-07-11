@@ -1,4 +1,4 @@
-linux (6.12.37-1) UNRELEASED; urgency=medium
+linux (6.12.37-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.36
@@ -432,7 +432,7 @@ linux (6.12.37-1) UNRELEASED; urgency=medium
     /proc/cgroups" (Closes: #1108294)
   * rtw89: Enable RTW89_8851BE, RTW89_8852BTE as modules (Closes: #1108965)
 
- -- Ben Hutchings <benh@debian.org>  Wed, 09 Jul 2025 13:51:36 +0200
+ -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 11 Jul 2025 06:09:48 +0200
 
 linux (6.12.35-1) unstable; urgency=medium
 

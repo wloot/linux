@@ -1,10 +1,10 @@
-linux (6.12.38-1) UNRELEASED; urgency=medium
+linux (6.12.38-1) unstable; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.38
     - [amd64] x86/CPU/AMD: Properly check the TSA microcode
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 14 Jul 2025 18:30:13 +0200
+ -- Salvatore Bonaccorso <carnil@debian.org>  Wed, 16 Jul 2025 09:13:16 +0200
 
 linux (6.12.37-1) unstable; urgency=medium
 

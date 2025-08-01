@@ -1,4 +1,4 @@
-linux (6.12.40-1) UNRELEASED; urgency=medium
+linux (6.12.41-1) UNRELEASED; urgency=medium
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.39
@@ -327,6 +327,130 @@ linux (6.12.40-1) UNRELEASED; urgency=medium
       (Closes: #1109676)
     - [amd64] KVM: x86/xen: Fix cleanup logic in emulation of Xen schedop poll
       hypercalls
+    https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.41
+    - [amd64] x86/traps: Initialize DR7 by writing its architectural reset value
+    - Input: gpio-keys - fix a sleep while atomic with PREEMPT_RT
+      (CVE-2025-38335)
+    - virtio_net: Enforce minimum TX ring size for reliability
+    - virtio_ring: Fix error reporting in virtqueue_resize
+    - regulator: core: fix NULL dereference on unbind due to stale coupling data
+    - [amd64] platform/x86: asus-nb-wmi: add DMI quirk for ASUS Zenbook Duo
+      UX8406CA
+    - RDMA/core: Rate limit GID cache warning messages
+    - [arm64] interconnect: qcom: sc7280: Add missing num_links to xm_pcie3_1
+      node
+    - iio: adc: ad7949: use spi_is_bpw_supported()
+    - regmap: fix potential memory leak of regmap_bus
+    - [amd64] x86/hyperv: Fix usage of cpu_online_mask to get valid cpu
+    - [amd64] platform/x86: Fix initialization order for
+      firmware_attributes_class
+    - [arm*] staging: vchiq_arm: Make vchiq_shutdown never fail
+    - xfrm: state: initialize state_ptrs earlier in xfrm_state_find
+    - xfrm: state: use a consistent pcpu_id in xfrm_state_find
+    - xfrm: Set transport header to fix UDP GRO handling
+    - xfrm: interface: fix use-after-free after changing collect_md xfrm
+      interface
+    - [arm64] net: ti: icssg-prueth: Fix buffer allocation for ICSSG
+    - net/mlx5: Fix memory leak in cmd_exec()
+    - net/mlx5: E-Switch, Fix peer miss rules to use peer eswitch
+    - i40e: report VF tx_dropped with tx_errors instead of tx_discards
+    - i40e: When removing VF MAC filters, only check PF-set MAC
+    - net: appletalk: Fix use-after-free in AARP proxy probe
+    - net/sched: sch_qfq: Avoid triggering might_sleep in atomic context in
+      qfq_delete_class
+    - can: netlink: can_changelink(): fix NULL pointer deref of struct
+      can_priv::do_set_mode
+    - [arm64] drm/bridge: ti-sn65dsi86: Remove extra semicolon in
+      ti_sn_bridge_probe()
+    - ALSA: hda/realtek: Fix mute LED mask on HP OMEN 16 laptop
+    - [s390x] ism: fix concurrency management in ism_cmd()
+    - [arm64] net: hns3: fix concurrent setting vlan filter issue
+    - [arm64] net: hns3: disable interrupt when ptp init failed
+    - [arm64] net: hns3: fixed vf get max channels bug
+    - [arm64] net: hns3: default enable tx bounce buffer when smmu enabled
+    - [amd64] platform/x86: ideapad-laptop: Fix FnLock not remembered among
+      boots
+    - [amd64] platform/x86: ideapad-laptop: Fix kbd backlight not remembered
+      among boots
+    - drm/amdgpu: Reset the clear flag in buddy during resume
+    - drm/sched: Remove optimization that causes hang when killing dependent
+      jobs
+    - mm/ksm: fix -Wsometimes-uninitialized from clang-21 in advisor_mode_show()
+    - timekeeping: Zero initialize system_counterval when querying time from phc
+      drivers
+    - [arm64] i2c: qup: jump out of the loop in case of timeout
+    - [arm64,armhf] i2c: tegra: Fix reset error handling with ACPI
+    - i2c: virtio: Avoid hang by using interruptible completion wait
+    - bus: fsl-mc: Fix potential double device reference in
+      fsl_mc_get_endpoint()
+    - sprintf.h requires stdarg.h
+    - ALSA: hda/realtek - Add mute LED support for HP Pavilion 15-eg0xxx
+    - ALSA: hda/realtek - Add mute LED support for HP Victus 15-fa0xxx
+    - [arm64] entry: Mask DAIF in cpu_switch_to(), call_on_irq_stack()
+    - [arm64] dpaa2-eth: Fix device reference count leak in MAC endpoint
+      handling
+    - e1000e: disregard NVM checksum on tgp when valid checksum bit is not set
+    - e1000e: ignore uninitialized checksum word on tgp
+    - gve: Fix stuck TX queue for DQ queue format
+    - ice: Fix a null pointer dereference in ice_copy_and_init_pkg()
+    - nilfs2: reject invalid file types when reading inodes
+    - resource: fix false warning in __request_region()
+    - mm/vmscan: fix hwpoisoned large folio handling in shrink_folio_list
+    - mm/zsmalloc: do not pass __GFP_MOVABLE if CONFIG_COMPACTION=n
+    - [amd64,arm64] usb: typec: tcpm: allow to use sink in accessory mode
+    - [amd64,arm64] usb: typec: tcpm: allow switching to mode accessory to mux
+      properly
+    - [amd64,arm64] usb: typec: tcpm: apply vbus before data bringup in
+      tcpm_src_attach
+    - spi: cadence-quadspi: fix cleanup of rx_chan on failure paths
+    - [amd64] x86/bugs: Fix use of possibly uninit value in
+      amd_check_tsa_microcode()
+    - jfs: reject on-disk inodes of an unsupported type (CVE-2025-37925)
+    - [amd64] comedi: comedi_test: Fix possible deletion of uninitialized timers
+    - [arm64] dts: qcom: x1e78100-t14s: mark l12b and l15b always-on
+    - erofs: simplify z_erofs_load_compact_lcluster()
+    - erofs: refine z_erofs_get_extent_compressedlen()
+    - erofs: use Z_EROFS_LCLUSTER_TYPE_MAX to simplify switches
+    - erofs: simplify tail inline pcluster handling
+    - erofs: clean up header parsing for ztailpacking and fragments
+    - erofs: fix large fragment handling
+    - ext4: don't explicit update times in ext4_fallocate()
+    - ext4: refactor ext4_punch_hole()
+    - ext4: refactor ext4_zero_range()
+    - ext4: refactor ext4_collapse_range()
+    - ext4: refactor ext4_insert_range()
+    - ext4: factor out ext4_do_fallocate()
+    - ext4: move out inode_lock into ext4_fallocate()
+    - ext4: move out common parts into ext4_fallocate()
+    - ext4: fix incorrect punch max_end
+    - ext4: correct the error handle in ext4_fallocate()
+    - ext4: fix out of bounds punch offset
+    - [amd64] KVM: x86: drop x86.h include from cpuid.h
+    - [amd64] KVM: x86: Route non-canonical checks in emulator through
+      emulate_ops
+    - [amd64] KVM: x86: Add X86EMUL_F_MSR and X86EMUL_F_DT_LOAD to aid canonical
+      checks
+    - [amd64] KVM: x86: model canonical checks more precisely
+    - [amd64] KVM: x86/hyper-v: Skip non-canonical addresses during PV TLB flush
+      (CVE-2025-38351)
+    - [amd64] x86/hyperv: Fix APIC ID and VP index confusion in hv_snp_boot_ap()
+    - [arm64] dts: qcom: x1-crd: Fix vreg_l2j_1p2 voltage
+    - Revert "wifi: mt76: mt7925: Update mt7925_mcu_uni_[tx,rx]_ba for MLO"
+    - wifi: mt76: mt7925: adjust rm BSS flow to prevent next connection failure
+    - iio: hid-sensor-prox: Restore lost scale assignments
+    - iio: hid-sensor-prox: Fix incorrect OFFSET calculation
+    - [amd64,arm64] Drivers: hv: Make the sysfs node size for the ring buffer
+      dynamic
+    - ALSA: hda/tegra: Add Tegra264 support
+    - ALSA: hda: Add missing NVIDIA HDA codec IDs
+    - [amd64] drm/i915/dp: Fix 2.7 Gbps DP_LINK_BW value on g4x
+    - Revert "drm/xe/gt: Update handling of xe_force_wake_get return"
+      (Closes: #1109799)
+    - Revert "drm/xe/tests/mocs: Update xe_force_wake_get() return handling"
+    - Revert "drm/xe/devcoredump: Update handling of xe_force_wake_get return"
+    - Revert "drm/xe/forcewake: Add a helper xe_force_wake_ref_has_domain()"
+    - [amd64] KVM: x86: Free vCPUs before freeing VM state
+    - mm: khugepaged: fix call hpage_collapse_scan_file() for anonymous vma
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 17 Jul 2025 22:27:30 +0200
 

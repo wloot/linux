@@ -462,6 +462,10 @@ linux (6.12.41-1) UNRELEASED; urgency=medium
   [ Tj ]
   * drivers/gpu/drm/nouveau: Enable DRM_NOUVEAU_GSP_DEFAULT (Closes: #1088522)
 
+  [ Uwe Kleine-König ]
+  * [armhf] Add phy-gmii-sel module to nic-shared-modules udeb for
+    ti/omap/am335x based machines (e.g. BeagleBone black).
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 17 Jul 2025 22:27:30 +0200
 
 linux (6.12.38-1) unstable; urgency=medium

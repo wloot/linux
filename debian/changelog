@@ -454,6 +454,7 @@ linux (6.12.41-1) UNRELEASED; urgency=medium
 
   [ Bastian Blank ]
   * Store build time signing key encrypted.
+  * Enable CRYPTO_ECDSA.
 
  -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 17 Jul 2025 22:27:30 +0200
 

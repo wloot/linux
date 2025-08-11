@@ -1,4 +1,4 @@
-linux (6.12.41-1) UNRELEASED; urgency=medium
+linux (6.12.41-1) trixie-security; urgency=high
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.39
@@ -466,7 +466,7 @@ linux (6.12.41-1) UNRELEASED; urgency=medium
   * [armhf] Add phy-gmii-sel module to nic-shared-modules udeb for
     ti/omap/am335x based machines (e.g. BeagleBone black).
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 17 Jul 2025 22:27:30 +0200
+ -- Salvatore Bonaccorso <carnil@debian.org>  Mon, 11 Aug 2025 21:41:08 +0200
 
 linux (6.12.38-1) unstable; urgency=medium
 

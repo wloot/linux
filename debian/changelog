@@ -1,4 +1,4 @@
-linux (6.12.41-1) UNRELEASED; urgency=medium
+linux (6.12.41-1) trixie-security; urgency=high
 
   * New upstream stable update:
     https://www.kernel.org/pub/linux/kernel/v6.x/ChangeLog-6.12.39
@@ -469,7 +469,7 @@ linux (6.12.41-1) UNRELEASED; urgency=medium
   [ Salvatore Bonaccorso ]
   * d/salsa-ci.yml: Update for trixie: Set RELEASE to trixie
 
- -- Salvatore Bonaccorso <carnil@debian.org>  Thu, 17 Jul 2025 22:27:30 +0200
+ -- Salvatore Bonaccorso <carnil@debian.org>  Tue, 12 Aug 2025 05:28:04 +0200
 
 linux (6.12.38-1) unstable; urgency=medium
 

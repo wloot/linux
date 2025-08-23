@@ -781,6 +781,9 @@ linux (6.12.43-1) UNRELEASED; urgency=medium
   [ Bastian Blank ]
   * [amd64, arm64] Enable MANA_INFINIBAND.
 
+  [ Salvatore Bonaccorso ]
+  * [amd64] udeb: kernel-image: Include SPI drivers
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 15 Aug 2025 13:47:08 +0200
 
 linux (6.12.41-1) trixie-security; urgency=high

@@ -778,6 +778,14 @@ linux (6.12.43-1) UNRELEASED; urgency=medium
     - PCI: Honor Max Link Speed when determining supported speeds
     - ACPI: Return -ENODEV from acpi_parse_spcr() when SPCR support is disabled
 
+  [ Bastian Blank ]
+  * [amd64, arm64] Enable MANA_INFINIBAND.
+
+  [ Salvatore Bonaccorso ]
+  * [amd64] udeb: kernel-image: Include SPI drivers
+  * ext4: don't try to clear the orphan_present feature block device is r/o
+    (Closes: #1108271)
+
  -- Salvatore Bonaccorso <carnil@debian.org>  Fri, 15 Aug 2025 13:47:08 +0200
 
 linux (6.12.41-1) trixie-security; urgency=high

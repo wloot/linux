@@ -77,6 +77,7 @@ bugfix/all/fs-add-module_softdep-declarations-for-hard-coded-cr.patch
 bugfix/all/documentation-use-relative-source-paths-in-abi-documentation.patch
 bugfix/all/ext4-don-t-try-to-clear-the-orphan_present-feature-b.patch
 bugfix/all/proc-fix-missing-pde_set_flags-for-net-proc-files.patch
+bugfix/all/alloc_fdtable-change-calling-conventions.patch
 
 # Miscellaneous features
 

@@ -785,6 +785,7 @@ linux (6.12.43-1) UNRELEASED; urgency=medium
   * [amd64] udeb: kernel-image: Include SPI drivers
   * ext4: don't try to clear the orphan_present feature block device is r/o
     (Closes: #1108271)
+  * alloc_fdtable(): change calling conventions.
 
   [ Ben Hutchings ]
   * proc: fix missing pde_set_flags() for net proc files

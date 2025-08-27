@@ -786,6 +786,7 @@ linux (6.12.43-1) UNRELEASED; urgency=medium
   * ext4: don't try to clear the orphan_present feature block device is r/o
     (Closes: #1108271)
   * alloc_fdtable(): change calling conventions.
+  * net: ipv4: fix regression in local-broadcast route
 
   [ Ben Hutchings ]
   * proc: fix missing pde_set_flags() for net proc files

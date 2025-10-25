@@ -3417,10 +3417,6 @@ linux (6.12.32-1) unstable; urgency=medium
   * Revert "drm/amd/display: more liberal vmin/vmax update for freesync"
     (Closes: #1106743, #1106268)
 
-  [ Ben Hutchings ]
-  * linux-image, linux-headers: Use linux-run-hooks instead of run-parts
-    (Closes: #1101733) 
-
   [ Max Staudt ]
   * drivers/net/can: Enable can327 as a module
 

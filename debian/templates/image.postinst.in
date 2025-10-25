@@ -17,6 +17,9 @@ fi
 linux-update-symlinks $change $version $image_path
 rm -f /lib/modules/$version/.fresh-install
 
-linux-run-hooks image postinst $version $image_path -- "$@"
+if [ -d /etc/kernel/postinst.d ]; then
+    DEB_MAINT_PARAMS="$*" run-parts --report --exit-on-error --arg=$version \
+	      --arg=$image_path /etc/kernel/postinst.d
+fi
 
 exit 0
